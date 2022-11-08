@@ -1,0 +1,4346 @@
+Test 1
+type 0 ObbSphere
+res 0
+collidePos 0 0
+obbCenter 13 61
+obbRight 104 -82
+obbFront 82 104
+obbHalfSize 156 25
+sphereCenter 43 -93
+sphereRadius 50
+
+Test 2
+type 0 ObbSphere
+res 0
+collidePos 0 0
+obbCenter 13 61
+obbRight 104 -82
+obbFront 82 104
+obbHalfSize 156 25
+sphereCenter 49 -67
+sphereRadius 50
+
+Test 3
+type 0 ObbSphere
+res 1
+collidePos 74 -19
+obbCenter 13 61
+obbRight 104 -82
+obbFront 82 104
+obbHalfSize 156 25
+sphereCenter 52 -50
+sphereRadius 50
+
+Test 4
+type 0 ObbSphere
+res 1
+collidePos 67 -14
+obbCenter 13 61
+obbRight 104 -82
+obbFront 82 104
+obbHalfSize 156 25
+sphereCenter 51 -37
+sphereRadius 50
+
+Test 5
+type 0 ObbSphere
+res 1
+collidePos 52 -2
+obbCenter 13 61
+obbRight 104 -82
+obbFront 82 104
+obbHalfSize 156 25
+sphereCenter 29 -33
+sphereRadius 50
+
+Test 6
+type 0 ObbSphere
+res 0
+collidePos 42 6
+obbCenter 13 61
+obbRight 104 -82
+obbFront 82 104
+obbHalfSize 156 25
+sphereCenter 8 -34
+sphereRadius 50
+
+Test 7
+type 0 ObbSphere
+res 0
+collidePos 42 6
+obbCenter 13 61
+obbRight 104 -82
+obbFront 82 104
+obbHalfSize 156 25
+sphereCenter -13 -38
+sphereRadius 50
+
+Test 8
+type 0 ObbSphere
+res 0
+collidePos 42 6
+obbCenter 13 61
+obbRight 104 -82
+obbFront 82 104
+obbHalfSize 156 25
+sphereCenter -27 -34
+sphereRadius 50
+
+Test 9
+type 0 ObbSphere
+res 0
+collidePos 42 6
+obbCenter 13 61
+obbRight 104 -82
+obbFront 82 104
+obbHalfSize 156 25
+sphereCenter -44 -10
+sphereRadius 50
+
+Test 10
+type 0 ObbSphere
+res 1
+collidePos -18 55
+obbCenter 13 61
+obbRight 104 -82
+obbFront 82 104
+obbHalfSize 156 25
+sphereCenter -50 15
+sphereRadius 50
+
+Test 11
+type 0 ObbSphere
+res 1
+collidePos -25 61
+obbCenter 13 61
+obbRight 104 -82
+obbFront 82 104
+obbHalfSize 156 25
+sphereCenter -50 30
+sphereRadius 50
+
+Test 12
+type 0 ObbSphere
+res 1
+collidePos -39 71
+obbCenter 13 61
+obbRight 104 -82
+obbFront 82 104
+obbHalfSize 156 25
+sphereCenter -66 39
+sphereRadius 50
+
+Test 13
+type 0 ObbSphere
+res 0
+collidePos -50 79
+obbCenter 13 61
+obbRight 104 -82
+obbFront 82 104
+obbHalfSize 156 25
+sphereCenter -87 40
+sphereRadius 50
+
+Test 14
+type 0 ObbSphere
+res 0
+collidePos -50 79
+obbCenter 13 61
+obbRight 104 -82
+obbFront 82 104
+obbHalfSize 156 25
+sphereCenter -104 39
+sphereRadius 50
+
+Test 15
+type 0 ObbSphere
+res 0
+collidePos -50 79
+obbCenter 13 61
+obbRight 104 -82
+obbFront 82 104
+obbHalfSize 156 25
+sphereCenter -118 42
+sphereRadius 50
+
+Test 16
+type 0 ObbSphere
+res 0
+collidePos -50 79
+obbCenter 13 61
+obbRight 104 -82
+obbFront 82 104
+obbHalfSize 156 25
+sphereCenter -134 56
+sphereRadius 50
+
+Test 17
+type 0 ObbSphere
+res 0
+collidePos -50 79
+obbCenter 13 61
+obbRight 104 -82
+obbFront 82 104
+obbHalfSize 156 25
+sphereCenter -140 80
+sphereRadius 50
+
+Test 18
+type 0 ObbSphere
+res 1
+collidePos -109 126
+obbCenter 13 61
+obbRight 104 -82
+obbFront 82 104
+obbHalfSize 156 25
+sphereCenter -134 96
+sphereRadius 50
+
+Test 19
+type 0 ObbSphere
+res 1
+collidePos -116 132
+obbCenter 13 61
+obbRight 104 -82
+obbFront 82 104
+obbHalfSize 156 25
+sphereCenter -138 105
+sphereRadius 50
+
+Test 20
+type 0 ObbSphere
+res 1
+collidePos -124 138
+obbCenter 13 61
+obbRight 104 -82
+obbFront 82 104
+obbHalfSize 156 25
+sphereCenter -160 116
+sphereRadius 50
+
+Test 21
+type 0 ObbSphere
+res 0
+collidePos -124 138
+obbCenter 13 61
+obbRight 104 -82
+obbFront 82 104
+obbHalfSize 156 25
+sphereCenter -179 127
+sphereRadius 50
+
+Test 22
+type 0 ObbSphere
+res 0
+collidePos -124 138
+obbCenter 13 61
+obbRight 104 -82
+obbFront 82 104
+obbHalfSize 156 25
+sphereCenter -187 137
+sphereRadius 50
+
+Test 23
+type 0 ObbSphere
+res 0
+collidePos -124 138
+obbCenter 13 61
+obbRight 104 -82
+obbFront 82 104
+obbHalfSize 156 25
+sphereCenter -179 160
+sphereRadius 50
+
+Test 24
+type 0 ObbSphere
+res 0
+collidePos -124 138
+obbCenter 13 61
+obbRight 104 -82
+obbFront 82 104
+obbHalfSize 156 25
+sphereCenter -169 174
+sphereRadius 50
+
+Test 25
+type 0 ObbSphere
+res 1
+collidePos -117 146
+obbCenter 13 61
+obbRight 104 -82
+obbFront 82 104
+obbHalfSize 156 25
+sphereCenter -153 174
+sphereRadius 50
+
+Test 26
+type 0 ObbSphere
+res 1
+collidePos -111 154
+obbCenter 13 61
+obbRight 104 -82
+obbFront 82 104
+obbHalfSize 156 25
+sphereCenter -141 177
+sphereRadius 50
+
+Test 27
+type 0 ObbSphere
+res 1
+collidePos -96 173
+obbCenter 13 61
+obbRight 104 -82
+obbFront 82 104
+obbHalfSize 156 25
+sphereCenter -128 198
+sphereRadius 50
+
+Test 28
+type 0 ObbSphere
+res 1
+collidePos -93 177
+obbCenter 13 61
+obbRight 104 -82
+obbFront 82 104
+obbHalfSize 156 25
+sphereCenter -119 216
+sphereRadius 50
+
+Test 29
+type 0 ObbSphere
+res 0
+collidePos -93 177
+obbCenter 13 61
+obbRight 104 -82
+obbFront 82 104
+obbHalfSize 156 25
+sphereCenter -115 227
+sphereRadius 50
+
+Test 30
+type 0 ObbSphere
+res 0
+collidePos -93 177
+obbCenter 13 61
+obbRight 104 -82
+obbFront 82 104
+obbHalfSize 156 25
+sphereCenter -105 236
+sphereRadius 50
+
+Test 31
+type 0 ObbSphere
+res 0
+collidePos -93 177
+obbCenter 13 61
+obbRight 104 -82
+obbFront 82 104
+obbHalfSize 156 25
+sphereCenter -75 225
+sphereRadius 50
+
+Test 32
+type 0 ObbSphere
+res 1
+collidePos -87 172
+obbCenter 13 61
+obbRight 104 -82
+obbFront 82 104
+obbHalfSize 156 25
+sphereCenter -58 211
+sphereRadius 50
+
+Test 33
+type 0 ObbSphere
+res 0
+collidePos -72 160
+obbCenter 13 61
+obbRight 104 -82
+obbFront 82 104
+obbHalfSize 156 25
+sphereCenter -40 200
+sphereRadius 50
+
+Test 34
+type 0 ObbSphere
+res 1
+collidePos -56 148
+obbCenter 13 61
+obbRight 104 -82
+obbFront 82 104
+obbHalfSize 156 25
+sphereCenter -30 183
+sphereRadius 50
+
+Test 35
+type 0 ObbSphere
+res 1
+collidePos -47 141
+obbCenter 13 61
+obbRight 104 -82
+obbFront 82 104
+obbHalfSize 156 25
+sphereCenter -31 163
+sphereRadius 50
+
+Test 36
+type 0 ObbSphere
+res 1
+collidePos -40 135
+obbCenter 13 61
+obbRight 104 -82
+obbFront 82 104
+obbHalfSize 156 25
+sphereCenter -31 150
+sphereRadius 50
+
+Test 37
+type 0 ObbSphere
+res 1
+collidePos -12 112
+obbCenter 13 61
+obbRight 104 -82
+obbFront 82 104
+obbHalfSize 156 25
+sphereCenter 6 137
+sphereRadius 50
+
+Test 38
+type 0 ObbSphere
+res 1
+collidePos 6 99
+obbCenter 13 61
+obbRight 104 -82
+obbFront 82 104
+obbHalfSize 156 25
+sphereCenter 34 137
+sphereRadius 50
+
+Test 39
+type 0 ObbSphere
+res 0
+collidePos 6 99
+obbCenter 13 61
+obbRight 104 -82
+obbFront 82 104
+obbHalfSize 156 25
+sphereCenter 57 148
+sphereRadius 50
+
+Test 40
+type 0 ObbSphere
+res 0
+collidePos 6 99
+obbCenter 13 61
+obbRight 104 -82
+obbFront 82 104
+obbHalfSize 156 25
+sphereCenter 57 144
+sphereRadius 50
+
+Test 41
+type 0 ObbSphere
+res 0
+collidePos 6 99
+obbCenter 13 61
+obbRight 104 -82
+obbFront 82 104
+obbHalfSize 156 25
+sphereCenter 43 136
+sphereRadius 50
+
+Test 42
+type 0 ObbSphere
+res 1
+collidePos -8 109
+obbCenter 13 61
+obbRight 104 -82
+obbFront 82 104
+obbHalfSize 156 25
+sphereCenter 11 135
+sphereRadius 50
+
+Test 43
+type 0 ObbSphere
+res 1
+collidePos -27 125
+obbCenter 13 61
+obbRight 104 -82
+obbFront 82 104
+obbHalfSize 156 25
+sphereCenter -11 148
+sphereRadius 50
+
+Test 44
+type 0 ObbSphere
+res 1
+collidePos -37 133
+obbCenter 13 61
+obbRight 104 -82
+obbFront 82 104
+obbHalfSize 156 25
+sphereCenter -15 163
+sphereRadius 50
+
+Test 45
+type 0 ObbSphere
+res 0
+collidePos -34 130
+obbCenter 13 61
+obbRight 104 -82
+obbFront 82 104
+obbHalfSize 156 25
+sphereCenter 0 171
+sphereRadius 50
+
+Test 46
+type 0 ObbSphere
+res 0
+collidePos -34 130
+obbCenter 13 61
+obbRight 104 -82
+obbFront 82 104
+obbHalfSize 156 25
+sphereCenter 18 171
+sphereRadius 50
+
+Test 47
+type 0 ObbSphere
+res 0
+collidePos -34 130
+obbCenter 13 61
+obbRight 104 -82
+obbFront 82 104
+obbHalfSize 156 25
+sphereCenter 35 153
+sphereRadius 50
+
+Test 48
+type 0 ObbSphere
+res 1
+collidePos 11 94
+obbCenter 13 61
+obbRight 104 -82
+obbFront 82 104
+obbHalfSize 156 25
+sphereCenter 40 133
+sphereRadius 50
+
+Test 49
+type 0 ObbSphere
+res 1
+collidePos 23 84
+obbCenter 13 61
+obbRight 104 -82
+obbFront 82 104
+obbHalfSize 156 25
+sphereCenter 43 110
+sphereRadius 50
+
+Test 50
+type 0 ObbSphere
+res 1
+collidePos 37 73
+obbCenter 13 61
+obbRight 104 -82
+obbFront 82 104
+obbHalfSize 156 25
+sphereCenter 52 90
+sphereRadius 50
+
+Test 51
+type 0 ObbSphere
+res 1
+collidePos 58 57
+obbCenter 13 61
+obbRight 104 -82
+obbFront 82 104
+obbHalfSize 156 25
+sphereCenter 80 83
+sphereRadius 50
+
+Test 52
+type 0 ObbSphere
+res 0
+collidePos 71 47
+obbCenter 13 61
+obbRight 104 -82
+obbFront 82 104
+obbHalfSize 156 25
+sphereCenter 110 88
+sphereRadius 50
+
+Test 53
+type 0 ObbSphere
+res 0
+collidePos 71 47
+obbCenter 13 61
+obbRight 104 -82
+obbFront 82 104
+obbHalfSize 156 25
+sphereCenter 126 104
+sphereRadius 50
+
+Test 54
+type 0 ObbSphere
+res 0
+collidePos 71 47
+obbCenter 13 61
+obbRight 104 -82
+obbFront 82 104
+obbHalfSize 156 25
+sphereCenter 158 94
+sphereRadius 50
+
+Test 55
+type 0 ObbSphere
+res 0
+collidePos 71 47
+obbCenter 13 61
+obbRight 104 -82
+obbFront 82 104
+obbHalfSize 156 25
+sphereCenter 155 77
+sphereRadius 50
+
+Test 56
+type 0 ObbSphere
+res 1
+collidePos 96 27
+obbCenter 13 61
+obbRight 104 -82
+obbFront 82 104
+obbHalfSize 156 25
+sphereCenter 123 59
+sphereRadius 50
+
+Test 57
+type 0 ObbSphere
+res 1
+collidePos 95 28
+obbCenter 13 61
+obbRight 104 -82
+obbFront 82 104
+obbHalfSize 156 25
+sphereCenter 108 43
+sphereRadius 50
+
+Test 58
+type 0 ObbSphere
+res 1
+collidePos 105 20
+obbCenter 13 61
+obbRight 104 -82
+obbFront 82 104
+obbHalfSize 156 25
+sphereCenter 114 29
+sphereRadius 50
+
+Test 59
+type 0 ObbSphere
+res 1
+collidePos 125 4
+obbCenter 13 61
+obbRight 104 -82
+obbFront 82 104
+obbHalfSize 156 25
+sphereCenter 143 26
+sphereRadius 50
+
+Test 60
+type 0 ObbSphere
+res 1
+collidePos 131 -1
+obbCenter 13 61
+obbRight 104 -82
+obbFront 82 104
+obbHalfSize 156 25
+sphereCenter 162 37
+sphereRadius 50
+
+Test 61
+type 0 ObbSphere
+res 0
+collidePos 132 -1
+obbCenter 13 61
+obbRight 104 -82
+obbFront 82 104
+obbHalfSize 156 25
+sphereCenter 174 43
+sphereRadius 50
+
+Test 62
+type 0 ObbSphere
+res 0
+collidePos 132 -1
+obbCenter 13 61
+obbRight 104 -82
+obbFront 82 104
+obbHalfSize 156 25
+sphereCenter 183 33
+sphereRadius 50
+
+Test 63
+type 0 ObbSphere
+res 1
+collidePos 150 -16
+obbCenter 13 61
+obbRight 104 -82
+obbFront 82 104
+obbHalfSize 156 25
+sphereCenter 182 17
+sphereRadius 50
+
+Test 64
+type 0 ObbSphere
+res 1
+collidePos 150 -16
+obbCenter 13 61
+obbRight 104 -82
+obbFront 82 104
+obbHalfSize 156 25
+sphereCenter 177 -1
+sphereRadius 50
+
+Test 65
+type 0 ObbSphere
+res 1
+collidePos 150 -16
+obbCenter 13 61
+obbRight 104 -82
+obbFront 82 104
+obbHalfSize 156 25
+sphereCenter 183 -25
+sphereRadius 50
+
+Test 66
+type 0 ObbSphere
+res 1
+collidePos 150 -16
+obbCenter 13 61
+obbRight 104 -82
+obbFront 82 104
+obbHalfSize 156 25
+sphereCenter 189 -45
+sphereRadius 50
+
+Test 67
+type 0 ObbSphere
+res 0
+collidePos 148 -17
+obbCenter 13 61
+obbRight 104 -82
+obbFront 82 104
+obbHalfSize 156 25
+sphereCenter 192 -57
+sphereRadius 50
+
+Test 68
+type 0 ObbSphere
+res 0
+collidePos 148 -17
+obbCenter 13 61
+obbRight 104 -82
+obbFront 82 104
+obbHalfSize 156 25
+sphereCenter 191 -54
+sphereRadius 50
+
+Test 69
+type 0 ObbSphere
+res 1
+collidePos 150 -16
+obbCenter 13 61
+obbRight 104 -82
+obbFront 82 104
+obbHalfSize 156 25
+sphereCenter 192 -36
+sphereRadius 50
+
+Test 70
+type 0 ObbSphere
+res 0
+collidePos 150 -16
+obbCenter 13 61
+obbRight 104 -82
+obbFront 82 104
+obbHalfSize 156 25
+sphereCenter 200 -26
+sphereRadius 50
+
+Test 71
+type 0 ObbSphere
+res 0
+collidePos 150 -16
+obbCenter 13 61
+obbRight 104 -82
+obbFront 82 104
+obbHalfSize 156 25
+sphereCenter 209 -24
+sphereRadius 50
+
+Test 72
+type 0 ObbSphere
+res 1
+collidePos 150 -16
+obbCenter 13 61
+obbRight 104 -82
+obbFront 82 104
+obbHalfSize 156 25
+sphereCenter 197 -16
+sphereRadius 50
+
+Test 73
+type 0 ObbSphere
+res 1
+collidePos 150 -16
+obbCenter 13 61
+obbRight 104 -82
+obbFront 82 104
+obbHalfSize 156 25
+sphereCenter 199 -21
+sphereRadius 50
+
+Test 74
+type 0 ObbSphere
+res 0
+collidePos 150 -16
+obbCenter 13 61
+obbRight 104 -82
+obbFront 82 104
+obbHalfSize 156 25
+sphereCenter 204 -30
+sphereRadius 50
+
+Test 75
+type 0 ObbSphere
+res 1
+collidePos 150 -16
+obbCenter 13 61
+obbRight 104 -82
+obbFront 82 104
+obbHalfSize 156 25
+sphereCenter 197 -32
+sphereRadius 50
+
+Test 76
+type 0 ObbSphere
+res 0
+collidePos 150 -16
+obbCenter 13 61
+obbRight 104 -82
+obbFront 82 104
+obbHalfSize 156 25
+sphereCenter 197 -48
+sphereRadius 50
+
+Test 77
+type 0 ObbSphere
+res 0
+collidePos 150 -16
+obbCenter 13 61
+obbRight 104 -82
+obbFront 82 104
+obbHalfSize 156 25
+sphereCenter 189 -58
+sphereRadius 50
+
+Test 78
+type 0 ObbSphere
+res 0
+collidePos 150 -16
+obbCenter 13 61
+obbRight 104 -82
+obbFront 82 104
+obbHalfSize 156 25
+sphereCenter 176 -66
+sphereRadius 50
+
+Test 79
+type 0 ObbSphere
+res 0
+collidePos 130 -41
+obbCenter 13 61
+obbRight 104 -82
+obbFront 82 104
+obbHalfSize 156 25
+sphereCenter 171 -72
+sphereRadius 50
+
+Test 80
+type 0 ObbSphere
+res 0
+collidePos 130 -41
+obbCenter 13 61
+obbRight 104 -82
+obbFront 82 104
+obbHalfSize 156 25
+sphereCenter 178 -80
+sphereRadius 50
+
+Test 81
+type 0 ObbSphere
+res 0
+collidePos 130 -41
+obbCenter 13 61
+obbRight 104 -82
+obbFront 82 104
+obbHalfSize 156 25
+sphereCenter 166 -81
+sphereRadius 50
+
+Test 82
+type 0 ObbSphere
+res 0
+collidePos 130 -41
+obbCenter 13 61
+obbRight 104 -82
+obbFront 82 104
+obbHalfSize 156 25
+sphereCenter 156 -92
+sphereRadius 50
+
+Test 83
+type 0 ObbSphere
+res 0
+collidePos 130 -41
+obbCenter 13 61
+obbRight 104 -82
+obbFront 82 104
+obbHalfSize 156 25
+sphereCenter 150 -99
+sphereRadius 50
+
+Test 84
+type 0 ObbSphere
+res 1
+collidePos 119 -55
+obbCenter 13 61
+obbRight 104 -82
+obbFront 82 104
+obbHalfSize 156 25
+sphereCenter 141 -96
+sphereRadius 50
+
+Test 85
+type 0 ObbSphere
+res 1
+collidePos 119 -55
+obbCenter 13 61
+obbRight 104 -82
+obbFront 82 104
+obbHalfSize 156 25
+sphereCenter 128 -101
+sphereRadius 50
+
+Test 86
+type 0 ObbSphere
+res 0
+collidePos 119 -55
+obbCenter 13 61
+obbRight 104 -82
+obbFront 82 104
+obbHalfSize 156 25
+sphereCenter 114 -106
+sphereRadius 50
+
+Test 87
+type 0 ObbSphere
+res 0
+collidePos 119 -55
+obbCenter 13 61
+obbRight 104 -82
+obbFront 82 104
+obbHalfSize 156 25
+sphereCenter 102 -109
+sphereRadius 50
+
+Test 88
+type 0 ObbSphere
+res 0
+collidePos 119 -55
+obbCenter 13 61
+obbRight 104 -82
+obbFront 82 104
+obbHalfSize 156 25
+sphereCenter 88 -103
+sphereRadius 50
+
+Test 89
+type 0 ObbSphere
+res 0
+collidePos 119 -55
+obbCenter 13 61
+obbRight 104 -82
+obbFront 82 104
+obbHalfSize 156 25
+sphereCenter 82 -91
+sphereRadius 50
+
+Test 90
+type 0 ObbSphere
+res 1
+collidePos 105 -44
+obbCenter 13 61
+obbRight 104 -82
+obbFront 82 104
+obbHalfSize 156 25
+sphereCenter 77 -81
+sphereRadius 50
+
+Test 91
+type 0 ObbSphere
+res 0
+collidePos 102 -41
+obbCenter 13 61
+obbRight 104 -82
+obbFront 82 104
+obbHalfSize 156 25
+sphereCenter 53 -81
+sphereRadius 50
+
+Test 92
+type 0 ObbSphere
+res 0
+collidePos 102 -41
+obbCenter 13 61
+obbRight 104 -82
+obbFront 82 104
+obbHalfSize 156 25
+sphereCenter 54 -69
+sphereRadius 50
+
+Test 93
+type 0 ObbSphere
+res 1
+collidePos 78 -22
+obbCenter 13 61
+obbRight 104 -82
+obbFront 82 104
+obbHalfSize 156 25
+sphereCenter 56 -52
+sphereRadius 50
+
+Test 94
+type 0 ObbSphere
+res 1
+collidePos 62 -9
+obbCenter 13 61
+obbRight 104 -82
+obbFront 82 104
+obbHalfSize 156 25
+sphereCenter 46 -31
+sphereRadius 50
+
+Test 95
+type 0 ObbSphere
+res 1
+collidePos 58 -6
+obbCenter 13 61
+obbRight 104 -82
+obbFront 82 104
+obbHalfSize 156 25
+sphereCenter 58 -9
+sphereRadius 50
+
+Test 96
+type 0 ObbSphere
+res 1
+collidePos 72 12
+obbCenter 13 61
+obbRight 104 -82
+obbFront 82 104
+obbHalfSize 156 25
+sphereCenter 73 11
+sphereRadius 50
+
+Test 97
+type 0 ObbSphere
+res 1
+collidePos 83 38
+obbCenter 13 61
+obbRight 104 -82
+obbFront 82 104
+obbHalfSize 156 25
+sphereCenter 89 44
+sphereRadius 50
+
+Test 98
+type 0 ObbSphere
+res 1
+collidePos 73 45
+obbCenter 13 61
+obbRight 104 -82
+obbFront 82 104
+obbHalfSize 156 25
+sphereCenter 87 60
+sphereRadius 50
+
+Test 99
+type 0 ObbSphere
+res 1
+collidePos 58 57
+obbCenter 13 61
+obbRight 104 -82
+obbFront 82 104
+obbHalfSize 156 25
+sphereCenter 66 66
+sphereRadius 50
+
+Test 100
+type 0 ObbSphere
+res 1
+collidePos 35 65
+obbCenter 13 61
+obbRight 104 -82
+obbFront 82 104
+obbHalfSize 156 25
+sphereCenter 36 66
+sphereRadius 50
+
+Test 101
+type 0 ObbSphere
+res 1
+collidePos 4 53
+obbCenter 13 61
+obbRight 104 -82
+obbFront 82 104
+obbHalfSize 156 25
+sphereCenter 3 52
+sphereRadius 50
+
+Test 102
+type 0 ObbSphere
+res 1
+collidePos -11 49
+obbCenter 13 61
+obbRight 104 -82
+obbFront 82 104
+obbHalfSize 156 25
+sphereCenter -15 46
+sphereRadius 50
+
+Test 103
+type 0 ObbSphere
+res 1
+collidePos -21 57
+obbCenter 13 61
+obbRight 104 -82
+obbFront 82 104
+obbHalfSize 156 25
+sphereCenter -31 45
+sphereRadius 50
+
+Test 104
+type 0 ObbSphere
+res 1
+collidePos -44 77
+obbCenter 13 61
+obbRight 104 -82
+obbFront 82 104
+obbHalfSize 156 25
+sphereCenter -45 77
+sphereRadius 50
+
+Test 105
+type 0 ObbSphere
+res 1
+collidePos -29 107
+obbCenter 13 61
+obbRight 104 -82
+obbFront 82 104
+obbHalfSize 156 25
+sphereCenter -30 108
+sphereRadius 50
+
+Test 106
+type 0 ObbSphere
+res 1
+collidePos -12 113
+obbCenter 13 61
+obbRight 104 -82
+obbFront 82 104
+obbHalfSize 156 25
+sphereCenter -5 125
+sphereRadius 50
+
+Test 107
+type 0 ObbSphere
+res 1
+collidePos -27 125
+obbCenter 13 61
+obbRight 104 -82
+obbFront 82 104
+obbHalfSize 156 25
+sphereCenter -14 144
+sphereRadius 50
+
+Test 108
+type 0 ObbSphere
+res 1
+collidePos -90 144
+obbCenter 13 61
+obbRight 104 -82
+obbFront 82 104
+obbHalfSize 156 25
+sphereCenter -91 145
+sphereRadius 50
+
+Test 109
+type 0 ObbSphere
+res 1
+collidePos -123 137
+obbCenter 13 61
+obbRight 104 -82
+obbFront 82 104
+obbHalfSize 156 25
+sphereCenter -129 132
+sphereRadius 50
+
+Test 110
+type 0 ObbSphere
+res 1
+collidePos -110 127
+obbCenter 13 61
+obbRight 104 -82
+obbFront 82 104
+obbHalfSize 156 25
+sphereCenter -139 93
+sphereRadius 50
+
+Test 111
+type 0 ObbSphere
+res 0
+collidePos -106 123
+obbCenter 13 61
+obbRight 104 -82
+obbFront 82 104
+obbHalfSize 156 25
+sphereCenter -120 41
+sphereRadius 50
+
+Test 112
+type 0 ObbSphere
+res 0
+collidePos -106 123
+obbCenter 13 61
+obbRight 104 -82
+obbFront 82 104
+obbHalfSize 156 25
+sphereCenter -94 -9
+sphereRadius 50
+
+Test 113
+type 0 ObbSphere
+res 0
+collidePos -106 123
+obbCenter 13 61
+obbRight 104 -82
+obbFront 82 104
+obbHalfSize 156 25
+sphereCenter -106 -26
+sphereRadius 50
+
+Test 114
+type 0 ObbSphere
+res 0
+collidePos -106 123
+obbCenter 13 61
+obbRight 104 -82
+obbFront 82 104
+obbHalfSize 156 25
+sphereCenter -130 -6
+sphereRadius 50
+
+Test 115
+type 0 ObbSphere
+res 0
+collidePos -106 123
+obbCenter 13 61
+obbRight 104 -82
+obbFront 82 104
+obbHalfSize 156 25
+sphereCenter -140 6
+sphereRadius 50
+
+Test 116
+type 0 ObbSphere
+res 0
+collidePos -106 123
+obbCenter 13 61
+obbRight 104 -82
+obbFront 82 104
+obbHalfSize 156 25
+sphereCenter -143 -16
+sphereRadius 50
+
+Test 117
+type 0 ObbSphere
+res 0
+collidePos -106 123
+obbCenter 13 61
+obbRight 104 -82
+obbFront 82 104
+obbHalfSize 156 25
+sphereCenter -69 -74
+sphereRadius 50
+
+Test 118
+type 0 ObbSphere
+res 0
+collidePos -106 123
+obbCenter 13 61
+obbRight 104 -82
+obbFront 82 104
+obbHalfSize 156 25
+sphereCenter -24 -93
+sphereRadius 50
+
+Test 119
+type 0 ObbSphere
+res 0
+collidePos -106 123
+obbCenter 13 61
+obbRight 104 -82
+obbFront 82 104
+obbHalfSize 156 25
+sphereCenter 29 -106
+sphereRadius 50
+
+Test 120
+type 0 ObbSphere
+res 0
+collidePos -106 123
+obbCenter 13 61
+obbRight 104 -82
+obbFront 82 104
+obbHalfSize 156 25
+sphereCenter 67 -113
+sphereRadius 50
+
+Test 121
+type 0 ObbSphere
+res 0
+collidePos -106 123
+obbCenter 13 61
+obbRight 104 -82
+obbFront 82 104
+obbHalfSize 156 25
+sphereCenter 96 -115
+sphereRadius 50
+
+Test 122
+type 0 ObbSphere
+res 0
+collidePos -106 123
+obbCenter 13 61
+obbRight 104 -82
+obbFront 82 104
+obbHalfSize 156 25
+sphereCenter 132 -121
+sphereRadius 50
+
+Test 123
+type 0 ObbSphere
+res 0
+collidePos -106 123
+obbCenter 13 61
+obbRight 104 -82
+obbFront 82 104
+obbHalfSize 156 25
+sphereCenter 156 -121
+sphereRadius 50
+
+Test 124
+type 0 ObbSphere
+res 0
+collidePos -106 123
+obbCenter 13 61
+obbRight 104 -82
+obbFront 82 104
+obbHalfSize 156 25
+sphereCenter 183 -108
+sphereRadius 50
+
+Test 125
+type 0 ObbSphere
+res 0
+collidePos -106 123
+obbCenter 13 61
+obbRight 104 -82
+obbFront 82 104
+obbHalfSize 156 25
+sphereCenter 196 -83
+sphereRadius 50
+
+Test 126
+type 0 ObbSphere
+res 0
+collidePos -106 123
+obbCenter 13 61
+obbRight 104 -82
+obbFront 82 104
+obbHalfSize 156 25
+sphereCenter 200 -52
+sphereRadius 50
+
+Test 127
+type 0 ObbSphere
+res 0
+collidePos -106 123
+obbCenter 13 61
+obbRight 104 -82
+obbFront 82 104
+obbHalfSize 156 25
+sphereCenter 208 -24
+sphereRadius 50
+
+Test 128
+type 0 ObbSphere
+res 0
+collidePos -106 123
+obbCenter 13 61
+obbRight 104 -82
+obbFront 82 104
+obbHalfSize 156 25
+sphereCenter 210 6
+sphereRadius 50
+
+Test 129
+type 0 ObbSphere
+res 0
+collidePos -106 123
+obbCenter 13 61
+obbRight 104 -82
+obbFront 82 104
+obbHalfSize 156 25
+sphereCenter 191 66
+sphereRadius 50
+
+Test 130
+type 0 ObbSphere
+res 0
+collidePos -106 123
+obbCenter 13 61
+obbRight 104 -82
+obbFront 82 104
+obbHalfSize 156 25
+sphereCenter 157 119
+sphereRadius 50
+
+Test 131
+type 0 ObbSphere
+res 0
+collidePos -106 123
+obbCenter 13 61
+obbRight 104 -82
+obbFront 82 104
+obbHalfSize 156 25
+sphereCenter 97 153
+sphereRadius 50
+
+Test 132
+type 0 ObbSphere
+res 0
+collidePos -106 123
+obbCenter 13 61
+obbRight 104 -82
+obbFront 82 104
+obbHalfSize 156 25
+sphereCenter 52 171
+sphereRadius 50
+
+Test 133
+type 0 ObbSphere
+res 0
+collidePos -106 123
+obbCenter 13 61
+obbRight 104 -82
+obbFront 82 104
+obbHalfSize 156 25
+sphereCenter 11 186
+sphereRadius 50
+
+Test 134
+type 0 ObbSphere
+res 0
+collidePos -106 123
+obbCenter 13 61
+obbRight 104 -82
+obbFront 82 104
+obbHalfSize 156 25
+sphereCenter -27 200
+sphereRadius 50
+
+Test 135
+type 0 ObbSphere
+res 1
+collidePos -93 177
+obbCenter 13 61
+obbRight 104 -82
+obbFront 82 104
+obbHalfSize 156 25
+sphereCenter -65 214
+sphereRadius 50
+
+Test 136
+type 0 ObbSphere
+res 1
+collidePos -93 177
+obbCenter 13 61
+obbRight 104 -82
+obbFront 82 104
+obbHalfSize 156 25
+sphereCenter -84 224
+sphereRadius 50
+
+Test 137
+type 0 ObbSphere
+res 0
+collidePos -93 177
+obbCenter 13 61
+obbRight 104 -82
+obbFront 82 104
+obbHalfSize 156 25
+sphereCenter -107 229
+sphereRadius 50
+
+Test 138
+type 0 ObbSphere
+res 0
+collidePos -93 177
+obbCenter 13 61
+obbRight 104 -82
+obbFront 82 104
+obbHalfSize 156 25
+sphereCenter -133 233
+sphereRadius 50
+
+Test 139
+type 0 ObbSphere
+res 0
+collidePos -93 177
+obbCenter 13 61
+obbRight 104 -82
+obbFront 82 104
+obbHalfSize 156 25
+sphereCenter -148 235
+sphereRadius 50
+
+Test 140
+type 0 ObbSphere
+res 0
+collidePos -93 177
+obbCenter 13 61
+obbRight 104 -82
+obbFront 82 104
+obbHalfSize 156 25
+sphereCenter -143 241
+sphereRadius 50
+
+Test 141
+type 0 ObbSphere
+res 0
+collidePos -93 177
+obbCenter 13 61
+obbRight 104 -82
+obbFront 82 104
+obbHalfSize 156 25
+sphereCenter -20 247
+sphereRadius 50
+
+Test 142
+type 0 ObbSphere
+res 0
+collidePos -93 177
+obbCenter 13 61
+obbRight 104 -82
+obbFront 82 104
+obbHalfSize 156 25
+sphereCenter -38 242
+sphereRadius 50
+
+Test 143
+type 0 ObbSphere
+res 0
+collidePos -93 177
+obbCenter 13 61
+obbRight 104 -82
+obbFront 82 104
+obbHalfSize 156 25
+sphereCenter -59 241
+sphereRadius 50
+
+Test 144
+type 0 ObbSphere
+res 0
+collidePos -93 177
+obbCenter 13 61
+obbRight 104 -82
+obbFront 82 104
+obbHalfSize 156 25
+sphereCenter -87 235
+sphereRadius 50
+
+Test 145
+type 0 ObbSphere
+res 0
+collidePos -93 177
+obbCenter 13 61
+obbRight 104 -82
+obbFront 82 104
+obbHalfSize 156 25
+sphereCenter -108 228
+sphereRadius 50
+
+Test 146
+type 0 ObbSphere
+res 0
+collidePos -93 177
+obbCenter 13 61
+obbRight 104 -82
+obbFront 82 104
+obbHalfSize 156 25
+sphereCenter -149 216
+sphereRadius 50
+
+Test 147
+type 0 ObbSphere
+res 0
+collidePos -93 177
+obbCenter 13 61
+obbRight 104 -82
+obbFront 82 104
+obbHalfSize 156 25
+sphereCenter -168 208
+sphereRadius 50
+
+Test 148
+type 0 ObbSphere
+res 0
+collidePos -93 177
+obbCenter 13 61
+obbRight 104 -82
+obbFront 82 104
+obbHalfSize 156 25
+sphereCenter -183 197
+sphereRadius 50
+
+Test 149
+type 0 ObbSphere
+res 0
+collidePos -93 177
+obbCenter 13 61
+obbRight 104 -82
+obbFront 82 104
+obbHalfSize 156 25
+sphereCenter -192 166
+sphereRadius 50
+
+Test 150
+type 0 ObbSphere
+res 0
+collidePos -93 177
+obbCenter 13 61
+obbRight 104 -82
+obbFront 82 104
+obbHalfSize 156 25
+sphereCenter -195 124
+sphereRadius 50
+
+Test 151
+type 0 ObbSphere
+res 0
+collidePos -93 177
+obbCenter 13 61
+obbRight 104 -82
+obbFront 82 104
+obbHalfSize 156 25
+sphereCenter -181 60
+sphereRadius 50
+
+Test 152
+type 0 ObbSphere
+res 0
+collidePos -93 177
+obbCenter 13 61
+obbRight 104 -82
+obbFront 82 104
+obbHalfSize 156 25
+sphereCenter -150 6
+sphereRadius 50
+
+Test 153
+type 0 ObbSphere
+res 0
+collidePos -93 177
+obbCenter 13 61
+obbRight 104 -82
+obbFront 82 104
+obbHalfSize 156 25
+sphereCenter -81 -15
+sphereRadius 50
+
+Test 154
+type 1 SectorShpere
+res 1
+collidePos -62 31
+sectorCenter -78 142
+sectorDir 142 -136
+sectorRadius 161
+sectorTheta 370
+sectorThetaBase 10
+sphereCenter -60 -19
+sphereRadius 50
+
+Test 155
+type 1 SectorShpere
+res 1
+collidePos -60 24
+sectorCenter -78 142
+sectorDir 142 -136
+sectorRadius 161
+sectorTheta 370
+sectorThetaBase 10
+sphereCenter -51 -27
+sphereRadius 50
+
+Test 156
+type 1 SectorShpere
+res 1
+collidePos -52 19
+sectorCenter -78 142
+sectorDir 142 -136
+sectorRadius 161
+sectorTheta 370
+sectorThetaBase 10
+sphereCenter -41 -31
+sphereRadius 50
+
+Test 157
+type 1 SectorShpere
+res 1
+collidePos -41 15
+sectorCenter -78 142
+sectorDir 142 -136
+sectorRadius 161
+sectorTheta 370
+sectorThetaBase 10
+sphereCenter -27 -34
+sphereRadius 50
+
+Test 158
+type 1 SectorShpere
+res 1
+collidePos -35 5
+sectorCenter -78 142
+sectorDir 142 -136
+sectorRadius 161
+sectorTheta 370
+sectorThetaBase 10
+sphereCenter -19 -43
+sphereRadius 50
+
+Test 159
+type 1 SectorShpere
+res 1
+collidePos -44 1
+sectorCenter -78 142
+sectorDir 142 -136
+sectorRadius 161
+sectorTheta 370
+sectorThetaBase 10
+sphereCenter -32 -48
+sphereRadius 50
+
+Test 160
+type 1 SectorShpere
+res 1
+collidePos -54 -4
+sectorCenter -78 142
+sectorDir 142 -136
+sectorRadius 161
+sectorTheta 370
+sectorThetaBase 10
+sphereCenter -45 -53
+sphereRadius 50
+
+Test 161
+type 1 SectorShpere
+res 0
+collidePos -54 -16
+sectorCenter -78 142
+sectorDir 142 -136
+sectorRadius 161
+sectorTheta 370
+sectorThetaBase 10
+sphereCenter -52 -70
+sphereRadius 50
+
+Test 162
+type 1 SectorShpere
+res 0
+collidePos -54 -16
+sectorCenter -78 142
+sectorDir 142 -136
+sectorRadius 161
+sectorTheta 370
+sectorThetaBase 10
+sphereCenter -51 -83
+sphereRadius 50
+
+Test 163
+type 1 SectorShpere
+res 0
+collidePos -54 -16
+sectorCenter -78 142
+sectorDir 142 -136
+sectorRadius 161
+sectorTheta 370
+sectorThetaBase 10
+sphereCenter -30 -84
+sphereRadius 50
+
+Test 164
+type 1 SectorShpere
+res 1
+collidePos -32 -10
+sectorCenter -78 142
+sectorDir 142 -136
+sectorRadius 161
+sectorTheta 370
+sectorThetaBase 10
+sphereCenter -17 -59
+sphereRadius 50
+
+Test 165
+type 1 SectorShpere
+res 1
+collidePos -29 7
+sectorCenter -78 142
+sectorDir 142 -136
+sectorRadius 161
+sectorTheta 370
+sectorThetaBase 10
+sphereCenter -12 -40
+sphereRadius 50
+
+Test 166
+type 1 SectorShpere
+res 1
+collidePos -18 12
+sectorCenter -78 142
+sectorDir 142 -136
+sectorRadius 161
+sectorTheta 370
+sectorThetaBase 10
+sphereCenter 4 -34
+sphereRadius 50
+
+Test 167
+type 1 SectorShpere
+res 0
+collidePos 10 8
+sectorCenter -78 142
+sectorDir 142 -136
+sectorRadius 161
+sectorTheta 370
+sectorThetaBase 10
+sphereCenter 42 -35
+sphereRadius 50
+
+Test 168
+type 1 SectorShpere
+res 0
+collidePos 10 8
+sectorCenter -78 142
+sectorDir 142 -136
+sectorRadius 161
+sectorTheta 370
+sectorThetaBase 10
+sphereCenter 62 -35
+sphereRadius 50
+
+Test 169
+type 1 SectorShpere
+res 0
+collidePos 10 8
+sectorCenter -78 142
+sectorDir 142 -136
+sectorRadius 161
+sectorTheta 370
+sectorThetaBase 10
+sphereCenter 64 -16
+sphereRadius 50
+
+Test 170
+type 1 SectorShpere
+res 1
+collidePos 23 42
+sectorCenter -78 142
+sectorDir 142 -136
+sectorRadius 161
+sectorTheta 370
+sectorThetaBase 10
+sphereCenter 58 7
+sphereRadius 50
+
+Test 171
+type 1 SectorShpere
+res 1
+collidePos 33 48
+sectorCenter -78 142
+sectorDir 142 -136
+sectorRadius 161
+sectorTheta 370
+sectorThetaBase 10
+sphereCenter 72 15
+sphereRadius 50
+
+Test 172
+type 1 SectorShpere
+res 1
+collidePos 52 53
+sectorCenter -78 142
+sectorDir 142 -136
+sectorRadius 161
+sectorTheta 370
+sectorThetaBase 10
+sphereCenter 94 24
+sphereRadius 50
+
+Test 173
+type 1 SectorShpere
+res 0
+collidePos 61 61
+sectorCenter -78 142
+sectorDir 142 -136
+sectorRadius 161
+sectorTheta 370
+sectorThetaBase 10
+sphereCenter 110 41
+sphereRadius 50
+
+Test 174
+type 1 SectorShpere
+res 1
+collidePos 68 76
+sectorCenter -78 142
+sectorDir 142 -136
+sectorRadius 161
+sectorTheta 370
+sectorThetaBase 10
+sphereCenter 115 54
+sphereRadius 50
+
+Test 175
+type 1 SectorShpere
+res 1
+collidePos 62 84
+sectorCenter -78 142
+sectorDir 142 -136
+sectorRadius 161
+sectorTheta 370
+sectorThetaBase 10
+sphereCenter 109 64
+sphereRadius 50
+
+Test 176
+type 1 SectorShpere
+res 0
+collidePos 72 88
+sectorCenter -78 142
+sectorDir 142 -136
+sectorRadius 161
+sectorTheta 370
+sectorThetaBase 10
+sphereCenter 127 80
+sphereRadius 50
+
+Test 177
+type 1 SectorShpere
+res 0
+collidePos 72 88
+sectorCenter -78 142
+sectorDir 142 -136
+sectorRadius 161
+sectorTheta 370
+sectorThetaBase 10
+sphereCenter 142 104
+sphereRadius 50
+
+Test 178
+type 1 SectorShpere
+res 0
+collidePos 72 88
+sectorCenter -78 142
+sectorDir 142 -136
+sectorRadius 161
+sectorTheta 370
+sectorThetaBase 10
+sphereCenter 145 134
+sphereRadius 50
+
+Test 179
+type 1 SectorShpere
+res 0
+collidePos 72 88
+sectorCenter -78 142
+sectorDir 142 -136
+sectorRadius 161
+sectorTheta 370
+sectorThetaBase 10
+sphereCenter 131 148
+sphereRadius 50
+
+Test 180
+type 1 SectorShpere
+res 1
+collidePos 74 126
+sectorCenter -78 142
+sectorDir 142 -136
+sectorRadius 161
+sectorTheta 370
+sectorThetaBase 10
+sphereCenter 118 148
+sphereRadius 50
+
+Test 181
+type 1 SectorShpere
+res 1
+collidePos 60 128
+sectorCenter -78 142
+sectorDir 142 -136
+sectorRadius 161
+sectorTheta 370
+sectorThetaBase 10
+sphereCenter 108 141
+sphereRadius 50
+
+Test 182
+type 1 SectorShpere
+res 1
+collidePos 56 128
+sectorCenter -78 142
+sectorDir 142 -136
+sectorRadius 161
+sectorTheta 370
+sectorThetaBase 10
+sphereCenter 100 150
+sphereRadius 50
+
+Test 183
+type 1 SectorShpere
+res 1
+collidePos 65 127
+sectorCenter -78 142
+sectorDir 142 -136
+sectorRadius 161
+sectorTheta 370
+sectorThetaBase 10
+sphereCenter 94 167
+sphereRadius 50
+
+Test 184
+type 1 SectorShpere
+res 0
+collidePos 74 126
+sectorCenter -78 142
+sectorDir 142 -136
+sectorRadius 161
+sectorTheta 370
+sectorThetaBase 10
+sphereCenter 83 186
+sphereRadius 50
+
+Test 185
+type 1 SectorShpere
+res 0
+collidePos 74 126
+sectorCenter -78 142
+sectorDir 142 -136
+sectorRadius 161
+sectorTheta 370
+sectorThetaBase 10
+sphereCenter 65 195
+sphereRadius 50
+
+Test 186
+type 1 SectorShpere
+res 0
+collidePos 74 126
+sectorCenter -78 142
+sectorDir 142 -136
+sectorRadius 161
+sectorTheta 370
+sectorThetaBase 10
+sphereCenter 45 184
+sphereRadius 50
+
+Test 187
+type 1 SectorShpere
+res 1
+collidePos 13 133
+sectorCenter -78 142
+sectorDir 142 -136
+sectorRadius 161
+sectorTheta 370
+sectorThetaBase 10
+sphereCenter 41 174
+sphereRadius 50
+
+Test 188
+type 1 SectorShpere
+res 1
+collidePos -6 135
+sectorCenter -78 142
+sectorDir 142 -136
+sectorRadius 161
+sectorTheta 370
+sectorThetaBase 10
+sphereCenter 33 166
+sphereRadius 50
+
+Test 189
+type 1 SectorShpere
+res 1
+collidePos 10 133
+sectorCenter -78 142
+sectorDir 142 -136
+sectorRadius 161
+sectorTheta 370
+sectorThetaBase 10
+sphereCenter 24 180
+sphereRadius 50
+
+Test 190
+type 1 SectorShpere
+res 0
+collidePos 10 133
+sectorCenter -78 142
+sectorDir 142 -136
+sectorRadius 161
+sectorTheta 370
+sectorThetaBase 10
+sphereCenter 15 188
+sphereRadius 50
+
+Test 191
+type 1 SectorShpere
+res 0
+collidePos 10 133
+sectorCenter -78 142
+sectorDir 142 -136
+sectorRadius 161
+sectorTheta 370
+sectorThetaBase 10
+sphereCenter 3 195
+sphereRadius 50
+
+Test 192
+type 1 SectorShpere
+res 0
+collidePos 10 133
+sectorCenter -78 142
+sectorDir 142 -136
+sectorRadius 161
+sectorTheta 370
+sectorThetaBase 10
+sphereCenter -15 194
+sphereRadius 50
+
+Test 193
+type 1 SectorShpere
+res 1
+collidePos -49 139
+sectorCenter -78 142
+sectorDir 142 -136
+sectorRadius 161
+sectorTheta 370
+sectorThetaBase 10
+sphereCenter -25 183
+sphereRadius 50
+
+Test 194
+type 1 SectorShpere
+res 1
+collidePos -70 142
+sectorCenter -78 142
+sectorDir 142 -136
+sectorRadius 161
+sectorTheta 370
+sectorThetaBase 10
+sphereCenter -33 176
+sphereRadius 50
+
+Test 195
+type 1 SectorShpere
+res 1
+collidePos -78 142
+sectorCenter -78 142
+sectorDir 142 -136
+sectorRadius 161
+sectorTheta 370
+sectorThetaBase 10
+sphereCenter -62 184
+sphereRadius 50
+
+Test 196
+type 1 SectorShpere
+res 1
+collidePos -78 142
+sectorCenter -78 142
+sectorDir 142 -136
+sectorRadius 161
+sectorTheta 370
+sectorThetaBase 10
+sphereCenter -82 190
+sphereRadius 50
+
+Test 197
+type 1 SectorShpere
+res 1
+collidePos -78 142
+sectorCenter -78 142
+sectorDir 142 -136
+sectorRadius 161
+sectorTheta 370
+sectorThetaBase 10
+sphereCenter -94 190
+sphereRadius 50
+
+Test 198
+type 1 SectorShpere
+res 0
+collidePos -78 142
+sectorCenter -78 142
+sectorDir 142 -136
+sectorRadius 161
+sectorTheta 370
+sectorThetaBase 10
+sphereCenter -111 191
+sphereRadius 50
+
+Test 199
+type 1 SectorShpere
+res 0
+collidePos -78 142
+sectorCenter -78 142
+sectorDir 142 -136
+sectorRadius 161
+sectorTheta 370
+sectorThetaBase 10
+sphereCenter -124 192
+sphereRadius 50
+
+Test 200
+type 1 SectorShpere
+res 0
+collidePos -78 142
+sectorCenter -78 142
+sectorDir 142 -136
+sectorRadius 161
+sectorTheta 370
+sectorThetaBase 10
+sphereCenter -128 179
+sphereRadius 50
+
+Test 201
+type 1 SectorShpere
+res 1
+collidePos -78 142
+sectorCenter -78 142
+sectorDir 142 -136
+sectorRadius 161
+sectorTheta 370
+sectorThetaBase 10
+sphereCenter -125 152
+sphereRadius 50
+
+Test 202
+type 1 SectorShpere
+res 1
+collidePos -78 142
+sectorCenter -78 142
+sectorDir 142 -136
+sectorRadius 161
+sectorTheta 370
+sectorThetaBase 10
+sphereCenter -112 129
+sphereRadius 50
+
+Test 203
+type 1 SectorShpere
+res 1
+collidePos -78 142
+sectorCenter -78 142
+sectorDir 142 -136
+sectorRadius 161
+sectorTheta 370
+sectorThetaBase 10
+sphereCenter -102 111
+sphereRadius 50
+
+Test 204
+type 1 SectorShpere
+res 1
+collidePos -78 142
+sectorCenter -78 142
+sectorDir 142 -136
+sectorRadius 161
+sectorTheta 370
+sectorThetaBase 10
+sphereCenter -109 101
+sphereRadius 50
+
+Test 205
+type 1 SectorShpere
+res 0
+collidePos -73 107
+sectorCenter -78 142
+sectorDir 142 -136
+sectorRadius 161
+sectorTheta 370
+sectorThetaBase 10
+sphereCenter -123 81
+sphereRadius 50
+
+Test 206
+type 1 SectorShpere
+res 0
+collidePos -73 107
+sectorCenter -78 142
+sectorDir 142 -136
+sectorRadius 161
+sectorTheta 370
+sectorThetaBase 10
+sphereCenter -129 66
+sphereRadius 50
+
+Test 207
+type 1 SectorShpere
+res 1
+collidePos -73 107
+sectorCenter -78 142
+sectorDir 142 -136
+sectorRadius 161
+sectorTheta 370
+sectorThetaBase 10
+sphereCenter -99 63
+sphereRadius 50
+
+Test 208
+type 1 SectorShpere
+res 1
+collidePos -71 95
+sectorCenter -78 142
+sectorDir 142 -136
+sectorRadius 161
+sectorTheta 370
+sectorThetaBase 10
+sphereCenter -96 51
+sphereRadius 50
+
+Test 209
+type 1 SectorShpere
+res 1
+collidePos -68 73
+sectorCenter -78 142
+sectorDir 142 -136
+sectorRadius 161
+sectorTheta 370
+sectorThetaBase 10
+sphereCenter -99 33
+sphereRadius 50
+
+Test 210
+type 1 SectorShpere
+res 1
+collidePos -64 44
+sectorCenter -78 142
+sectorDir 142 -136
+sectorRadius 161
+sectorTheta 370
+sectorThetaBase 10
+sphereCenter -105 17
+sphereRadius 50
+
+Test 211
+type 1 SectorShpere
+res 0
+collidePos -61 27
+sectorCenter -78 142
+sectorDir 142 -136
+sectorRadius 161
+sectorTheta 370
+sectorThetaBase 10
+sphereCenter -112 2
+sphereRadius 50
+
+Test 212
+type 1 SectorShpere
+res 0
+collidePos -61 27
+sectorCenter -78 142
+sectorDir 142 -136
+sectorRadius 161
+sectorTheta 370
+sectorThetaBase 10
+sphereCenter -115 -15
+sphereRadius 50
+
+Test 213
+type 1 SectorShpere
+res 0
+collidePos -61 27
+sectorCenter -78 142
+sectorDir 142 -136
+sectorRadius 161
+sectorTheta 370
+sectorThetaBase 10
+sphereCenter -114 -38
+sphereRadius 50
+
+Test 214
+type 1 SectorShpere
+res 0
+collidePos -61 27
+sectorCenter -78 142
+sectorDir 142 -136
+sectorRadius 161
+sectorTheta 370
+sectorThetaBase 10
+sphereCenter -107 -50
+sphereRadius 50
+
+Test 215
+type 1 SectorShpere
+res 1
+collidePos -55 -13
+sectorCenter -78 142
+sectorDir 142 -136
+sectorRadius 161
+sectorTheta 370
+sectorThetaBase 10
+sphereCenter -88 -49
+sphereRadius 50
+
+Test 216
+type 1 SectorShpere
+res 1
+collidePos -57 1
+sectorCenter -78 142
+sectorDir 142 -136
+sectorRadius 161
+sectorTheta 370
+sectorThetaBase 10
+sphereCenter -77 -45
+sphereRadius 50
+
+Test 217
+type 1 SectorShpere
+res 1
+collidePos -54 -16
+sectorCenter -78 142
+sectorDir 142 -136
+sectorRadius 161
+sectorTheta 370
+sectorThetaBase 10
+sphereCenter -65 -66
+sphereRadius 50
+
+Test 218
+type 1 SectorShpere
+res 0
+collidePos -54 -17
+sectorCenter -78 142
+sectorDir 142 -136
+sectorRadius 161
+sectorTheta 370
+sectorThetaBase 10
+sphereCenter -51 -81
+sphereRadius 50
+
+Test 219
+type 1 SectorShpere
+res 0
+collidePos -54 -17
+sectorCenter -78 142
+sectorDir 142 -136
+sectorRadius 161
+sectorTheta 370
+sectorThetaBase 10
+sphereCenter -27 -85
+sphereRadius 50
+
+Test 220
+type 1 SectorShpere
+res 0
+collidePos -54 -17
+sectorCenter -78 142
+sectorDir 142 -136
+sectorRadius 161
+sectorTheta 370
+sectorThetaBase 10
+sphereCenter 3 -66
+sphereRadius 50
+
+Test 221
+type 1 SectorShpere
+res 1
+collidePos -12 2
+sectorCenter -78 142
+sectorDir 142 -136
+sectorRadius 161
+sectorTheta 370
+sectorThetaBase 10
+sphereCenter 10 -43
+sphereRadius 50
+
+Test 222
+type 1 SectorShpere
+res 1
+collidePos -1 14
+sectorCenter -78 142
+sectorDir 142 -136
+sectorRadius 161
+sectorTheta 370
+sectorThetaBase 10
+sphereCenter 25 -29
+sphereRadius 50
+
+Test 223
+type 1 SectorShpere
+res 0
+collidePos 18 14
+sectorCenter -78 142
+sectorDir 142 -136
+sectorRadius 161
+sectorTheta 370
+sectorThetaBase 10
+sphereCenter 53 -25
+sphereRadius 50
+
+Test 224
+type 1 SectorShpere
+res 0
+collidePos 18 14
+sectorCenter -78 142
+sectorDir 142 -136
+sectorRadius 161
+sectorTheta 370
+sectorThetaBase 10
+sphereCenter 69 -17
+sphereRadius 50
+
+Test 225
+type 1 SectorShpere
+res 0
+collidePos 18 14
+sectorCenter -78 142
+sectorDir 142 -136
+sectorRadius 161
+sectorTheta 370
+sectorThetaBase 10
+sphereCenter 84 -23
+sphereRadius 50
+
+Test 226
+type 1 SectorShpere
+res 1
+collidePos 49 43
+sectorCenter -78 142
+sectorDir 142 -136
+sectorRadius 161
+sectorTheta 370
+sectorThetaBase 10
+sphereCenter 88 12
+sphereRadius 50
+
+Test 227
+type 1 SectorShpere
+res 1
+collidePos 50 60
+sectorCenter -78 142
+sectorDir 142 -136
+sectorRadius 161
+sectorTheta 370
+sectorThetaBase 10
+sphereCenter 93 33
+sphereRadius 50
+
+Test 228
+type 1 SectorShpere
+res 1
+collidePos 66 70
+sectorCenter -78 142
+sectorDir 142 -136
+sectorRadius 161
+sectorTheta 370
+sectorThetaBase 10
+sphereCenter 111 47
+sphereRadius 50
+
+Test 229
+type 1 SectorShpere
+res 0
+collidePos 66 70
+sectorCenter -78 142
+sectorDir 142 -136
+sectorRadius 161
+sectorTheta 370
+sectorThetaBase 10
+sphereCenter 134 65
+sphereRadius 50
+
+Test 230
+type 1 SectorShpere
+res 0
+collidePos 66 70
+sectorCenter -78 142
+sectorDir 142 -136
+sectorRadius 161
+sectorTheta 370
+sectorThetaBase 10
+sphereCenter 138 85
+sphereRadius 50
+
+Test 231
+type 1 SectorShpere
+res 1
+collidePos 75 105
+sectorCenter -78 142
+sectorDir 142 -136
+sectorRadius 161
+sectorTheta 370
+sectorThetaBase 10
+sphereCenter 124 92
+sphereRadius 50
+
+Test 232
+type 1 SectorShpere
+res 1
+collidePos 69 110
+sectorCenter -78 142
+sectorDir 142 -136
+sectorRadius 161
+sectorTheta 370
+sectorThetaBase 10
+sphereCenter 118 99
+sphereRadius 50
+
+Test 233
+type 1 SectorShpere
+res 1
+collidePos 82 125
+sectorCenter -78 142
+sectorDir 142 -136
+sectorRadius 161
+sectorTheta 370
+sectorThetaBase 10
+sphereCenter 132 131
+sphereRadius 50
+
+Test 234
+type 1 SectorShpere
+res 0
+collidePos 82 125
+sectorCenter -78 142
+sectorDir 142 -136
+sectorRadius 161
+sectorTheta 370
+sectorThetaBase 10
+sphereCenter 143 164
+sphereRadius 50
+
+Test 235
+type 1 SectorShpere
+res 0
+collidePos 82 125
+sectorCenter -78 142
+sectorDir 142 -136
+sectorRadius 161
+sectorTheta 370
+sectorThetaBase 10
+sphereCenter 121 190
+sphereRadius 50
+
+Test 236
+type 1 SectorShpere
+res 0
+collidePos 82 125
+sectorCenter -78 142
+sectorDir 142 -136
+sectorRadius 161
+sectorTheta 370
+sectorThetaBase 10
+sphereCenter 75 193
+sphereRadius 50
+
+Test 237
+type 1 SectorShpere
+res 1
+collidePos 17 132
+sectorCenter -78 142
+sectorDir 142 -136
+sectorRadius 161
+sectorTheta 370
+sectorThetaBase 10
+sphereCenter 48 171
+sphereRadius 50
+
+Test 238
+type 1 SectorShpere
+res 1
+collidePos -11 135
+sectorCenter -78 142
+sectorDir 142 -136
+sectorRadius 161
+sectorTheta 370
+sectorThetaBase 10
+sphereCenter 24 171
+sphereRadius 50
+
+Test 239
+type 1 SectorShpere
+res 0
+collidePos 6 134
+sectorCenter -78 142
+sectorDir 142 -136
+sectorRadius 161
+sectorTheta 370
+sectorThetaBase 10
+sphereCenter 14 189
+sphereRadius 50
+
+Test 240
+type 1 SectorShpere
+res 0
+collidePos 6 134
+sectorCenter -78 142
+sectorDir 142 -136
+sectorRadius 161
+sectorTheta 370
+sectorThetaBase 10
+sphereCenter -1 198
+sphereRadius 50
+
+Test 241
+type 1 SectorShpere
+res 1
+collidePos -53 140
+sectorCenter -78 142
+sectorDir 142 -136
+sectorRadius 161
+sectorTheta 370
+sectorThetaBase 10
+sphereCenter -13 170
+sphereRadius 50
+
+Test 242
+type 1 SectorShpere
+res 1
+collidePos -68 141
+sectorCenter -78 142
+sectorDir 142 -136
+sectorRadius 161
+sectorTheta 370
+sectorThetaBase 10
+sphereCenter -18 153
+sphereRadius 50
+
+Test 243
+type 1 SectorShpere
+res 1
+collidePos -74 142
+sectorCenter -78 142
+sectorDir 142 -136
+sectorRadius 161
+sectorTheta 370
+sectorThetaBase 10
+sphereCenter -23 143
+sphereRadius 50
+
+Test 244
+type 1 SectorShpere
+res 1
+collidePos -65 134
+sectorCenter -78 142
+sectorDir 142 -136
+sectorRadius 161
+sectorTheta 370
+sectorThetaBase 10
+sphereCenter -21 107
+sphereRadius 50
+
+Test 245
+type 1 SectorShpere
+res 1
+collidePos -32 104
+sectorCenter -78 142
+sectorDir 142 -136
+sectorRadius 161
+sectorTheta 370
+sectorThetaBase 10
+sphereCenter 7 71
+sphereRadius 50
+
+Test 246
+type 1 SectorShpere
+res 1
+collidePos -25 91
+sectorCenter -78 142
+sectorDir 142 -136
+sectorRadius 161
+sectorTheta 370
+sectorThetaBase 10
+sphereCenter 11 56
+sphereRadius 50
+
+Test 247
+type 1 SectorShpere
+res 1
+collidePos -40 85
+sectorCenter -78 142
+sectorDir 142 -136
+sectorRadius 161
+sectorTheta 370
+sectorThetaBase 10
+sphereCenter -11 43
+sphereRadius 50
+
+Test 248
+type 1 SectorShpere
+res 1
+collidePos -53 89
+sectorCenter -78 142
+sectorDir 142 -136
+sectorRadius 161
+sectorTheta 370
+sectorThetaBase 10
+sphereCenter -31 43
+sphereRadius 50
+
+Test 249
+type 1 SectorShpere
+res 1
+collidePos -61 112
+sectorCenter -78 142
+sectorDir 142 -136
+sectorRadius 161
+sectorTheta 370
+sectorThetaBase 10
+sphereCenter -36 67
+sphereRadius 50
+
+Test 250
+type 1 SectorShpere
+res 1
+collidePos -78 142
+sectorCenter -78 142
+sectorDir 142 -136
+sectorRadius 161
+sectorTheta 370
+sectorThetaBase 10
+sphereCenter -47 132
+sphereRadius 50
+
+Test 251
+type 1 SectorShpere
+res 1
+collidePos -78 142
+sectorCenter -78 142
+sectorDir 142 -136
+sectorRadius 161
+sectorTheta 370
+sectorThetaBase 10
+sphereCenter -64 160
+sphereRadius 50
+
+Test 252
+type 1 SectorShpere
+res 1
+collidePos -78 142
+sectorCenter -78 142
+sectorDir 142 -136
+sectorRadius 161
+sectorTheta 370
+sectorThetaBase 10
+sphereCenter -85 176
+sphereRadius 50
+
+Test 253
+type 1 SectorShpere
+res 0
+collidePos -78 142
+sectorCenter -78 142
+sectorDir 142 -136
+sectorRadius 161
+sectorTheta 370
+sectorThetaBase 10
+sphereCenter -117 182
+sphereRadius 50
+
+Test 254
+type 1 SectorShpere
+res 0
+collidePos -78 142
+sectorCenter -78 142
+sectorDir 142 -136
+sectorRadius 161
+sectorTheta 370
+sectorThetaBase 10
+sphereCenter -132 178
+sphereRadius 50
+
+Test 255
+type 1 SectorShpere
+res 0
+collidePos -78 142
+sectorCenter -78 142
+sectorDir 142 -136
+sectorRadius 161
+sectorTheta 370
+sectorThetaBase 10
+sphereCenter -135 151
+sphereRadius 50
+
+Test 256
+type 1 SectorShpere
+res 0
+collidePos -78 142
+sectorCenter -78 142
+sectorDir 142 -136
+sectorRadius 161
+sectorTheta 370
+sectorThetaBase 10
+sphereCenter -126 112
+sphereRadius 50
+
+Test 257
+type 1 SectorShpere
+res 1
+collidePos -76 125
+sectorCenter -78 142
+sectorDir 142 -136
+sectorRadius 161
+sectorTheta 370
+sectorThetaBase 10
+sphereCenter -107 85
+sphereRadius 50
+
+Test 258
+type 1 SectorShpere
+res 1
+collidePos -72 99
+sectorCenter -78 142
+sectorDir 142 -136
+sectorRadius 161
+sectorTheta 370
+sectorThetaBase 10
+sphereCenter -104 60
+sphereRadius 50
+
+Test 259
+type 1 SectorShpere
+res 0
+collidePos -65 53
+sectorCenter -78 142
+sectorDir 142 -136
+sectorRadius 161
+sectorTheta 370
+sectorThetaBase 10
+sphereCenter -112 36
+sphereRadius 50
+
+Test 260
+type 1 SectorShpere
+res 0
+collidePos -64 47
+sectorCenter -78 142
+sectorDir 142 -136
+sectorRadius 161
+sectorTheta 370
+sectorThetaBase 10
+sphereCenter -121 0
+sphereRadius 50
+
+Test 261
+type 1 SectorShpere
+res 0
+collidePos -64 47
+sectorCenter -78 142
+sectorDir 142 -136
+sectorRadius 161
+sectorTheta 370
+sectorThetaBase 10
+sphereCenter -123 -25
+sphereRadius 50
+
+Test 262
+type 1 SectorShpere
+res 0
+collidePos -64 47
+sectorCenter -78 142
+sectorDir 142 -136
+sectorRadius 161
+sectorTheta 370
+sectorThetaBase 10
+sphereCenter -116 -67
+sphereRadius 50
+
+Test 263
+type 1 SectorShpere
+res 0
+collidePos -64 47
+sectorCenter -78 142
+sectorDir 142 -136
+sectorRadius 161
+sectorTheta 370
+sectorThetaBase 10
+sphereCenter -75 -79
+sphereRadius 50
+
+Test 264
+type 1 SectorShpere
+res 0
+collidePos -64 47
+sectorCenter -78 142
+sectorDir 142 -136
+sectorRadius 161
+sectorTheta 370
+sectorThetaBase 10
+sphereCenter -50 -72
+sphereRadius 50
+
+Test 265
+type 1 SectorShpere
+res 1
+collidePos -48 8
+sectorCenter -78 142
+sectorDir 142 -136
+sectorRadius 161
+sectorTheta 370
+sectorThetaBase 10
+sphereCenter -37 -41
+sphereRadius 50
+
+Test 266
+type 1 SectorShpere
+res 1
+collidePos -57 17
+sectorCenter -78 142
+sectorDir 142 -136
+sectorRadius 161
+sectorTheta 370
+sectorThetaBase 10
+sphereCenter -48 -33
+sphereRadius 50
+
+Test 267
+type 1 SectorShpere
+res 1
+collidePos -56 -6
+sectorCenter -78 142
+sectorDir 142 -136
+sectorRadius 161
+sectorTheta 370
+sectorThetaBase 10
+sphereCenter -72 -53
+sphereRadius 50
+
+Test 268
+type 1 SectorShpere
+res 0
+collidePos -54 -16
+sectorCenter -78 142
+sectorDir 142 -136
+sectorRadius 161
+sectorTheta 370
+sectorThetaBase 10
+sphereCenter -72 -71
+sphereRadius 50
+
+Test 269
+type 1 SectorShpere
+res 1
+collidePos -57 1
+sectorCenter -78 142
+sectorDir 142 -136
+sectorRadius 161
+sectorTheta 370
+sectorThetaBase 10
+sphereCenter -64 -49
+sphereRadius 50
+
+Test 270
+type 1 SectorShpere
+res 1
+collidePos -56 -8
+sectorCenter -78 142
+sectorDir 142 -136
+sectorRadius 161
+sectorTheta 370
+sectorThetaBase 10
+sphereCenter -55 -58
+sphereRadius 50
+
+Test 271
+type 1 SectorShpere
+res 0
+collidePos -52 -16
+sectorCenter -78 142
+sectorDir 142 -136
+sectorRadius 161
+sectorTheta 370
+sectorThetaBase 10
+sphereCenter -21 -67
+sphereRadius 50
+
+Test 272
+type 1 SectorShpere
+res 0
+collidePos -52 -16
+sectorCenter -78 142
+sectorDir 142 -136
+sectorRadius 161
+sectorTheta 370
+sectorThetaBase 10
+sphereCenter 10 -64
+sphereRadius 50
+
+Test 273
+type 1 SectorShpere
+res 1
+collidePos -3 13
+sectorCenter -78 142
+sectorDir 142 -136
+sectorRadius 161
+sectorTheta 370
+sectorThetaBase 10
+sphereCenter 23 -32
+sphereRadius 50
+
+Test 274
+type 1 SectorShpere
+res 1
+collidePos 1 15
+sectorCenter -78 142
+sectorDir 142 -136
+sectorRadius 161
+sectorTheta 370
+sectorThetaBase 10
+sphereCenter 28 -28
+sphereRadius 50
+
+Test 275
+type 1 SectorShpere
+res 0
+collidePos 5 7
+sectorCenter -78 142
+sectorDir 142 -136
+sectorRadius 161
+sectorTheta 370
+sectorThetaBase 10
+sphereCenter 38 -55
+sphereRadius 50
+
+Test 276
+type 1 SectorShpere
+res 0
+collidePos 5 7
+sectorCenter -78 142
+sectorDir 142 -136
+sectorRadius 161
+sectorTheta 370
+sectorThetaBase 10
+sphereCenter 48 -76
+sphereRadius 50
+
+Test 277
+type 1 SectorShpere
+res 1
+collidePos 60 -48
+sectorCenter 40 50
+sectorDir 100 0
+sectorRadius 141
+sectorTheta 1500
+sectorThetaBase 10
+sphereCenter 68 -85
+sphereRadius 37
+
+Test 278
+type 1 SectorShpere
+res 1
+collidePos 60 -60
+sectorCenter 40 50
+sectorDir 100 0
+sectorRadius 141
+sectorTheta 1500
+sectorThetaBase 10
+sphereCenter 67 -97
+sphereRadius 37
+
+Test 279
+type 1 SectorShpere
+res 1
+collidePos 57 -70
+sectorCenter 40 50
+sectorDir 100 0
+sectorRadius 141
+sectorTheta 1500
+sectorThetaBase 10
+sphereCenter 63 -107
+sphereRadius 37
+
+Test 280
+type 1 SectorShpere
+res 1
+collidePos 52 -80
+sectorCenter 40 50
+sectorDir 100 0
+sectorRadius 141
+sectorTheta 1500
+sectorThetaBase 10
+sphereCenter 56 -117
+sphereRadius 37
+
+Test 281
+type 1 SectorShpere
+res 1
+collidePos 41 -85
+sectorCenter 40 50
+sectorDir 100 0
+sectorRadius 141
+sectorTheta 1500
+sectorThetaBase 10
+sphereCenter 42 -122
+sphereRadius 37
+
+Test 282
+type 1 SectorShpere
+res 1
+collidePos 26 -87
+sectorCenter 40 50
+sectorDir 100 0
+sectorRadius 141
+sectorTheta 1500
+sectorThetaBase 10
+sphereCenter 21 -124
+sphereRadius 37
+
+Test 283
+type 1 SectorShpere
+res 1
+collidePos 7 -87
+sectorCenter 40 50
+sectorDir 100 0
+sectorRadius 141
+sectorTheta 1500
+sectorThetaBase 10
+sphereCenter -2 -124
+sphereRadius 37
+
+Test 284
+type 1 SectorShpere
+res 1
+collidePos -8 -78
+sectorCenter 40 50
+sectorDir 100 0
+sectorRadius 141
+sectorTheta 1500
+sectorThetaBase 10
+sphereCenter -22 -113
+sphereRadius 37
+
+Test 285
+type 1 SectorShpere
+res 1
+collidePos -19 -69
+sectorCenter 40 50
+sectorDir 100 0
+sectorRadius 141
+sectorTheta 1500
+sectorThetaBase 10
+sphereCenter -36 -103
+sphereRadius 37
+
+Test 286
+type 1 SectorShpere
+res 1
+collidePos -29 -68
+sectorCenter 40 50
+sectorDir 100 0
+sectorRadius 141
+sectorTheta 1500
+sectorThetaBase 10
+sphereCenter -48 -101
+sphereRadius 37
+
+Test 287
+type 1 SectorShpere
+res 0
+collidePos -32 -71
+sectorCenter 40 50
+sectorDir 100 0
+sectorRadius 141
+sectorTheta 1500
+sectorThetaBase 10
+sphereCenter -58 -108
+sphereRadius 37
+
+Test 288
+type 1 SectorShpere
+res 0
+collidePos -32 -71
+sectorCenter 40 50
+sectorDir 100 0
+sectorRadius 141
+sectorTheta 1500
+sectorThetaBase 10
+sphereCenter -72 -110
+sphereRadius 37
+
+Test 289
+type 1 SectorShpere
+res 0
+collidePos -32 -71
+sectorCenter 40 50
+sectorDir 100 0
+sectorRadius 141
+sectorTheta 1500
+sectorThetaBase 10
+sphereCenter -91 -109
+sphereRadius 37
+
+Test 290
+type 1 SectorShpere
+res 0
+collidePos -32 -71
+sectorCenter 40 50
+sectorDir 100 0
+sectorRadius 141
+sectorTheta 1500
+sectorThetaBase 10
+sphereCenter -100 -93
+sphereRadius 37
+
+Test 291
+type 1 SectorShpere
+res 1
+collidePos -65 -41
+sectorCenter 40 50
+sectorDir 100 0
+sectorRadius 141
+sectorTheta 1500
+sectorThetaBase 10
+sphereCenter -94 -66
+sphereRadius 37
+
+Test 292
+type 1 SectorShpere
+res 1
+collidePos -44 -25
+sectorCenter 40 50
+sectorDir 100 0
+sectorRadius 141
+sectorTheta 1500
+sectorThetaBase 10
+sphereCenter -72 -50
+sphereRadius 37
+
+Test 293
+type 1 SectorShpere
+res 1
+collidePos -16 -11
+sectorCenter 40 50
+sectorDir 100 0
+sectorRadius 141
+sectorTheta 1500
+sectorThetaBase 10
+sphereCenter -41 -39
+sphereRadius 37
+
+Test 294
+type 1 SectorShpere
+res 1
+collidePos 20 -5
+sectorCenter 40 50
+sectorDir 100 0
+sectorRadius 141
+sectorTheta 1500
+sectorThetaBase 10
+sphereCenter 6 -40
+sphereRadius 37
+
+Test 295
+type 1 SectorShpere
+res 1
+collidePos 42 2
+sectorCenter 40 50
+sectorDir 100 0
+sectorRadius 141
+sectorTheta 1500
+sectorThetaBase 10
+sphereCenter 45 -35
+sphereRadius 37
+
+Test 296
+type 1 SectorShpere
+res 1
+collidePos 57 17
+sectorCenter 40 50
+sectorDir 100 0
+sectorRadius 141
+sectorTheta 1500
+sectorThetaBase 10
+sphereCenter 74 -16
+sphereRadius 37
+
+Test 297
+type 1 SectorShpere
+res 1
+collidePos 60 29
+sectorCenter 40 50
+sectorDir 100 0
+sectorRadius 141
+sectorTheta 1500
+sectorThetaBase 10
+sphereCenter 86 1
+sphereRadius 37
+
+Test 298
+type 1 SectorShpere
+res 1
+collidePos 68 37
+sectorCenter 40 50
+sectorDir 100 0
+sectorRadius 141
+sectorTheta 1500
+sectorThetaBase 10
+sphereCenter 102 20
+sphereRadius 37
+
+Test 299
+type 1 SectorShpere
+res 1
+collidePos 80 46
+sectorCenter 40 50
+sectorDir 100 0
+sectorRadius 141
+sectorTheta 1500
+sectorThetaBase 10
+sphereCenter 117 41
+sphereRadius 37
+
+Test 300
+type 1 SectorShpere
+res 1
+collidePos 86 63
+sectorCenter 40 50
+sectorDir 100 0
+sectorRadius 141
+sectorTheta 1500
+sectorThetaBase 10
+sphereCenter 122 74
+sphereRadius 37
+
+Test 301
+type 1 SectorShpere
+res 1
+collidePos 83 84
+sectorCenter 40 50
+sectorDir 100 0
+sectorRadius 141
+sectorTheta 1500
+sectorThetaBase 10
+sphereCenter 113 108
+sphereRadius 37
+
+Test 302
+type 1 SectorShpere
+res 1
+collidePos 68 96
+sectorCenter 40 50
+sectorDir 100 0
+sectorRadius 141
+sectorTheta 1500
+sectorThetaBase 10
+sphereCenter 88 128
+sphereRadius 37
+
+Test 303
+type 1 SectorShpere
+res 1
+collidePos 45 92
+sectorCenter 40 50
+sectorDir 100 0
+sectorRadius 141
+sectorTheta 1500
+sectorThetaBase 10
+sphereCenter 51 129
+sphereRadius 37
+
+Test 304
+type 1 SectorShpere
+res 1
+collidePos 30 88
+sectorCenter 40 50
+sectorDir 100 0
+sectorRadius 141
+sectorTheta 1500
+sectorThetaBase 10
+sphereCenter 20 125
+sphereRadius 37
+
+Test 305
+type 1 SectorShpere
+res 1
+collidePos 16 85
+sectorCenter 40 50
+sectorDir 100 0
+sectorRadius 141
+sectorTheta 1500
+sectorThetaBase 10
+sphereCenter -6 116
+sphereRadius 37
+
+Test 306
+type 1 SectorShpere
+res 1
+collidePos 1 80
+sectorCenter 40 50
+sectorDir 100 0
+sectorRadius 141
+sectorTheta 1500
+sectorThetaBase 10
+sphereCenter -29 103
+sphereRadius 37
+
+Test 307
+type 1 SectorShpere
+res 1
+collidePos -8 78
+sectorCenter 40 50
+sectorDir 100 0
+sectorRadius 141
+sectorTheta 1500
+sectorThetaBase 10
+sphereCenter -45 84
+sphereRadius 37
+
+Test 308
+type 1 SectorShpere
+res 1
+collidePos -17 83
+sectorCenter 40 50
+sectorDir 100 0
+sectorRadius 141
+sectorTheta 1500
+sectorThetaBase 10
+sphereCenter -53 71
+sphereRadius 37
+
+Test 309
+type 1 SectorShpere
+res 0
+collidePos -33 92
+sectorCenter 40 50
+sectorDir 100 0
+sectorRadius 141
+sectorTheta 1500
+sectorThetaBase 10
+sphereCenter -60 61
+sphereRadius 37
+
+Test 310
+type 1 SectorShpere
+res 0
+collidePos -33 92
+sectorCenter 40 50
+sectorDir 100 0
+sectorRadius 141
+sectorTheta 1500
+sectorThetaBase 10
+sphereCenter -69 53
+sphereRadius 37
+
+Test 311
+type 1 SectorShpere
+res 0
+collidePos -33 92
+sectorCenter 40 50
+sectorDir 100 0
+sectorRadius 141
+sectorTheta 1500
+sectorThetaBase 10
+sphereCenter -52 48
+sphereRadius 37
+
+Test 312
+type 1 SectorShpere
+res 1
+collidePos -4 25
+sectorCenter 40 50
+sectorDir 100 0
+sectorRadius 141
+sectorTheta 1500
+sectorThetaBase 10
+sphereCenter -36 44
+sphereRadius 37
+
+Test 313
+type 1 SectorShpere
+res 1
+collidePos 0 27
+sectorCenter 40 50
+sectorDir 100 0
+sectorRadius 141
+sectorTheta 1500
+sectorThetaBase 10
+sphereCenter -35 41
+sphereRadius 37
+
+Test 314
+type 1 SectorShpere
+res 0
+collidePos -19 16
+sectorCenter 40 50
+sectorDir 100 0
+sectorRadius 141
+sectorTheta 1500
+sectorThetaBase 10
+sphereCenter -51 48
+sphereRadius 37
+
+Test 315
+type 1 SectorShpere
+res 0
+collidePos -19 16
+sectorCenter 40 50
+sectorDir 100 0
+sectorRadius 141
+sectorTheta 1500
+sectorThetaBase 10
+sphereCenter -61 53
+sphereRadius 37
+
+Test 316
+type 1 SectorShpere
+res 0
+collidePos -19 16
+sectorCenter 40 50
+sectorDir 100 0
+sectorRadius 141
+sectorTheta 1500
+sectorThetaBase 10
+sphereCenter -73 55
+sphereRadius 37
+
+Test 317
+type 1 SectorShpere
+res 0
+collidePos -19 16
+sectorCenter 40 50
+sectorDir 100 0
+sectorRadius 141
+sectorTheta 1500
+sectorThetaBase 10
+sphereCenter -86 55
+sphereRadius 37
+
+Test 318
+type 1 SectorShpere
+res 0
+collidePos -19 16
+sectorCenter 40 50
+sectorDir 100 0
+sectorRadius 141
+sectorTheta 1500
+sectorThetaBase 10
+sphereCenter -109 59
+sphereRadius 37
+
+Test 319
+type 1 SectorShpere
+res 0
+collidePos -19 16
+sectorCenter 40 50
+sectorDir 100 0
+sectorRadius 141
+sectorTheta 1500
+sectorThetaBase 10
+sphereCenter -121 88
+sphereRadius 37
+
+Test 320
+type 1 SectorShpere
+res 0
+collidePos -19 16
+sectorCenter 40 50
+sectorDir 100 0
+sectorRadius 141
+sectorTheta 1500
+sectorThetaBase 10
+sphereCenter -123 115
+sphereRadius 37
+
+Test 321
+type 1 SectorShpere
+res 0
+collidePos -19 16
+sectorCenter 40 50
+sectorDir 100 0
+sectorRadius 141
+sectorTheta 1500
+sectorThetaBase 10
+sphereCenter -122 136
+sphereRadius 37
+
+Test 322
+type 1 SectorShpere
+res 0
+collidePos -19 16
+sectorCenter 40 50
+sectorDir 100 0
+sectorRadius 141
+sectorTheta 1500
+sectorThetaBase 10
+sphereCenter -119 159
+sphereRadius 37
+
+Test 323
+type 1 SectorShpere
+res 0
+collidePos -19 16
+sectorCenter 40 50
+sectorDir 100 0
+sectorRadius 141
+sectorTheta 1500
+sectorThetaBase 10
+sphereCenter -114 169
+sphereRadius 37
+
+Test 324
+type 1 SectorShpere
+res 0
+collidePos -19 16
+sectorCenter 40 50
+sectorDir 100 0
+sectorRadius 141
+sectorTheta 1500
+sectorThetaBase 10
+sphereCenter -107 164
+sphereRadius 37
+
+Test 325
+type 1 SectorShpere
+res 1
+collidePos -71 118
+sectorCenter 40 50
+sectorDir 100 0
+sectorRadius 141
+sectorTheta 1500
+sectorThetaBase 10
+sphereCenter -103 138
+sphereRadius 37
+
+Test 326
+type 1 SectorShpere
+res 1
+collidePos -64 110
+sectorCenter 40 50
+sectorDir 100 0
+sectorRadius 141
+sectorTheta 1500
+sectorThetaBase 10
+sphereCenter -99 127
+sphereRadius 37
+
+Test 327
+type 1 SectorShpere
+res 1
+collidePos -75 117
+sectorCenter 40 50
+sectorDir 100 0
+sectorRadius 141
+sectorTheta 1500
+sectorThetaBase 10
+sphereCenter -113 125
+sphereRadius 37
+
+Test 328
+type 1 SectorShpere
+res 0
+collidePos -82 121
+sectorCenter 40 50
+sectorDir 100 0
+sectorRadius 141
+sectorTheta 1500
+sectorThetaBase 10
+sphereCenter -157 70
+sphereRadius 37
+
+Test 329
+type 1 SectorShpere
+res 0
+collidePos -82 121
+sectorCenter 40 50
+sectorDir 100 0
+sectorRadius 141
+sectorTheta 1500
+sectorThetaBase 10
+sphereCenter -159 30
+sphereRadius 37
+
+Test 330
+type 1 SectorShpere
+res 0
+collidePos -82 121
+sectorCenter 40 50
+sectorDir 100 0
+sectorRadius 141
+sectorTheta 1500
+sectorThetaBase 10
+sphereCenter -144 4
+sphereRadius 37
+
+Test 331
+type 1 SectorShpere
+res 0
+collidePos -82 121
+sectorCenter 40 50
+sectorDir 100 0
+sectorRadius 141
+sectorTheta 1500
+sectorThetaBase 10
+sphereCenter -122 -7
+sphereRadius 37
+
+Test 332
+type 1 SectorShpere
+res 1
+collidePos -71 -14
+sectorCenter 40 50
+sectorDir 100 0
+sectorRadius 141
+sectorTheta 1500
+sectorThetaBase 10
+sphereCenter -109 -11
+sphereRadius 37
+
+Test 333
+type 1 SectorShpere
+res 1
+collidePos -62 -9
+sectorCenter 40 50
+sectorDir 100 0
+sectorRadius 141
+sectorTheta 1500
+sectorThetaBase 10
+sphereCenter -100 -14
+sphereRadius 37
+
+Test 334
+type 1 SectorShpere
+res 0
+collidePos -75 -16
+sectorCenter 40 50
+sectorDir 100 0
+sectorRadius 141
+sectorTheta 1500
+sectorThetaBase 10
+sphereCenter -123 11
+sphereRadius 37
+
+Test 335
+type 1 SectorShpere
+res 0
+collidePos -75 -16
+sectorCenter 40 50
+sectorDir 100 0
+sectorRadius 141
+sectorTheta 1500
+sectorThetaBase 10
+sphereCenter -135 39
+sphereRadius 37
+
+Test 336
+type 1 SectorShpere
+res 0
+collidePos -75 -16
+sectorCenter 40 50
+sectorDir 100 0
+sectorRadius 141
+sectorTheta 1500
+sectorThetaBase 10
+sphereCenter -140 71
+sphereRadius 37
+
+Test 337
+type 1 SectorShpere
+res 0
+collidePos -75 -16
+sectorCenter 40 50
+sectorDir 100 0
+sectorRadius 141
+sectorTheta 1500
+sectorThetaBase 10
+sphereCenter -139 120
+sphereRadius 37
+
+Test 338
+type 1 SectorShpere
+res 0
+collidePos -75 -16
+sectorCenter 40 50
+sectorDir 100 0
+sectorRadius 141
+sectorTheta 1500
+sectorThetaBase 10
+sphereCenter -121 162
+sphereRadius 37
+
+Test 339
+type 1 SectorShpere
+res 0
+collidePos -75 -16
+sectorCenter 40 50
+sectorDir 100 0
+sectorRadius 141
+sectorTheta 1500
+sectorThetaBase 10
+sphereCenter -104 186
+sphereRadius 37
+
+Test 340
+type 1 SectorShpere
+res 0
+collidePos -75 -16
+sectorCenter 40 50
+sectorDir 100 0
+sectorRadius 141
+sectorTheta 1500
+sectorThetaBase 10
+sphereCenter -77 197
+sphereRadius 37
+
+Test 341
+type 1 SectorShpere
+res 1
+collidePos -31 163
+sectorCenter 40 50
+sectorDir 100 0
+sectorRadius 141
+sectorTheta 1500
+sectorThetaBase 10
+sphereCenter -51 195
+sphereRadius 37
+
+Test 342
+type 1 SectorShpere
+res 1
+collidePos -14 157
+sectorCenter 40 50
+sectorDir 100 0
+sectorRadius 141
+sectorTheta 1500
+sectorThetaBase 10
+sphereCenter -31 191
+sphereRadius 37
+
+Test 343
+type 1 SectorShpere
+res 1
+collidePos 16 172
+sectorCenter 40 50
+sectorDir 100 0
+sectorRadius 141
+sectorTheta 1500
+sectorThetaBase 10
+sphereCenter 8 209
+sphereRadius 37
+
+Test 344
+type 1 SectorShpere
+res 1
+collidePos 43 190
+sectorCenter 40 50
+sectorDir 100 0
+sectorRadius 141
+sectorTheta 1500
+sectorThetaBase 10
+sphereCenter 45 227
+sphereRadius 37
+
+Test 345
+type 1 SectorShpere
+res 0
+collidePos 45 191
+sectorCenter 40 50
+sectorDir 100 0
+sectorRadius 141
+sectorTheta 1500
+sectorThetaBase 10
+sphereCenter 67 236
+sphereRadius 37
+
+Test 346
+type 1 SectorShpere
+res 0
+collidePos 45 191
+sectorCenter 40 50
+sectorDir 100 0
+sectorRadius 141
+sectorTheta 1500
+sectorThetaBase 10
+sphereCenter 86 238
+sphereRadius 37
+
+Test 347
+type 1 SectorShpere
+res 0
+collidePos 45 191
+sectorCenter 40 50
+sectorDir 100 0
+sectorRadius 141
+sectorTheta 1500
+sectorThetaBase 10
+sphereCenter 110 231
+sphereRadius 37
+
+Test 348
+type 1 SectorShpere
+res 0
+collidePos 45 191
+sectorCenter 40 50
+sectorDir 100 0
+sectorRadius 141
+sectorTheta 1500
+sectorThetaBase 10
+sphereCenter 132 209
+sphereRadius 37
+
+Test 349
+type 1 SectorShpere
+res 1
+collidePos 113 151
+sectorCenter 40 50
+sectorDir 100 0
+sectorRadius 141
+sectorTheta 1500
+sectorThetaBase 10
+sphereCenter 135 182
+sphereRadius 37
+
+Test 350
+type 1 SectorShpere
+res 1
+collidePos 127 146
+sectorCenter 40 50
+sectorDir 100 0
+sectorRadius 141
+sectorTheta 1500
+sectorThetaBase 10
+sphereCenter 152 174
+sphereRadius 37
+
+Test 351
+type 1 SectorShpere
+res 0
+collidePos 142 147
+sectorCenter 40 50
+sectorDir 100 0
+sectorRadius 141
+sectorTheta 1500
+sectorThetaBase 10
+sphereCenter 177 172
+sphereRadius 37
+
+Test 352
+type 1 SectorShpere
+res 0
+collidePos 142 147
+sectorCenter 40 50
+sectorDir 100 0
+sectorRadius 141
+sectorTheta 1500
+sectorThetaBase 10
+sphereCenter 188 163
+sphereRadius 37
+
+Test 353
+type 1 SectorShpere
+res 0
+collidePos 142 147
+sectorCenter 40 50
+sectorDir 100 0
+sectorRadius 141
+sectorTheta 1500
+sectorThetaBase 10
+sphereCenter 198 144
+sphereRadius 37
+
+Test 354
+type 1 SectorShpere
+res 1
+collidePos 154 104
+sectorCenter 40 50
+sectorDir 100 0
+sectorRadius 141
+sectorTheta 1500
+sectorThetaBase 10
+sphereCenter 188 120
+sphereRadius 37
+
+Test 355
+type 1 SectorShpere
+res 1
+collidePos 149 90
+sectorCenter 40 50
+sectorDir 100 0
+sectorRadius 141
+sectorTheta 1500
+sectorThetaBase 10
+sphereCenter 184 103
+sphereRadius 37
+
+Test 356
+type 1 SectorShpere
+res 1
+collidePos 170 71
+sectorCenter 40 50
+sectorDir 100 0
+sectorRadius 141
+sectorTheta 1500
+sectorThetaBase 10
+sphereCenter 207 77
+sphereRadius 37
+
+Test 357
+type 1 SectorShpere
+res 1
+collidePos 181 59
+sectorCenter 40 50
+sectorDir 100 0
+sectorRadius 141
+sectorTheta 1500
+sectorThetaBase 10
+sphereCenter 218 62
+sphereRadius 37
+
+Test 358
+type 1 SectorShpere
+res 0
+collidePos 181 59
+sectorCenter 40 50
+sectorDir 100 0
+sectorRadius 141
+sectorTheta 1500
+sectorThetaBase 10
+sphereCenter 228 42
+sphereRadius 37
+
+Test 359
+type 1 SectorShpere
+res 0
+collidePos 181 59
+sectorCenter 40 50
+sectorDir 100 0
+sectorRadius 141
+sectorTheta 1500
+sectorThetaBase 10
+sphereCenter 231 21
+sphereRadius 37
+
+Test 360
+type 1 SectorShpere
+res 0
+collidePos 181 59
+sectorCenter 40 50
+sectorDir 100 0
+sectorRadius 141
+sectorTheta 1500
+sectorThetaBase 10
+sphereCenter 224 2
+sphereRadius 37
+
+Test 361
+type 1 SectorShpere
+res 0
+collidePos 181 59
+sectorCenter 40 50
+sectorDir 100 0
+sectorRadius 141
+sectorTheta 1500
+sectorThetaBase 10
+sphereCenter 206 -19
+sphereRadius 37
+
+Test 362
+type 1 SectorShpere
+res 1
+collidePos 151 -9
+sectorCenter 40 50
+sectorDir 100 0
+sectorRadius 141
+sectorTheta 1500
+sectorThetaBase 10
+sphereCenter 184 -27
+sphereRadius 37
+
+Test 363
+type 1 SectorShpere
+res 1
+collidePos 141 -15
+sectorCenter 40 50
+sectorDir 100 0
+sectorRadius 141
+sectorTheta 1500
+sectorThetaBase 10
+sphereCenter 173 -36
+sphereRadius 37
+
+Test 364
+type 1 SectorShpere
+res 0
+collidePos 144 -44
+sectorCenter 40 50
+sectorDir 100 0
+sectorRadius 141
+sectorTheta 1500
+sectorThetaBase 10
+sphereCenter 172 -81
+sphereRadius 37
+
+Test 365
+type 1 SectorShpere
+res 0
+collidePos 144 -44
+sectorCenter 40 50
+sectorDir 100 0
+sectorRadius 141
+sectorTheta 1500
+sectorThetaBase 10
+sphereCenter 168 -109
+sphereRadius 37
+
+Test 366
+type 1 SectorShpere
+res 0
+collidePos 144 -44
+sectorCenter 40 50
+sectorDir 100 0
+sectorRadius 141
+sectorTheta 1500
+sectorThetaBase 10
+sphereCenter 152 -128
+sphereRadius 37
+
+Test 367
+type 1 SectorShpere
+res 0
+collidePos 144 -44
+sectorCenter 40 50
+sectorDir 100 0
+sectorRadius 141
+sectorTheta 1500
+sectorThetaBase 10
+sphereCenter 99 -130
+sphereRadius 37
+
+Test 368
+type 1 SectorShpere
+res 1
+collidePos 51 -79
+sectorCenter 40 50
+sectorDir 100 0
+sectorRadius 141
+sectorTheta 1500
+sectorThetaBase 10
+sphereCenter 55 -116
+sphereRadius 37
+
+Test 369
+type 1 SectorShpere
+res 1
+collidePos 40 -73
+sectorCenter 40 50
+sectorDir 100 0
+sectorRadius 141
+sectorTheta 1500
+sectorThetaBase 10
+sphereCenter 41 -110
+sphereRadius 37
+
+Test 370
+type 1 SectorShpere
+res 1
+collidePos 16 -81
+sectorCenter 40 50
+sectorDir 100 0
+sectorRadius 141
+sectorTheta 1500
+sectorThetaBase 10
+sphereCenter 9 -118
+sphereRadius 37
+
+Test 371
+type 1 SectorShpere
+res 0
+collidePos 9 -86
+sectorCenter 40 50
+sectorDir 100 0
+sectorRadius 141
+sectorTheta 1500
+sectorThetaBase 10
+sphereCenter -17 -131
+sphereRadius 37
+
+Test 372
+type 1 SectorShpere
+res 0
+collidePos 9 -86
+sectorCenter 40 50
+sectorDir 100 0
+sectorRadius 141
+sectorTheta 1500
+sectorThetaBase 10
+sphereCenter -47 -133
+sphereRadius 37
+
+Test 373
+type 1 SectorShpere
+res 0
+collidePos 9 -86
+sectorCenter 40 50
+sectorDir 100 0
+sectorRadius 141
+sectorTheta 1500
+sectorThetaBase 10
+sphereCenter -74 -128
+sphereRadius 37
+
+Test 374
+type 1 SectorShpere
+res 0
+collidePos 9 -86
+sectorCenter 40 50
+sectorDir 100 0
+sectorRadius 141
+sectorTheta 1500
+sectorThetaBase 10
+sphereCenter -91 -119
+sphereRadius 37
+
+Test 375
+type 1 SectorShpere
+res 0
+collidePos 9 -86
+sectorCenter 40 50
+sectorDir 100 0
+sectorRadius 141
+sectorTheta 1500
+sectorThetaBase 10
+sphereCenter -47 -133
+sphereRadius 37

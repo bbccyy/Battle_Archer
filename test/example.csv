@@ -1,0 +1,7 @@
+,,整数属性,浮点属性,字符串属性,整数数组,浮点数组,整数二维数组,整数二维数组
+FieldName,Id,FieldInt,FieldFloat,FieldStr,FieldIntArr,FieldFloatArr,FieldIntArr2,FieldFloatArr2
+FieldType,int,int,float,asset,int[],float[],int[][],float[][]
+Default,,0,0,"""""",[],[],[],[]
+名字1,1001,123,0.002,"ab""cd","[1,2,3]","[0.2,0.3,1.4]","[[11,12,13],[22,23],[31,32,33,34]]","[[11.2,12,13],[22,23],[31,32,33,34]]"
+名字2,1002,,1.05,"dadad,fad",,,,
+名字3,1003,,1.05,"dada""df""ad",,,,

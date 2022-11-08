@@ -1,0 +1,84 @@
+
+class ${STRUCT_NAME} : public CsvStructBase
+{
+public:
+
+	int InitFieldMap(const vector<string>& aCsvFieldNameArr, const vector<string>& aCsvFieldTypeArr)
+	{
+		const vector<string>& fieldNameArr = GetFieldNameArr();
+		const vector<string>& fieldTypeArr = GetFieldTypeArr();
+		if (aCsvFieldNameArr.size() != aCsvFieldTypeArr.size())
+		{
+			LOG_FATAL("read ${STRUCT_NAME} failed. csvFieldNameNum:%d typeNum:%d", aCsvFieldNameArr.size(), aCsvFieldTypeArr.size());
+			return -1;
+		}
+		if (aCsvFieldNameArr.size() < fieldNameArr.size())
+		{
+			LOG_FATAL("invalid csv ${STRUCT_NAME}. numOfCol:%d,  need:%d", aCsvFieldNameArr.size(), fieldNameArr.size());
+			return -1;
+		}
+		int* mapStructFieldToCsvField = GetMapStructFieldToCsvField();
+		for (int i = 0; i < fieldNameArr.size(); i++)
+		{
+			mapStructFieldToCsvField[i] = -1;
+			for (int j = 0; j < aCsvFieldNameArr.size(); j++)
+			{
+				if (fieldNameArr[i] == aCsvFieldNameArr[j])
+				{
+					if ((fieldTypeArr[i] != aCsvFieldTypeArr[j]) && (fieldTypeArr[i] != "assetpath") && (fieldTypeArr[i] != "sceneconf[]"))
+					{
+						LOG_FATAL("read ${STRUCT_NAME} failed. field:%s type not match. code:%s csv:%s", fieldNameArr[i].c_str(), fieldTypeArr[i].c_str(), aCsvFieldTypeArr[i].c_str() );
+						return -1;
+					}
+					mapStructFieldToCsvField[i] = j;
+					break;
+				}
+			}
+			if (mapStructFieldToCsvField[i] < 0)
+			{
+				LOG_FATAL("read ${STRUCT_NAME} failed. not found field:%s in csv:%s", fieldNameArr[i].c_str(), vectorToString<string>(aCsvFieldNameArr).c_str());
+				return -1;
+			}
+		}
+		return 0;
+	}
+    int InitFromCsvRow(const vector<string>& aColArr )
+    {
+        if( aColArr.size() < ${FIELD_NUM} )
+        {
+            LOG_FATAL("invalid csv. numOfCol:%d,  need:${FIELD_NUM} ", aColArr.size());
+            return -1;
+        }
+		int* mapStructFieldToCsvField = GetMapStructFieldToCsvField();
+        ${FIELD_UNSERIALIZE}
+
+        return 0;
+    }
+
+    static const vector<string>& GetFieldNameArr()
+    {                
+        static vector<string> vectorFieldName({${FIELD_NAME_LIST}});
+        return vectorFieldName;
+    }
+    static const vector<string>& GetFieldTypeArr()
+    {        
+        static vector<string> vectorFieldType({${FIELD_TYPE_LIST}});
+        return vectorFieldType;
+    }
+	static int* GetMapStructFieldToCsvField()
+	{
+		static int mapStructFieldToCsvField[${FIELD_NUM}];
+		return mapStructFieldToCsvField;
+	}
+	const char* GetTypeIdName()
+	{
+		const type_info& info = typeid(${STRUCT_NAME});
+		return info.name();
+	}
+    ${FIELD_GET}
+
+private:
+	
+${FIELD_LIST}
+
+};
