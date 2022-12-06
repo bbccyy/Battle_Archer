@@ -12,7 +12,7 @@
 #include "net/BattleBase.pb.h"
 #include "net/Battle.pb.h"
 #include "net/BattleViewCmd.pb.h"
-#include "Path/PathFindingMgr.h"
+//#include "Path/PathFindingMgr.h"
 #include "Framework/KuhnMunkres.h"
 
 using std::string;
@@ -33,18 +33,6 @@ int FindSpotGroupId(const string& aName)
 	return gid;
 }
 
-SharedPtr<Unit> GetCounterpart(vector<SharedPtr<Unit>> tb, int i, bool nofoot)
-{
-	if (i <= 0) return tb[0];
-	if (i >= tb.size() || !tb[i] || (nofoot && tb[i]->WarRidingTid > 0))
-	{
-		return GetCounterpart(tb, i - 2, nofoot);
-	}
-	else
-	{
-		return tb[i];
-	}
-}
 /*
 local CalDist2 = function(A, B)
 	local dist2 = math.floor(math.abs(A.x * 10 - B.x * 10) + 0.01)^2 + math.floor(math.abs(A.z * 10 - B.z * 10) + 0.01)^2
@@ -56,6 +44,17 @@ int CalDist2(Vector3 A, Vector3 B)
 {
 	int dist2 = ((A.x - B.x) / DENOM) * ((A.x - B.x) / DENOM) + ((A.z - B.z) / DENOM) * ((A.z - B.z) / DENOM);
 	return -dist2;
+}
+
+
+DirectedPosition DirectedPosition::Create(const Vector3& aPos, const Vector3& aRot)
+{
+	DirectedPosition ret;
+	ret.mName = "Default";
+	ret.mPos.Set(aPos);
+	ret.mRot.Set(aRot);
+	ret.mGroupId = 0;
+	return ret;
 }
 
 DirectedPosition DirectedPosition::Create(const PbVector3_Int& aPos, const PbVector3_Int& aRot, const string& aName, int aIdx)
@@ -82,7 +81,6 @@ void RageSkillExecuteState::Reset()
     mUtilizer = nullptr;
     mUnpausedTargetArr.clear();
 }
-
 
 
 int BattleInstance::HpToRageNum = 0;
@@ -127,15 +125,16 @@ BattleInstance::BattleInstance()
     , mBornPointArr2(vector<DirectedPosition>(0))
     , mStandPointArr(vector<DirectedPosition>(0))
     , mCenterPointArr(vector<DirectedPosition>(0))
-    , mSummonPointArr1(vector<vector<DirectedPosition>>(0))
-    , mSummonPointArr2(vector<vector<DirectedPosition>>(0))
+    , mSummonPointArr1(vector<DirectedPosition>(0))
+    , mSummonPointArr2(vector<DirectedPosition>(0))
 	, BossAttributeAdd(vector<int64>(0))
     , mArmy1(SharedPtr<Army>(new Army(1, *this, *mView, *mPhysics, mBornPointArr1, mSummonPointArr1, mCenterPointArr)))
     , mArmy2(SharedPtr<Army>(new Army(2, *this, *mView, *mPhysics, mBornPointArr2, mSummonPointArr2, mCenterPointArr)))
     , mSkillCarrierArr(vector<SharedPtr<SkillCarrier> >(0))
     , mSkillExecCountMap(unordered_map<int, SkillCount>(0))
     , mRand(SharedPtr<MersenneTwister>(new MersenneTwister()))
-	, mPathMgr(new PathFindingMgr())
+	//, mPathMgr(new PathFindingMgr())
+	, mSceneMgr(new SceneManager())
 	, mNodeSize(50000)   //TODO: in conf
 {
 	LOG_DEBUG("BattleInstance created");
@@ -143,7 +142,8 @@ BattleInstance::BattleInstance()
 
 BattleInstance::~BattleInstance()
 {
-	delete mPathMgr;
+	//delete mPathMgr;
+	delete mSceneMgr;
 	//if (mWheelWarFieldSt) delete mWheelWarFieldSt;
 	mBattleEventDispatcher->Clear();
 	mRecordInputArr.clear();
@@ -161,35 +161,20 @@ void BattleInstance::RecordUserInput(int aEid, EBattleInput aEvent, int aData)
 	mRecordInputArr.emplace_back(TFieldInput());
 	mRecordInputArr.back().eid = static_cast<uint32>(aEid);
 	mRecordInputArr.back().event = (static_cast<uint32>(aEvent));
-	mRecordInputArr.back().fieldnum = (static_cast<uint32>(mCurField));
+	mRecordInputArr.back().fieldnum = (static_cast<uint32>(mSceneMgr->CurSceneId));
 	mRecordInputArr.back().frametime = (static_cast<uint32>(mFrameTime));
 	mRecordInputArr.back().data1 = (static_cast<uint32>(aData));
 	mRecordInputArr.back().index = (static_cast<uint32>(mUserInputIndex));
 	mUserInputIndex = mUserInputIndex + 1;
 }
 
-void BattleInstance::LoadGlobalConfig(bool aLoadAllFormula)
+void BattleInstance::LoadGlobalConfig()
 {
     //values from BattleConfig 
     auto* battleConf = ConfigMgr::GetConfById<ConfigBattleConfig>(1);
     auto& hpToRage = battleConf->GetHpToRage();
 	auto& sepCoef = battleConf->GetBattleSeparateCoef();
 	auto killToRage = battleConf->GetKillToRage();
-
-	auto& hpToRageNew = battleConf->GetNewBossHpRange();
-	int64 curHpBase = 0;
-	for (auto& rangeGrowth : hpToRageNew)
-	{
-		int loopNum = rangeGrowth[1];
-		int64 hpAdd = rangeGrowth[0];
-		int growth = rangeGrowth[2];
-		while (loopNum-- > 0)
-		{
-			curHpBase += hpAdd;
-			BossHpRange.emplace_back(curHpBase);
-			BossHpRangeGrowth.emplace_back(growth);
-		}
-	}
 
 	auto& attrLimit = battleConf->GetAttrLimit();
 	fill(ATTR_LIMITS.begin(), ATTR_LIMITS.end(), 0);
@@ -206,9 +191,6 @@ void BattleInstance::LoadGlobalConfig(bool aLoadAllFormula)
     BattleInstance::HpToRageDenom = hpToRage[1];
 	BattleInstance::KillToRage = killToRage;
     BattleInstance::GravityAccel = CONF_ACC_CONVERT_SEC(battleConf->GetDefaultDownAcceleration());
-	//BattleInstance::AvoidOverlapCoef1 = CONF_POS_CONVERT(sepCoef[0]);
-	//BattleInstance::AvoidOverlapCoef2 = CONF_POS_CONVERT(sepCoef[1]) + 20000;
-	//BattleInstance::AvoidOverlapCoef3 = CONF_POS_CONVERT(sepCoef[1]) + 20000 + CONF_POS_CONVERT(sepCoef[2]);
 	BattleInstance::AvoidOverlapCoef1 = 0;
 	BattleInstance::AvoidOverlapCoef2 = 60000;
 	BattleInstance::AvoidOverlapCoef3 = 80000;
@@ -229,11 +211,6 @@ void BattleInstance::LoadGlobalConfig(bool aLoadAllFormula)
 			ATTR_LIMITS_UP[oneAttr[0]] = oneAttr[1];
 		}
 	}
-
-    auto& destructableValues = battleConf->GetDestructiveValue();
-    DestructableObject::DamageBySkillValue = destructableValues[0];
-    DestructableObject::DamageByRageSkillValue = destructableValues[1];
-    DestructableObject::DamageBySkillMoveValue = destructableValues[2];	
 }
 
 int BattleInstance::GenerateEventKey(int aMajorKey, int aSubKey)
@@ -278,7 +255,8 @@ int BattleInstance::InitWithRetPbStr(const char* aBattleRes, int aBattleResLen)
 	TBattleArgs* pbMsg2 = new TBattleArgs;
 	pbMsg2->MergeFrom(pbMsg->battleargs());
 	delete pbMsg;
-	return InitWithPbObj(pbMsg2);
+	//return InitWithPbObj(pbMsg2);
+	return InitWithPbObjArcher(pbMsg2);
 }
 
 int BattleInstance::InitWithPbStr(const char* aBattleArgs, int aBattleArgsLen)
@@ -291,7 +269,8 @@ int BattleInstance::InitWithPbStr(const char* aBattleArgs, int aBattleArgsLen)
 		return -1;
 	}
 
-	return InitWithPbObj(pbMsg);
+	//return InitWithPbObj(pbMsg);
+	return InitWithPbObjArcher(pbMsg);
 }
 
 void BattleInstance::SetRandSeed(int aSeed)
@@ -299,6 +278,37 @@ void BattleInstance::SetRandSeed(int aSeed)
 	mRand->init_genrand(aSeed);
 }
 
+int BattleInstance::InitWithPbObjArcher(TBattleArgs* aPbMsg)
+{
+	mArgs = SharedPtr<TBattleArgs>(aPbMsg);
+	mIsPVE = true;
+	mBattleId = mArgs->battleid();
+	mBattleStarter = mArgs->battlestarter();
+	mAuto = false;
+	mAIPath = true;
+	mVFrameTimeRemain = 0;
+	mFrameTime = 0;
+	mGameTime = 0;
+	mArmy1DyingEnd = 0;
+	mArmy2DyingEnd = 0;
+	mNeedDoStatistics = false;
+
+	mSceneMgr->InitSceneManager(aPbMsg);
+
+	mView->Init(*this);
+
+	LOG_INFO("randomseed %u", mArgs->randomseed());
+	mRand->init_genrand(mArgs->randomseed());
+
+	mArmy1Index = -1;
+	mArmy2Index = -1;
+	mRageSkillMaskArmy = nullptr;
+
+	InitFsm();
+	InitNextFieldArcher();
+
+	return 0;
+}
 
 int BattleInstance::InitWithPbObj(TBattleArgs* aPbMsg)
 {
@@ -319,17 +329,8 @@ int BattleInstance::InitWithPbObj(TBattleArgs* aPbMsg)
 	//mBattleStarter = pb::EBattleStarter::EBattleCrossCollaborate;  // TODO: DONT FORGET TO DELETE IT! 
 	if (mBattleStarter == pb::EBattleStarter::EBattleBoss)
 	{
-		mIsNoBlackScreen = true;
+		//mIsNoBlackScreen = true;
 	}
-	if (IsGroupKnockOut())
-	{
-		mTotalRound = mArgs->army1arr_size();
-		if (mTotalRound > mArgs->army2arr_size())
-			mTotalRound = mArgs->army2arr_size();
-		mArmy1WinCt = 0;
-		mArmy2WinCt = 0;
-	}
-
 
 	mAuto = mArgs->extraoption().needauto();
 	mAIPath = true;
@@ -346,7 +347,7 @@ int BattleInstance::InitWithPbObj(TBattleArgs* aPbMsg)
 	mNeedDoStatistics = mArgs->extraoption().needdostatistics();
 	//mNeedDoStatistics = true;
 
-    //values from SceneEditor 
+    //values from SceneEditor  <---
     const string* lastConfName = nullptr;
     const SceneConf3d* sceneConf;
     mFieldConfArr.reserve(aPbMsg->sceneconf_size());
@@ -366,11 +367,11 @@ int BattleInstance::InitWithPbObj(TBattleArgs* aPbMsg)
         mFieldConfArr.push_back(sceneConf->fieldconfarr(conf.confindex()));
         mTimeLimitArr.push_back(conf.timelimit() * MS_OF_SEC);
     }
-    mTotalField = static_cast<int>(mFieldConfArr.size());
-    mCurField = 0;
+    //mSceneMgr->TotalFieldNum = static_cast<int>(mFieldConfArr.size());
+    //mSceneMgr->CurSceneId = 0;
 
-    if (mTotalField <= 0) {
-		LOG_FATAL("mTotalField{%d} <= 0", mTotalField);
+    if (mSceneMgr->TotalFieldNum <= 0) {
+		LOG_FATAL("mSceneMgr->TotalFieldNum{%d} <= 0", mSceneMgr->TotalFieldNum);
         return -1;
     }
 
@@ -381,8 +382,8 @@ int BattleInstance::InitWithPbObj(TBattleArgs* aPbMsg)
     InitFsm();
     InitNextField();
 	
-	ResetTimelimit(mTimeLimitArr[mCurField]);
-	mCurField = mCurField + 1;
+	ResetTimelimit(mTimeLimitArr[mSceneMgr->CurSceneId]);
+	//mSceneMgr->CurSceneId = mSceneMgr->CurSceneId + 1;
 
     return 0;
 }
@@ -430,25 +431,6 @@ bool BattleInstance::CondiBattleEnd(bool)
     return false;
 }
 
-bool BattleInstance::IsWheelWar() const
-{
-	if (mBattleStarter == pb::EBattleStarter::EBattleMajor3v3 || 
-		mBattleStarter == pb::EBattleStarter::EBattleCrossLevySuperBoss || 
-		mBattleStarter == pb::EBattleStarter::EBattleBigHunt)
-	{
-		return true;
-	}
-	return false;
-}
-bool BattleInstance::IsGroupKnockOut() const
-{
-	if (mBattleStarter == pb::EBattleStarter::EBattleMajorGroupingKnockoutMatch)
-	{
-		return true;
-	}
-	return false;
-}
-
 
 //satisfied iff current Army2 is Eliminated AND there are Fields or Other Army2s haven't been reached
 //inside this Condi, it will DoTransition to BattleEnd State when it's OK to do so and return False
@@ -456,7 +438,7 @@ bool BattleInstance::CondiCurrentFieldEnd(bool)
 {
 	if (mArmy2->ConditionIsEliminated(mBattleStarter) && mTimeExtra == 0)
     { //if somebody has set extra time, it's behaviour condi and should wait to timeup 
-        if (mCurField >= mTotalField || mArmy2Index + 1 >= mArgs->army2arr_size())
+        if (!mSceneMgr->HasNextScene() || mArmy2Index + 1 >= mArgs->army2arr_size())
         { //if no more field or no more enemy, victory
             mBattleResult = EBattleResult::Victory;
             mFsm->DoTransition(mTransBattleEnd);
@@ -502,11 +484,55 @@ void BattleInstance::ActionEnterCutscene()
 		mSkillCarrierArr[i]->Cancel();
 	}
 	mSkillCarrierArr.clear();
-    InitNextField();
+    //InitNextField();
+	InitNextFieldArcher();
     //mView->Execute(ViewCommand::Cutscene);
-	ResetTimelimit(mTimeLimitArr[mCurField]);
-	mCurField = mCurField + 1;
+	ResetTimelimit(mTimeLimitArr[mSceneMgr->CurSceneId]);
+	//mSceneMgr->CurSceneId = mSceneMgr->CurSceneId + 1;
 }
+
+void BattleInstance::InitNextFieldArcher()
+{
+	mSceneMgr->InitNextField();
+
+	mBornPointArr1.clear();
+	mBornPointArr2.clear();
+	mStandPointArr.clear();
+	mCenterPointArr.clear();
+	mSummonPointArr1.clear();
+	mSummonPointArr2.clear();
+
+	mBornPointArr1.push_back(DirectedPosition::Create(mSceneMgr->mCurBornPoint, SceneManager::defaultPositiveDir));
+
+	for (int i = 0; i < mSceneMgr->mCurStandPointArr.size(); ++i)
+	{
+		auto pos = mSceneMgr->mCurStandPointArr[i];
+		mBornPointArr1.push_back(DirectedPosition::Create(pos, SceneManager::defaultNegtiveDir));
+		mStandPointArr.push_back(DirectedPosition::Create(pos, SceneManager::defaultNegtiveDir));
+		mCenterPointArr.push_back(DirectedPosition::Create(pos, SceneManager::defaultNegtiveDir));
+		mSummonPointArr1.push_back(DirectedPosition::Create(pos, SceneManager::defaultPositiveDir));
+		mSummonPointArr2.push_back(DirectedPosition::Create(pos, SceneManager::defaultNegtiveDir));
+	}
+
+	//refresh eliminated army 
+	int eliminated = -1;			//第一场是-1，后续场一律为Army2的Id 
+	if (mSceneMgr->CurSceneId > 0) 
+		eliminated = mArmy2->GetId(); 
+
+	if (mArmy1->IsEliminated())
+	{
+		++mArmy1Index;	//该数值初始时为 -1 
+		InitArmyWith(mArmy1, mArgs->army1arr(mArmy1Index));
+	}
+	if (mArmy2->IsEliminated())
+	{
+		++mArmy2Index;
+		InitArmyWith(mArmy2, mArgs->army2arr(mArmy2Index));
+	}
+	//field init done
+	mView->Execute(ViewCommand::FieldInit, *mArmy1.Get(), *mArmy2.Get(), eliminated);
+}
+
 
 // load Battle_Area: adjusted point list as outline
 // load Spawn Point for both Army, set Stand Point
@@ -515,7 +541,7 @@ void BattleInstance::ActionEnterCutscene()
 void BattleInstance::InitNextField()
 {
     //get next field conf
-    mFieldConf = &mFieldConfArr[mCurField];
+    mFieldConf = &mFieldConfArr[mSceneMgr->CurSceneId];
     auto& rootPos = mFieldConf->rootposition();
     //refresh field boundary array
     mFieldAreaPointArr.clear();
@@ -652,13 +678,13 @@ void BattleInstance::InitNextField()
 		{
 			mNodeSize = mStripD / 2; 
 		}
-		mPathMgr->InitMap(2 * xMax, 2 * zMax, Vector2(mNodeSize, mNodeSize), Vector2(0, 0));
-		mPathMgr->ApplyBoundaryNodes(boundaryArr);
+		//mPathMgr->InitMap(2 * xMax, 2 * zMax, Vector2(mNodeSize, mNodeSize), Vector2(0, 0));
+		//mPathMgr->ApplyBoundaryNodes(boundaryArr);
 		for (auto& subBlock : blockArea)
 		{
-			mPathMgr->ApplyBlockArea(subBlock);
+			//mPathMgr->ApplyBlockArea(subBlock);
 		}
-		mPathMgr->mJustNavigate = true;  //NPC 寻路不考虑 PresetLocation (地表涂鸦) 
+		//mPathMgr->mJustNavigate = true;  //NPC 寻路不考虑 PresetLocation (地表涂鸦) 
 	}
     //refresh born points
     mBornPointArr1.clear();
@@ -692,7 +718,7 @@ void BattleInstance::InitNextField()
 		}
 		else if (point.elementtype() == SUM_SPOT)
 		{
-			const string& name = point.name();
+			/*const string& name = point.name();
 			int gid = FindSpotGroupId(name);
 			auto& spArr = GetSumSpotArrByName(name);
 			int s = spArr.size();
@@ -705,7 +731,7 @@ void BattleInstance::InitNextField()
 				}
 			}
 			auto& tmp = spArr[gid];
-			tmp.push_back(DirectedPosition::Create(point.position(), point.direction(), name));
+			tmp.push_back(DirectedPosition::Create(point.position(), point.direction(), name));*/
 		}
     }
 
@@ -714,20 +740,19 @@ void BattleInstance::InitNextField()
 
     //refresh eliminated army
     int eliminated = -1;
-	bool isGroupMatch = IsGroupKnockOut(); 
-    if (mArmy1->IsEliminated() || isGroupMatch)
+    if (mArmy1->IsEliminated() )
     {
 		eliminated = mArmy1->GetId();
-		if (isGroupMatch && !mArmy1->IsEliminated())
+		if (!mArmy1->IsEliminated())
 			eliminated = -1;  //-1
         ++mArmy1Index;
         InitArmyWith(mArmy1, mArgs->army1arr(mArmy1Index));
     }
-    if (mArmy2->IsEliminated() || isGroupMatch)
+    if (mArmy2->IsEliminated())
     {
 		if (eliminated < 0)
 		{ //army1 is alived at least
-			if (isGroupMatch && !mArmy2->IsEliminated())
+			if (!mArmy2->IsEliminated())
 			{ //in gourp match, if army2 is also alived, set army1 lose
 				eliminated = mArmy1->GetId();
 			}
@@ -736,7 +761,7 @@ void BattleInstance::InitNextField()
 				eliminated = mArmy2->GetId();
 			}
 		}
-		else if (!isGroupMatch)
+		else
 		{ //both army eliminated == uninitialized armies	
 			eliminated = -1; 
 		}
@@ -764,7 +789,7 @@ void BattleInstance::InitNextField()
 
 
 // hooked on EnterField State as OnEnter method
-// maintain mVariables like: mCurFieldNum, TimeLimit
+// maintain mVariables like: mSceneMgr->CurSceneIdNum, TimeLimit
 // run Army->OnEnterField
 // DoTrans from EnterField State to Normal State
 void BattleInstance::ActionEnterNextField()
@@ -803,8 +828,8 @@ bool BattleInstance::ActionTickNormal(int aFrameDelta)
 	mFrameTime += mFixedFrameDelta;
 	mGameTime += mFixedFrameDelta;
 
-	mArmy1->TryExecuteArmySkill(mGameTime, mCurField);
-	mArmy2->TryExecuteArmySkill(mGameTime, mCurField);
+	mArmy1->TryExecuteArmySkill(mGameTime, mSceneMgr->CurSceneId);
+	mArmy2->TryExecuteArmySkill(mGameTime, mSceneMgr->CurSceneId);
     mTimerMgr->OnTick(mFrameTime);
 	mArmy1->OnTick(aFrameDelta);
 	mArmy2->OnTick(aFrameDelta);
@@ -824,9 +849,7 @@ bool BattleInstance::ActionTickNormal(int aFrameDelta)
     }
 
     //timeup
-    if (!IsWheelWar() &&
-		!IsGroupKnockOut() &&
-		mGameTime >= mTimeLimit + mTimeExtra)
+    if (mGameTime >= mTimeLimit + mTimeExtra)
     {
 		mBattleResult = EBattleResult::Timeup;
 		mFsm->DoTransition(mTransBattleEnd);
@@ -882,66 +905,15 @@ void BattleInstance::ActionExitRageInput()
     }
 }
 
-void BattleInstance::RecordUnitStatus(const SharedPtr<Unit>& aUnit, TUnitWheelWarRecord* aPbData)
-{
-	aPbData->set_hid(aUnit->GetHeroId());
-	aPbData->set_damagein(aUnit->GetDamageInTotal());
-	aPbData->set_damageout(aUnit->GetDamageOutTotal());
-	aPbData->set_healout(aUnit->GetHealOutTotal());
-	aPbData->set_curhp(aUnit->GetHp());
-	aPbData->set_maxhp(aUnit->GetMaxHp());
-	aPbData->set_currage(aUnit->GetRage());
-	aPbData->set_htid(aUnit->GetTplId());
-	aPbData->set_star(aUnit->GetStar());
-	aPbData->set_level(aUnit->GetLevel());
-}
-
 void BattleInstance::RecordFieldStatus()
 {
-	if (!IsWheelWar()) return;
-
-	if (mWheelWarFieldSt == nullptr)
-	{
-		mWheelWarFieldSt = new TWheelWarFieldStatus;
-		return;
-	}
-
-	TFieldWheelWarRecord* fieldRecord = mWheelWarFieldSt->add_fieldrecordarr();
-
-	auto& unitArr1 = mArmy1->GetUnitArr();
-	TArmyWheelWarRecord* pbArmy1 = new TArmyWheelWarRecord;
-	TUnitWheelWarRecord* unitInfo;
-	pbArmy1->set_armyid(1);
-	for (auto& unit : unitArr1)
-	{
-		if (!unit->IsSummoned() && !unit->IsDummy())
-		{
-			unitInfo = pbArmy1->add_unitarr();
-			RecordUnitStatus(unit, unitInfo);
-		}
-	}
-
-	auto& unitArr2 = mArmy2->GetUnitArr();
-	TArmyWheelWarRecord* pbArmy2 = new TArmyWheelWarRecord;
-	pbArmy2->set_armyid(2);
-	for (auto& unit : unitArr2)
-	{
-		if (!unit->IsSummoned() && !unit->IsDummy())
-		{
-			unitInfo = pbArmy2->add_unitarr();
-			RecordUnitStatus(unit, unitInfo);
-		}
-	}
-
-	fieldRecord->set_fieldindex(mCurField);
-	fieldRecord->set_allocated_army1(pbArmy1);
-	fieldRecord->set_allocated_army2(pbArmy2);
+	return;
 }
 
 void BattleInstance::InitArmyWith(const SharedPtr<Army>& aArmy, const TArmyInfo& aArmyConf)
 {
-	if (mCurField > 0)
-		aArmy->RecordUnitInfo();
+	if (mSceneMgr->CurSceneId > 0)
+		aArmy->RecordUnitInfo();   //可保留 
     aArmy->Clear();
     aArmy->AddUnitByConf(aArmyConf);
 	aArmy->LoadArmySkills(aArmyConf);
@@ -975,7 +947,7 @@ TBattleResult* BattleInstance::ReportResultPb(bool aNeedCMD)
 	mResult = result;
 	hasReported = true;
 	result->set_battletime(mGameTime);
-	result->set_screenindex(mCurField);
+	result->set_screenindex(mSceneMgr->CurSceneId);
 	TBattleArgs* args = new TBattleArgs;//will be managed by TBattleResult after "result.set_allocated_battleargs(args);"
 	args->CopyFrom(*mArgs);
 
@@ -1064,11 +1036,6 @@ TBattleResult* BattleInstance::ReportResultPb(bool aNeedCMD)
 		}
 	}
 
-	if (mWheelWarFieldSt)
-	{
-		result->set_allocated_wheelwarfieldstatus(mWheelWarFieldSt);
-	}
-
 	return result;
 }
 
@@ -1081,7 +1048,6 @@ string BattleInstance::ReportResult()
 	string retStr = result->SerializePartialAsString();
 	mResult = nullptr;
 	delete result;
-	//if (mWheelWarFieldSt) delete mWheelWarFieldSt;
 	return retStr;
 }
 
@@ -1531,9 +1497,9 @@ void BattleInstance::OnVTick(double aDeltaTimeS)
     mVFrameTimeRemain += static_cast<int>(aDeltaTimeS * FRAME_TIME_SCALE+0.5); 
     while (mVFrameTimeRemain >= mFixedFrameDelta)
     {
-		auto beforeFieldIndex = mCurField;
+		auto beforeFieldIndex = mSceneMgr->CurSceneId;
         OnTick();
-		if (mCurField > beforeFieldIndex)
+		if (mSceneMgr->CurSceneId > beforeFieldIndex)
 			return;
         mVFrameTimeRemain -= mFixedFrameDelta;
     }
@@ -1555,14 +1521,6 @@ void BattleInstance::RunBattleToEnd()
 	}
 }
 
-//void BattleInstance::OnTickMeleeRingMgr()
-//{
-//	auto& allUnits = GetAllActiveUnits();
-//	for (auto unit : allUnits)
-//	{
-//		unit->TickMeleeRingMgr(allUnits);
-//	}
-//}
 
 void BattleInstance::DispatchEvent(int aKey, int aArmyId, int aEntityId, int64 aReg0, int64 aReg1, int64 aReg2)
 {
@@ -1686,7 +1644,7 @@ Army& BattleInstance::GetArmy(int aArmyId)
 PathFindingMgr* BattleInstance::GetPathMgr()
 {
 	if (mAIPath)
-		return mPathMgr;
+		return mSceneMgr->mPathMgr;
 	return nullptr;
 }
 
@@ -1709,34 +1667,6 @@ bool BattleInstance::RestrainWithBlockLines(const Vector3& aStart, const Vector3
 	return false;
 }
 
-void BattleInstance::CheckDestructable(const Agent* aAgent, const Vector3& aPos, const Unit* aUtilizer)
-{
-	if (aAgent == nullptr)
-	{
-		return;
-	}
-    vector<SharedPtr<Entity>> result;
-    mPhysics->IntersectionTest2D(PHYSICS_GROUP_DESTRUCTABLE, aAgent, &aPos, result);
-    for (auto& dest : result)
-    {
-        dynamic_cast<DestructableObject*>(dest.Get())->DamageByMove(aUtilizer);
-    }
-}
-
-void BattleInstance::CheckDestructable(Region* aRegion, const Unit* aUtilizer, const Skill* aSkill)
-{
-    vector<Entity*> result;
-    auto& group = mPhysics->GetAgentGroup(PHYSICS_GROUP_DESTRUCTABLE);
-    for (auto& dest : group) {
-        if (CollisionDetectionRegionWithBV(aRegion, dest->GetBV())) {
-            result.push_back(dest->GetEntity().Get());
-        }
-    }
-    for (auto* dest : result)
-    {
-        dynamic_cast<DestructableObject*>(dest)->DamageBySkill(aUtilizer, aSkill);
-    }
-}
 
 int BattleInstance::BehaviourSelectUnitByHp(int aArmyId, int aCheckMost)
 {    
@@ -2356,7 +2286,7 @@ int BattleInstance::GetGameTime() const
 
 int BattleInstance::GetCurField() const
 {
-	return mCurField;
+	return mSceneMgr->CurSceneId;
 }
 
 bool BattleInstance::NeedDoStatistics() const
@@ -2598,14 +2528,7 @@ void BattleInstance::TriggerDamageCopy(int64 aDamage, int aSourceUtilizerId, int
 {
 
 }
-vector<vector<DirectedPosition>>& BattleInstance::GetSumSpotArrByName(const string& aName)
-{
-	if (aName[0] == 'S')
-	{
-		return mSummonPointArr1;
-	}
-	return mSummonPointArr2;
-}
+
 vector<DirectedPosition>& BattleInstance::GetArmy1BornPointArr()
 {
 	return mBornPointArr1;

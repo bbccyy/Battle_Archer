@@ -23,6 +23,7 @@
 #include "BattleInstance.h"
 #include "Log/Log.h"
 #include "Framework/Util.h"
+#include "Framework/Physics/Region.h"
 
 
 int partitionUnit(vector<Unit*>& aArr, int aLeft, int aRight)
@@ -1999,7 +2000,7 @@ void SearchEffTargetUnit(const SharedPtr<Unit>& aUtilizer, const SharedPtr<Skill
             circle.radius = CONF_POS_CONVERT( skillEffectConf.effectparam1() + (skillLevel - 1) * skillEffectConf.levelrangegrowth());
 			circle.selfSize = aUtilizer->GetSize();
             FilterByRegion(aInputArr, &circle);
-            battleInstance.CheckDestructable(&circle, aUtilizer.Get(), aSkill.Get());
+            //battleInstance.CheckDestructable(&circle, aUtilizer.Get(), aSkill.Get());
             break;
         }            
         case ESearchEffTargetRegionSector:
@@ -2018,7 +2019,7 @@ void SearchEffTargetUnit(const SharedPtr<Unit>& aUtilizer, const SharedPtr<Skill
             sector.angle = skillEffectConf.effectparam2();
 			sector.selfSize = aUtilizer->GetSize();
             FilterByRegion(aInputArr, &sector);
-            battleInstance.CheckDestructable(&sector, aUtilizer.Get(), aSkill.Get());
+            //battleInstance.CheckDestructable(&sector, aUtilizer.Get(), aSkill.Get());
             break;
         }
         case ESearchEffTargetRegionAnnulus:
@@ -2030,7 +2031,7 @@ void SearchEffTargetUnit(const SharedPtr<Unit>& aUtilizer, const SharedPtr<Skill
             annulus.radius2 = CONF_POS_CONVERT( skillEffectConf.effectparam2() + (skillLevel - 1) * skillEffectConf.levelrangegrowth());
 			annulus.selfSize = aUtilizer->GetSize();
             FilterByRegion(aInputArr, &annulus);
-            battleInstance.CheckDestructable(&annulus, aUtilizer.Get(), aSkill.Get());
+            //battleInstance.CheckDestructable(&annulus, aUtilizer.Get(), aSkill.Get());
             break;
         }
         case ESearchEffTargetRegionRectangle:
@@ -2052,7 +2053,7 @@ void SearchEffTargetUnit(const SharedPtr<Unit>& aUtilizer, const SharedPtr<Skill
             rectangle.center += forward;
 			rectangle.selfSize = aUtilizer->GetSize();
             FilterByRegion(aInputArr, &rectangle);
-            battleInstance.CheckDestructable(&rectangle, aUtilizer.Get(), aSkill.Get());
+            //battleInstance.CheckDestructable(&rectangle, aUtilizer.Get(), aSkill.Get());
             break;
         }
     }

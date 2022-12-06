@@ -1,4 +1,4 @@
-
+#pragma once
 #include "PathDefine.h"
 
 class Path;
@@ -18,6 +18,9 @@ public:
 
 	//makr nodes on area given by vector
 	void ApplyBlockArea(vector<Vector2>& aVec);
+
+	//input arr contains a list of valid GridMap Tile's index 
+	void ApplyBlockAreaManually(vector<int>& aIndexArr);
 
 	//called by Maneuver module, trigger a new path finding process 
 	void StartPath(int aEntityId, Vector2 aStartPos, Vector2 aTargetPos, int64 aCastRange);

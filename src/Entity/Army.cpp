@@ -52,7 +52,7 @@ void QuickSort(vector<Unit*>& v, int low, int high, int army)
 	}
 }
 
-Army::Army(int aId, BattleInstance& aBattle, BattleViewOutput& aView, PhysicsSystem& aPhysics, const vector<DirectedPosition>& aBornPoints, const vector<vector<DirectedPosition>>& aSummonPoints, const vector<DirectedPosition>& aCenterPoints)
+Army::Army(int aId, BattleInstance& aBattle, BattleViewOutput& aView, PhysicsSystem& aPhysics, const vector<DirectedPosition>& aBornPoints, const vector<DirectedPosition>& aSummonPoints, const vector<DirectedPosition>& aCenterPoints)
     : mId(aId)
     , mBattle(aBattle)
     , mView(aView)
@@ -211,6 +211,18 @@ SharedPtr<Unit> Army::AddUnit(int const aTplId, int const aLevel, int aAdvLv, in
     return ret;
 }
 
+SharedPtr<Unit> Army::AddPet(const TUnitInfo& aUnitInfo)
+{
+	//TODO 
+	return nullptr;
+}
+
+SharedPtr<Unit> Army::AddHero(const TUnitInfo& aUnitInfo)
+{
+	//TODO 
+	return nullptr;
+}
+
 //overloading method with a simple pb::TUnitInfo parameter
 SharedPtr<Unit> Army::AddUnit(const TUnitInfo& aUnitInfo)
 {
@@ -303,9 +315,24 @@ void Army::LoadArmySkills(const TArmyInfo& aArmyConf)
 //add multi Units by method AddUnit
 void Army::AddUnitByConf(const TArmyInfo& aArmyConf)
 {
+	bool first = true;
     for (const TUnitInfo& conf : aArmyConf.unitarr())
     {
-        AddUnit(conf);
+		if (mId == 2)
+			AddUnit(conf);	//Army2 正常添加 
+		else
+		{
+			if (first)
+			{
+				AddHero(conf);	//Army1 的第一个默认是英雄 
+				first = false;
+			}
+			else
+			{
+				AddPet(conf);	//后面的默认是随从 
+			}
+		}
+			
     }
 }
 
@@ -888,46 +915,28 @@ vector<SharedPtr<Unit>> Army::GetUnitByProfession(int aProfession, bool aNeedDea
 
 int Army::GetSummonPointNum(int aGroupId) const
 {
-	if (aGroupId >= mSummonPoints.size())
-	{
-		LOG_WARN("unable to find correct summon point for gid %d", aGroupId);
-		aGroupId = 0;
-	}
-	return mSummonPoints[aGroupId].size();
+	return mSummonPoints.size();
 }
 
 const DirectedPosition& Army::GetSummonPointByIndex(int aIndex, int aGroupId) const
 {
-	if (aGroupId >= mSummonPoints.size())
+	if (aIndex >= mSummonPoints.size())
 	{
-		/*LOG_WARN("unable to find correct summon point for gid %d", aGroupId);
-		aGroupId = 0;*/
 		return BattleInstance::mDefaultDirectedPosition;
 	}
-	if (aIndex >= mSummonPoints[aGroupId].size())
-	{
-		//LOG_FATAL("cant found SummonPoints Idx:%d, only has size:%d", aIndex, mSummonPoints.size());
-		//return mSummonPoints[aGroupId][0];//log_fatal will throw exception 
-		return BattleInstance::mDefaultDirectedPosition;
-	}
-	return mSummonPoints[aGroupId][aIndex];
+	return mSummonPoints[aIndex];
 }
 
 const DirectedPosition& Army::GetSummonPointByRand(int aGroupId) const
 {
-	if (aGroupId >= mSummonPoints.size())
-	{
-		LOG_WARN("unable to find correct summon point for gid %d", aGroupId);
-		aGroupId = 0;
-	}
-	int size = mSummonPoints[aGroupId].size();
+	int size = mSummonPoints.size();
 	if (size <= 0)
 	{
 		LOG_WARN("SummonPoints is empty");
 		return BattleInstance::mDefaultDirectedPosition;
 	}
 	int idx = mBattle.Rand(size);
-	return mSummonPoints[aGroupId][idx];
+	return mSummonPoints[idx];
 }
 
 void Army::OnBehaviourPause(bool aPause)

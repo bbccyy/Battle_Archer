@@ -26,9 +26,8 @@
 #include "module/BuffData.pb.h"
 #include "Framework/Transform.h"
 #include "Entity/DestructableObject.h"
-#include "Framework/Physics/Region.h"
 #include "Framework/EventDispatcher.h"
-#include "Formula/Formula.h"
+#include "SceneMgr/SceneManager.h"
 #include <ctime>
 
 
@@ -55,8 +54,6 @@ namespace pb
 	class TUnitInfo;
 	class TSkillCount;
 	class TSkillCountInfo;
-	class TWheelWarFieldStatus;
-	class TUnitWheelWarRecord;
 	class TWheelWarRidingInfo;
 }
 using pb::SceneConf3d;
@@ -75,8 +72,6 @@ using pb::TBattleFieldInput;
 using pb::TUnitInfo;
 using pb::TSkillCount;
 using pb::TSkillCountInfo;
-using pb::TWheelWarFieldStatus;
-using pb::TUnitWheelWarRecord;
 using pb::TWheelWarRidingInfo;
 
 class MersenneTwister;
@@ -132,6 +127,7 @@ public:
 	{
 	};
 	static DirectedPosition Create(const PbVector3_Int&, const PbVector3_Int&, const string&, int aIdx = 0);
+	static DirectedPosition Create(const Vector3&, const Vector3&);
 public:
 	Vector3 mPos;
 	Vector3 mRot;
@@ -230,7 +226,7 @@ public:
 	// exposure the methond for lua using
 	void RecordUserInput(int aEid, EBattleInput aEvent, int aData = 0) ;
 
-	static void LoadGlobalConfig(bool aLoadAllFormula);
+	static void LoadGlobalConfig();
 	static int GenerateEventKey(int aMajorKey, int aSubKey = 0);
 	bool TickEnterField(double aDeltaTimeS);
     void OnVTick(double aDeltaTimeS);// (variable framerate)Tick
@@ -244,6 +240,7 @@ public:
     
 	void SetRandSeed(int);
 
+	int InitWithPbObjArcher(TBattleArgs* aPbMsg);
 	int InitWithPbObj(TBattleArgs* aPbMsg);
     int InitWithPbStr(const char* aBattleArgs, int aBattleArgsLen);
 	int InitWithRetPbStr(const char* aBattleRes, int aBattleResLen);
@@ -278,8 +275,6 @@ public:
 	const Army& GetEnemyArmy(int aEntityId) const;
     bool RestrainToBattleArea(const Vector3&, const Vector3&, int, Vector3*);
     bool RestrainWithBlockLines(const Vector3&, const Vector3&, int, Vector3*);
-    void CheckDestructable(const Agent* aAgent, const Vector3& aPos, const Unit* aUtilizer);
-    void CheckDestructable(Region* aRegion, const Unit* aUtilizer, const Skill* aSkill);
 	void TryResetDying();
 
     int BehaviourSelectUnitByHp(int aArmyId, int aCheckMost);
@@ -328,7 +323,7 @@ public:
 	void TriggerDamageCopy(int64 aDamage, int aSourceUtilizerId, int buffId);
 	void TryGetSkillsFromArgs(vector<int>& aSkills, int aTplId, int aArmyId);
 	vector<DirectedPosition>& GetArmy1BornPointArr();
-	vector<vector<DirectedPosition>>& GetSumSpotArrByName(const string&);
+	//vector<vector<DirectedPosition>>& GetSumSpotArrByName(const string&);
 	int GetBossGrowthLevel(int aArmyId);
 
 	SharedPtr<Unit> GetOneRandomUnit(int aMyArmy, int aWhichArmy, int aExcludeId);
@@ -361,10 +356,13 @@ private:
     SharedPtr<Fsm> mFsm;
     SharedPtr<TBattleArgs> mArgs;
 
-	PathFindingMgr* mPathMgr = nullptr;
+	//PathFindingMgr* mPathMgr = nullptr;
+
+	SceneManager* mSceneMgr = nullptr;
+
 	int64 mNodeSize = 50000;
 	
-	bool mIsNoBlackScreen = false;
+	//bool mIsNoBlackScreen = false;
 
     bool mIsPVE = false;
     bool mIsSLG = false;
@@ -376,7 +374,7 @@ private:
 	int mArmy2WinCt = 0;
 	int mTotalRound = 0;
     SharedPtr<BattleViewOutput> mView;
-    int mTotalField;
+    //int mSceneMgr->TotalFieldNum;
     EBattleResult mBattleResult;
     vector<FieldConf3> mFieldConfArr;
     vector<uint32> mTimeLimitArr;
@@ -407,17 +405,16 @@ private:
 
     int mTimeLimit;
 	int mTimeExtra;
-    int mCurField;
+    //int mSceneMgr->CurSceneId;
     FieldConf3* mFieldConf;
-	TWheelWarFieldStatus* mWheelWarFieldSt = nullptr;
     SharedPtr<Army> mArmy1;
     SharedPtr<Army> mArmy2;
     vector<DirectedPosition> mBornPointArr1;
     vector<DirectedPosition> mBornPointArr2;
     vector<DirectedPosition> mStandPointArr;
     vector<DirectedPosition> mCenterPointArr;
-	vector<vector<DirectedPosition>> mSummonPointArr1;
-	vector<vector<DirectedPosition>> mSummonPointArr2;
+	vector<DirectedPosition> mSummonPointArr1;
+	vector<DirectedPosition> mSummonPointArr2;
     vector<SharedPtr<SkillCarrier> > mSkillCarrierArr;
     unordered_map<int, SkillCount> mSkillExecCountMap;
     vector<SharedPtr<DestructableObject>> mDestructableArr;
@@ -444,7 +441,6 @@ private:
     void InitFsm();
     void InitArmyWith(const SharedPtr<Army>&, const TArmyInfo&);
     void RecordFieldStatus();
-	void RecordUnitStatus(const SharedPtr<Unit>&, TUnitWheelWarRecord*);
     void ActionEnterError();
     void ActionEnterCutscene();
     void ActionEnterNextField();
@@ -458,6 +454,7 @@ private:
 	//void OnTickMeleeRingMgr();
 
     void InitNextField();
+    void InitNextFieldArcher();
 
     void PauseUnitWhenSomeoneStartRageSkill(SharedPtr<Army>, Unit*);
     void WhenSomeoneStartRageSkill(RageSkillExecuteState*);
@@ -468,8 +465,5 @@ private:
 	void FillSkillInfo(TUnitStatistics*, Unit*) const;
 	void FillSkillSingle(TUnitStatistics*, Skill*) const;
 	void LoadBossGrowthAttr();
-
-	bool IsWheelWar() const;
-	bool IsGroupKnockOut() const;
 
 };

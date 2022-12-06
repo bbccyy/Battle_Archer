@@ -48,7 +48,8 @@ void GridMap::ReInit(int64 aWidth, int64 aLength, const Vector2& aNodeSize, cons
 
 	mCommonNativeCost = aNodeSize.x * 7;
 	mBlockNativeCost = mCommonNativeCost * 100;
-	InitBoundaryNodes();
+
+	//InitBoundaryNodes();	
 	InitNeighbourSetting();
 
 	mHasInited = true;
@@ -226,6 +227,18 @@ void GridMap::InitBoundaryNodes()
 	{
 		AddNode(j * mColNum - 1, mColNum - 1, j - 1, right);
 		AddNode((j - 1) * mColNum, 0, j - 1, left);
+	}
+}
+
+void GridMap::ApplyBlockAreaManually(vector<int>& aIndexArr)
+{
+	for (auto idx : aIndexArr)
+	{
+		auto node = GetOrInitNode(idx);
+		if (node)
+		{
+			node->AddNativeCost(mBlockNativeCost);
+		}
 	}
 }
 

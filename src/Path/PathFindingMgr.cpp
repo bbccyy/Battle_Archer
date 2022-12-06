@@ -58,6 +58,11 @@ Path * PathFindingMgr::GetOrInitPath(int aEntityId)
 	return path;
 }
 
+void PathFindingMgr::ApplyBlockAreaManually(vector<int>& aIndexArr)
+{
+	mGridMap->ApplyBlockAreaManually(aIndexArr);
+}
+
 void PathFindingMgr::ApplyBlockArea(vector<Vector2>& aVec)
 {
 	mGridMap->ApplyBlockArea(aVec);

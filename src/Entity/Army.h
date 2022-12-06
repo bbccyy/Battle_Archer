@@ -36,7 +36,7 @@ class Army
 public:
     Army() = delete;
     ~Army();
-    Army(int aId, BattleInstance&, BattleViewOutput&, PhysicsSystem&, const vector<DirectedPosition>&, const vector<vector<DirectedPosition>>&, const vector<DirectedPosition>&);
+    Army(int aId, BattleInstance&, BattleViewOutput&, PhysicsSystem&, const vector<DirectedPosition>&, const vector<DirectedPosition>&, const vector<DirectedPosition>&);
 
     void OnTick(int);
     BattleInstance& GetBattleInstance() const;
@@ -60,6 +60,8 @@ public:
     SharedPtr<Unit> AddUnit(int aTplId, int aLevel, int aAdvLv, int aBornPoint, int aShowOnUI, int aIsBoss);
     SharedPtr<Unit> AddUnit(const TUnitInfo&);
     SharedPtr<Unit> AddUnit(const TUnitInfo&, int aPos);
+    SharedPtr<Unit> AddHero(const TUnitInfo&);
+    SharedPtr<Unit> AddPet(const TUnitInfo&);
 
     void AddUnitByConf(const TArmyInfo&);
 	void LoadArmySkills(const TArmyInfo&);
@@ -117,7 +119,7 @@ private:
     PhysicsSystem& mPhysics;
     const vector<DirectedPosition>& mBornPoints;
     const vector<DirectedPosition>& mCenterPoints;
-    const vector<vector<DirectedPosition>>& mSummonPoints;
+    const vector<DirectedPosition>& mSummonPoints;
     vector<SharedPtr<Unit> > mUnitArr;
 	vector<vector<SharedPtr<Unit>>> mRecordUnitArr;
     vector<Unit*> mActiveUnitArr;

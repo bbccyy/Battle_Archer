@@ -85,7 +85,7 @@ int initBattle(const char * aCsvFromExecelPath, const char * aDbFromEditorPath, 
         {
             return ret;
         }
-        BattleInstance::LoadGlobalConfig(true);    
+        BattleInstance::LoadGlobalConfig();    
         gThreadPool.Start([] {
             //nothing            
 		}, []{

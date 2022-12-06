@@ -19,11 +19,9 @@
 
 #include "Entity/MoveExecutor/MoveParabloa.h"
 namespace pb {		
-	class TArmyUnitInfo;	
+	class TArmyUnitInfo; 
 }
 using pb::TArmyUnitInfo;
-
-
 
 
 
@@ -435,11 +433,11 @@ public:
     int ManuallyExecuteRageSkill();//手动触发怒气技能 
 	int ManuallyUnregisterNextSemiAutoSkill();
 	int TryExecuteRageSkillAuto();
-	int TryExecuteBattleSoulSkillAuto();
+	//int TryExecuteBattleSoulSkillAuto();
     int TryExecuteRageSkill(); 
-    int TryExecuteBattleSoulSkill();
+    //int TryExecuteBattleSoulSkill();
 	void TryExecuteRageSkillBreakNormalAuto();
-	void TryExecuteBattleSoulSkillBreakNormalAuto();
+	//void TryExecuteBattleSoulSkillBreakNormalAuto();
 	int ManuallyExecuteUnparalleledSkill();//手动触发无双技能 
 	int ManuallyExecuteBattleSoulSkill();//手动触发武魂真身技能 
     void SetRageSkillState(RageSkillExecuteState*);

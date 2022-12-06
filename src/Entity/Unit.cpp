@@ -2179,11 +2179,6 @@ bool Unit::ActionTickSkillRecovery(int const aDeltaTime)
         return ret;
     }
 
-	if (TryExecuteBattleSoulSkillAuto() == 1) 
-	{
-		return false;
-	}
-
 	if (TryExecuteRageSkillAuto() == 1) 
 	{  //success to execute rage skill 
 		return false;
@@ -2694,7 +2689,6 @@ void Unit::OnTick(int const aDeltaTime)
     mFsm->OnTick(unitTime);
     mTimerMgr->OnTick(mUnitTime);
 	TickBarrier(unitTime); 
-	TryExecuteBattleSoulSkillBreakNormalAuto();
 	TryExecuteRageSkillBreakNormalAuto();
 }
 
@@ -3187,15 +3181,6 @@ int Unit::ManuallyExecuteRageSkill()
 		return 1;
 }
 
-int Unit::TryExecuteBattleSoulSkill()
-{
-	mChoosedSkill = mBattleSoulSkill;
-	//Try cancel current skill executor if exists
-	SkillInterrupted(mCurSkillExecutor);
-	mFsm->DoTransition(mTransToExecuteSkill);
-
-	return 1;
-}
 int Unit::TryExecuteRageSkill()
 {
 	ERefFaceTo faceTo = static_cast<ERefFaceTo>(mRageSkill->GetSkillConf()->basedata().needfacetowhencast());
@@ -3227,16 +3212,6 @@ int Unit::TryExecuteRageSkill()
 	return 1;
 }
 
-void Unit::TryExecuteBattleSoulSkillBreakNormalAuto()
-{
-	if (!mBattleSoulSkillAutoReady)
-		return;
-	if (!mBattleSoulSkill) 
-		return;
-
-	if (mCurSkill && (mCurSkill->IsNormalSkill() || mCurSkill->mRageSkillInterruptable || (mHp * DENOM / mMaxHp <= 1000)))
-		TryExecuteBattleSoulSkillAuto();
-}
 void Unit::TryExecuteRageSkillBreakNormalAuto()
 {
 	if (!mRageSkillAutoReady) 
@@ -3248,48 +3223,6 @@ void Unit::TryExecuteRageSkillBreakNormalAuto()
 
 	if (mCurSkill && (mCurSkill->IsNormalSkill() || mCurSkill->mRageSkillInterruptable || (mHp * DENOM / mMaxHp <= 1000)))
 		TryExecuteRageSkillAuto();
-}
-
-int Unit::TryExecuteBattleSoulSkillAuto()
-{
-	if (!mBattleSoulSkillAutoReady)
-		return 0;
-	if (GetBattleInstance().IsInRageSkill(1) || GetBattleInstance().IsInRageSkill(2)) //大招黑屏期间不执行 
-		return 0;
-	if (mBattleSoulSkill) 
-	{
-		if (mArmy->GetId() == 2)
-		{  //enemy
-			if (mCurSkill && mCurSkill == mBattleSoulSkill)
-				return 0;
-			if (mFsm->IsInState(mStateBeControlled->GetId()) ||  
-				mFsm->IsInState(mStateBehaviour->GetId()))
-			{
-				return 0;
-			}
-			if (mBattleSoulSkill->CanExecute() == CheckResult::Pass && TryExecuteBattleSoulSkill() == 1)
-			{
-				mBattleSoulSkillAutoReady = false; 
-				return 1;
-			}
-		}
-		else if (GetBattleInstance().IsAuto())
-		{  //friend
-			if (mCurSkill && mCurSkill == mBattleSoulSkill)
-				return 0;
-			if (mFsm->IsInState(mStateBeControlled->GetId()) ||
-				mFsm->IsInState(mStateBehaviour->GetId()))
-			{
-				return 0;
-			}
-			if (mBattleSoulSkill->CanExecute() == CheckResult::Pass && TryExecuteBattleSoulSkill() == 1)
-			{
-				mBattleSoulSkillAutoReady = false;
-				return 1;
-			}
-		}
-	}
-	return 0;
 }
 
 int Unit::TryExecuteRageSkillAuto()
@@ -3330,15 +3263,6 @@ int Unit::TryExecuteRageSkillAuto()
 		}
 	}
 	return 0;
-}
-
-int Unit::ManuallyExecuteBattleSoulSkill()
-{
-	if (!mBattleSoulSkillAutoReady || (mCurSkill == mBattleSoulSkill)) 
-	{
-		return 0;
-	}
-	return TryExecuteBattleSoulSkill();
 }
 
 int Unit::ManuallyExecuteUnparalleledSkill()

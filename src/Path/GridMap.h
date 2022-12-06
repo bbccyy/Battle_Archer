@@ -73,6 +73,9 @@ public:
 	//makr nodes on area given by vector
 	void ApplyBlockArea(vector<Vector2>& aVec);
 
+	//input arr contains a list of valid GridMap Tile's index 
+	void ApplyBlockAreaManually(vector<int>& aIndexArr);
+
 private:
 	//adding nodes at boundary position, setting their Neighbour Flags
 	void InitBoundaryNodes();
