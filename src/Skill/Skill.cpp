@@ -15,6 +15,7 @@
  **/
 
 #include "Skill.h"
+#include "Entity/Entity.h"
 #include "Entity/Unit.h"
 #include "SkillExecutor.h"
 #include "ConfigMgr/ConfigMgr.h"

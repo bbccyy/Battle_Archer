@@ -436,7 +436,7 @@ void Unit::Init(const TUnitInfo& aUnitInfo, Army& aArmy, BattleViewOutput& aView
 		mHp = mMaxHp;
 	}
 
-	LoadSlgAttr(aUnitInfo);
+	//LoadSlgAttr(aUnitInfo);
 
 	CheckRageSkill();	//TODO: Delete it in all cases 
 
@@ -909,55 +909,6 @@ void Unit::LoadSkill(int const aLevel)
 	}
     //mCurrentSkillNum = static_cast<int>(skills.size());
 	LoadChainSkillOrder();
-}
-
-void Unit::LoadSlgAttr(const TUnitInfo& aUnitInfo)
-{
-	if (!mIsSLG)
-		return;
-
-	if (aUnitInfo.has_troopid())
-		mTroopId = aUnitInfo.troopid();
-	else
-		LOG_FATAL("Unit %d[tid=%d] no troopId found", GetEntityId(), GetTplId());
-
-	if (aUnitInfo.has_troopnum())
-		mTroopNum = aUnitInfo.troopnum();
-	else
-		LOG_FATAL("Unit %d[tid=%d] no troopNum found", GetEntityId(), GetTplId());
-
-	mInjuredNum = 0;
-	mDeadNum = 0;
-	mKillNum = 0;
-	mCurTroopNum = mTroopNum;
-	mDeathRate = 0;
-	mSoldierStdHp = 1; // avoid divide by zero error in some cases
-
-	auto troopConf = ConfigMgr::GetConfById<ConfigTroop>(mTroopId);
-	auto slgDeathRate = troopConf->GetDeathrate1();
-	if (slgDeathRate.size() < 2)
-		LOG_FATAL("slg DeathRate1 invalid size[%d], need 2", slgDeathRate.size());
-	if (mIsSlgOffender && mIsPVP)
-		mDeathRate = slgDeathRate[0];
-	else if(!mIsSlgOffender && mIsPVP)
-		mDeathRate = slgDeathRate[1];
-
-	auto* battleConf = ConfigMgr::GetConfById<ConfigBattleConfig>(1);
-	auto slgCoefArr = battleConf->GetSlgBattleAttrCoef();
-	if (slgCoefArr.size() < 6)
-		LOG_FATAL("not enough slgCoef found in table battleConfig");
-	slgCoef1 = slgCoefArr[0];
-	slgCoef2 = slgCoefArr[1];
-	slgCoef3 = slgCoefArr[2];
-	slgCoef4 = slgCoefArr[3];
-	slgCoef5 = slgCoefArr[4];
-	slgCoef6 = slgCoefArr[5];
-
-	mMaxHp = CountMaxHpSLG(); //Slg MaxHp
-	mSoldierStdHp = CountSoldierHpSLG();
-	mHp = mMaxHp;
-	mMaxHpOrig = mMaxHp;
-	mMaxHpDeltaSum = 0;
 }
 
 void Unit::LoadAttr(const TUnitInfo& aUnitInfo)
