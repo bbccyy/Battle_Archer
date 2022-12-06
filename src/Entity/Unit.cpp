@@ -395,9 +395,7 @@ void Unit::Init(const TUnitInfo& aUnitInfo, Army& aArmy, BattleViewOutput& aView
 	mArmyId = mArmy->GetId();
 
 	mBaseSizeScale = aUnitInfo.basesizescale() > 0 ? aUnitInfo.basesizescale() : DENOM;
-	mIsSLG = aArmy.GetBattleInstance().IsSLG();
 	mIsPVP = !aArmy.GetBattleInstance().IsPVE();
-	mIsSlgOffender = aArmy.GetId() == 1 ? true : false;
 	mIsDeleted = false;
 	mRecoveryTime = 0;
 	mIsBorn = false;
@@ -458,9 +456,7 @@ void Unit::Init(int const aTplId, int const aLevel, int aSkillLevel, int aAdvLv,
 	mBaseSizeScale = DENOM;
 	mArmy = &aArmy;
 	mArmyId = mArmy->GetId();
-	mIsSLG = aArmy.GetBattleInstance().IsSLG();
 	mIsPVP = !aArmy.GetBattleInstance().IsPVE();
-	mIsSlgOffender = aArmy.GetId() == 1 ? true : false;
 	mDontInitToBornPos = false;
 	mIsDeleted = false;
 	mRecoveryTime = 0;
@@ -519,9 +515,7 @@ void Unit::InitDummy(Army& aArmy, BattleViewOutput& aView, PhysicsSystem& aPhysi
 	mFirstHitDone = true;
 	mBornPoint = 1;
 	mBaseSizeScale = DENOM;
-	mIsSLG = aArmy.GetBattleInstance().IsSLG();
 	mIsPVP = !aArmy.GetBattleInstance().IsPVE();
-	mIsSlgOffender = aArmy.GetId() == 1 ? true : false;
 	mDontInitToBornPos = false;
 	mRecoveryTime = 0;
 	mIsBorn = true;
@@ -794,6 +788,8 @@ void Unit::Reset()
 	mTimeWhenDead = 0;
 	mExtraCastRange = 0;
 	mDeadStateId = 0;
+
+	mAbleToChooseSkill = false;
 }
 
 
@@ -1575,14 +1571,109 @@ SharedPtr<Skill> Unit::AddSkill(int const aSkillId, int const aLevel)
 	return skill;
 }
 
+bool Unit::ActionTickIdle(int)
+{
+	//TODO 检测当前位置和上一次位置 
+	return mAbleToChooseSkill;
+}
+
+void Unit::InitPlayerFsm()
+{
+	//States
+	mStateIdle = mFsm->AddState(STATE_IDLE);	//Idle 
+	mStateIdle->SetOnTick(MakeFunction<>(*this, &Unit::ActionTickIdle)); 
+
+	//Player 需要确保: 1)技能可达目标, 2)技能冷却时间完毕后 -> 才能通过当前状态
+	mStateChooseSkill = mFsm->AddState(STATE_CHOOSESKILL);	//Choose skill
+	mStateChooseSkill->SetOnTick(MakeFunction<>(*this, &Unit::ActionChooseSkill));   
+
+	//mStateMoveToRef = mFsm->AddState(STATE_MOVETONEAREST_REFTARGET);
+	//mStateMoveToRef->SetOnTick(MakeFunction<>(*this, &Unit::ActionMoveToRefTarget));
+	//mStateMoveToRef->SetOnExit(MakeFunction<>(*this, &Unit::ActionExitMoveToRefTarget));
+
+	mStateExecuteSkill = mFsm->AddState(STATE_EXECUTESKILL);	//Execute skill
+	mStateExecuteSkill->SetOnEnter(MakeFunction<>(*this, &Unit::ActionExecuteSkill));
+	mStateExecuteSkill->SetOnExit(MakeFunction<>(*this, &Unit::ActionExitExecuteSkill));
+
+	mStateSkillRecovery = mFsm->AddState(STATE_SKILLRECOVERY);	//Recovery skill
+	mStateSkillRecovery->SetOnEnter(MakeFunction<>(*this, &Unit::ActionEnterSkillRecovery));
+	mStateSkillRecovery->SetOnTick(MakeFunction<>(*this, &Unit::ActionTickSkillRecovery));
+	mStateSkillRecovery->SetOnExit(MakeFunction<>(*this, &Unit::ActionExitSkillRecovery));
+
+	mStateBeControlled = mFsm->AddState(STATE_BECONTROLLED);	//Be Controlled
+	mStateBeControlled->SetOnTick(MakeFunction<>(*this, &Unit::ActionTickBeControlled));
+
+	mStateDying = mFsm->AddState(STATE_DYING);	//Dying 
+	mStateDying->SetOnEnter(MakeFunction<>(*this, &Unit::ActionEnterDying));
+	mStateDying->SetOnTick(MakeFunction<>(*this, &Unit::ActionTickDying));
+
+	mStateDead = mFsm->AddState(STATE_DEAD);	//Dead
+	mStateDead->SetOnEnter(MakeFunction<>(*this, &Unit::ActionEnterDead));
+	mStateDead->SetOnTick(MakeFunction<>(*this, &Unit::ActionTickDead));
+
+	mRevive = mFsm->AddState(STATE_REVIVE);		//Revive
+	mRevive->SetOnEnter(MakeFunction<>(*this, &Unit::ActionEnterRevive));
+
+	mStateBehaviour = mFsm->AddState(STATE_BEHAVIOUR);	//Behaviour
+
+	mDeadStateId = mStateDead->GetId();
+
+	//Transitions
+	//Start -> Idle (Auto)
+	mFsm->AddTransition(mFsm->GetStartState(), *mStateIdle, TransitionMode::Auto);
+	//Idle -> ChooseSkl (AfterActionDone)
+	mFsm->AddTransition(*mStateIdle, *mStateChooseSkill, TransitionMode::AfterActionDone);
+	//ChooseSkl -> Move2Ref (Auto) with condition 
+	//mTransAutoMoveToRefTarget = mFsm->AddTransition(*mStateChooseSkill, *mStateMoveToRef, TransitionMode::Auto);
+	//mTransAutoMoveToRefTarget->SetCondition(MakeFunction<>(*this, &Unit::CondiTargetOutOfRange));
+	//ChooseSkl -> ExecuteSkl (AfterActionDone)
+	mTransChooseToExecute = mFsm->AddTransition(*mStateChooseSkill, *mStateExecuteSkill, TransitionMode::Auto);
+	mTransChooseToExecute->SetCondition(MakeFunction<>(*this, &Unit::CondiTargetInRange));
+	//ExecuteSkl -> SkillRecovery (Manual) 当技能执行完毕（失败或成功时） 
+	mTransNoSkillToExecute = mFsm->AddTransition(*mStateExecuteSkill, *mStateSkillRecovery, TransitionMode::Manual);
+	mTransSkillEnded = mFsm->AddTransition(*mStateExecuteSkill, *mStateSkillRecovery, TransitionMode::Manual);
+	//Any -> ExecuteSkl (Manual) 行为导向 
+	mTransToExecuteSkill = mFsm->AddTransition(mFsm->GetAnyState(), *mStateExecuteSkill, TransitionMode::Manual);
+	//SkillRecovery -> Idle (AfterActionDone) 
+	mFsm->AddTransition(*mStateSkillRecovery, *mStateIdle, TransitionMode::AfterActionDone);
+	//Any -> BeControlled (Manual)
+	mTransBeControlled = mFsm->AddTransition(mFsm->GetAnyState(), *mStateBeControlled, TransitionMode::Manual);
+	//BeControlled -> Idle (Manual) 
+	mTransBeControlledEnd = mFsm->AddTransition(*mStateBeControlled, *mStateIdle, TransitionMode::Manual);
+	//Any -> Dying (Manual) 
+	mTransDead = mFsm->AddTransition(mFsm->GetAnyState(), *mStateDying, TransitionMode::Manual);
+	//Dying -> Dead (Manual) 
+	mTransRealDead = mFsm->AddTransition(*mStateDying, *mStateDead, TransitionMode::Manual);
+	//Any -> Dead (Manual) 行为导向 
+	mTransAnyToDead = mFsm->AddTransition(mFsm->GetAnyState(), *mStateDead, TransitionMode::Manual);
+	//Dying -> Dead (AfterActionDone) 
+	mFsm->AddTransition(*mStateDying, *mStateDead, TransitionMode::AfterActionDone);
+	//Dead -> Revive (Manual) 
+	mTransRevive = mFsm->AddTransition(*mStateDead, *mRevive, TransitionMode::Manual);
+	//Revive -> Idle (Auto)
+	mFsm->AddTransition(*mRevive, *mStateIdle, TransitionMode::Auto);
+	//Any -> Behaviour (Manual) 
+	mTransBehaviour = mFsm->AddTransition(mFsm->GetAnyState(), *mStateBehaviour, TransitionMode::Manual);
+	//Behaviour -> Idle (AfterActionDone)
+	mFsm->AddTransition(*mStateBehaviour, *mStateIdle, TransitionMode::AfterActionDone);
+	//Behaviour -> Idle (Manual) 
+	mTransBehaviourToIdle = mFsm->AddTransition(*mStateBehaviour, *mStateIdle, TransitionMode::Manual);
+	//Any -> Idle (Manual) 切换场景用 
+	mTransCutscene = mFsm->AddTransition(mFsm->GetAnyState(), *mStateIdle, TransitionMode::Manual);
+	//Any -> Idle (Manual) 备用  
+	mTransResetToIdle = mFsm->AddTransition(mFsm->GetAnyState(), *mStateIdle, TransitionMode::Manual);
+}
+
 void Unit::InitFsm()
 {
     mStateIdle = mFsm->AddState(STATE_IDLE);
 	mStateChooseSkill = mFsm->AddState(STATE_CHOOSESKILL);
 	mStateChooseSkill->SetOnTick(MakeFunction<>(*this, &Unit::ActionChooseSkill));
+
 	mStateMoveToRef = mFsm->AddState(STATE_MOVETONEAREST_REFTARGET);
 	mStateMoveToRef->SetOnTick(MakeFunction<>(*this, &Unit::ActionMoveToRefTarget));
 	mStateMoveToRef->SetOnExit(MakeFunction<>(*this, &Unit::ActionExitMoveToRefTarget));
+
 	mStateExecuteSkill = mFsm->AddState(STATE_EXECUTESKILL);
 	mStateExecuteSkill->SetOnEnter(MakeFunction<>(*this, &Unit::ActionExecuteSkill));
 	mStateExecuteSkill->SetOnExit(MakeFunction<>(*this, &Unit::ActionExitExecuteSkill));
@@ -1590,33 +1681,49 @@ void Unit::InitFsm()
 	mStateSkillRecovery->SetOnEnter(MakeFunction<>(*this, &Unit::ActionEnterSkillRecovery));
 	mStateSkillRecovery->SetOnTick(MakeFunction<>(*this, &Unit::ActionTickSkillRecovery)); 
 	mStateSkillRecovery->SetOnExit(MakeFunction<>(*this, &Unit::ActionExitSkillRecovery));
+
 	mStateBeHit = mFsm->AddState(STATE_BEHIT);
+
     mStateBeControlled = mFsm->AddState(STATE_BECONTROLLED);
     mStateBeControlled->SetOnTick(MakeFunction<>(*this, &Unit::ActionTickBeControlled));
+
     mStateDead = mFsm->AddState(STATE_DEAD);
     mStateDead->SetOnEnter(MakeFunction<>(*this, &Unit::ActionEnterDead));
     mStateDead->SetOnTick(MakeFunction<>(*this, &Unit::ActionTickDead));
+
 	mDeadStateId = mStateDead->GetId();
+
 	mStateDying = mFsm->AddState(STATE_DYING);
 	mStateDying->SetOnEnter(MakeFunction<>(*this, &Unit::ActionEnterDying));
 	mStateDying->SetOnTick(MakeFunction<>(*this, &Unit::ActionTickDying));
-    auto stateRevive = mFsm->AddState(STATE_REVIVE);
-    stateRevive->SetOnEnter(MakeFunction<>(*this, &Unit::ActionEnterRevive));
+
+	mRevive = mFsm->AddState(STATE_REVIVE);
+	mRevive->SetOnEnter(MakeFunction<>(*this, &Unit::ActionEnterRevive));
+
     mStateBehaviour = mFsm->AddState(STATE_BEHAVIOUR);
+
+
+
+
+
+
+
+
+
 
     mFsm->AddTransition(mFsm->GetStartState(), *mStateIdle, TransitionMode::Auto);
 	//auto transIdleReturnDying = mFsm->AddTransition(*mStateIdle, *mStateDying, TransitionMode::Auto);
 	//transIdleReturnDying->SetCondition(MakeFunction<>(*this, &Unit::CondiBehaviourStop));
     mFsm->AddTransition(*mStateIdle, *mStateChooseSkill, TransitionMode::Auto);
 	//mStateBehaviour is a state that we don't want be eventually changed from state Any, so set it back whenever it's possibles
-	auto transReturnDying = mFsm->AddTransition(*mStateChooseSkill, *mStateDying, TransitionMode::Auto);
-	transReturnDying->SetCondition(MakeFunction<>(*this, &Unit::CondiDying));
-	mTransReturnBehaviourStop = mFsm->AddTransition(*mStateChooseSkill, *mStateBehaviour, TransitionMode::Auto);
-	mTransReturnBehaviourStop->SetCondition(MakeFunction<>(*this, &Unit::CondiBehaviourStop));
+	//mTransReturnDying = mFsm->AddTransition(*mStateChooseSkill, *mStateDying, TransitionMode::Auto);
+	//mTransReturnDying->SetCondition(MakeFunction<>(*this, &Unit::CondiDying));
+	//mTransReturnBehaviourStop = mFsm->AddTransition(*mStateChooseSkill, *mStateBehaviour, TransitionMode::Auto);
+	//mTransReturnBehaviourStop->SetCondition(MakeFunction<>(*this, &Unit::CondiBehaviourStop));
 	mTransAutoMoveToRefTarget = mFsm->AddTransition(*mStateChooseSkill, *mStateMoveToRef, TransitionMode::Auto);
 	mTransAutoMoveToRefTarget->SetCondition(MakeFunction<>(*this, &Unit::CondiTargetOutOfRange));
-	auto transAutoSkillRecovery = mFsm->AddTransition(*mStateChooseSkill, *mStateSkillRecovery, TransitionMode::Auto);
-	transAutoSkillRecovery->SetCondition(MakeFunction<>(*this, &Unit::CondiTargetInRange));
+	mTranseAutoSkillRecovery = mFsm->AddTransition(*mStateChooseSkill, *mStateSkillRecovery, TransitionMode::Auto);
+	mTranseAutoSkillRecovery->SetCondition(MakeFunction<>(*this, &Unit::CondiTargetInRange));
 	mTransReachRefAndRecovered = mFsm->AddTransition(*mStateMoveToRef, *mStateExecuteSkill, TransitionMode::Manual);
 	mTransReachRefNotRecovered = mFsm->AddTransition(*mStateMoveToRef, *mStateSkillRecovery, TransitionMode::Manual);
     mTransCantMoveToRefTarget = mFsm->AddTransition(*mStateMoveToRef, *mStateChooseSkill, TransitionMode::Manual);
@@ -1634,8 +1741,8 @@ void Unit::InitFsm()
 	mTransRealDead = mFsm->AddTransition(*mStateDying, *mStateDead, TransitionMode::Manual);
 	mTransAnyToDead = mFsm->AddTransition(mFsm->GetAnyState(), *mStateDead, TransitionMode::Manual);
 	mFsm->AddTransition(*mStateDying, *mStateDead, TransitionMode::AfterActionDone);
-    mTransRevive = mFsm->AddTransition(*mStateDead, *stateRevive, TransitionMode::Manual);
-    mFsm->AddTransition(*stateRevive, *mStateIdle, TransitionMode::Auto);
+    mTransRevive = mFsm->AddTransition(*mStateDead, *mRevive, TransitionMode::Manual);
+    mFsm->AddTransition(*mRevive, *mStateIdle, TransitionMode::Auto);
     mTransBehaviour = mFsm->AddTransition(mFsm->GetAnyState(), *mStateBehaviour, TransitionMode::Manual);
     mFsm->AddTransition(*mStateBehaviour, *mStateIdle, TransitionMode::AfterActionDone);
 	mTransBehaviourToIdle = mFsm->AddTransition(*mStateBehaviour, *mStateIdle, TransitionMode::Manual);
@@ -1682,14 +1789,6 @@ bool Unit::CondiTargetOutOfRange(bool aIsDone)
 	{
 		if (!mChoosedSkill->IsRefTargetInRange())
 		{
-			/*if (!mChoosedSkill->IsRageSkill() && mChoosedSkill->GetCastRange() <= MELEE_ATTACK_RANGE)
-			{
-				auto& refTarget = mChoosedSkill->GetNearestRefTarget();
-				if (refTarget.GetType() == ERefTargetType::Unit && refTarget.GetUnit()->mMeleeRingMgr)
-				{
-					refTarget.GetUnit()->mMeleeRingMgr->RegisterAttacker(this);
-				}
-			}*/
 			return true;
 		}
 		return false;
@@ -1699,26 +1798,15 @@ bool Unit::CondiTargetOutOfRange(bool aIsDone)
 }
 
 
-bool Unit::CondiBehaviourStop(bool aIsDone)
-{
-	if (!aIsDone)
-	{
-		return false;
-	}
-	int behaviourStopped = mStateAdjustPropertyArr[static_cast<int>(StateAdjust::BehaviourStopped)];
-	if (behaviourStopped > 0)
-	{
-		mStateBehaviour->SetOnTick(MakeFunction<>(*this, &Unit::ActionBehaviourStopped));
-		return true;
-	}
-	return false;
-}
-
 // OnTick Method of ChooseSkill State
 // try to choose a valid skill as mCurSkill from chain skill list
 bool Unit::ActionChooseSkill(int const aDeltaTime)
 {
-
+	if (CondiDying(true))
+	{
+		mFsm->DoTransition(mTransDead);
+		return false;
+	}
 	if (mChoosedSkill)
 	{
 		mChoosedSkill.Release();
@@ -1916,13 +2004,7 @@ bool Unit::ActionMoveToRefTarget(int const aDeltaTime)
 		}
     }
     const RefTarget& refTarget = mChoosedSkill->GetNearestRefTarget();  //TODO: the name:GetNearestRefTarget is misleading, chg it
-    //const Vector3& target = refTarget.GetTargetPos();
-    //LOG_DEBUG("Unit %d moving to target (%d,%d,%d)", mEntityId, target.x, target.y, target.z);
-	/*int targetEntityId = 0;
-	if (refTarget.GetUnit())
-	{
-		targetEntityId = refTarget.GetUnit()->GetEntityId();
-	}*/
+
 	ERefFaceTo faceTo = static_cast<ERefFaceTo>(mChoosedSkill->GetSkillConf()->basedata().needfacetowhencast());
 	bool reach = false;
 	MoveStrategy ret = HowToMove(refTarget);
@@ -2371,15 +2453,18 @@ void Unit::CancelOverlapMove()
 
 void Unit::ActionEnterDying()
 {
-	//没有鞭尸，直接进入后续逻辑 
-	mFsm->DoTransition(mTransRealDead);
+	//注意Player需要进行判断，是否使用复活券 
+	if (mDieCause.cause == EUnitDieCause::Timeout ||
+		mDieCause.cause == EUnitDieCause::Buff ||
+		GetBattleInstance().IsDyingValid(GetArmy().GetId())) 
+	{
+		mFsm->DoTransition(mTransRealDead);
+	}
 }
 
 bool Unit::ActionTickDying(int aDeltaTime)
 {
-	//auto enemyId = GetArmy().GetId() == 1 ? 2 : 1;
-	//bool isInEnemyBlackMask = GetBattleInstance().IsInRageSkill(enemyId);
-	if (GetBattleInstance().IsDyingValid(GetArmy().GetId()))
+	if (!GetBattleInstance().IsDyingValid(GetArmy().GetId()))
 	{ 
 		return false;
 	}
@@ -5154,52 +5239,25 @@ int64 Unit::ModifyMaxHp(int64 const aMaxHpChange, int64 const aHpChange, int64 c
 	{
 		return 0;
 	}
-	if (!mIsSLG)
-	{//RPG
-		int64 ret = 0;
-		mMaxHp += aMaxHpChange;//changed by buff
-		if (mHp > mMaxHp)//record overflowed hp diff
-		{
-			ret = mHp - mMaxHp;
-		}
-		mHp += aHpChange;//changed by buff
-		mHp += aHpDiff;//hp diff compensation
-		if (mHp > mMaxHp)
-			mHp = mMaxHp;
-
-		if (mHp < 0)
-			mHp = 1;
-
-		if (aNeedSendCmd)
-			SendMaxHpChangeCmd();
-		//mView->Execute(ViewCommand::MaxHpChange, mEntityId, mHp, mMaxHp);
-		return ret;
+	//RPG
+	int64 ret = 0;
+	mMaxHp += aMaxHpChange;//changed by buff
+	if (mHp > mMaxHp)//record overflowed hp diff
+	{
+		ret = mHp - mMaxHp;
 	}
-	else
-	{//SLG
-		mMaxHpDeltaSum += aMaxHpChange;
+	mHp += aHpChange;//changed by buff
+	mHp += aHpDiff;//hp diff compensation
+	if (mHp > mMaxHp)
+		mHp = mMaxHp;
 
-		mSoldierStdHp = (mMaxHpOrig + mMaxHpDeltaSum) / mTroopNum;
-		if (mSoldierStdHp * mTroopNum < mMaxHpOrig + mMaxHpDeltaSum) // ceil
-			mSoldierStdHp += 1;
+	if (mHp < 0)
+		mHp = 1;
 
-		mMaxHp = mSoldierStdHp * (mTroopNum - mDeadNum);
-		mHp = mSoldierStdHp * mCurTroopNum;
-
-		int64 realHeal = aHpChange;
-		if (realHeal + mHp > mMaxHp)
-			realHeal = mMaxHp - mHp;
-
-		mHp += realHeal;
-		if (mHp <= 0)
-			mHp = 1;
-
-		SlgHeal(); 	
-		if (aNeedSendCmd)
-			SendMaxHpChangeCmd();
-		//mView->Execute(ViewCommand::MaxHpChange, mEntityId, mHp, mMaxHp);
-		return 0;
-	}
+	if (aNeedSendCmd)
+		SendMaxHpChangeCmd();
+	//mView->Execute(ViewCommand::MaxHpChange, mEntityId, mHp, mMaxHp);
+	return ret;
 }
 
 //unit is born if fsm is initialized
@@ -5281,7 +5339,7 @@ bool Unit::IsHero(const int aEntityId) const
 }
 bool Unit::IsSlg() const
 {
-	return mIsSLG;
+	return false;
 }
 bool Unit::IsTowerLike() const
 {
@@ -5379,8 +5437,6 @@ int64 Unit::GetPhysicalAtk() const
     auto atk = GetAttr(EAttribute::PhysicalAtkBase)
         * (DENOM + GetAttr(EAttribute::PhysicalAtkPercent)) / DENOM
         + GetAttr(EAttribute::PhysicalAtkExtra);
-	if (mIsSLG)
-		return Sqrt(mCurTroopNum + slgCoef3) * atk / slgCoef4;
 	return atk;
 }
 int64 Unit::GetMagicAtk() const
@@ -5388,8 +5444,6 @@ int64 Unit::GetMagicAtk() const
     int64 atk = GetAttr(EAttribute::MagicAtkBase)
         * (DENOM + GetAttr(EAttribute::MagicAtkPercent)) / DENOM
         + GetAttr(EAttribute::MagicAtkExtra);
-	if (mIsSLG)
-		return Sqrt(mCurTroopNum + slgCoef3) * atk / slgCoef4;
 	return atk;
 }
 int64 Unit::GetPhysicalDef() const
@@ -5397,8 +5451,6 @@ int64 Unit::GetPhysicalDef() const
     int64 def = GetAttr(EAttribute::PhysicalDefBase)
         * (DENOM + GetAttr(EAttribute::PhysicalDefPercent)) / DENOM
         + GetAttr(EAttribute::PhysicalDefExtra);
-	if (mIsSLG)
-		return Sqrt(mCurTroopNum + slgCoef5) * def / slgCoef6;
 	return def;
 }
 int64 Unit::GetMagicDef() const
@@ -5406,24 +5458,18 @@ int64 Unit::GetMagicDef() const
 	int64 def = GetAttr(EAttribute::MagicDefBase)
         * (DENOM + GetAttr(EAttribute::MagicDefPercent)) / DENOM
         + GetAttr(EAttribute::MagicDefExtra);
-	if (mIsSLG)
-		return Sqrt(mCurTroopNum + slgCoef5) * def / slgCoef6;
 	return def;
 }
 
 int64 Unit::GetFinalDamage() const
 {
 	int64 dmg = GetAttr(EAttribute::FinalDamage);
-	if (mIsSLG)
-		return Sqrt(mCurTroopNum + slgCoef3) * dmg / slgCoef4;
 	return dmg;
 }
 
 int64 Unit::GetFinalAvoid() const
 {
 	int64 avd = GetAttr(EAttribute::FinalAvoidInjury);
-	if (mIsSLG)
-		return Sqrt(mCurTroopNum + slgCoef5) * avd / slgCoef6;
 	return avd;
 }
 

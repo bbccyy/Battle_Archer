@@ -351,7 +351,6 @@ public:
     void LoadAttr(int const aTplId, int const aLevel);//同上，附带等级属性调整  
     void LoadAttr(const Unit* aUnit, int aPercent, int const aTplId, bool aUseFixedRate);//根据百分比继承属性
     void LoadAttr(const vector<Unit*> aUnitList, int aPercent, int const aTplId);//根据平均属性继承 
-	void LoadSlgAttr(const TUnitInfo& aUnitInfo);  //根据战斗入参加载并计算Slg相关初始值
     void OnTick(int aDeltaTime);
     void OnEnterField();//开始下一屏 
     void OnEnterCutscene();//进入过场 
@@ -733,6 +732,7 @@ private:
 	State* mStateExecuteSkill;
 	State* mStateMoveToRef;
 	State* mStateChooseSkill;
+	State* mRevive;
     Transition* mTransResetToIdle;
     Transition* mTransBehaviour;
 	Transition* mTransBehaviourToIdle;
@@ -748,6 +748,8 @@ private:
     Transition* mTransMoveToRefTarget;
     Transition* mTransCantMoveToRefTarget;
 	Transition* mTransReturnBehaviourStop;
+	Transition* mTransReturnDying;
+	Transition* mTranseAutoSkillRecovery;
 	Transition* mTransAutoMoveToRefTarget;
     Transition* mTransNoSkillToExecute;
     Transition* mTransSkillEnded;
@@ -755,14 +757,13 @@ private:
 	Transition* mTransReachRefAndRecovered;
 	Transition* mTransReachRefNotRecovered;
 	Transition* mTransRecoverLostRefTarget;
+	Transition* mTransChooseToExecute;
 
 	int mDeadStateId = 0;
 
     int mTplId = 0;
 	int mHid = 0;
-	bool mIsSLG = false;
 	bool mIsPVP = false;
-	bool mIsSlgOffender = false;
 
 	static int slgCoef1, slgCoef2, slgCoef3, slgCoef4, slgCoef5, slgCoef6;  //hold slg coef values from battleConfig
 
@@ -884,6 +885,9 @@ private:
     SharedPtr<Skill> mBehaviourSkill = nullptr;
     Vector3 mBehaviourMoveTarget;
 
+	bool mAbleToChooseSkill = false;
+
+	bool ActionTickIdle(int);
     bool ActionChooseSkill(int);
     bool ActionMoveToRefTarget(int);
 	void ActionExitMoveToRefTarget();
@@ -919,9 +923,9 @@ private:
 	bool CondiDying(bool);
 	bool CondiTargetInRange(bool);
 	bool CondiTargetOutOfRange(bool);
-	bool CondiBehaviourStop(bool);
 
     void InitFsm();
+    void InitPlayerFsm();
     void InitFields(Army&, BattleViewOutput&, PhysicsSystem&);
     void InitPhysics();
     void InitAvatar();

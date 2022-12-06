@@ -1361,11 +1361,11 @@ bool BattleInstance::IsDyingValid(int aArmyId)
 {
 	if (aArmyId == 1)
 	{
-		return mArmy2DyingEnd > mFrameTime;
+		return mArmy2DyingEnd <= mFrameTime;
 	}
 	else
 	{
-		return mArmy1DyingEnd > mFrameTime;
+		return mArmy1DyingEnd <= mFrameTime;
 	}
 }
 
