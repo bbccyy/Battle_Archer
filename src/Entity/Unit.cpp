@@ -222,11 +222,9 @@ void Unit::InitFields(Army& aArmy, BattleViewOutput& aView, PhysicsSystem& aPhys
     mTauntedTargetBuffId = 0;
     mRageSkillManualReady = false;
 	mUnparalleledSkillReady = false;
-	mBattleSoulSkillAutoReady = false;
     mFloatWithoutBeingMoved = false;
 	mRageSkillStatus = RageSkillStatus::RageNotReady;
 	mUnparallelSkillStatus = RageSkillStatus::RageNotReady;
-	mBattleSoulSkillStatus = RageSkillStatus::RageNotReady;
     mDamageInTotal = 0;
 	mDamageInWithOverflow = 0;
     mDamageOutTotal = 0;
@@ -396,14 +394,6 @@ void Unit::Init(const TUnitInfo& aUnitInfo, Army& aArmy, BattleViewOutput& aView
 	mArmy = &aArmy;
 	mArmyId = mArmy->GetId();
 
-	if (aUnitInfo.has_warriding())
-	{
-		WarRidingTid = aUnitInfo.warriding().tid();
-		RiderForce = aUnitInfo.warriding().fightforce();
-		FightForce = aUnitInfo.fightforce();
-		RiderSkillId = aUnitInfo.warriding().skillid();
-		TreadSkillId = aUnitInfo.warriding().trampleskillid();
-	}
 	mBaseSizeScale = aUnitInfo.basesizescale() > 0 ? aUnitInfo.basesizescale() : DENOM;
 	mIsSLG = aArmy.GetBattleInstance().IsSLG();
 	mIsPVP = !aArmy.GetBattleInstance().IsPVE();
@@ -521,11 +511,9 @@ void Unit::InitDummy(Army& aArmy, BattleViewOutput& aView, PhysicsSystem& aPhysi
 	mTauntedTargetBuffId = 0;
 	mRageSkillManualReady = false;
 	mUnparalleledSkillReady = false;
-	mBattleSoulSkillAutoReady = false;
 	mFloatWithoutBeingMoved = false;
 	mRageSkillStatus = RageSkillStatus::RageNotReady;
 	mUnparallelSkillStatus = RageSkillStatus::RageNotReady;
-	mBattleSoulSkillStatus = RageSkillStatus::RageNotReady;
 	mProvideKillRage = false;
 	mIsMale = true;
 	mFirstHitDone = true;
@@ -669,11 +657,6 @@ void Unit::Reset()
 
 	mProvideKillRage = false;
 
-	mBattleSoulTriggerArr.clear(); 
-	if (mBattleSoulSkill) 
-		mBattleSoulSkill.Release(); 
-	mBattleSoulExcludeSkills.clear(); 
-
     mSkillArr.clear();
 	mSemiAutoArr.clear();
 	mRandomNormalSkillArr.clear();
@@ -767,7 +750,6 @@ void Unit::Reset()
 	mNextSemiAutoTime = 0; 
 	mRageSkillManualReady = false; 
 	mRageSkillAutoReady = false;
-	mBattleSoulSkillAutoReady = false;
 
 	mAdvLevel = 0;
 
@@ -812,18 +794,6 @@ void Unit::Reset()
 	mTimeWhenDead = 0;
 	mExtraCastRange = 0;
 	mDeadStateId = 0;
-	WarRidingTid = 0;
-	WarRidingFormIdx = 0;
-	WarRidingWinner = false;
-	WarRidingBeTread = false;
-
-	BattleSoulSkillTrigger = false;
-	InBattleSoulModeBuffId = 0;
-
-	RiderForce = 0;
-	FightForce = 0;
-	RiderSkillId = 0;
-	TreadSkillId = 0;
 }
 
 
@@ -894,47 +864,12 @@ void Unit::LoadSkill(const TUnitInfo& aUnitInfo)
     mSkillArr.reserve(skillNum);
 	mChainSkillArr.clear();
 	mChainSkillArr.resize(CHAIN_SKILL_NUM);
-	bool hasBattleSoul = aUnitInfo.has_battlesoul() && aUnitInfo.battlesoul().skillid() > 0;
     for (int i = 0; i < skillNum; ++i)
     {
         auto skill = AddSkill(aUnitInfo.skillarr(i).id(), aUnitInfo.skillarr(i).level());
-		if (hasBattleSoul && skill)
-		{
-			if (skill->IsNormalSkill() || skill->IsRageSkill())
-			{
-				mBattleSoulExcludeSkills.emplace_back(skill->GetId()); 
-			}
-		}
     }
     //mCurrentSkillNum = static_cast<int>(mSkillArr.size());
 	LoadChainSkillOrder();
-	//load battle soul skills 
-	BattleSoulSkillTrigger = false; //init to false at begining 
-	if (hasBattleSoul)
-	{
-		int skillId = aUnitInfo.battlesoul().skillid(); 
-		if (skillId > 0) //do load battle soul skills 
-		{
-			if (mBattleSoulSkill)
-			{
-				mBattleSoulSkill.Release();
-				LOG_WARN("Not release mBattleSoulSkill before init!"); 
-			}
-			mBattleSoulSkill = SharedPool<Skill>::Get();
-			mBattleSoulSkill->Init(SharedFromThis(), skillId, 1);
-			bool checkFirst = true;
-			for (const auto& id : aUnitInfo.battlesoul().triggerskillidarray())
-			{
-				auto skill = AddSkill(id, 1); //触发类技能尽早注册上去开始干活! 
-				mBattleSoulTriggerArr.emplace_back(skill); 
-				if (checkFirst)
-				{
-					checkFirst = false;
-					skill->mBattleSoulRelated = true;
-				}
-			}
-		}
-	}
 }
 
 void Unit::LoadSkill(const vector<int>& aSkillList, int aLevel)
@@ -2685,7 +2620,6 @@ void Unit::OnTick(int const aDeltaTime)
     CheckRageSkill();
 	CheckUnparalleledSkill();
 	CheckSemiAutoSkill();
-	CheckBattleSoulSkill();
     mFsm->OnTick(unitTime);
     mTimerMgr->OnTick(mUnitTime);
 	TickBarrier(unitTime); 
@@ -2932,67 +2866,6 @@ int Unit::CheckSemiAutoSkill(bool aManual)
 		return 1;
 }
 
-void Unit::CheckBattleSoulSkill()
-{
-	if (!mBattleSoulSkill)
-	{
-		return;  //不是武魂真身武将直接返回 
-	}
-	if ((IsDead() || IsHidden()))
-	{
-		return;
-	}
-
-	RageSkillStatus lastState = mBattleSoulSkillStatus;
-
-	if (BattleSoulSkillTrigger)  //当武魂真身被触发时 
-	{ 
-		//当前正处于武魂真身变身中 
-		if (mCurSkill && mCurSkill == mBattleSoulSkill)
-		{
-			return;
-		}
-
-		if (!mFsm->IsInState(mStateBeControlled->GetId()) && 
-			((mCurSkill && !mCurSkill->IsRageSkill()) || !mCurSkill) )
-		{ // must not in control state yet not is rage skill state 
-			if (mBattleSoulSkill->CanExecute() == CheckResult::Pass
-				&& mBattleSoulSkill->RefreshRefTarget()
-				&& mBattleSoulSkill->HasRefTarget())
-			{ // must has reftarget, and more 
-				if (mBattleSoulSkill->IsRefTargetInRange())
-				{
-					if (!mBattleSoulSkillAutoReady)
-					{
-						mBattleSoulSkillAutoReady = true;
-						mBattleSoulSkillStatus = RageSkillStatus::RageReadyToCast;
-						mView->Execute(ViewCommand::BattleSoulSkillStatus, mEntityId, int(mBattleSoulSkillStatus));
-					}
-					return;
-				}
-			}
-			else
-			{
-				mBattleSoulSkillStatus = RageSkillStatus::RageNotReady;
-			}
-		}
-		else
-		{
-			mBattleSoulSkillStatus = RageSkillStatus::RageReadyButBeControlled; //实际上除了受控还有大招释放中 
-		}
-	}
-	else
-	{
-		mBattleSoulSkillStatus = RageSkillStatus::RageNotReady; 
-	}
-	if (mBattleSoulSkillAutoReady) 
-	{
-		mBattleSoulSkillAutoReady = false;
-		if (lastState != RageSkillStatus::RageStartCasting)
-			mView->Execute(ViewCommand::BattleSoulSkillStatus, mEntityId, int(mBattleSoulSkillStatus));
-	}
-
-}
 
 void Unit::CheckUnparalleledSkill()
 {
@@ -3218,8 +3091,6 @@ void Unit::TryExecuteRageSkillBreakNormalAuto()
 		return;
 	if (!mRageSkill) //mRageSkill could be removed by ShapeShifting process 
 		return;
-	if (mCurSkill == mBattleSoulSkill) //避免武魂真身执行的同时执行大招，至少延迟一帧 
-		return; 
 
 	if (mCurSkill && (mCurSkill->IsNormalSkill() || mCurSkill->mRageSkillInterruptable || (mHp * DENOM / mMaxHp <= 1000)))
 		TryExecuteRageSkillAuto();
@@ -4993,19 +4864,6 @@ void Unit::ClearBeControlled(ControlToken& aState)
 	}
 }
 
-void Unit::TryExtendBattleSoulModeBuffLive(int64 aSkillTimeLen) 
-{
-	if (InBattleSoulModeBuffId == 0) return; 
-	auto buff = mBuffMgr->GetBuff(InBattleSoulModeBuffId);
-	if (buff)
-	{
-		auto remainingTime = buff->GetRemainingTime();
-		if (remainingTime > 0 && remainingTime < (aSkillTimeLen + 500))
-		{
-			buff->Offset(aSkillTimeLen + 500 - remainingTime); //适当延迟变身buff的生命周期 
-		}
-	}
-}
 
 const vector<SharedPtr<Skill> >& Unit::GetSkillArr() const
 {

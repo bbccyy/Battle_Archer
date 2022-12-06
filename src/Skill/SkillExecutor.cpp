@@ -149,8 +149,6 @@ bool SkillExecutor::OnShow(Timer<SkillExecutor>& aTimer)
     
 	if (mSkill->IsMasterRageSkill())
 	{
-		//检测是否处于武魂真身状态，如果是，需要延长变身buff时间 
-		mOwner->TryExtendBattleSoulModeBuffLive(mSkill->GetTimeLength()); 
 		//此处配合一下view层，先发出field层的指令（fullScreenMask），再触发当前技能的指令 
 		auto& battleInstance = mOwner->GetBattleInstance(); 
 		battleInstance.TryShowRageSkill(*mOwner); // let BattleIns pause stuffs and handle Maskcoundown etc. 

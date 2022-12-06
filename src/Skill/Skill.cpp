@@ -781,11 +781,6 @@ bool Skill::CheckEventDeathSub(int flag) const
 
 void Skill::tryExecuteSkill(bool aNeedInterrupt)
 {
-	if (mBattleSoulRelated)
-	{
-		mOwner->BattleSoulSkillTrigger = true; 
-		return;
-	}
 	if (aNeedInterrupt)
 	{
 		mOwner->CurrentSkillInterrupted();

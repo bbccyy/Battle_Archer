@@ -439,7 +439,7 @@ public:
 	void TryExecuteRageSkillBreakNormalAuto();
 	//void TryExecuteBattleSoulSkillBreakNormalAuto();
 	int ManuallyExecuteUnparalleledSkill();//手动触发无双技能 
-	int ManuallyExecuteBattleSoulSkill();//手动触发武魂真身技能 
+	//int ManuallyExecuteBattleSoulSkill();//手动触发武魂真身技能 
     void SetRageSkillState(RageSkillExecuteState*);
     RageSkillExecuteState* GetRageSkillState();
     bool IsInRageSkillMaskTime() const;
@@ -638,7 +638,7 @@ public:
 
 	void TryCleanUpWarRiderRelatedSkills();
 
-	void TryExtendBattleSoulModeBuffLive(int64);
+	//void TryExtendBattleSoulModeBuffLive(int64);
 
 public:
 	int mArmyId = 0;
@@ -705,18 +705,6 @@ public:
 
 	ECountry mCountry = ECountry::None;
 
-	int WarRidingTid = 0;
-	int WarRidingFormIdx = 0;
-	bool WarRidingWinner = false;
-	bool WarRidingBeTread = false;
-
-	int RiderForce = 0;
-	int FightForce = 0;
-	int RiderSkillId = 0;
-	int TreadSkillId = 0;
-
-	bool BattleSoulSkillTrigger = false;  //whether the battle soul skill is able to execute through designer's condition 
-	int InBattleSoulModeBuffId = 0;		  //whether the unit is in battle soul shape shifting mode or not 
 private:
     const constexpr static char* FSM_NAME = "Unit";
     const constexpr static char* STATE_BORN = "Born";
@@ -856,9 +844,9 @@ private:
 	int mAdvLevel = 0;
 	int mStar = 0;
 
-	vector<SharedPtr<Skill>> mBattleSoulTriggerArr; //武魂真身触发技 
-	SharedPtr<Skill> mBattleSoulSkill;	 //武魂真身变身技能 
-	vector<int> mBattleSoulExcludeSkills; //武魂真身需要排除的技能(普攻+大招) 
+	//vector<SharedPtr<Skill>> mBattleSoulTriggerArr; //武魂真身触发技 
+	//SharedPtr<Skill> mBattleSoulSkill;	 //武魂真身变身技能 
+	//vector<int> mBattleSoulExcludeSkills; //武魂真身需要排除的技能(普攻+大招) 
 
     vector<SharedPtr<Skill> > mSkillArr; //所有技能的数组 
 	vector<SharedPtr<Skill>> mSemiAutoArr;  //store current semi auto skills 
@@ -881,7 +869,7 @@ private:
     bool mRageSkillManualReady = false; //flag variable for Manually Execute Rageskill, denotes the validation of cur state to execute its rage skill
     bool mRageSkillAutoReady = false;
 	bool mUnparalleledSkillReady = false;
-	bool mBattleSoulSkillAutoReady = false;
+	//bool mBattleSoulSkillAutoReady = false;
 	
     RageSkillExecuteState* mRageSkillExecuteState = nullptr;
 
@@ -953,7 +941,7 @@ private:
     bool CheckRageSkill();
     int CheckSemiAutoSkill(bool aManual = false);
 	void CheckUnparalleledSkill();
-	void CheckBattleSoulSkill();
+	//void CheckBattleSoulSkill();
     
     void CheckSkillExecutor();
 	void IncreaseSkillIndex();
@@ -969,6 +957,6 @@ private:
 	bool mIsManualSemiAuto = false;
 	RageSkillStatus mRageSkillStatus;
 	RageSkillStatus mUnparallelSkillStatus;
-	RageSkillStatus mBattleSoulSkillStatus;
+	//RageSkillStatus mBattleSoulSkillStatus;
 	vector<SharedPtr<BuffSkillInfo>> mBuffSkillStatistics;
 };
