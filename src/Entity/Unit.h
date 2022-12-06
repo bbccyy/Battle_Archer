@@ -94,6 +94,14 @@ enum class ControlledType
 	SkillRecovery
 };
 
+enum class UnitType
+{
+	Undefined = 0,
+	Player = 1,
+	Pet = 2,
+	Monster = 3,
+};
+
 //受击类型
 enum class BeHitType
 {
@@ -704,6 +712,8 @@ public:
 
 	ECountry mCountry = ECountry::None;
 
+	UnitType mUnitType = UnitType::Undefined;
+
 private:
     const constexpr static char* FSM_NAME = "Unit";
     const constexpr static char* STATE_BORN = "Born";
@@ -733,31 +743,31 @@ private:
 	State* mStateMoveToRef;
 	State* mStateChooseSkill;
 	State* mRevive;
-    Transition* mTransResetToIdle;
-    Transition* mTransBehaviour;
-	Transition* mTransBehaviourToIdle;
-    Transition* mTransCutscene;
-    Transition* mTransBeHit;
-    Transition* mTransBeHitEnd;
-    Transition* mTransBeControlled;
-    Transition* mTransBeControlledEnd;
-    Transition* mTransDead;
-    Transition* mTransRealDead;
-    Transition* mTransAnyToDead;
-    Transition* mTransRevive;
-    Transition* mTransMoveToRefTarget;
-    Transition* mTransCantMoveToRefTarget;
-	Transition* mTransReturnBehaviourStop;
-	Transition* mTransReturnDying;
-	Transition* mTranseAutoSkillRecovery;
-	Transition* mTransAutoMoveToRefTarget;
-    Transition* mTransNoSkillToExecute;
-    Transition* mTransSkillEnded;
-    Transition* mTransToExecuteSkill;	
-	Transition* mTransReachRefAndRecovered;
-	Transition* mTransReachRefNotRecovered;
-	Transition* mTransRecoverLostRefTarget;
-	Transition* mTransChooseToExecute;
+    Transition* mTransResetToIdle;//OK
+    Transition* mTransBehaviour;//OK
+	Transition* mTransBehaviourToIdle;//OK
+    Transition* mTransCutscene;//OK
+    //Transition* mTransBeHit;
+    //Transition* mTransBeHitEnd;
+    Transition* mTransBeControlled;//OK
+    Transition* mTransBeControlledEnd;//OK
+    Transition* mTransDead;//OK
+    Transition* mTransRealDead;//OK
+    Transition* mTransAnyToDead;//OK
+    Transition* mTransRevive;//OK
+	//Transition* mTransMoveToRefTarget; 
+	//Transition* mTransCantMoveToRefTarget;
+	//Transition* mTransReturnBehaviourStop;
+	//Transition* mTransReturnDying;
+	//Transition* mTranseAutoSkillRecovery;
+	Transition* mTransAutoMoveToRefTarget;//OK
+    Transition* mTransNoSkillToExecute;//OK
+    Transition* mTransSkillEnded;//OK
+    Transition* mTransToExecuteSkill;//OK
+	//Transition* mTransReachRefAndRecovered;
+	//Transition* mTransReachRefNotRecovered;
+	//Transition* mTransRecoverLostRefTarget;
+	Transition* mTransChooseToExecute;//OK
 
 	int mDeadStateId = 0;
 
