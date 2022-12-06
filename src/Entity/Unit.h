@@ -755,7 +755,7 @@ private:
     Transition* mTransRealDead;//OK
     Transition* mTransAnyToDead;//OK
     Transition* mTransRevive;//OK
-	//Transition* mTransMoveToRefTarget; 
+	Transition* mTransMoveToRefTarget; 
 	//Transition* mTransCantMoveToRefTarget;
 	//Transition* mTransReturnBehaviourStop;
 	//Transition* mTransReturnDying;
@@ -934,6 +934,8 @@ private:
 	bool CondiTargetInRange(bool);
 	bool CondiTargetOutOfRange(bool);
 
+	void InitFsmCommon();
+	void LinkFsmCommon();
     void InitFsm();
     void InitPlayerFsm();
     void InitFields(Army&, BattleViewOutput&, PhysicsSystem&);

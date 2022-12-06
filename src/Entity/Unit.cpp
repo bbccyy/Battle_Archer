@@ -1573,112 +1573,22 @@ SharedPtr<Skill> Unit::AddSkill(int const aSkillId, int const aLevel)
 
 bool Unit::ActionTickIdle(int)
 {
-	//TODO 检测当前位置和上一次位置 
+	//TODO1 检测当前位置和上一次位置 
+	//TODO2 确保完成了所有的SkillRecovery 
 	return mAbleToChooseSkill;
 }
 
-void Unit::InitPlayerFsm()
+void Unit::InitFsmCommon()
 {
-	mUnitType = UnitType::Player; //这个在一早要找地方赋值 
-
-	//States
-	mStateIdle = mFsm->AddState(STATE_IDLE);	//Idle 
-	mStateIdle->SetOnTick(MakeFunction<>(*this, &Unit::ActionTickIdle)); 
-
-	//Player 需要确保: 1)技能可达目标, 2)技能冷却时间完毕后 -> 才能通过当前状态
-	mStateChooseSkill = mFsm->AddState(STATE_CHOOSESKILL);	//Choose skill
-	mStateChooseSkill->SetOnTick(MakeFunction<>(*this, &Unit::ActionChooseSkill));   
-
-	//mStateMoveToRef = mFsm->AddState(STATE_MOVETONEAREST_REFTARGET);
-	//mStateMoveToRef->SetOnTick(MakeFunction<>(*this, &Unit::ActionMoveToRefTarget));
-	//mStateMoveToRef->SetOnExit(MakeFunction<>(*this, &Unit::ActionExitMoveToRefTarget));
-
-	mStateExecuteSkill = mFsm->AddState(STATE_EXECUTESKILL);	//Execute skill
-	mStateExecuteSkill->SetOnEnter(MakeFunction<>(*this, &Unit::ActionExecuteSkill));
-	mStateExecuteSkill->SetOnExit(MakeFunction<>(*this, &Unit::ActionExitExecuteSkill));
-
-	mStateSkillRecovery = mFsm->AddState(STATE_SKILLRECOVERY);	//Recovery skill
-	mStateSkillRecovery->SetOnEnter(MakeFunction<>(*this, &Unit::ActionEnterSkillRecovery));
-	mStateSkillRecovery->SetOnTick(MakeFunction<>(*this, &Unit::ActionTickSkillRecovery));
-	mStateSkillRecovery->SetOnExit(MakeFunction<>(*this, &Unit::ActionExitSkillRecovery));
-
-	mStateBeControlled = mFsm->AddState(STATE_BECONTROLLED);	//Be Controlled
-	mStateBeControlled->SetOnTick(MakeFunction<>(*this, &Unit::ActionTickBeControlled));
-
-	mStateDying = mFsm->AddState(STATE_DYING);	//Dying 
-	mStateDying->SetOnEnter(MakeFunction<>(*this, &Unit::ActionEnterDying));
-	mStateDying->SetOnTick(MakeFunction<>(*this, &Unit::ActionTickDying));
-
-	mStateDead = mFsm->AddState(STATE_DEAD);	//Dead
-	mStateDead->SetOnEnter(MakeFunction<>(*this, &Unit::ActionEnterDead));
-	mStateDead->SetOnTick(MakeFunction<>(*this, &Unit::ActionTickDead));
-
-	mRevive = mFsm->AddState(STATE_REVIVE);		//Revive
-	mRevive->SetOnEnter(MakeFunction<>(*this, &Unit::ActionEnterRevive));
-
-	mStateBehaviour = mFsm->AddState(STATE_BEHAVIOUR);	//Behaviour
-
-	mDeadStateId = mStateDead->GetId();
-
-	//Transitions
-	//Start -> Idle (Auto)
-	mFsm->AddTransition(mFsm->GetStartState(), *mStateIdle, TransitionMode::Auto);
-	//Idle -> ChooseSkl (AfterActionDone)
-	mFsm->AddTransition(*mStateIdle, *mStateChooseSkill, TransitionMode::AfterActionDone);
-	//ChooseSkl -> Move2Ref (Auto) with condition 
-	//mTransAutoMoveToRefTarget = mFsm->AddTransition(*mStateChooseSkill, *mStateMoveToRef, TransitionMode::Auto);
-	//mTransAutoMoveToRefTarget->SetCondition(MakeFunction<>(*this, &Unit::CondiTargetOutOfRange));
-	//ChooseSkl -> ExecuteSkl (AfterActionDone)
-	mTransChooseToExecute = mFsm->AddTransition(*mStateChooseSkill, *mStateExecuteSkill, TransitionMode::Auto);
-	mTransChooseToExecute->SetCondition(MakeFunction<>(*this, &Unit::CondiTargetInRange));
-	//ExecuteSkl -> SkillRecovery (Manual) 当技能执行完毕（失败或成功时） 
-	mTransNoSkillToExecute = mFsm->AddTransition(*mStateExecuteSkill, *mStateSkillRecovery, TransitionMode::Manual);
-	mTransSkillEnded = mFsm->AddTransition(*mStateExecuteSkill, *mStateSkillRecovery, TransitionMode::Manual);
-	//Any -> ExecuteSkl (Manual) 行为导向 
-	mTransToExecuteSkill = mFsm->AddTransition(mFsm->GetAnyState(), *mStateExecuteSkill, TransitionMode::Manual);
-	//SkillRecovery -> Idle (AfterActionDone) 
-	mFsm->AddTransition(*mStateSkillRecovery, *mStateIdle, TransitionMode::AfterActionDone);
-	//Any -> BeControlled (Manual)
-	mTransBeControlled = mFsm->AddTransition(mFsm->GetAnyState(), *mStateBeControlled, TransitionMode::Manual);
-	//BeControlled -> Idle (Manual) 
-	mTransBeControlledEnd = mFsm->AddTransition(*mStateBeControlled, *mStateIdle, TransitionMode::Manual);
-	//Any -> Dying (Manual) 
-	mTransDead = mFsm->AddTransition(mFsm->GetAnyState(), *mStateDying, TransitionMode::Manual);
-	//Dying -> Dead (Manual) 
-	mTransRealDead = mFsm->AddTransition(*mStateDying, *mStateDead, TransitionMode::Manual);
-	//Any -> Dead (Manual) 行为导向 
-	mTransAnyToDead = mFsm->AddTransition(mFsm->GetAnyState(), *mStateDead, TransitionMode::Manual);
-	//Dying -> Dead (AfterActionDone) 
-	mFsm->AddTransition(*mStateDying, *mStateDead, TransitionMode::AfterActionDone);
-	//Dead -> Revive (Manual) 
-	mTransRevive = mFsm->AddTransition(*mStateDead, *mRevive, TransitionMode::Manual);
-	//Revive -> Idle (Auto)
-	mFsm->AddTransition(*mRevive, *mStateIdle, TransitionMode::Auto);
-	//Any -> Behaviour (Manual) 
-	mTransBehaviour = mFsm->AddTransition(mFsm->GetAnyState(), *mStateBehaviour, TransitionMode::Manual);
-	//Behaviour -> Idle (AfterActionDone)
-	mFsm->AddTransition(*mStateBehaviour, *mStateIdle, TransitionMode::AfterActionDone);
-	//Behaviour -> Idle (Manual) 
-	mTransBehaviourToIdle = mFsm->AddTransition(*mStateBehaviour, *mStateIdle, TransitionMode::Manual);
-	//Any -> Idle (Manual) 切换场景用 
-	mTransCutscene = mFsm->AddTransition(mFsm->GetAnyState(), *mStateIdle, TransitionMode::Manual);
-	//Any -> Idle (Manual) 备用  
-	mTransResetToIdle = mFsm->AddTransition(mFsm->GetAnyState(), *mStateIdle, TransitionMode::Manual);
-}
-
-void Unit::InitFsm()
-{
-	mUnitType = UnitType::Monster; //这个在一早要找地方赋值 
-
 	//States
 	mStateIdle = mFsm->AddState(STATE_IDLE);	//Idle 
 	mStateIdle->SetOnTick(MakeFunction<>(*this, &Unit::ActionTickIdle));
 
-	//Player 需要确保: 1)技能可达目标, 2)技能冷却时间完毕后 -> 才能通过当前状态
+	//Player 需要确保: 1)技能可达目标, 2)如果有问题，直接调用ANY->IDLE归位 
 	mStateChooseSkill = mFsm->AddState(STATE_CHOOSESKILL);	//Choose skill
 	mStateChooseSkill->SetOnTick(MakeFunction<>(*this, &Unit::ActionChooseSkill));
 
-	mStateMoveToRef = mFsm->AddState(STATE_MOVETONEAREST_REFTARGET);
+	mStateMoveToRef = mFsm->AddState(STATE_MOVETONEAREST_REFTARGET);  //Move2Ref 
 	mStateMoveToRef->SetOnTick(MakeFunction<>(*this, &Unit::ActionMoveToRefTarget));
 	mStateMoveToRef->SetOnExit(MakeFunction<>(*this, &Unit::ActionExitMoveToRefTarget));
 
@@ -1708,23 +1618,19 @@ void Unit::InitFsm()
 	mStateBehaviour = mFsm->AddState(STATE_BEHAVIOUR);	//Behaviour
 
 	mDeadStateId = mStateDead->GetId();
+}
 
-	//Transitions
+void Unit::LinkFsmCommon()
+{
 	//Start -> Idle (Auto)
 	mFsm->AddTransition(mFsm->GetStartState(), *mStateIdle, TransitionMode::Auto);
 	//Idle -> ChooseSkl (AfterActionDone)
 	mFsm->AddTransition(*mStateIdle, *mStateChooseSkill, TransitionMode::AfterActionDone);
-	//ChooseSkl -> Move2Ref (Auto) with condition 
-	mTransAutoMoveToRefTarget = mFsm->AddTransition(*mStateChooseSkill, *mStateMoveToRef, TransitionMode::Auto);
-	mTransAutoMoveToRefTarget->SetCondition(MakeFunction<>(*this, &Unit::CondiTargetOutOfRange));
-	//Move2Ref -> ExecuteSkl (AfterActionDone)
-	mFsm->AddTransition(*mStateMoveToRef, *mStateExecuteSkill, TransitionMode::AfterActionDone);
-	//ChooseSkl -> ExecuteSkl (AfterActionDone)
-	mTransChooseToExecute = mFsm->AddTransition(*mStateChooseSkill, *mStateExecuteSkill, TransitionMode::Auto);
-	mTransChooseToExecute->SetCondition(MakeFunction<>(*this, &Unit::CondiTargetInRange));
+
 	//ExecuteSkl -> SkillRecovery (Manual) 当技能执行完毕（失败或成功时） 
 	mTransNoSkillToExecute = mFsm->AddTransition(*mStateExecuteSkill, *mStateSkillRecovery, TransitionMode::Manual);
 	mTransSkillEnded = mFsm->AddTransition(*mStateExecuteSkill, *mStateSkillRecovery, TransitionMode::Manual);
+
 	//Any -> ExecuteSkl (Manual) 行为导向 
 	mTransToExecuteSkill = mFsm->AddTransition(mFsm->GetAnyState(), *mStateExecuteSkill, TransitionMode::Manual);
 	//SkillRecovery -> Idle (AfterActionDone) 
@@ -1755,6 +1661,47 @@ void Unit::InitFsm()
 	mTransCutscene = mFsm->AddTransition(mFsm->GetAnyState(), *mStateIdle, TransitionMode::Manual);
 	//Any -> Idle (Manual) 备用  
 	mTransResetToIdle = mFsm->AddTransition(mFsm->GetAnyState(), *mStateIdle, TransitionMode::Manual);
+}
+
+void Unit::InitPlayerFsm()
+{
+	mUnitType = UnitType::Player; //这个在一早要找地方赋值 
+
+	InitFsmCommon();
+
+	//Transitions
+	LinkFsmCommon();
+	//ChooseSkl -> ExecuteSkl (AfterActionDone)
+	mTransChooseToExecute = mFsm->AddTransition(*mStateChooseSkill, *mStateExecuteSkill, TransitionMode::Auto);
+	mTransChooseToExecute->SetCondition(MakeFunction<>(*this, &Unit::CondiTargetInRange));
+	
+	//Any -> Move2Ref (Manual) 行为导向 -> 强制执行技能专用 
+	mTransMoveToRefTarget = mFsm->AddTransition(mFsm->GetAnyState(), *mStateMoveToRef, TransitionMode::Manual);
+	
+	//Move2Ref -> ExecuteSkl (AfterActionDone)
+	mFsm->AddTransition(*mStateMoveToRef, *mStateExecuteSkill, TransitionMode::AfterActionDone);
+	
+}
+
+void Unit::InitFsm()
+{
+	mUnitType = UnitType::Monster; //这个在一早要找地方赋值 
+
+	InitFsmCommon();
+
+	//Transitions
+	LinkFsmCommon();
+	//ChooseSkl -> Move2Ref (Auto) with condition 
+	mTransAutoMoveToRefTarget = mFsm->AddTransition(*mStateChooseSkill, *mStateMoveToRef, TransitionMode::Auto);
+	mTransAutoMoveToRefTarget->SetCondition(MakeFunction<>(*this, &Unit::CondiTargetOutOfRange));
+	//ChooseSkl -> ExecuteSkl (AfterActionDone)
+	mTransChooseToExecute = mFsm->AddTransition(*mStateChooseSkill, *mStateExecuteSkill, TransitionMode::Auto);
+	mTransChooseToExecute->SetCondition(MakeFunction<>(*this, &Unit::CondiTargetInRange));
+
+	//Any -> Move2Ref (Manual) 行为强制执行技能专用
+	mTransMoveToRefTarget = mFsm->AddTransition(mFsm->GetAnyState(), *mStateMoveToRef, TransitionMode::Manual);
+	//Move2Ref -> ExecuteSkl (AfterActionDone)
+	mFsm->AddTransition(*mStateMoveToRef, *mStateExecuteSkill, TransitionMode::AfterActionDone);
 }
 
 
@@ -2151,13 +2098,6 @@ bool Unit::ActionTickSkillRecovery(int const aDeltaTime)
 
 	if (TryExecuteRageSkillAuto() == 1) 
 	{  //success to execute rage skill 
-		return false;
-	}
-
-	//cur target is in range?
-	if (mChoosedSkill && !mChoosedSkill->IsRefTargetInRangeDynamic())
-	{
-		mFsm->DoTransition(mTransRecoverLostRefTarget);
 		return false;
 	}
 
@@ -2640,7 +2580,7 @@ void Unit::OnSkillKeyframe(const SkillExecutor& aSkillExecutor)
 void Unit::OnSkillEnd(const SkillExecutor& aSkillExecutor)
 {
 	if (&aSkillExecutor == mCurSkillExecutor.Get()) 
-	{	
+	{
 		mFsm->DoTransition(mTransSkillEnded);
 	}
 	else
@@ -2985,7 +2925,7 @@ void Unit::ExecuteSkill(const SharedPtr<Skill> aSkill, int const aDelay, SharedP
 		{
 			mFsm->DoTransition(mTransBehaviourToIdle); 
 		}
-        mFsm->DoTransition(mTransMoveToRefTarget); //TODO: what if current fsm is SkillRecovery 
+        mFsm->DoTransition(mTransMoveToRefTarget);  
     }
     else
     {
@@ -6442,35 +6382,9 @@ const DirectedPosition Unit::GetBornPointPosition()
 
 MoveStrategy Unit::HowToMove(const RefTarget& aRefTarget)
 {
-	auto& battleInstance = GetBattleInstance();
-	if (false)  //这里原先是 IsTD 
+	if (GetBattleInstance().UseAIPath())
 	{
-		if (mArmy->GetId() == 1 && !IsSummoned())
-		{
-			return MoveStrategy::Trace;
-		}
-		else if (mArmy->GetId() == 2 && !IsSummoned())
-		{
-			if (aRefTarget.GetType() == ERefTargetType::Pos)
-			{
-				return MoveStrategy::PredefinedPath;
-			}
-			else
-			{
-				return MoveStrategy::Trace;
-			}
-		}
-		else
-		{
-			return MoveStrategy::AIPath;
-		}
-	}
-	else
-	{
-		if (battleInstance.UseAIPath())
-		{
-			return MoveStrategy::AIPath;
-		}
+		return MoveStrategy::AIPath;
 	}
 	return MoveStrategy::Trace;
 }
