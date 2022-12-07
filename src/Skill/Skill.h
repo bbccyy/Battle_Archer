@@ -99,10 +99,10 @@ public:
 	bool IsPhysicalSkill() const;
 	bool IsChildSkill() const;
     bool HasAnim() const;
-	bool HasSemiAutoSkillArr() const;
+	//bool HasSemiAutoSkillArr() const;
     const vector<SharedPtr<Skill> >& GetChildSkill() const;
     const vector<SharedPtr<Skill> >& GetProbabilisticSkill() const;
-    const vector<SharedPtr<Skill> >& GetSemiAutoSkill() const;
+    //const vector<SharedPtr<Skill> >& GetSemiAutoSkill() const;
     int GetLastExecuteNormalAtkNum() const;
 	void ResetLastExecuteNormalAtkNum();
     int GetCastRange() const;
@@ -160,9 +160,9 @@ public:
 	int mSkillChannelType = 0;
 	WeakPtr<Skill> mAncestorSkill = nullptr;
 
-	bool mIsSemiAutoSkill = false;
-	int mSemiAutoTTL = 0;
-	int mSemiAutoGap = 0;
+	//bool mIsSemiAutoSkill = false;
+	//int mSemiAutoTTL = 0;
+	//int mSemiAutoGap = 0;
 
 	int64 mTriggerRegister1 = 0;
 	int64 mTriggerRegister2 = 0;
@@ -220,7 +220,7 @@ private:
     vector<SharedPtr<Skill> > mChildSkillArr;
 	vector<SharedPtr<Skill> > mProbabilisticSkillArr;
 
-	vector<SharedPtr<Skill> > mSemiAutoSkillArr;
+	//vector<SharedPtr<Skill> > mSemiAutoSkillArr;
 
     int mLastExecuteTime = 0;
     int mLastExecuteNormalAtkNum = 0; //上次执行时，owner的普攻次数

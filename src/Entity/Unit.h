@@ -438,7 +438,7 @@ public:
 	void ExecuteSkill(const SharedPtr<Skill>, int, SharedPtr<SkillExecutor>, SharedPtr<Unit>, SharedPtr<Unit> aReflecter = nullptr);//尝试立刻执行一个技能 
 	void TryTriggerSkillOnHp();
     int ManuallyExecuteRageSkill();//手动触发怒气技能 
-	int ManuallyUnregisterNextSemiAutoSkill();
+	//int ManuallyUnregisterNextSemiAutoSkill();
 	int TryExecuteRageSkillAuto();
 	//int TryExecuteBattleSoulSkillAuto();
     int TryExecuteRageSkill(); 
@@ -618,13 +618,13 @@ public:
 	void UnregisterConditionChange(int aMainType, int aRel, int aTar, int64 aParam, const vector<int>& aParamArr);
 	void ClearConditionChangeArr();
 	void ClearChgDataByBuffSubArr();
-	void RegisterSemiAutoSkills(const vector<SharedPtr<Skill>>&);
+	//void RegisterSemiAutoSkills(const vector<SharedPtr<Skill>>&);
 
 	bool HasRefTarget(int aEntityId);
 	bool IsInMove2RefST() const;
 	int64 TryGetCastRange();
 	int TryGetCurrentRefTarget();
-	void TryCleanSemiAuto();
+	//void TryCleanSemiAuto();
 	void AnyToDead(DieCause);
 	bool AbleToInterrupt(int aAtkerEnergyLv, bool aIsPhysical);
 	void RecordHealOut(int64 aValue);
@@ -860,7 +860,7 @@ private:
 	//vector<int> mBattleSoulExcludeSkills; //武魂真身需要排除的技能(普攻+大招) 
 
     vector<SharedPtr<Skill> > mSkillArr; //所有技能的数组 
-	vector<SharedPtr<Skill>> mSemiAutoArr;  //store current semi auto skills 
+	//vector<SharedPtr<Skill>> mSemiAutoArr;  //store current semi auto skills 
     SharedPtr<Skill> mRageSkill = nullptr;  //hold RageSkill of this Unit
 	vector<SharedPtr<Skill>> mRageSkillArr; //hold all rage skill of this unit
 	SharedPtr<Skill> mUnparalleledSkill = nullptr;
@@ -876,7 +876,7 @@ private:
 	int mNormalAtkNum = 0;
 	int mNormalAtkNumBeforeChangeAvatar = 0;
 	//int mCurrentSkillNum = 0;
-	int mNextSemiAutoTime = 0;   //the time at which next semi auto skill will be executed 
+	//int mNextSemiAutoTime = 0;   //the time at which next semi auto skill will be executed 
     bool mRageSkillManualReady = false; //flag variable for Manually Execute Rageskill, denotes the validation of cur state to execute its rage skill
     bool mRageSkillAutoReady = false;
 	bool mUnparalleledSkillReady = false;
@@ -955,7 +955,7 @@ private:
     int64 HealBy(int64);
 	inline void SlgHeal();
     bool CheckRageSkill();
-    int CheckSemiAutoSkill(bool aManual = false);
+    //int CheckSemiAutoSkill(bool aManual = false);
 	void CheckUnparalleledSkill();
 	//void CheckBattleSoulSkill();
     
@@ -970,7 +970,7 @@ private:
 	int mNumOfAvoidOverlapMovement = 0;
 	Vector3 mLastDir;
 
-	bool mIsManualSemiAuto = false;
+	//bool mIsManualSemiAuto = false;
 	RageSkillStatus mRageSkillStatus;
 	RageSkillStatus mUnparallelSkillStatus;
 	//RageSkillStatus mBattleSoulSkillStatus;

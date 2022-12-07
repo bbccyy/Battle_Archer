@@ -153,10 +153,7 @@ bool Skill::HasAnim() const
 {
     return mAnimConf != nullptr;
 }
-bool Skill::HasSemiAutoSkillArr() const
-{
-	return mSemiAutoSkillArr.size() > 0;
-}
+
 const vector<SharedPtr<Skill> >& Skill::GetChildSkill() const
 {
     return mChildSkillArr;
@@ -164,10 +161,6 @@ const vector<SharedPtr<Skill> >& Skill::GetChildSkill() const
 const vector<SharedPtr<Skill> >& Skill::GetProbabilisticSkill() const
 {
 	return mProbabilisticSkillArr;
-}
-const vector<SharedPtr<Skill> >& Skill::GetSemiAutoSkill() const
-{
-	return mSemiAutoSkillArr;
 }
 const vector<EPosType>& Skill::GetRefPosType() const
 {
@@ -359,10 +352,7 @@ void Skill::CopyInit(SharedPtr<Unit> aUnit, const Skill* aBase)
 	mTotalHeal = 0;
 	mExtraDmgCoef = DENOM;
 	mTotalSuckBlood = 0;
-	mIsSemiAutoSkill = false;
 	mSkillSubType = aBase->mSkillSubType;
-	mSemiAutoTTL = 0;
-	mSemiAutoGap = 0;
 	mTriggerRegister1 = 0;
 	mTriggerRegister2 = 0;
 	mRealCastRange = 0;
@@ -396,7 +386,6 @@ void Skill::CopyInit(SharedPtr<Unit> aUnit, const Skill* aBase)
 	mHitHandlerArr.clear();
 	mChildSkillArr.clear();
 	mProbabilisticParams.clear();
-	mSemiAutoSkillArr.clear();
 	mProbabilisticSkillArr.clear();
 	mCDTime = aBase->mCDTime;
 	mLastExecuteTime = aBase->mLastExecuteTime;
@@ -447,10 +436,8 @@ int Skill::Init( SharedPtr<Unit> aUnit, int aSkillId, int aSkillLevel, WeakPtr<S
 	mArmySkillTiming = 0;
 	mArmySkillStrategy = 0;
 
-	mIsSemiAutoSkill = false;
 	mGroundMeshSkill = false;
-	mSemiAutoTTL = 0;
-	mSemiAutoGap = 0;
+
 	mTriggerRegister1 = 0;
 	mTriggerRegister2 = 0;
 	mExtraDmgCoef = DENOM;
@@ -509,12 +496,7 @@ int Skill::DoInit()
 	mIsBlockPriority = baseConf.isblockpriority();
 	mPriority = baseConf.skillpriority();
 	mAutoRageSkill = baseConf.autorageskill();
-	mIsSemiAutoSkill = baseConf.issemiautorageskill();
-	if (mIsSemiAutoSkill)
-	{
-		mSemiAutoTTL = CONF_TIME_CONVERT(baseConf.semiautoskilltimetolive());
-		mSemiAutoGap = CONF_TIME_CONVERT(baseConf.semiautoskillinterval());
-	} 
+
 	if (baseConf.subragesmoothly())
 	{
 		mSubRageSmoothly = true;
@@ -694,23 +676,6 @@ void Skill::InitChildSkill()
 
 	}
 
-	/*for (size_t i = 0; i < subSkillConf.probabilisticskills_size(); i++)
-	{
-		SharedPtr<Skill> skill = SharedPool<Skill>::Get();
-		skill->Init(mOwner, subSkillConf.probabilisticskills(static_cast<int>(i)), mLevel, thisPtr);
-		mProbabilisticSkillArr.emplace_back(skill);
-	}*/
-
-	if (mIsSemiAutoSkill)
-	{
-		for (int i = 0; i < mSkillConf->basedata().semiautoskillchain_size(); i++)
-		{
-			SharedPtr<Skill> skill = SharedPool<Skill>::Get();
-			skill->Init(mOwner, mSkillConf->basedata().semiautoskillchain(i), mLevel, nullptr);
-			mSemiAutoSkillArr.emplace_back(skill);
-		}
-	}
-
 }
 
 bool Skill::CheckTriggerWithCountryHeroRuntime() const
@@ -803,7 +768,6 @@ void Skill::Reset()
     mHitHandlerArr.clear();
     mChildSkillArr.clear();
 	mProbabilisticParams.clear();
-	mSemiAutoSkillArr.clear();
 	mProbabilisticSkillArr.clear();
 	isTriggeredByBuff = false;
 	mAncestorSkill = nullptr;
@@ -833,10 +797,6 @@ void Skill::Reset()
 
 	mSkillMainType = 0;
 	mSkillChannelType = 0;
-
-	mIsSemiAutoSkill = false;
-	mSemiAutoTTL = 0;
-	mSemiAutoGap = 0;
 
 	mTriggerRegister1 = 0;
 	mTriggerRegister2 = 0;

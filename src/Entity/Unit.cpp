@@ -407,7 +407,6 @@ void Unit::Init(const TUnitInfo& aUnitInfo, Army& aArmy, BattleViewOutput& aView
 	mCurrentAnimStartTime = 0;
 	mCurrentAnimName = ANIM_NAME_IDLE;
 	mChainSkillIndex = 0;
-	mNextSemiAutoTime = 0;
 	if (aUnitInfo.has_advlv())
 		mAdvLevel = aUnitInfo.advlv();
 	else
@@ -469,7 +468,6 @@ void Unit::Init(int const aTplId, int const aLevel, int aSkillLevel, int aAdvLv,
 	mCurrentAnimStartTime = 0;
 	mCurrentAnimName = ANIM_NAME_IDLE;
 	mChainSkillIndex = 0;
-	mNextSemiAutoTime = 0;
 	mAdvLevel = aAdvLv;
 	mBeControlledStack = vector<ControlToken*>(0);
 	mShapeShiftStack.clear();
@@ -524,7 +522,6 @@ void Unit::InitDummy(Army& aArmy, BattleViewOutput& aView, PhysicsSystem& aPhysi
 	mCurrentAnimStartTime = 0;
 	mCurrentAnimName = ANIM_NAME_IDLE;
 	mChainSkillIndex = 0;
-	mNextSemiAutoTime = 0;
 
 	InitEntity(aView, aPhysics);
 	mLevel = 1;
@@ -652,7 +649,6 @@ void Unit::Reset()
 	mProvideKillRage = false;
 
     mSkillArr.clear();
-	mSemiAutoArr.clear();
 	mRandomNormalSkillArr.clear();
 	mChainSkillArr.clear();
 	mChainSkillOrder.clear();
@@ -709,7 +705,6 @@ void Unit::Reset()
 	mRegister1 = 0;
 	mTplId = 0;
 	mHid = 0;
-	mIsManualSemiAuto = false;
 	mIsMale = false;
 	mFirstHitDone = false;
 	mLastCastRange = 0;
@@ -741,7 +736,6 @@ void Unit::Reset()
 	mUnparalleledSkillReady = false;
 	mNormalAtkNum = 0;
 	mNormalAtkNumBeforeChangeAvatar = 0;
-	mNextSemiAutoTime = 0; 
 	mRageSkillManualReady = false; 
 	mRageSkillAutoReady = false;
 
@@ -1138,7 +1132,6 @@ void Unit::InitAvatar()
     mBaseSize = CONF_POS_CONVERT(mConfig->GetBodySize());
     mSize = mBaseSize * mSizeScale / DENOM;
 	mBehaviourMark = false;
-	mIsManualSemiAuto = false;
 
 	auto* heroConf = ConfigMgr::GetConfById<ConfigHero>(mTplId);
 	auto* heroAttr = ConfigMgr::GetConfById<ConfigHeroAttribute>(heroConf->GetAttributeID());
@@ -1580,6 +1573,7 @@ bool Unit::ActionTickIdle(int)
 
 void Unit::InitFsmCommon()
 {
+	//todo del semi_auto skill logic 
 	//States
 	mStateIdle = mFsm->AddState(STATE_IDLE);	//Idle 
 	mStateIdle->SetOnTick(MakeFunction<>(*this, &Unit::ActionTickIdle));
@@ -2461,7 +2455,7 @@ void Unit::ActionEnterDead()
 	DisableMove();
 	TryUpdateMapLocation(true);
 	mBuffMgr->Clear(true);
-	TryCleanSemiAuto();
+
 	if (true)
 	{
 		int key1 = BattleInstance::GenerateEventKey(static_cast<int>(ETriggerMajor::Death));
@@ -2597,7 +2591,6 @@ void Unit::OnTick(int const aDeltaTime)
     mUnitTime += unitTime;
     CheckRageSkill();
 	CheckUnparalleledSkill();
-	CheckSemiAutoSkill();
     mFsm->OnTick(unitTime);
     mTimerMgr->OnTick(mUnitTime);
 	TickBarrier(unitTime); 
@@ -2667,7 +2660,6 @@ void Unit::OnEnterCutscene()
 	{
 		mTimerMgr->Check();
 	}
-	TryCleanSemiAuto();
     mUnitTime = 0;
 	mRecoveryTime = 0;
 	mChainSkillIndex = 0;
@@ -2693,12 +2685,8 @@ bool Unit::CheckRageSkill()
 	}
     if (mRage >= mRageSkillThreshold)
     { //has enough Rage
-		if (mCurSkill && (mCurSkill->IsRageSkill() || mCurSkill->mIsSemiAutoSkill)) 
+		if (mCurSkill && mCurSkill->IsRageSkill()) 
 		{  //防止大招在扣除Rage前进入下面分支，刷新并改变RefTarget
-			return false;
-		}
-		if (mSemiAutoArr.size() > 0) //the same as above 
-		{
 			return false;
 		}
 
@@ -2748,100 +2736,6 @@ bool Unit::CheckRageSkill()
         mView->Execute(ViewCommand::RageSkillStatus, mEntityId, int(mRageSkillStatus));
     }
 	return true;
-}
-
-//retrun value > 0 denotes that this method changes some of field values 
-int Unit::CheckSemiAutoSkill(bool aManual)
-{
-	aManual = aManual || mIsManualSemiAuto;  //denotes player input/cmd
-	if (mSemiAutoArr.size() == 0)
-		return 0;
-
-	if ((IsDead() || IsHidden()))
-		return 0;
-
-	if (mFsm->IsInState(mStateExecuteSkill->GetId()) && mCurSkill && mCurSkill->mIsSemiAutoSkill) 
-	{
-		//this unit is in SkillExecute sate, current skill is Semi Auto
-		if (aManual)
-		{
-			//need record player's cmd
-			mIsManualSemiAuto = true;
-			return 1;
-		}
-		else
-		{
-			return 0;
-		}
-	}
-
-	bool isInControl = mFsm->IsInState(mStateBeControlled->GetId());
-
-	//still in time, but it's normal tick or
-	//player has input while in be-controlled state, 
-	//we return(ignore) directly
-	if (mNextSemiAutoTime > mUnitTime && (!aManual || isInControl)) 
-		return 0;
-
-	if (mNextSemiAutoTime <= mUnitTime && 
-		((!aManual && !GetBattleInstance().IsAuto()) || isInControl)) 
-	{	//time expired, abort next semi auto skill if
-		//game is in manual mode and no user inputs or
-		//unit is in be-controlled state 
-		int skillId = mSemiAutoArr.back()->GetId();
-		mSemiAutoArr.pop_back();
-		if (mSemiAutoArr.size() > 0)
-		{
-			mNextSemiAutoTime = mUnitTime + mSemiAutoArr.back()->mSemiAutoTTL;
-		}
-		else
-		{
-			mNextSemiAutoTime = 0;
-		}
-		mView->Execute(ViewCommand::SkillEnd, mEntityId, skillId);  //inform lua side
-		return 1;
-	}
-
-	mIsManualSemiAuto = false;
-
-	CurrentSkillInterrupted(true);  //interrupt without dispatch event 
-
-	mChoosedSkill = mSemiAutoArr.back();
-	mSemiAutoArr.pop_back();
-
-	bool suc = false;
-	mChoosedSkill->ResetCD();
-	if (mChoosedSkill->CanExecute() == CheckResult::Pass
-		&& mChoosedSkill->RefreshRefTarget()
-		&& mChoosedSkill->HasRefTarget()
-		&& mChoosedSkill->IsRefTargetInRange())
-	{
-		mRecoveryTime = mUnitTime;
-		mFsm->DoTransition(mTransAutoMoveToRefTarget);
-		//mFsm->DoTransition(mTransToExecuteSkill);
-		suc = true;
-	}
-	else
-	{
-		mView->Execute(ViewCommand::SkillEnd, mEntityId, mChoosedSkill->GetId());  //inform lua side
-		mChoosedSkill.Release();
-	}
-
-	if (mSemiAutoArr.size() > 0)
-	{
-		if (GetBattleInstance().IsAuto())
-			mNextSemiAutoTime = mUnitTime + mSemiAutoArr.back()->mSemiAutoGap;
-		else
-			mNextSemiAutoTime = mUnitTime + mSemiAutoArr.back()->mSemiAutoTTL;
-	}
-	else
-	{
-		mNextSemiAutoTime = 0;
-	}
-	if (suc)
-		return 2;
-	else
-		return 1;
 }
 
 
@@ -2987,34 +2881,10 @@ void Unit::TryTriggerSkillOnHp()
 	mTriggerOnHpSkillArr.resize(j + 1);
 }
 
-int Unit::ManuallyUnregisterNextSemiAutoSkill()
-{
-	if (mSemiAutoArr.size() > 0)
-	{
-		int skillId = mSemiAutoArr.back()->GetId();
-		mSemiAutoArr.pop_back();
-		mView->Execute(ViewCommand::SkillEnd, mEntityId, skillId); 
-		if (mSemiAutoArr.size() > 0)
-		{
-			if (GetBattleInstance().IsAuto())
-				mNextSemiAutoTime = mUnitTime + mSemiAutoArr.back()->mSemiAutoGap;
-			else
-				mNextSemiAutoTime = mUnitTime + mSemiAutoArr.back()->mSemiAutoTTL;
-		}
-		else
-		{
-			mNextSemiAutoTime = 0;
-		}
-		return 1;
-	}
-	return 0;
-}
 
 // order by input cmd
 int Unit::ManuallyExecuteRageSkill()
 {
-	if (CheckSemiAutoSkill(true) > 0)
-		return 1;
 
 	bool hasChgFieldValue = false;
 	if (CheckRageSkill())
@@ -3183,10 +3053,6 @@ void Unit::SkillInterrupted(const SharedPtr<SkillExecutor>& aSkillExecutor, bool
 				int key = BattleInstance::GenerateEventKey(static_cast<int>(ETriggerMajor::AfterInterrupt));
 				GetBattleInstance().DispatchEvent(key, GetArmyId(), mEntityId, skillId);
 			}
-		}
-		if (mCurSkillExecutor && mCurSkillExecutor->GetSkill()->mIsSemiAutoSkill)
-		{
-			TryCleanSemiAuto();
 		}
     }
 	//in case cur skill has been interrupted later in the func call stack 
@@ -5775,7 +5641,6 @@ void Unit::BehaviourMoveToStandPoint(Vector3 aStandPoint, int aSpeed, int aRange
 void Unit::BehaviourHide(int const aHiding)
 {
     mStateAdjustPropertyArr[static_cast<int>(StateAdjust::BehaviourHidden)] = aHiding;
-	TryCleanSemiAuto();
     mArmy->UnitHiddenStatusChanged(this);
 }
 
@@ -5940,43 +5805,6 @@ void Unit::SetAnim(const char* aAnim)
 void Unit::SetAnimLenth(int aLength)
 {
 	mCurrentAnimLength = aLength;
-}
-
-void Unit::RegisterSemiAutoSkills(const vector<SharedPtr<Skill>>& aSkillList)
-{
-	if (mSemiAutoArr.size() > 0)
-	{
-		LOG_WARN("RegisterSemiAutoSkills while has data already, eid = %d", mEntityId);
-		return;
-	}
-	//mSemiAutoArr.clear();
-	mNextSemiAutoTime = 0;
-	mIsManualSemiAuto = false;
-	int size = aSkillList.size();
-	mSemiAutoArr.reserve(size);
-	for (int i = size - 1; i >= 0; i--)
-	{
-		mSemiAutoArr.emplace_back(aSkillList[i]);
-	}
-	if (size > 0)
-	{
-		if (GetBattleInstance().IsAuto())
-			mNextSemiAutoTime = mUnitTime + mSemiAutoArr[size - 1]->mSemiAutoGap;
-		else
-			mNextSemiAutoTime = mUnitTime + mSemiAutoArr[size - 1]->mSemiAutoTTL;
-	}
-}
-
-void Unit::TryCleanSemiAuto()
-{
-	if (mSemiAutoArr.size() == 0)
-		return;
-	
-	int skillId = mSemiAutoArr.front()->GetId();
-	mSemiAutoArr.clear();
-	mNextSemiAutoTime = 0;
-	mIsManualSemiAuto = false;
-	mView->Execute(ViewCommand::SkillEnd, mEntityId, skillId);
 }
 
 

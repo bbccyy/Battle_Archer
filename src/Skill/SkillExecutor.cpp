@@ -154,10 +154,6 @@ bool SkillExecutor::OnShow(Timer<SkillExecutor>& aTimer)
 		battleInstance.TryShowRageSkill(*mOwner); // let BattleIns pause stuffs and handle Maskcoundown etc. 
 		mOwner->GetView()->Execute(ViewCommand::SkillShow, mOwner->GetEntityId(), mSkill->GetId(), mRefTargetArr);
 		startChildSkill();
-		if (mSkill->mIsSemiAutoSkill && mSkill->HasSemiAutoSkillArr())
-		{
-			mOwner->RegisterSemiAutoSkills(mSkill->GetSemiAutoSkill());
-		}
 		int dyingtime = EDITOR_CONF_TIME_CONVERT(mSkillConf->basedata().keepdyingduration());
 		if (dyingtime > 0)
 		{
