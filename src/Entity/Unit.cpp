@@ -1240,22 +1240,6 @@ SharedPtr<Skill> Unit::GetRageSkill()
 	return mRageSkill;
 }
 
-void Unit::TryCleanUpWarRiderRelatedSkills()
-{
-	vector<int> tmp;
-	for (size_t i = 0; i < mSkillArr.size(); ++i)
-	{
-		if (mSkillArr[i]->mWarRiderRelated)
-		{
-			tmp.emplace_back(mSkillArr[i]->GetId());
-		}
-	}
-	for (auto sid : tmp)
-	{
-		RemoveSkill(sid);
-	}
-}
-
 //Only buff mod "add skill" will invoke this call 
 void Unit::RemoveSkill(int const aSkillId)
 {

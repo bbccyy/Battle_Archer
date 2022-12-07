@@ -54,7 +54,7 @@ namespace pb
 	class TUnitInfo;
 	class TSkillCount;
 	class TSkillCountInfo;
-	class TWheelWarRidingInfo;
+	//class TWheelWarRidingInfo;
 }
 using pb::SceneConf3d;
 using pb::FieldConf3;
@@ -72,7 +72,7 @@ using pb::TBattleFieldInput;
 using pb::TUnitInfo;
 using pb::TSkillCount;
 using pb::TSkillCountInfo;
-using pb::TWheelWarRidingInfo;
+//using pb::TWheelWarRidingInfo;
 
 class MersenneTwister;
 class BattleViewOutput;
@@ -346,7 +346,7 @@ private:
 	vector<TFieldInput> mRecordInputArr;
 
 	TBattleResult* mResult = nullptr;
-	TWheelWarRidingInfo* mWarRider = nullptr;
+	//TWheelWarRidingInfo* mWarRider = nullptr;
 	bool hasReported = false;
 
     bool mAuto;

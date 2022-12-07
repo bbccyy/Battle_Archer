@@ -643,7 +643,7 @@ public:
 
 	int GetOrigTplId();
 
-	void TryCleanUpWarRiderRelatedSkills();
+	//void TryCleanUpWarRiderRelatedSkills();
 
 	//void TryExtendBattleSoulModeBuffLive(int64);
 

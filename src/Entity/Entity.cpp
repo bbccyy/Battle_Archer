@@ -529,12 +529,6 @@ void Entity::TryUpdateMapLocation(bool aRetrieve)
 	mPathMgr->UpdateLocation(mEntityId, tmp, mSize + AIPATH_RANGE);
 }
 
-void Entity::TryModifyMoveTrace(int aPosIndex)  //todo: delete it 
-{
-	if (mMoveTrace)
-		mMoveTrace->SetRingPosition(aPosIndex, MELEE_RING_MAX_SLOT);
-}
-
 void Entity::WorldToLocal(Vector3& aPos) const
 {
 	//平移，处理后将只保留入参坐标aPos之于本地坐标原点mPosition的相对位置 

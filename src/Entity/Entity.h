@@ -89,7 +89,7 @@ public:
     void Scale(int, int);
     virtual void UpdateAgent(){};
 	void ResetEntity();
-	void TryModifyMoveTrace(int aPosIndex);
+	//void TryModifyMoveTrace(int aPosIndex);
 	void LocalToWorld(Vector3& aPos) const;
 	void WorldToLocal(Vector3& aPos) const;
     void Reset();

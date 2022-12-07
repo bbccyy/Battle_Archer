@@ -969,12 +969,6 @@ TBattleResult* BattleInstance::ReportResultPb(bool aNeedCMD)
 		args->set_hasuserinput(true);
 	}
 
-	if (mWarRider != nullptr)
-	{
-		args->set_allocated_wheelwarridinginfo(mWarRider); //will become parts of mResults 
-		mWarRider = nullptr; 
-	}
-
 	result->set_allocated_battleargs(args);
 	int starLevel = mArmy1->CountDead();
 	if (mBattleResult != EBattleResult::Victory)
