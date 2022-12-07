@@ -221,10 +221,8 @@ void Unit::InitFields(Army& aArmy, BattleViewOutput& aView, PhysicsSystem& aPhys
     mNormalAtkNum = 0;
     mTauntedTargetBuffId = 0;
     mRageSkillManualReady = false;
-	mUnparalleledSkillReady = false;
     mFloatWithoutBeingMoved = false;
 	mRageSkillStatus = RageSkillStatus::RageNotReady;
-	mUnparallelSkillStatus = RageSkillStatus::RageNotReady;
     mDamageInTotal = 0;
 	mDamageInWithOverflow = 0;
     mDamageOutTotal = 0;
@@ -504,10 +502,8 @@ void Unit::InitDummy(Army& aArmy, BattleViewOutput& aView, PhysicsSystem& aPhysi
 	mNormalAtkNum = 0;
 	mTauntedTargetBuffId = 0;
 	mRageSkillManualReady = false;
-	mUnparalleledSkillReady = false;
 	mFloatWithoutBeingMoved = false;
 	mRageSkillStatus = RageSkillStatus::RageNotReady;
-	mUnparallelSkillStatus = RageSkillStatus::RageNotReady;
 	mProvideKillRage = false;
 	mIsMale = true;
 	mFirstHitDone = true;
@@ -663,8 +659,6 @@ void Unit::Reset()
 		mChoosedSkill.Release();
 	if(mCurSkillExecutor)
 		mCurSkillExecutor.Release();
-	if(mUnparalleledSkill)
-		mUnparalleledSkill.Release();
 
     mFsm.Release();
     mTimerMgr.Release();
@@ -733,7 +727,6 @@ void Unit::Reset()
 	mTauntedTargetBuffId = 0;
 	mRageSkillExecuteState = nullptr;
 
-	mUnparalleledSkillReady = false;
 	mNormalAtkNum = 0;
 	mNormalAtkNumBeforeChangeAvatar = 0;
 	mRageSkillManualReady = false; 
@@ -1362,20 +1355,6 @@ void Unit::RemoveSkill(int const aSkillId)
 		}
 		break;
 	}
-	case ECastType::Unparalleled:
-	{
-		mUnparalleledSkill = nullptr;
-		for (size_t i = 0; i < mSkillArr.size(); ++i)
-		{
-			if (aSkillId != mSkillArr[i]->GetId()
-				&& mSkillArr[i]->GetSkillConf()->basedata().chainskillmark() == type)
-			{
-				mUnparalleledSkill = mSkillArr[i];
-				break;
-			}
-		}
-		break;
-	}
 	case ECastType::WithBuff:
 	{
 		break;
@@ -1436,18 +1415,6 @@ void Unit::RemoveSkill(int const aSkillId)
 			}
 			mTriggerSkillArr.resize(p);
 			break;
-			/*auto it = mTriggerSkillArr.begin();
-			for (; it != mTriggerSkillArr.end(); ++it)
-			{
-				if ((*it)->GetId() == aSkillId)
-				{
-					(*it)->UnRegisterListener();
-					it = mTriggerSkillArr.erase(it);
-					if (it == mTriggerSkillArr.end())
-						break;
-				}
-			}
-			break;*/
 		}
 		}
 	}
@@ -1505,9 +1472,6 @@ SharedPtr<Skill> Unit::AddSkill(int const aSkillId, int const aLevel)
 			mRageSkillArr.insert(it, skill);
 		}
         break;
-	case ECastType::Unparalleled:
-		mUnparalleledSkill = skill;
-		break;
 	case ECastType::WithBuff:
 	{
 		LOG_DEBUG("should not add buff-triggered-skill %d here", skill->GetSkillConf()->id());
@@ -2590,7 +2554,6 @@ void Unit::OnTick(int const aDeltaTime)
     int unitTime = aDeltaTime;
     mUnitTime += unitTime;
     CheckRageSkill();
-	CheckUnparalleledSkill();
     mFsm->OnTick(unitTime);
     mTimerMgr->OnTick(mUnitTime);
 	TickBarrier(unitTime); 
@@ -2738,57 +2701,6 @@ bool Unit::CheckRageSkill()
 	return true;
 }
 
-
-void Unit::CheckUnparalleledSkill()
-{
-	if ((IsDead() || IsHidden()))
-	{
-		return;
-	}
-	if (mArmy->CanExecuteUnparallel() && mUnparalleledSkill)
-	{ //has enough Rage, and has UnparalleledSkill
-		if (mCurSkill && mCurSkill->IsUnparallelledRageSkill())  //防止大招在扣除Rage前进入下面分支，刷新并改变RefTarget
-		{
-			return;
-		}
-
-		if (!mFsm->IsInState(mStateBeControlled->GetId()))
-		{ // must not in control state and behit state
-			if (mUnparalleledSkill->CanExecute() == CheckResult::Pass
-				&& mUnparalleledSkill->RefreshRefTarget()
-				&& mUnparalleledSkill->HasRefTarget())
-			{ // must has reftarget, and more 
-				if (mUnparalleledSkill->IsRefTargetInRange())
-				{
-					if (!mUnparalleledSkillReady)
-					{
-						mUnparalleledSkillReady = true;
-						mUnparallelSkillStatus = RageSkillStatus::RageReadyToCast;
-						mView->Execute(ViewCommand::UnparalleledSkillStatus, mEntityId, int(mUnparallelSkillStatus));
-					}
-					return;
-				}
-			}
-			else
-			{
-				mUnparallelSkillStatus = RageSkillStatus::RageNotReady;
-			}
-		}
-		else
-		{
-			mUnparallelSkillStatus = RageSkillStatus::RageReadyButBeControlled;
-		}
-	}
-	else
-	{
-		mUnparallelSkillStatus = RageSkillStatus::RageNotReady;
-	}
-	if (mUnparalleledSkillReady)
-	{
-		mUnparalleledSkillReady = false;
-		mView->Execute(ViewCommand::UnparalleledSkillStatus, mEntityId, int(mUnparallelSkillStatus));
-	}
-}
 
 void Unit::ExecuteSkill(const SharedPtr<Skill> aSkill, int const aDelay, SharedPtr<SkillExecutor> aParentExecutor, SharedPtr<Unit> aSourceUtilizer, SharedPtr<Unit> aReflecter)
 {
@@ -2984,19 +2896,6 @@ int Unit::TryExecuteRageSkillAuto()
 	return 0;
 }
 
-int Unit::ManuallyExecuteUnparalleledSkill()
-{
-	if (!mUnparalleledSkillReady || (mCurSkill && mCurSkill->IsUnparallelledRageSkill()))
-	{
-		return 0;
-	}
-	mChoosedSkill = mUnparalleledSkill;
-	//Try cancel current skill executor if exists
-	SkillInterrupted(mCurSkillExecutor);
-	mFsm->DoTransition(mTransToExecuteSkill);
-
-	return 1;
-}
 
 void Unit::SetRageSkillState(RageSkillExecuteState* aState)
 {
@@ -4065,16 +3964,6 @@ void Unit::SubRage(int64 const aAmount, ERageChangeCause aCause)
 	}
 }
 
-void Unit::AddRageUnparallel(int64 const aAmount)
-{
-	mArmy->AddRage(aAmount);
-}
-
-void Unit::SubRageUnparallel(int64 const aAmount)
-{
-	mArmy->SubRage(aAmount);
-}
-
 void Unit::SkillUseRage(int64 aSubRageTime)
 {
 	if (aSubRageTime > 0)
@@ -4086,11 +3975,6 @@ void Unit::SkillUseRage(int64 aSubRageTime)
 		mView->Execute(ViewCommand::SubRage, mEntityId, mRage, 0, int(ERageChangeCause::RageSkillCost));
 	}
 	mRage = 0;
-}
-
-void Unit::SkillUseRageUnparallel()
-{
-	mArmy->SkillUseRage();
 }
 
 void Unit::ModifyActionSpeed(int const aPercent)

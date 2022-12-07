@@ -212,10 +212,6 @@ bool SkillExecutor::OnBegin(Timer<SkillExecutor>& aTimer)
 			mOwner->SkillUseRage(0);  // sub all Rage from owner in no duration 
         mOwner->GetBattleInstance().TryBeginRageSkill(*mOwner);
     }
-	else if (mSkill->IsUnparallelledRageSkill())
-	{
-		mOwner->SkillUseRageUnparallel();  //NOTE: unparallelled RageSkill do not have subskills
-	}
 	else
 	{
 		if (!mReflecter)
@@ -293,11 +289,6 @@ bool SkillExecutor::OnKeyFrame(Timer<SkillExecutor>& aTimer)
 	if (addRage > 0)
 	{
 		mOwner->AddRage(addRage, ERageChangeCause::ExecuteSkill);
-	}
-	int64 addRageUnparallel = mSkillConf->musourecoverdata().param1() + int64(mSkillConf->musourecoverdata().param2()) * mSkill->GetLevelMinus();
-	if (addRageUnparallel > 0)
-	{
-		mOwner->AddRageUnparallel(addRageUnparallel);
 	}
 
 	if (IsChild())

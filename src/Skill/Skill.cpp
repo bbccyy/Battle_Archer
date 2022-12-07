@@ -135,10 +135,6 @@ bool Skill::IsMasterRageSkill() const
 {
 	return  static_cast<int>(ECastType::Rage) == mCastType && !mParentSkill;
 }
-bool Skill::IsUnparallelledRageSkill() const
-{
-	return  static_cast<int>(ECastType::Unparalleled) == mCastType && !mParentSkill;
-}
 bool Skill::IsPhysicalSkill() const
 {
 	return EDamageChannelPhysical == mSkillConf->basedata().skilltunnel();

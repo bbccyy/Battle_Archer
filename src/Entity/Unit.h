@@ -445,7 +445,7 @@ public:
     //int TryExecuteBattleSoulSkill();
 	void TryExecuteRageSkillBreakNormalAuto();
 	//void TryExecuteBattleSoulSkillBreakNormalAuto();
-	int ManuallyExecuteUnparalleledSkill();//手动触发无双技能 
+	//int ManuallyExecuteUnparalleledSkill();//手动触发无双技能 
 	//int ManuallyExecuteBattleSoulSkill();//手动触发武魂真身技能 
     void SetRageSkillState(RageSkillExecuteState*);
     RageSkillExecuteState* GetRageSkillState();
@@ -556,10 +556,10 @@ public:
 	bool hasBuffModifyDamage() const;
     void AddRage(int64, ERageChangeCause);
     void SubRage(int64, ERageChangeCause);
-	void AddRageUnparallel(int64);
-	void SubRageUnparallel(int64);
+	//void AddRageUnparallel(int64);
+	//void SubRageUnparallel(int64);
     void SkillUseRage(int64 aSubRageTime = 0);
-	void SkillUseRageUnparallel();
+	//void SkillUseRageUnparallel();
 	void Born();
 	bool hasBorn();
 	void OnDelete();
@@ -863,7 +863,7 @@ private:
 	//vector<SharedPtr<Skill>> mSemiAutoArr;  //store current semi auto skills 
     SharedPtr<Skill> mRageSkill = nullptr;  //hold RageSkill of this Unit
 	vector<SharedPtr<Skill>> mRageSkillArr; //hold all rage skill of this unit
-	SharedPtr<Skill> mUnparalleledSkill = nullptr;
+	//SharedPtr<Skill> mUnparalleledSkill = nullptr;
     vector<SharedPtr<Skill> > mTriggerSkillArr;
 	vector<SharedPtr<Skill>> mRandomNormalSkillArr; 
     SharedPtr<Skill> mCurSkill = nullptr; //当前执行的技能 
@@ -879,7 +879,7 @@ private:
 	//int mNextSemiAutoTime = 0;   //the time at which next semi auto skill will be executed 
     bool mRageSkillManualReady = false; //flag variable for Manually Execute Rageskill, denotes the validation of cur state to execute its rage skill
     bool mRageSkillAutoReady = false;
-	bool mUnparalleledSkillReady = false;
+	//bool mUnparalleledSkillReady = false;
 	//bool mBattleSoulSkillAutoReady = false;
 	
     RageSkillExecuteState* mRageSkillExecuteState = nullptr;
@@ -956,7 +956,7 @@ private:
 	inline void SlgHeal();
     bool CheckRageSkill();
     //int CheckSemiAutoSkill(bool aManual = false);
-	void CheckUnparalleledSkill();
+	//void CheckUnparalleledSkill();
 	//void CheckBattleSoulSkill();
     
     void CheckSkillExecutor();
@@ -972,7 +972,7 @@ private:
 
 	//bool mIsManualSemiAuto = false;
 	RageSkillStatus mRageSkillStatus;
-	RageSkillStatus mUnparallelSkillStatus;
+	//RageSkillStatus mUnparallelSkillStatus;
 	//RageSkillStatus mBattleSoulSkillStatus;
 	vector<SharedPtr<BuffSkillInfo>> mBuffSkillStatistics;
 };

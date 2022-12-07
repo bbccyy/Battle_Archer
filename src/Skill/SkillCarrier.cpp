@@ -157,16 +157,6 @@ void SkillCarrier::OnReachRefTarget(const RefTarget& aRefTarget)
 			uniqEmplaceBackToVector(efftars, t);
 		}
     }
-	if (skill->IsUnparallelledRageSkill())
-	{
-		vector<int> effUnparallel;
-		for (auto& t : efftars)
-		{
-			effUnparallel.emplace_back(t->GetEntityId());
-		}
-		mOwner->GetView()->Execute(ViewCommand::SkillUnparallel, mOwner->GetEntityId(), skill->GetId(), effUnparallel);
-		RestoreVectorToPool(effUnparallel);
-	}
 
     Vector3 dir = mProjectile ? mProjectile->GetForward() : aRefTarget.GetTargetPos() - mOwner->GetPosition();
     mOwner->GetView()->Execute(ViewCommand::SkillOnReachRefTarget

@@ -95,7 +95,7 @@ public:
 	bool IsPartOfRageSkill() const;
 	bool IsRageSkill() const;
 	bool IsMasterRageSkill() const;
-	bool IsUnparallelledRageSkill() const;
+	//bool IsUnparallelledRageSkill() const;
 	bool IsPhysicalSkill() const;
 	bool IsChildSkill() const;
     bool HasAnim() const;
