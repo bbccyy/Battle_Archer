@@ -617,7 +617,7 @@ void Unit::Reset()
 	mActionSpeedFactor = 0;
 	mRealSpeedFactor = 0;
 
-	mNoTargetCounter = 0;
+	//mNoTargetCounter = 0;
 	mKillNum = 0;
 
 	mBornPoint = 0;
@@ -1683,7 +1683,7 @@ bool Unit::ActionChooseSkill(int const aDeltaTime)
 	}
     if (mSkillArr.size() == 0)
 	{
-		LOG_DEBUG("Unit %d has no skill to choose from! {state=%s}"
+		LOG_FATAL("Unit %d has no skill to choose from! {state=%s}"
 			, mEntityId
 			, mFsm->GetCurrentState().GetName());
 		return false;
@@ -1747,8 +1747,8 @@ bool Unit::ActionChooseSkill(int const aDeltaTime)
 				}
 				if (!mChainSkillArr[mark]->RefreshRefTarget())
 				{
-					mNoTargetCounter++;
-					return false;	//do not incerase skill index
+					mFsm->DoTransition(mTransResetToIdle);
+					return false;	
 				}
 				mChainSkillArr[mark]->CheckReplacement();
 				mChoosedSkill = mChainSkillArr[mark];
@@ -1773,14 +1773,15 @@ bool Unit::ActionChooseSkill(int const aDeltaTime)
 					}
 					else
 					{ //replace fail, do not execute any skill 
-						mNoTargetCounter++;
+						mFsm->DoTransition(mTransResetToIdle);
 						return false;
 					}
 				}
 				break;
 			default:
-				LOG_DEBUG("hero %d, skill %d, non-normal skill fail to pass CanExecute. ret = %d", mTplId, mChainSkillArr[mark]->GetId(), static_cast<int>(ret));
+				//LOG_DEBUG("hero %d, skill %d, non-normal skill fail to pass CanExecute. ret = %d", mTplId, mChainSkillArr[mark]->GetId(), static_cast<int>(ret));
 				IncreaseSkillIndex(); //skip this skill 
+				mFsm->DoTransition(mTransResetToIdle);
 				return false;
 			}
 			if (!mChoosedSkill)
@@ -1788,7 +1789,7 @@ bool Unit::ActionChooseSkill(int const aDeltaTime)
 				if (!mChainSkillArr[mark]->RefreshRefTarget())
 				{
 					IncreaseSkillIndex(); //skip this skill 
-					mNoTargetCounter++;
+					mFsm->DoTransition(mTransResetToIdle);
 					return false;
 				}
 				mChainSkillArr[mark]->CheckReplacement();
@@ -1810,20 +1811,20 @@ bool Unit::ActionChooseSkill(int const aDeltaTime)
             if (mChoosedSkill->IsNormalSkill() == false)
             {
                 LOG_FATAL("Unit %d(tid=%d) taunted, need choose normal skill, curSkill %d", mEntityId, mTplId, mChoosedSkill->GetId());
-            }
+				return false;
+			}
 			else
 			{//do not redirect a positive type skill to an enemy when self taunted 
 				if (mChoosedSkill->isPositiveType())
 				{
 					mChoosedSkill.Release();
+					mFsm->DoTransition(mTransResetToIdle);
 					return false;
 				}
 			}
         }
-		mNoTargetCounter = 0;
         return true;
     }
-	mNoTargetCounter++;
     return false;
 }
 
