@@ -127,7 +127,6 @@ BattleInstance::BattleInstance()
     , mCenterPointArr(vector<DirectedPosition>(0))
     , mSummonPointArr1(vector<DirectedPosition>(0))
     , mSummonPointArr2(vector<DirectedPosition>(0))
-	, BossAttributeAdd(vector<int64>(0))
     , mArmy1(SharedPtr<Army>(new Army(1, *this, *mView, *mPhysics, mBornPointArr1, mSummonPointArr1, mCenterPointArr)))
     , mArmy2(SharedPtr<Army>(new Army(2, *this, *mView, *mPhysics, mBornPointArr2, mSummonPointArr2, mCenterPointArr)))
     , mSkillCarrierArr(vector<SharedPtr<SkillCarrier> >(0))
@@ -324,7 +323,7 @@ int BattleInstance::InitWithPbObj(TBattleArgs* aPbMsg)
 	{
 		LOG_DEBUG("v = %d", v);
 	}*/
-	LoadBossGrowthAttr();  //增长型BOSS战 
+	//LoadBossGrowthAttr();  //增长型BOSS战 
 	mBattleStarter = mArgs->battlestarter();
 	//mBattleStarter = pb::EBattleStarter::EBattleCrossCollaborate;  // TODO: DONT FORGET TO DELETE IT! 
 	if (mBattleStarter == pb::EBattleStarter::EBattleBoss)
@@ -552,7 +551,6 @@ void BattleInstance::InitNextField()
 	int64 xMax = 0;
 	int64 zMax = 0;
 	mBossTotalDamageUndertake = 0;
-	mBossGrowthLevel = 0;
 	int blockLineIdx = 0;
     for (auto& area : mFieldConf->customareaarr())
     {
@@ -1506,7 +1504,6 @@ void BattleInstance::OnTick()
 {
     //LOG_DEBUG("FrameTime:%d", mFrameTime);
     mFsm->OnTick(mFixedFrameDelta);
-	OnTickBossGrowth();
 }
 
 void BattleInstance::RunBattleToEnd()
@@ -2441,102 +2438,6 @@ SharedPtr<BattleViewOutput> BattleInstance::GetView() const
 SharedPtr<PhysicsSystem> BattleInstance::GetPhysics() const
 {
 	return mPhysics;
-}
-
-int BattleInstance::GetBossGrowthLevel(int aArmyId)
-{
-	if (!mIsBossGrowth || aArmyId != 2)
-	{
-		LOG_WARN("Mis-using of GetBossGrowthLevel, isBossGrowth %b, is Army2 %b", mIsBossGrowth, aArmyId == 2);
-		return 0;
-	}
-	return mBossGrowthLevel;
-}
-
-void BattleInstance::OnTickBossGrowth()
-{
-	if (!mIsBossGrowth) return;
-	if (mFsm->IsInState(mStateNormal->GetId()))
-	{
-		int64 origDmg = mBossTotalDamageUndertake;
-		mBossTotalDamageUndertake = 0;
-		for (auto& unit : mArmy2->GetUnitArr())
-		{
-			mBossTotalDamageUndertake += unit->GetDamageInWithOverflow();
-		}
-		if (origDmg >= mBossTotalDamageUndertake)
-			return;
-		int aLv = -1;
-		int bLv = -1;
-		for (int idx = 0; idx < BossHpRange.size(); idx++)
-		{
-			if (BossHpRange[idx] > origDmg && aLv < 0)
-			{
-				aLv = idx;
-			}
-			if (BossHpRange[idx] > mBossTotalDamageUndertake && bLv < 0)
-			{
-				bLv = idx;
-				break;
-			}
-		}
-		int deltaLv = bLv - aLv;
-		if (deltaLv > 0)
-		{
-			mBossGrowthLevel = bLv;
-			int deltaGrowth = 0;
-			for (int idx = aLv; idx < bLv; idx++)
-			{
-				deltaGrowth += BossHpRangeGrowth[idx];
-			}
-			for (auto& unit : mArmy2->GetActiveUnitArr())
-			{
-				if (!unit->IsSummoned() && !unit->IsDead())
-				{
-					for (int i = 0; i < BossAttributeAdd.size(); i += 2)
-					{
-						unit->DirectAddAttr(static_cast<EAttribute>(BossAttributeAdd[i]), BossAttributeAdd[i + 1] * deltaGrowth);
-					}
-				}
-			}
-		}
-
-	}
-}
-
-void BattleInstance::LoadBossGrowthAttr()
-{
-	//TODO: use conf or so
-	auto starter = mArgs->battlestarter();
-	mIsBossGrowth = false;
-	switch (starter)
-	{
-	case pb::EBattleStarter::EBattleMajorWorldBoss:
-	case pb::EBattleStarter::EBattleMajorCrossWorldBoss:
-		mIsBossGrowth = true;
-		break;
-	default:
-		break;
-	}
-
-	if (mIsBossGrowth && mArgs->army2arr_size() > 0)
-	{
-		for (auto& unit : mArgs->army2arr(0).unitarr())
-		{
-			int tplid = unit.htid();
-			auto* conf = ConfigMgr::GetConfById<ConfigHero>(tplid);
-			auto& growth = conf->GetBossAttrGrowth();
-			if (growth.size() > 0)
-			{
-				for (auto& sub : growth)
-				{
-					BossAttributeAdd.emplace_back(sub[0]);
-					BossAttributeAdd.emplace_back(sub[1]);
-				}
-				break;
-			}
-		}
-	}
 }
 
 void BattleInstance::TriggerDamageCopy(int64 aDamage, int aSourceUtilizerId, int buffId)

@@ -125,9 +125,6 @@ void HitHandlerSummon::OnHit(SharedPtr<Unit> aUtilizer, SharedPtr<Unit> aTarget,
             case ESummonLevelMethodSetValue:
                 level = summonConf.levelparam();
                 break;
-			case ESummonLevelMethodBossGrowth:
-				level = battleInstance.GetBossGrowthLevel(aUtilizer->GetArmyId());
-				break;
 			default:
 				LOG_WARN("unknown leveltype %d when summon unit", leveltype);
         }

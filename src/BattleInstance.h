@@ -213,11 +213,11 @@ public:
 
 	int mBattleId = 0;
 
-	vector<int64> BossAttributeAdd;
+	//vector<int64> BossAttributeAdd;
 
 	int64 mBossTotalDamageUndertake = 0;
-	int mBossGrowthLevel = 0;
-	bool mIsBossGrowth = false;
+	//int mBossGrowthLevel = 0;
+	//bool mIsBossGrowth = false;
 
 	Vector3 mPlayerPosition;
 	Vector3 mPlayerRotation;
@@ -453,9 +453,6 @@ private:
     bool ActionTickRageSkillExecute(int);
 	bool ActionTickCutscene(int);
     void ActionExitRageInput();
-	void OnTickBossGrowth();
-
-	//void OnTickMeleeRingMgr();
 
     void InitNextField();
     void InitNextFieldArcher();
@@ -468,6 +465,5 @@ private:
 	void FillUnitInfo(TUnitStatistics*, Unit*) const;
 	void FillSkillInfo(TUnitStatistics*, Unit*) const;
 	void FillSkillSingle(TUnitStatistics*, Skill*) const;
-	void LoadBossGrowthAttr();
 
 };
