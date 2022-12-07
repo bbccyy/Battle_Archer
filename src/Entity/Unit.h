@@ -422,7 +422,7 @@ public:
     bool IsEnemy(const SharedPtr<Unit>&) const;
 	bool IsEnemy(const int) const;
 	bool IsHero(const int) const;
-	bool IsSlg() const;
+	//bool IsSlg() const;
 	bool NeedFieldInit() const;
 	bool IsTowerLike() const;
 
@@ -541,10 +541,10 @@ public:
     void ModifyAttr(const vector<BuffModPropertyEntry>&, bool aNeedSendText = true, int aBuffId = 0);//属性修改 
     void RevertAttr(const vector<BuffModPropertyEntry>&);//取消属性修改 
     int64 ModifyMaxHp(int64 aMaxHpChange, int64 aHpChange, int64 aHpDiff, bool aNeedSendCmd = true);
-	bool HasTextShift(int aSkillId);
-	int GetTextShift(int aEntityId);
-	void SetTextShift(int aEntityId);
-	void CleanTextShift();
+	//bool HasTextShift(int aSkillId);
+	//int GetTextShift(int aEntityId);
+	//void SetTextShift(int aEntityId);
+	//void CleanTextShift();
 
 	bool CanBeRefTargetOfUtilizer(Unit* aUtilizer, Skill* aSkill);
 	bool CanBeEffTargetOfUtilizer(Unit* aUtilizer, Skill* aSkill);
@@ -608,8 +608,8 @@ public:
 	bool SetToBornPos();
 	void SetBehaviourMark(bool);
 	int64 CountMaxHpRPG() const;
-	int64 CountMaxHpSLG() const;
-	int64 CountSoldierHpSLG() const;
+	//int64 CountMaxHpSLG() const;
+	//int64 CountSoldierHpSLG() const;
     void SetAnim(const char* aAnim);
 	void SetAnimLenth(int);
 	const vector<SharedPtr<Skill> >& GetSkillArr() const;
@@ -700,11 +700,11 @@ public:
 	int mLastAppliedSpeedFactor = SPEED_FACTOR_BASE;
 
 	bool mProvideKillRage = true;
-	vector<int> mTextShiftSkill;
+	//vector<int> mTextShiftSkill;
 
-	int mIsEnemyMelee = 0;   //0->None, 1->Melee, 2->Distance 
+	//int mIsEnemyMelee = 0;   //0->None, 1->Melee, 2->Distance 
 
-	vector<Unit*> mBeanReceiverList; //used for tower side, records all enemies whom receives my bean 
+	//vector<Unit*> mBeanReceiverList; //used for tower side, records all enemies whom receives my bean 
 
 	int mTimeWhenDead = 0;			//will not consider field number 
 
@@ -775,7 +775,7 @@ private:
 	int mHid = 0;
 	bool mIsPVP = false;
 
-	static int slgCoef1, slgCoef2, slgCoef3, slgCoef4, slgCoef5, slgCoef6;  //hold slg coef values from battleConfig
+	//static int slgCoef1, slgCoef2, slgCoef3, slgCoef4, slgCoef5, slgCoef6;  //hold slg coef values from battleConfig
 
 	int mTroopId = 0;  //SLG related data
 	int mTroopNum = 0;
@@ -789,8 +789,6 @@ private:
     int mLevel = 0;
     int64 mHp = 0;   //current Hp
     int64 mMaxHp = 0;  //uplimits
-	int64 mMaxHpOrig = 0; //slg maxHp after buff's modification
-	int64 mMaxHpDeltaSum = 0;
 	int64 mRage = 0;  //current Rage
 	int64 mRageSkillThreshold = 0; //Rage threshold used to judge one can or can not Do RageSkill right now
 	int64 mMaxRage = 0;
@@ -842,7 +840,7 @@ private:
     vector<SharedPtr<ShapeShift>> mShapeShiftStack;
 	vector<BuffModSkillOnHpEntry*> mTriggerOnHpSkillArr;
 	vector<ChangeDataByBuffSub*> mTableChgDataByBuffSub;
-	vector<pair<int, int>> mTextShiftCounter;
+	//vector<pair<int, int>> mTextShiftCounter;
 
 	int64 mDamageInTotal = 0;
 	int64 mDamageInWithOverflow = 0;
@@ -951,9 +949,9 @@ private:
 
     void DealingDamage(int64, int64, int64, Unit*, bool);
     int64 DamageBy(int64, bool aIgnoreRage = false);
-	inline void SlgDamage(int);
+	//inline void SlgDamage(int);
     int64 HealBy(int64);
-	inline void SlgHeal();
+	//inline void SlgHeal();
     bool CheckRageSkill();
     //int CheckSemiAutoSkill(bool aManual = false);
 	//void CheckUnparalleledSkill();

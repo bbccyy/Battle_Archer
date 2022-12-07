@@ -40,13 +40,6 @@
 
 using std::string;
 
-int Unit::slgCoef1 = 0;
-int Unit::slgCoef2 = 1;
-int Unit::slgCoef3 = 0;
-int Unit::slgCoef4 = 1;
-int Unit::slgCoef5 = 0;
-int Unit::slgCoef6 = 1;
-
 // return True if select aSkill1, skill Priority:
 //   NormalXXX < Others;    NormalAtk < RandomNormalAtk < NormalAtkNum;
 //   NormalAtkNum.LargeNum < NormalAtkNum.LessNum;    Others.LargeID < Others.LessID
@@ -243,8 +236,6 @@ void Unit::InitFields(Army& aArmy, BattleViewOutput& aView, PhysicsSystem& aPhys
         mImmueBuffTypeArr.resize(static_cast<int>(BuffType::_Count), 0);
         mImmueBuffSubTypeArr.resize(static_cast<int>(BuffSubType::_Count), 0);
         mImmueSkillArr = vector<pair<int, int>>(0);
-		mTextShiftCounter = vector<pair<int, int>>(0);
-		mTextShiftSkill = vector<int>(0);
         mImmueSkillTypeArr.resize(static_cast<int>(ESkillMainType_Count), 0);
 		mTableChgDataByBuffSub = vector<ChangeDataByBuffSub*>(0);
 		InitFsm();
@@ -544,8 +535,7 @@ void Unit::InitDummy(Army& aArmy, BattleViewOutput& aView, PhysicsSystem& aPhysi
 	mImmueBuffTypeArr.resize(static_cast<int>(BuffType::_Count), 0);
 	mImmueBuffSubTypeArr.resize(static_cast<int>(BuffSubType::_Count), 0);
 	mImmueSkillArr = vector<pair<int, int>>(0);
-	mTextShiftCounter = vector<pair<int, int>>(0);
-	mTextShiftSkill = vector<int>(0);
+	//mTextShiftSkill = vector<int>(0);
 	mTableChgDataByBuffSub = vector<ChangeDataByBuffSub*>(0);
 	mImmueSkillTypeArr.resize(static_cast<int>(ESkillMainType_Count), 0);
 	mBeControlledStack = vector<ControlToken*>(0);
@@ -619,8 +609,6 @@ void Unit::Reset()
 
 	mLevel = 0;  
 	mStar = 0;
-	mMaxHpOrig = 0;  
-	mMaxHpDeltaSum = 0;
 	mRageSkillThreshold = 0; 
 	mMaxRage = 0;
 	mDieCause.Reset();
@@ -670,8 +658,6 @@ void Unit::Reset()
     TryRecycleFunction(mOnMoveBySkillCancel);
     mImmueBuffArr.clear();
     mImmueSkillArr.clear();
-	mTextShiftCounter.clear();
-	mTextShiftSkill.clear();
 	mImmueBuffSubTypeArr.clear();
 	mImmuePropertyArr.clear();
 	mImmueBuffTypeArr.clear();
@@ -770,8 +756,6 @@ void Unit::Reset()
 	mTTL = 0;
 	mLastAppliedSpeedFactor = SPEED_FACTOR_BASE;
 	mBuffSkillStatistics.clear();
-	mBeanReceiverList.clear();
-	mIsEnemyMelee = 0;
 	mTimeWhenDead = 0;
 	mExtraCastRange = 0;
 	mDeadStateId = 0;
@@ -1218,16 +1202,6 @@ int64 Unit::CountMaxHpRPG() const
 	int64 hprate = DENOM + GetAttr(EAttribute::HpPercent);
 	int64 hp = IncByRate(hpbase, hprate, DENOM) + GetAttr(EAttribute::HpExtra);
 	return hp;
-}
-
-int64 Unit::CountMaxHpSLG() const
-{
-	return Sqrt(mTroopNum + slgCoef1) * CountMaxHpRPG() / slgCoef2;
-}
-
-int64 Unit::CountSoldierHpSLG() const
-{
-	return CountMaxHpSLG() / mTroopNum;
 }
 
 //test all rage skills, try return a valid one or nullptr
@@ -3606,11 +3580,7 @@ int64 Unit::Damage(HitResult& aResult, Unit* aUtilizer, const Skill* aSkill, con
 		}
         if (aSkill)
         {
-			int textShiftCt = 0;
-			if (aUtilizer->HasTextShift(aSkill->GetId())) {
-				textShiftCt = aUtilizer->GetTextShift(mEntityId) + 1;  //just make sure this ct > 0
-			}
-            mView->Execute(ViewCommand::Damage, mEntityId, displayDamage, mHp, aUtilizer->GetEntityId(), aSkill->GetId(), 0, static_cast<int>(aResult.mIsCrit), dir.x, dir.y, dir.z, aResult.mDamageSpecialType, textShiftCt);
+            mView->Execute(ViewCommand::Damage, mEntityId, displayDamage, mHp, aUtilizer->GetEntityId(), aSkill->GetId(), 0, static_cast<int>(aResult.mIsCrit), dir.x, dir.y, dir.z, aResult.mDamageSpecialType, 0);
 			LOG_DEBUG("Unit %d damaged {value=%d current=%d} by skill {utilizer=%d skillId=%d}"
                 , mEntityId
                 , displayDamage
@@ -3852,33 +3822,6 @@ int64 Unit::DamageBy(int64 const aValue, bool aIgnoreRage)
     return actualDamage;
 }
 
-inline void Unit::SlgDamage(int const aValue)
-{
-	if (mSoldierStdHp <= 0)
-	{
-		LOG_DEBUG("unintialized SoldierStdHp or dummyUnit be hitted by others");
-		mSoldierStdHp = 1;
-	}
-	int64 curTroopNum = mHp / mSoldierStdHp;
-	if (curTroopNum * mSoldierStdHp < mHp) // ceil
-		curTroopNum += 1;
-
-	if (curTroopNum > mCurTroopNum) //compare with previous troop size
-	{
-		LOG_DEBUG("after damage %d, nextTroopNum[%d] > curTroopNum[%d]", aValue, curTroopNum, mCurTroopNum);
-		curTroopNum = mCurTroopNum;
-	}
-	int64 affectedMan = mCurTroopNum - curTroopNum;
-	int64 deadMan = affectedMan * mDeathRate / DENOM;
-	int64 injuredMan = affectedMan - deadMan;
-
-	mCurTroopNum = curTroopNum;
-	mInjuredNum += injuredMan;
-	mDeadNum += deadMan;
-
-	mMaxHp = mSoldierStdHp * (mCurTroopNum + mInjuredNum);  //refresh slg Hp uplimits
-}
-
 int64 Unit::HealBy(int64 const aValue)
 {
 	int64 actualHeal = aValue;
@@ -3897,28 +3840,6 @@ void Unit::RecordHealOut(int64 aValue)
 	mHealOutTotal += aValue;
 }
 
-inline void Unit::SlgHeal()
-{
-	int64 curTroopNum = mHp / mSoldierStdHp;
-	if (curTroopNum * mSoldierStdHp < mHp) // ceil
-		curTroopNum += 1;
-
-	int healedSoldier = curTroopNum - mCurTroopNum;
-	if (healedSoldier < 0)
-	{
-		LOG_DEBUG("healed Soldier num < 0, curTroopNum=%d, origTroopNum = %d", curTroopNum, mCurTroopNum);
-		//healedSoldier = 0;
-		SlgDamage(0);
-	}
-
-	mCurTroopNum = curTroopNum;
-	mInjuredNum -= healedSoldier;
-	if (mHp == mMaxHp && mInjuredNum != 0)
-	{
-		LOG_DEBUG("full heal, but still has injured soldier: %d", mInjuredNum);
-		mInjuredNum = 0;
-	}
-}
 
 void Unit::AddRage(int64 const aAmount, ERageChangeCause aCause)
 {
@@ -5029,10 +4950,6 @@ bool Unit::IsHero(const int aEntityId) const
 		return !unit->IsSummoned() && !unit->IsDummy();
 	return false;
 }
-bool Unit::IsSlg() const
-{
-	return false;
-}
 bool Unit::IsTowerLike() const
 {
 	return mSpeed <= 0;
@@ -6001,51 +5918,6 @@ uint32 Unit::TryGetShrinkControlSum()
 {
 	uint32 sum = 0;
 	return sum;
-}
-
-//判断当前是否属于飘字渐变时间 
-bool Unit::HasTextShift(int aSkillId)
-{
-	if (mTextShiftSkill.empty()) 
-		return false;
-	for (int i = 0; i < mTextShiftSkill.size(); i++)
-	{
-		if (mTextShiftSkill[i] == aSkillId)
-			return true;
-	}
-	return false;
-}
-//尝试获取飘字渐变级数 
-int Unit::GetTextShift(int aEntityId)
-{
-	if (mTextShiftSkill.empty())
-		return 0;
-	for (int i = 0; i < mTextShiftCounter.size(); ++i)
-	{
-		if (mTextShiftCounter[i].first == aEntityId)
-			return mTextShiftCounter[i].second;
-	}
-	return 0;
-}
-//设置飘字渐变级数 
-void Unit::SetTextShift(int aEntityId)
-{
-	if (mTextShiftSkill.empty())
-		return;
-	for (int i = 0; i < mTextShiftCounter.size(); ++i)
-	{
-		if (mTextShiftCounter[i].first == aEntityId)
-		{
-			mTextShiftCounter[i].second += 1;
-			return;
-		}
-	}
-	mTextShiftCounter.emplace_back(pair<int, int>(aEntityId, 0));
-}
-void Unit::CleanTextShift()
-{
-	mTextShiftCounter.clear();
-	mTextShiftSkill.clear();
 }
 
 void Unit::SetBuffSkillInfo(int aSkillId, int aBeginCount, int aEffectCount)

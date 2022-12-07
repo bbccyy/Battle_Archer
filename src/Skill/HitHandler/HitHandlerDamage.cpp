@@ -297,8 +297,6 @@ void HitHandlerDamage::OnHit(SharedPtr<Unit> aUtilizer, SharedPtr<Unit> aTarget,
     mDamage = damage;
     hitResult.mValue = damage;
     int64 dmg = aTarget->Damage(hitResult, skillSourceUnit.Get(), skill.Get(), nullptr);
-	if (dmg > 0)
-		aUtilizer->SetTextShift(aTarget->GetEntityId());  //deal with text shift
 	RestoreObjToPool(hitResult);
 }
 

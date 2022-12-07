@@ -201,8 +201,6 @@ bool SkillExecutor::OnBegin(Timer<SkillExecutor>& aTimer)
 	}
 	//deal Defend Point Logic 
 	TryAddDefPointEvent();
-	//try apply skill dmg text info 
-	TryRegisterTextShiftInfo();
 	//deal rage skill, unparallel skill or child skill 
     if (mSkill->IsMasterRageSkill())
     {
@@ -377,7 +375,7 @@ bool SkillExecutor::OnEnd(Timer<SkillExecutor>& aTimer)
 		mRegisterDyingTime = 0; 
 	}
 	mSkill->CleanRefTargetArr();
-	TryUnregisterTextShiftInfo();
+	//TryUnregisterTextShiftInfo();
 	LOG_DEBUG("unit:%d skill:%d end", mOwner->GetEntityId(), mSkill->GetId());
 	if (mAnimConf)
 		mOwner->ConditionSendActionSpeedCMD(ActionSpeedCondition::OnInterrupt);
@@ -772,25 +770,4 @@ void SkillExecutor::RefreshSpeedFactor()
 	{
 		mSpeedFactor = 0;
 	}
-}
-
-//try register text shift info to skill owner
-void SkillExecutor::TryRegisterTextShiftInfo()
-{
-	if (!mSkillConf->basedata().skillspecialdata().activetextshift())
-		return;
-	auto& list = mSkillConf->basedata().skillspecialdata().textshiftskillarr();
-	mOwner->CleanTextShift();
-	for (auto skillId : list)
-	{
-		mOwner->mTextShiftSkill.emplace_back(skillId);
-	}
-}
-
-//try unregister text shift info
-void SkillExecutor::TryUnregisterTextShiftInfo()
-{
-	if (!mSkillConf->basedata().skillspecialdata().activetextshift())
-		return;
-	mOwner->CleanTextShift();
 }

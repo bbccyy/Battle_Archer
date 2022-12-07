@@ -107,8 +107,8 @@ private:
     bool OnPhase(Timer<SkillExecutor>&);
     bool OnEnd(Timer<SkillExecutor>&);
 
-	void TryRegisterTextShiftInfo();
-	void TryUnregisterTextShiftInfo();
+	//void TryRegisterTextShiftInfo();
+	//void TryUnregisterTextShiftInfo();
 
 	void SendSkillEmitCMD();
 };
