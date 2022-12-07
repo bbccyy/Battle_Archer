@@ -219,6 +219,8 @@ public:
 	int mBossGrowthLevel = 0;
 	bool mIsBossGrowth = false;
 
+	Vector3 mPlayerPosition;
+	Vector3 mPlayerRotation;
 
 	bool mRecordMode = true;
 	int GetUserInputSize();
@@ -331,6 +333,8 @@ public:
 	PathFindingMgr* GetPathMgr();
 
 	void FilterBlockLine(const Vector3& aStart, const Vector3& aEnd, vector<int>& aBlockLineArr);
+
+	void UpdatePlayerPositionAndRotation();
 
 private:
     const constexpr static char* FSM_NAME = "Battle";

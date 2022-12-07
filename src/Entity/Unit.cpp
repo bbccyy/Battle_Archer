@@ -617,6 +617,8 @@ void Unit::Reset()
 	mActionSpeedFactor = 0;
 	mRealSpeedFactor = 0;
 
+	mPlayerStallCounter = 0;
+
 	//mNoTargetCounter = 0;
 	mKillNum = 0;
 
@@ -706,6 +708,7 @@ void Unit::Reset()
 	mSocketBody.Set(0,0,0);  
 	mHitPosition.Set(0, 0, 0);
 	mBehaviourMoveTarget.Set(0, 0, 0);
+	mLastPosition.Set(0, 0, 0);
 	mBehaviourSpeed = 0;
 	mBehaviourRange = 0;
 	mBehaviourAnim = "";

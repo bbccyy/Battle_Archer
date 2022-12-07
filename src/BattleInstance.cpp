@@ -828,6 +828,8 @@ bool BattleInstance::ActionTickNormal(int aFrameDelta)
 	mFrameTime += mFixedFrameDelta;
 	mGameTime += mFixedFrameDelta;
 
+	UpdatePlayerPositionAndRotation(); 
+
 	mArmy1->TryExecuteArmySkill(mGameTime, mSceneMgr->CurSceneId);
 	mArmy2->TryExecuteArmySkill(mGameTime, mSceneMgr->CurSceneId);
     mTimerMgr->OnTick(mFrameTime);
@@ -2363,6 +2365,25 @@ SkillCount& BattleInstance::GetSkillCount(int aSkillId)
 		mSkillExecCountMap[aSkillId].mTotal2 = 0;
     }
     return mSkillExecCountMap[aSkillId];
+}
+
+//周期调用 
+void BattleInstance::UpdatePlayerPositionAndRotation()
+{
+	auto player = GetUnitByEntityId(1);
+	if (!player || player->IsDead())
+		return;
+	const auto& lastPos = player->GetPosition();
+	if (mPlayerPosition == lastPos)
+	{
+		player->mPlayerStallCounter++;
+	}
+	else
+	{
+		player->mPlayerStallCounter = 0;
+	}
+
+	player->SetPosRot(mPlayerPosition, mPlayerRotation, false);
 }
 
 // will follow the order of input cmd directly

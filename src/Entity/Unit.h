@@ -714,6 +714,8 @@ public:
 
 	UnitType mUnitType = UnitType::Undefined;
 
+	int mPlayerStallCounter = 0;
+
 private:
     const constexpr static char* FSM_NAME = "Unit";
     const constexpr static char* STATE_BORN = "Born";
@@ -870,7 +872,7 @@ private:
     SharedPtr<SkillExecutor> mCurSkillExecutor = nullptr; //当前正在执行的带动作的技能，一般应该是主动选择的技能 
     vector<SharedPtr<SkillExecutor> > mSkillExecutorArr;
 	vector<SharedPtr<SceneBarrier>> mSceneBarrierArr;  //for instant SommonBarrier skills, their summons will be placed here
-	int mNoTargetCounter = 0; //用于记录连续多少次没有选择到目标
+	//int mNoTargetCounter = 0; //用于记录连续多少次没有选择到目标
 	int mNormalAtkNum = 0;
 	int mNormalAtkNumBeforeChangeAvatar = 0;
 	//int mCurrentSkillNum = 0;
@@ -892,6 +894,8 @@ private:
 
     SharedPtr<Skill> mBehaviourSkill = nullptr;
     Vector3 mBehaviourMoveTarget;
+
+	Vector3 mLastPosition;
 
 	bool mAbleToChooseSkill = false;
 
