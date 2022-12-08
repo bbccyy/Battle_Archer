@@ -100,7 +100,7 @@ void SceneManager::InitNextField()
 	mCurBornPoint.y = fieldConf->playerbrontileindex();
 }
 
-EArcherGridType SceneManager::GetTileTypeFromPos(Vector3 aPos)
+EArcherGridType SceneManager::GetTileTypeFromPos(const Vector3& aPos)
 {
 	int idx = mGameTileMgr->PositionToIndex(aPos.x, aPos.z);
 	if (idx >= mGameTileMgr->mTileNodeMap.size())
@@ -115,6 +115,11 @@ EArcherGridType SceneManager::GetTileTypeFromPos(Vector3 aPos)
 	}
 
 	return EArcherGridType::Default;
+}
+
+bool SceneManager::IsOnMissionCmpleteTile(const Vector3& aCurPosition)
+{
+	return GetTileTypeFromPos(aCurPosition) == EArcherGridType::Mission_Complete;
 }
 
 bool SceneManager::DetectCollision(const Vector3& aInputA, const Vector3& aInputB, Vector2& aHitSegA, Vector2& aHitSegB, Vector2& aPoint)

@@ -19,7 +19,9 @@ public:
 
 	bool HasNextScene();
 
-	EArcherGridType GetTileTypeFromPos(Vector3 aPos);
+	bool IsOnMissionCmpleteTile(const Vector3& aCurPosition);
+
+	EArcherGridType GetTileTypeFromPos(const Vector3& aPos);
 
 	bool DetectCollision(const Vector3& aInputA, const Vector3& aInputB, Vector2& aHitSegA, Vector2& aHitSegB, Vector2& aPoint);
 

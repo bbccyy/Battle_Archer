@@ -580,7 +580,7 @@ bool Army::IsEliminated(bool aConsiderDummy) const
 // set Born Pos to each Unit, run Unit->OnEnterField method respectively
 void Army::OnEnterField()
 {
-	mSortCount = 10;
+	mSortCount = 0;		//屏蔽此项功能 
     mActiveUnitArr.clear();
 	vector<SharedPtr<Unit>> unitArrCopy(mUnitArr);
     for (auto& unit : unitArrCopy)

@@ -343,10 +343,8 @@ void BattleInstance::InitFsm()
 //satisfied iff all Armies from mArmy1 side have been Eliminated
 bool BattleInstance::CondiBattleEnd(bool)
 {
-    if (mArmy1->IsEliminated() && mArmy1Index >= mArgs->army1arr_size() - 1)  //mTimeExtra == 0 &&
+    if (mArmy1->IsEliminated() && mArmy1Index + 1 >= mArgs->army1arr_size())
     {
-        //fail
-        //LOG_INFO("Battle fail, army1 eliminated.");
         mBattleResult = EBattleResult::Lose;
         return true;
     }
@@ -354,30 +352,21 @@ bool BattleInstance::CondiBattleEnd(bool)
 }
 
 
-//satisfied iff current Army2 is Eliminated AND there are Fields or Other Army2s haven't been reached
-//inside this Condi, it will DoTransition to BattleEnd State when it's OK to do so and return False
 bool BattleInstance::CondiCurrentFieldEnd(bool)
 {
-	if (mArmy2->ConditionIsEliminated(mBattleStarter) && mTimeExtra == 0)
+	if (mArmy2->IsEliminated() && mTimeExtra == 0 && mSceneMgr->IsOnMissionCmpleteTile(mPlayerPosition))
     { //if somebody has set extra time, it's behaviour condi and should wait to timeup 
-        if (!mSceneMgr->HasNextScene() || mArmy2Index + 1 >= mArgs->army2arr_size())
+        if (!mSceneMgr->HasNextScene())
         { //if no more field or no more enemy, victory
             mBattleResult = EBattleResult::Victory;
             mFsm->DoTransition(mTransBattleEnd);
 			return false;
         }
-		else if ((mArmy1->ConditionIsEliminated(mBattleStarter) || mArmy1->IsOnlySummonedLeft()) && mArmy1Index >= mArgs->army1arr_size() - 1)
-		{ //final lose 
-			mBattleResult = EBattleResult::Lose;
-			mFsm->DoTransition(mTransBattleEnd);
-			return false;
-		}
         else
         { //else, to cutscene
             return true;
         }
     }
-
     return false;
 }
 
