@@ -243,7 +243,7 @@ public:
 	void SetRandSeed(int);
 
 	int InitWithPbObjArcher(TBattleArgs* aPbMsg);
-	int InitWithPbObj(TBattleArgs* aPbMsg);
+	//int InitWithPbObj(TBattleArgs* aPbMsg);
     int InitWithPbStr(const char* aBattleArgs, int aBattleArgsLen);
 	int InitWithRetPbStr(const char* aBattleRes, int aBattleResLen);
     string ReportResult();
@@ -452,7 +452,7 @@ private:
 	bool ActionTickCutscene(int);
     void ActionExitRageInput();
 
-    void InitNextField();
+    //void InitNextField();
     void InitNextFieldArcher();
 
     void PauseUnitWhenSomeoneStartRageSkill(SharedPtr<Army>, Unit*);
