@@ -223,10 +223,10 @@ SharedPtr<Unit> Army::AddHero(const TUnitInfo& aUnitInfo)
 	mUnitArr.push_back(ret);
 	ret->LoadAttr(aUnitInfo);
 	ret->mUnitType = UnitType::Player;
-	ret->Init(aUnitInfo, *this, mView, mPhysics, 0);
+	ret->Init(aUnitInfo, *this, mView, mPhysics, 0);	//最后一个入参是出身点位，主角默认是0（第一个）
 	auto& p = GetBornPointByIndex(ret->GetBornPoint());
 	ret->SetPosRot(p.mPos, p.mRot, false);
-	ret->TryUpdateMapLocation();
+	//ret->TryUpdateMapLocation();
 
 	if (ret->GetHp() > 0)
 		mActiveUnitArr.push_back(ret.Get());

@@ -215,7 +215,13 @@ void Unit::InitFields(Army& aArmy, BattleViewOutput& aView, PhysicsSystem& aPhys
         mImmueSkillArr = vector<pair<int, int>>(0);
         mImmueSkillTypeArr.resize(static_cast<int>(ESkillMainType_Count), 0);
 		mTableChgDataByBuffSub = vector<ChangeDataByBuffSub*>(0);
-		InitFsm();
+
+		if (mUnitType == UnitType::Player)
+			InitPlayerFsm();
+		else if (mUnitType == UnitType::Pet)
+			InitFsm();
+		else
+			InitFsm();
     }
 	if (IsDummy())
 	{
@@ -401,7 +407,7 @@ void Unit::Init(const TUnitInfo& aUnitInfo, Army& aArmy, BattleViewOutput& aView
 
 	//LoadSlgAttr(aUnitInfo);
 
-	CheckRageSkill();	//TODO: Delete it in all cases 
+	CheckRageSkill();	
 
 	LOG_DEBUG("Unit %d created from TUnitInfo. {tplId=%d name=%s skills=%d hp=%d}"
         , mEntityId
@@ -1073,7 +1079,7 @@ void Unit::InitAvatar()
         }
     }
     else
-    {     
+    {
 		mSocketBody.Set(0, 0, 0);
 		mIsDummy = true;
         mHitTimeLength = 0;
