@@ -59,7 +59,7 @@ class BuffModShapeshift;
 class BuffModDamageShare;
 class BuffModDamageCopy;
 class BuffModHealCopy;
-class SceneBarrier;
+//class SceneBarrier;
 //class MeleeRingMgr;
 struct BuffModPropertyEntry;
 enum class BuffType;
@@ -600,8 +600,8 @@ public:
 	bool BehaviourAnim(const char* aAnim);
 	void BehaviourAddBuff(int aBuffId, int aBuffLv, int aBTDel = 0);
 	void BehaviourRemoveBuff(int aBuffId, int aBuffLv);
-	void AddBarrier(SharedPtr<SceneBarrier> aBarrier);
-	void TickBarrier(int const aDeltaTime);
+	//void AddBarrier(SharedPtr<SceneBarrier> aBarrier);
+	//void TickBarrier(int const aDeltaTime);
 	void RegisterSkillOnHpEntry(BuffModSkillOnHpEntry*);
 	void UnregisterSkillOnHpEntry(BuffModSkillOnHpEntry*);
 	void DontSetToBornPosWhenCutscene();
@@ -866,7 +866,7 @@ private:
 
     SharedPtr<SkillExecutor> mCurSkillExecutor = nullptr; //当前正在执行的带动作的技能，一般应该是主动选择的技能 
     vector<SharedPtr<SkillExecutor> > mSkillExecutorArr;
-	vector<SharedPtr<SceneBarrier>> mSceneBarrierArr;  //for instant SommonBarrier skills, their summons will be placed here
+	//vector<SharedPtr<SceneBarrier>> mSceneBarrierArr;  //for instant SommonBarrier skills, their summons will be placed here
 	//int mNoTargetCounter = 0; //用于记录连续多少次没有选择到目标
 	//int mNormalAtkNum = 0;
 	int mNormalAtkNumBeforeChangeAvatar = 0;

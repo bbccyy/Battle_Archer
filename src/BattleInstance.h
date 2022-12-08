@@ -419,7 +419,7 @@ private:
 	vector<DirectedPosition> mSummonPointArr2;
     vector<SharedPtr<SkillCarrier> > mSkillCarrierArr;
     unordered_map<int, SkillCount> mSkillExecCountMap;
-    vector<SharedPtr<DestructableObject>> mDestructableArr;
+    //vector<SharedPtr<DestructableObject>> mDestructableArr;
     SharedPtr<TimerMgr> mTimerMgr;
 
 

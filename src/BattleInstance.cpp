@@ -453,10 +453,6 @@ void BattleInstance::ActionEnterNextField()
 {
     mArmy1->OnEnterField();  // set Born Pos to each Unit, run Unit->OnEnterField method respectively 
     mArmy2->OnEnterField();
-    for (auto& destructable : mDestructableArr)
-    {
-        destructable->Activate();
-    }
     //mFsm->DoTransition(mTransFieldInitDone);
 }
 
@@ -1303,6 +1299,7 @@ PathFindingMgr* BattleInstance::GetPathMgr()
 bool BattleInstance::RestrainToBattleArea(const Vector3& aStart, const Vector3& aEnd, int aRadius, Vector3* aResult)
 {
 	//TODO: should replace by RestrainWithBlockLines 
+	//TODO: Adapt to battle archer!
 	if (mStripD > 0 && !mFieldBlockLineArr.empty())
 		return false;
     return mPhysics->SegmentPolygon(aStart, aEnd, mFieldAreaPointArr, aRadius, aResult); 

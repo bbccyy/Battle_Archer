@@ -65,13 +65,16 @@ public:
     void RemoveAgent(const Agent* aAgent);
     const vector<Agent*> GetAgentGroup(int const) const;
 
-    //2D平面的碰撞检测
-	bool IntersectionSphereWithAny2D(const Vector3& aCenter, const int aSize, const Agent* aSubjectAgent, EBVType const aBVType);
+    //1)
     void SwepCircle2D(int const aGroupId, const Vector3& aStart, const Vector3& aEnd, int aRadius, vector<SharedPtr<Entity> >& aCollisionEntityArr);
-	void SwepLineCircle2D(int const aGroupId, const Vector3& aStart, const Vector3& aEnd, int aLength, vector<SharedPtr<Entity> >& aCollisionEntityArr);
-	void IntersectionTest2D(int const aGroupId, const Agent* aSubjectAgent, const Vector3*, vector<SharedPtr<Entity> >& aResult);
+	//2)
+    void SwepLineCircle2D(int const aGroupId, const Vector3& aStart, const Vector3& aEnd, int aLength, vector<SharedPtr<Entity> >& aCollisionEntityArr);
+	//3) Unit against boundary 
+    bool SegmentPolygon(const Vector3&, const Vector3&, vector<Vector3>& aPolygon, int const, Vector3*);
+
+    //TODO Delete 
+    void IntersectionTest2D(int const aGroupId, const Agent* aSubjectAgent, const Vector3*, vector<SharedPtr<Entity> >& aResult);
 	bool IntersectionSegSeg2D(const Vector3& aA1, const Vector3& aA2, const Vector3& aB1, const Vector3& aB2, Vector3& aPoint);
-	bool SegmentPolygon(const Vector3&, const Vector3&, vector<Vector3>& aPolygon, int const, Vector3*);
 	bool SegmentPolygon2(const Vector3&, const Vector3&, const Vector3& aB1, const Vector3& aB2, int const, Vector3*);
 
 protected:

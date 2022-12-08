@@ -35,8 +35,6 @@
 #include "ConfigMgr/Pb/net/Battle.pb.h"
 #include "Buff/Mod/BuffModAbsorbDamage.h"
 #include "Buff/Mod/BuffModProperty.h"
-#include "Entity/Barrier/SceneBarrier.h"
-//#include "MeleeRingMgr.h"
 
 using std::string;
 
@@ -637,7 +635,6 @@ void Unit::Reset()
     mBuffMgr.Release();
     fill(mAttrArr.begin(), mAttrArr.end(), 0);
     mSkillExecutorArr.clear();
-    mSceneBarrierArr.clear();
     mCurSkillExecutor.Release();
     TryRecycleFunction(mOnMoveBySkillCancel);
     mImmueBuffArr.clear();
@@ -2510,11 +2507,14 @@ void Unit::OnTick(int const aDeltaTime)
     //int unitTime = aDeltaTime * (DENOM + mActionSpeedFactor) / DENOM;
     int unitTime = aDeltaTime;
     mUnitTime += unitTime;
+
     CheckRageSkill();
+
     mFsm->OnTick(unitTime);
     mTimerMgr->OnTick(mUnitTime);
-	TickBarrier(unitTime); 
-	TryExecuteRageSkillBreakNormalAuto();
+
+	//TickBarrier(unitTime); 
+	//TryExecuteRageSkillBreakNormalAuto();
 }
 
 void Unit::OnEnterField()
@@ -3039,40 +3039,6 @@ void Unit::UnregisterSkillOnHpEntry(BuffModSkillOnHpEntry* aEntry)
 		}
 	}
 	mTriggerOnHpSkillArr.resize(size);
-}
-
-void Unit::AddBarrier(SharedPtr<SceneBarrier> aBarrier)
-{
-	mSceneBarrierArr.emplace_back(aBarrier);
-}
-
-void Unit::TickBarrier(int const aDeltaTime)
-{
-	if (mSceneBarrierArr.size() <= 0)
-	{
-		return;
-	}
-	auto j = mSceneBarrierArr.size();
-	for (int i = 0; i < j; )
-	{
-		mSceneBarrierArr[i]->OnTick(aDeltaTime);
-		if (mSceneBarrierArr[i]->IsValid() == false)
-		{
-			j--;
-			auto tmp = mSceneBarrierArr[i];
-			if (i < j)
-			{
-				mSceneBarrierArr[i] = mSceneBarrierArr[j];
-			}
-			tmp->ClearView();
-			SharedPool<SceneBarrier>::PutRaw(tmp.Get());
-		}
-		else
-		{
-			i++;
-		}
-	}
-	mSceneBarrierArr.resize(j);
 }
 
 void Unit::OnDodge(const SharedPtr<Unit>& aUtilizer, int aSkillId)

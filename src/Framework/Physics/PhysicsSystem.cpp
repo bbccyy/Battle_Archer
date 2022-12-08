@@ -132,32 +132,6 @@ const vector<Agent*> PhysicsSystem::GetAgentGroup(int const aId) const
     return mAgentGroupArr[aId];
 }
 
-//2D平面的碰撞检测
-bool PhysicsSystem::IntersectionSphereWithAny2D(const Vector3& aCenter, const int aSize, const Agent* aSubjectAgent, EBVType const aBVType)
-{
-	BoundingVolume* bv = aSubjectAgent->GetBV(); 
-	bool hasCollision = false;
-	const auto& center = Vector2(aCenter.x, aCenter.z);
-	CollisionResults results;
-	switch (bv->type)
-	{
-	case EBVTypeCylinder:
-		{
-			const auto& cylinder = dynamic_cast<Cylinder*>(bv);
-			const auto& tarCenter = Vector2(cylinder->center.x, cylinder->center.z);
-			hasCollision = IntersectPointSphere2D(center, aSize + cylinder->radius, tarCenter);
-		}
-		break;
-	case EBVTypeOBB:
-		{
-			hasCollision = IntersectOBBSphere2D(center, aSize, dynamic_cast<OBB*>(bv), results);
-		}
-		break;
-	default:
-		LOG_WARN("invalid bounding volume type:%d", bv->type);
-	}
-	return hasCollision;
-}
 
 void PhysicsSystem::SwepLineCircle2D(int const aGroupId, const Vector3& aStart, const Vector3& aEnd, int aLength, vector<SharedPtr<Entity> >& aCollisionEntityArr)
 {
