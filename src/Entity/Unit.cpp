@@ -5090,12 +5090,6 @@ int Unit::GetBornPoint() const
     return mBornPoint;
 }
 
-int Unit::GetSpotGroupId() const
-{
-	auto& bp = mArmy->GetBornPointByIndex(mBornPoint);
-	return bp.mGroupId;
-}
-
 BoundingVolume* Unit::GetBV() const
 {
     return mBV;

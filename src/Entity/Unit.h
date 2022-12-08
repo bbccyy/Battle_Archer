@@ -587,7 +587,7 @@ public:
 	int GetKillNum() const;
 	void IncKillNum(int);
     int GetBornPoint() const;
-	int GetSpotGroupId() const;
+	//int GetSpotGroupId() const;
 	const Vector3& GetIdleBodyPosition();  //ADD
 	const int64 GetIdleBodyHeight();
     void UpdateAgent() override;

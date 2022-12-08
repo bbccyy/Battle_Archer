@@ -219,8 +219,26 @@ SharedPtr<Unit> Army::AddPet(const TUnitInfo& aUnitInfo)
 
 SharedPtr<Unit> Army::AddHero(const TUnitInfo& aUnitInfo)
 {
-	//TODO 
-	return nullptr;
+	SharedPtr<Unit> ret = SharedPool<Unit>::Get();
+	mUnitArr.push_back(ret);
+	ret->LoadAttr(aUnitInfo);
+	ret->mUnitType = UnitType::Player;
+	ret->Init(aUnitInfo, *this, mView, mPhysics, 0);
+	auto& p = GetBornPointByIndex(ret->GetBornPoint());
+	ret->SetPosRot(p.mPos, p.mRot, false);
+	ret->TryUpdateMapLocation();
+
+	if (ret->GetHp() > 0)
+		mActiveUnitArr.push_back(ret.Get());
+	else
+		ret->SetDie();  //directly set Fsm to Dead state 
+	//ret->Born();
+	LOG_DEBUG("Unit %d added to Army %d. {tplId=%d bornPoint=%d}",
+		ret->GetEntityId(),
+		mId,
+		aUnitInfo.htid(),
+		0);
+	return ret;
 }
 
 //overloading method with a simple pb::TUnitInfo parameter
@@ -234,6 +252,7 @@ SharedPtr<Unit> Army::AddUnit(const TUnitInfo& aUnitInfo, int aPos)
 	SharedPtr<Unit> ret = SharedPool<Unit>::Get();
 	mUnitArr.push_back(ret);
 	ret->LoadAttr(aUnitInfo);
+	ret->mUnitType = UnitType::Monster;
 	ret->Init(aUnitInfo, *this, mView, mPhysics, aPos);
 	auto& p = GetBornPointByIndex(ret->GetBornPoint());
 	ret->SetPosRot(p.mPos, p.mRot, false);
@@ -913,12 +932,12 @@ vector<SharedPtr<Unit>> Army::GetUnitByProfession(int aProfession, bool aNeedDea
 	return ret;
 }
 
-int Army::GetSummonPointNum(int aGroupId) const
+int Army::GetSummonPointNum() const
 {
 	return mSummonPoints.size();
 }
 
-const DirectedPosition& Army::GetSummonPointByIndex(int aIndex, int aGroupId) const
+const DirectedPosition& Army::GetSummonPointByIndex(int aIndex) const
 {
 	if (aIndex >= mSummonPoints.size())
 	{
@@ -927,7 +946,7 @@ const DirectedPosition& Army::GetSummonPointByIndex(int aIndex, int aGroupId) co
 	return mSummonPoints[aIndex];
 }
 
-const DirectedPosition& Army::GetSummonPointByRand(int aGroupId) const
+const DirectedPosition& Army::GetSummonPointByRand() const
 {
 	int size = mSummonPoints.size();
 	if (size <= 0)

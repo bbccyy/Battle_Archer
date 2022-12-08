@@ -1395,204 +1395,6 @@ void SearchRefTarget(const SharedPtr<Unit>& aUtilizer, const SharedPtr<Skill>& a
                 return;
             }
             break;
-		case ESearchRefTargetMethodBornPointByRow: //和自己同行(出生点)
-			{
-				auto bornPointId = aUtilizer->GetBornPoint();
-				auto& army = aUtilizer->GetArmy();
-				excludeSelf = !skillConf->basedata().reftargetincludeself();
-				vector<int> arr;
-				if (bornPointId < 3)
-				{
-					arr.emplace_back(0);
-					arr.emplace_back(1);
-					arr.emplace_back(2);
-				}
-				else if (bornPointId < 6)
-				{
-					arr.emplace_back(3);
-					arr.emplace_back(4);
-					arr.emplace_back(5);
-				}
-				else
-				{
-					arr.emplace_back(6);
-					arr.emplace_back(7);
-					arr.emplace_back(8);
-				}
-				
-				for (int i = 0; i < 3; ++i)
-				{
-					if (arr[i] == bornPointId)
-					{
-						if (!excludeSelf)
-						{
-							RefTarget target;
-							target.SetUnit(aUtilizer);
-							aTargetArr.emplace_back(target);
-							RestoreObjToPool(target);
-						}
-					}
-					else
-					{
-						auto unit = army.GetUnitByBornPointId(arr[i], true);
-						if (unit)
-						{
-							RefTarget target;
-							target.SetUnit(unit);
-							aTargetArr.emplace_back(target);
-							RestoreObjToPool(target);
-						}
-					}
-				}
-				return;
-			}
-			break;
-		case ESearchRefTargetMethodBornPointByCol:			//和自己同列(出生点)
-			{
-				auto bornPointId = aUtilizer->GetBornPoint();
-				auto& army = aUtilizer->GetArmy();
-				excludeSelf = !skillConf->basedata().reftargetincludeself();
-				vector<int> arr;
-				if (bornPointId % 3 == 0)
-				{
-					arr.emplace_back(0);
-					arr.emplace_back(3);
-					arr.emplace_back(6);
-				}
-				else if (bornPointId % 3 == 1)
-				{
-					arr.emplace_back(1);
-					arr.emplace_back(4);
-					arr.emplace_back(7);
-				}
-				else
-				{
-					arr.emplace_back(2);
-					arr.emplace_back(5);
-					arr.emplace_back(8);
-				}
-
-				for (int i = 0; i < 3; ++i)
-				{
-					if (arr[i] == bornPointId)
-					{
-						if (!excludeSelf)
-						{
-							RefTarget target;
-							target.SetUnit(aUtilizer);
-							aTargetArr.emplace_back(target);
-							RestoreObjToPool(target);
-						}
-					}
-					else
-					{
-						auto unit = army.GetUnitByBornPointId(arr[i], true);
-						if (unit)
-						{
-							RefTarget target;
-							target.SetUnit(unit);
-							aTargetArr.emplace_back(target);
-							RestoreObjToPool(target);
-						}
-					}
-				}
-				return;
-			}
-			break;
-		case ESearchRefTargetMethodBornPointByNeighbour:		//和自己相邻(出生点)
-			{
-				auto bornPointId = aUtilizer->GetBornPoint();
-				auto& army = aUtilizer->GetArmy();
-				excludeSelf = !skillConf->basedata().reftargetincludeself();
-				vector<int> arr;
-				if (bornPointId == 0)
-				{
-					arr.emplace_back(0);
-					arr.emplace_back(1);
-					arr.emplace_back(3);
-				}
-				else if (bornPointId == 1)
-				{
-					arr.emplace_back(0);
-					arr.emplace_back(1);
-					arr.emplace_back(2);
-					arr.emplace_back(4);
-				}
-				else if (bornPointId == 2)
-				{
-					arr.emplace_back(1);
-					arr.emplace_back(2);
-					arr.emplace_back(5);
-				}
-				else if (bornPointId == 3)
-				{
-					arr.emplace_back(0);
-					arr.emplace_back(3);
-					arr.emplace_back(4);
-					arr.emplace_back(6);
-				}
-				else if (bornPointId == 4)
-				{
-					arr.emplace_back(1);
-					arr.emplace_back(3);
-					arr.emplace_back(4);
-					arr.emplace_back(5);
-					arr.emplace_back(7);
-				}
-				else if (bornPointId == 5)
-				{
-					arr.emplace_back(2);
-					arr.emplace_back(4);
-					arr.emplace_back(5);
-					arr.emplace_back(8);
-				}
-				else if (bornPointId == 6)
-				{
-					arr.emplace_back(3);
-					arr.emplace_back(6);
-					arr.emplace_back(7);
-				}
-				else if (bornPointId == 7)
-				{
-					arr.emplace_back(4);
-					arr.emplace_back(6);
-					arr.emplace_back(7);
-					arr.emplace_back(8);
-				}
-				else
-				{
-					arr.emplace_back(5);
-					arr.emplace_back(7);
-					arr.emplace_back(8);
-				}
-
-				for (int i = 0; i < arr.size(); ++i)
-				{
-					if (arr[i] == bornPointId)
-					{
-						if (!excludeSelf)
-						{
-							RefTarget target;
-							target.SetUnit(aUtilizer);
-							aTargetArr.emplace_back(target);
-							RestoreObjToPool(target);
-						}
-					}
-					else
-					{
-						auto unit = army.GetUnitByBornPointId(arr[i], true);
-						if (unit)
-						{
-							RefTarget target;
-							target.SetUnit(unit);
-							aTargetArr.emplace_back(target);
-							RestoreObjToPool(target);
-						}
-					}
-				}
-				return;
-			}
-			break;
         case ESearchRefTargetMethodFixPos: //场景坐标点 
 			{
 				auto& army = aUtilizer->GetArmy();
@@ -1629,8 +1431,7 @@ void SearchRefTarget(const SharedPtr<Unit>& aUtilizer, const SharedPtr<Skill>& a
 				for (int posIdx : skillConf->basedata().sceneposindex())
 				{
 					RefTarget target;
-					int gid = aUtilizer->GetSpotGroupId();
-					const DirectedPosition& scenePos = aUtilizer->GetArmy().GetSummonPointByIndex(posIdx, gid);
+					const DirectedPosition& scenePos = aUtilizer->GetArmy().GetSummonPointByIndex(posIdx);
 					if (&scenePos == &BattleInstance::mDefaultDirectedPosition)
 					{
 						Vector3 pos;
@@ -1656,8 +1457,7 @@ void SearchRefTarget(const SharedPtr<Unit>& aUtilizer, const SharedPtr<Skill>& a
 			for (int posIdx : skillConf->basedata().sceneposindex())
 			{
 				RefTarget target;
-				int gid = aUtilizer->GetSpotGroupId();
-				const DirectedPosition& scenePos = enemyArmy.GetSummonPointByIndex(posIdx, gid); 
+				const DirectedPosition& scenePos = enemyArmy.GetSummonPointByIndex(posIdx); 
 				if (&scenePos == &BattleInstance::mDefaultDirectedPosition)
 				{
 					Vector3 pos;

@@ -90,8 +90,8 @@ public:
 	int RemoveIfAlive(int);
 	bool HasUnitWithHtid(int);
 	bool HasUnitWithHid(int);
-	const DirectedPosition& GetSummonPointByIndex(int aIndex, int aGroupId = 0) const;
-	const DirectedPosition& GetSummonPointByRand(int aGroupId = 0) const;
+	const DirectedPosition& GetSummonPointByIndex(int aIndex) const;
+	const DirectedPosition& GetSummonPointByRand() const;
 	void OnBehaviourPause(bool);
 	int GetRandActiveUnit(int aExclude);
 	SharedPtr<Unit> GetUnitById(int aId);
@@ -100,7 +100,7 @@ public:
 	 vector<SharedPtr<Unit>> GetUnitByProfession(int aProfession, bool aNeedDead) const;
 	const DirectedPosition& GetBornPointByIndex(int aIndex);
 	void GetCenterPointByIndex(int aIndex, Vector3& aPos, Vector3& aRot);
-	int GetSummonPointNum(int aGroupId = 0) const;
+	int GetSummonPointNum() const;
 
 	vector<SharedPtr<Unit> > mTDRecordDeletedArmy1Units;
 

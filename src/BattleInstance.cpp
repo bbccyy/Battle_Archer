@@ -505,7 +505,7 @@ void BattleInstance::InitNextFieldArcher()
 	for (int i = 0; i < mSceneMgr->mCurStandPointArr.size(); ++i)
 	{
 		auto pos = mSceneMgr->mCurStandPointArr[i];
-		mBornPointArr1.push_back(DirectedPosition::Create(pos, SceneManager::defaultNegtiveDir));
+		mBornPointArr2.push_back(DirectedPosition::Create(pos, SceneManager::defaultNegtiveDir));
 		mStandPointArr.push_back(DirectedPosition::Create(pos, SceneManager::defaultNegtiveDir));
 		mCenterPointArr.push_back(DirectedPosition::Create(pos, SceneManager::defaultNegtiveDir));
 		mSummonPointArr1.push_back(DirectedPosition::Create(pos, SceneManager::defaultPositiveDir));
