@@ -260,7 +260,6 @@ public:
 	bool UseAIPath() const;
 	
 	bool IsPVE() const;
-	bool IsSLG() const;
     bool IsAuto() const;
     void SetAuto(bool aAuto);
     void ResetTimelimit(int aTimeMs);
@@ -369,7 +368,6 @@ private:
 	//bool mIsNoBlackScreen = false;
 
     bool mIsPVE = false;
-    bool mIsSLG = false;
 	int mBattleStarter = 0;
     int mArmy1Index;
     int mArmy2Index;

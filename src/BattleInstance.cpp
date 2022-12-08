@@ -315,7 +315,6 @@ int BattleInstance::InitWithPbObj(TBattleArgs* aPbMsg)
 
 	const auto& battleType = mArgs->battletype();
 	mIsPVE = battleType == EBattleTypeRPGPVE || battleType == EBattleTypeSLGPVE;
-	mIsSLG = battleType == EBattleTypeSLGPVE || battleType == EBattleTypeSLGPVP;
 
 	mBattleId = mArgs->battleid();
 	/*auto tmp = mArgs->behavioridarr();
@@ -2301,11 +2300,6 @@ TimerMgr* BattleInstance::GetTimerMgr() const
 bool BattleInstance::IsPVE() const
 {
 	return mIsPVE;
-}
-
-bool BattleInstance::IsSLG() const
-{
-	return mIsSLG;
 }
 
 bool BattleInstance::IsAuto() const

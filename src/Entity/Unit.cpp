@@ -40,28 +40,6 @@
 
 using std::string;
 
-// return True if select aSkill1, skill Priority:
-//   NormalXXX < Others;    NormalAtk < RandomNormalAtk < NormalAtkNum;
-//   NormalAtkNum.LargeNum < NormalAtkNum.LessNum;    Others.LargeID < Others.LessID
-bool cmpSkillCandiate(const SharedPtr<Skill>& aSkill1, const SharedPtr<Skill>& aSkill2)  //TODO: Delete it
-{
-    static int skillTriggerMethodPriority[static_cast<int>(ECastType::_Count)];
-    skillTriggerMethodPriority[static_cast<int>(ECastType::NormalAtkSpecial)] = 1;
-    skillTriggerMethodPriority[static_cast<int>(ECastType::RandomNormalAtk)] = 2;
-    skillTriggerMethodPriority[static_cast<int>(ECastType::NormalAtk)] = 3;
-    int ret = skillTriggerMethodPriority[aSkill1->GetSkillConf()->basedata().skillcasttype().casttype()]
-        - skillTriggerMethodPriority[aSkill2->GetSkillConf()->basedata().skillcasttype().casttype()];
-    if (ret != 0)
-    {
-        return ret < 0;
-    }
-    if ( aSkill1->GetSkillConf()->basedata().skillcasttype().casttype() == static_cast<int>(ECastType::NormalAtkSpecial) )
-    {
-        return aSkill1->GetLastExecuteNormalAtkNum() <  aSkill2->GetLastExecuteNormalAtkNum();
-    }
-    return aSkill1->GetId() < aSkill2->GetId();
-}
-
 // return True if aState.Priority < aOther.Priority
 bool CompareByAnimPriority(const ControlToken* aState, const ControlToken* aOther)
 {
@@ -211,7 +189,6 @@ void Unit::InitFields(Army& aArmy, BattleViewOutput& aView, PhysicsSystem& aPhys
     mTimedLife = nullptr;
     mBeHitTimer = nullptr;
 	mClearOnCutscene = false;
-    mNormalAtkNum = 0;
     mTauntedTargetBuffId = 0;
     mRageSkillManualReady = false;
     mFloatWithoutBeingMoved = false;
@@ -490,7 +467,6 @@ void Unit::InitDummy(Army& aArmy, BattleViewOutput& aView, PhysicsSystem& aPhysi
 	mTimedLife = nullptr;
 	mBeHitTimer = nullptr;
 	mClearOnCutscene = false;
-	mNormalAtkNum = 0;
 	mTauntedTargetBuffId = 0;
 	mRageSkillManualReady = false;
 	mFloatWithoutBeingMoved = false;
@@ -716,7 +692,6 @@ void Unit::Reset()
 	mTauntedTargetBuffId = 0;
 	mRageSkillExecuteState = nullptr;
 
-	mNormalAtkNum = 0;
 	mNormalAtkNumBeforeChangeAvatar = 0;
 	mRageSkillManualReady = false; 
 	mRageSkillAutoReady = false;
@@ -1489,11 +1464,26 @@ SharedPtr<Skill> Unit::AddSkill(int const aSkillId, int const aLevel)
 	return skill;
 }
 
-bool Unit::ActionTickIdle(int)
+bool Unit::ActionTickIdle(int aDeltaTime)
 {
-	//TODO1 检测当前位置和上一次位置 
-	//TODO2 确保完成了所有的SkillRecovery 
-	return mAbleToChooseSkill;
+	//Step1: 检测当前位置和上一次位置 
+	if (mUnitType == UnitType::Player)
+	{
+		if (mPlayerStallCounter >= PLAYER_STALL_THRESHOULD) //要求连续3次逻辑帧在同一个位置才算Stall (Delta=0.3s)
+			mAbleToChooseSkill = true;
+		else
+			mAbleToChooseSkill = false;
+	}
+	else if (mUnitType == UnitType::Pet)
+	{
+		mAbleToChooseSkill = true;
+	}
+	else
+	{
+		mAbleToChooseSkill = true;
+	}
+	//Step2: 确保完成了所有的SkillRecovery
+	return mAbleToChooseSkill && mRecoveryTime <= mUnitTime;
 }
 
 void Unit::InitFsmCommon()
@@ -2477,7 +2467,6 @@ void Unit::OnSkillKeyframe(const SkillExecutor& aSkillExecutor)
 	auto& skill = aSkillExecutor.GetSkill();
 	if (skill->IsNormalSkill())
 	{  //normal skill, may trigger some sort of skills later on 
-		mNormalAtkNum++;
 		int key = BattleInstance::GenerateEventKey(static_cast<int>(ETriggerMajor::WithSkill), static_cast<int>(ETriggerWithSkillSub::Normal));
 		GetBattleInstance().DispatchEvent(key, mArmy->GetId(), mEntityId, skill->GetId());
 	}
@@ -4984,10 +4973,7 @@ int64 Unit::GetCurrentAnimTotalTime() const
 	return mCurrentAnimLength;
 }
 
-int Unit::GetNormalAtkNum() const
-{
-    return mNormalAtkNum;
-}
+
 bool Unit::IsInvalidAttr(EAttribute aAttr) const
 {
 	int64 ret = mAttrArr[static_cast<int>(aAttr)];

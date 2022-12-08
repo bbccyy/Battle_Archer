@@ -62,6 +62,7 @@ public:
 
 	static const constexpr int DEATH_DROP_SKILL = 501; //TODO:may pass through battleConf
 	static const constexpr int COMMON_REACHOUT_MODIFIER = 50000;
+	static const constexpr int PLAYER_STALL_THRESHOULD = 3;
 public:
     void InitEntity(BattleViewOutput&, PhysicsSystem&, PathFindingMgr* aPathMgr = nullptr);
     void ClearView();

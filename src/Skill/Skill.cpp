@@ -193,14 +193,6 @@ const SharedPtr<Unit> Skill::GetConstOwner() const
 {
 	return mOwner;
 }
-int Skill::GetLastExecuteNormalAtkNum() const
-{
-    return mLastExecuteNormalAtkNum;
-}
-void Skill::ResetLastExecuteNormalAtkNum()
-{
-	mLastExecuteNormalAtkNum = 0;
-}
 int Skill::GetCastRange() const
 {
 	if (mOwner && mOwner->mExtraCastRange > 0)
@@ -385,7 +377,6 @@ void Skill::CopyInit(SharedPtr<Unit> aUnit, const Skill* aBase)
 	mProbabilisticSkillArr.clear();
 	mCDTime = aBase->mCDTime;
 	mLastExecuteTime = aBase->mLastExecuteTime;
-	mLastExecuteNormalAtkNum = 0;
 	mIsIgnoreShield = aBase->mIsIgnoreShield;
 	mIsIgnoreInterruptEffect = aBase->mIsIgnoreInterruptEffect;
 	mEffTargetArr.clear();
@@ -600,7 +591,6 @@ int Skill::DoInit()
 	mIsPartOfRageSkill = mSkillConf->basedata().partofrageskill();
     mCDTime = CONF_TIME_CONVERT(baseConf.coolingtime() + (mLevel - 1) * baseConf.levelcoolingtimegrowth());
     mLastExecuteTime = -mCDTime;
-    mLastExecuteNormalAtkNum = 0;
 	mEnemyShowRage = baseConf.skillspecialdata().enemyrageheadershow();
 	mSkillMainType = baseConf.maintype();
 	switch (static_cast<ESkillMainType>(mSkillMainType))
@@ -818,7 +808,6 @@ void Skill::Reset()
 	mCastRange = 0;
 
 	mLastExecuteTime = 0;
-	mLastExecuteNormalAtkNum = 0;  
 	mCDTime = 0;
 
 	mTriggerType = ETriggerMajor::None;  //TODO: Delete it? 
@@ -1447,7 +1436,6 @@ void Skill::Replace(int aSkillId)
 
 	mCDTime = CONF_TIME_CONVERT(mSkillConf->basedata().coolingtime());
 	mLastExecuteTime = -mCDTime;
-	mLastExecuteNormalAtkNum = 0;
 	InitChildSkill();
 
 	return;
@@ -1690,9 +1678,6 @@ bool Skill::TryExecute(int aDelay, WeakPtr<SkillExecutor> aParentExecutor, const
 	if (aSourceUtilizer && aSourceUtilizer->IsSummoned())
 		mAncestorSkill = aSourceUtilizer->mAncestorSkill;
     mLastExecuteTime = mOwner->GetUnitTime();
-    mLastExecuteNormalAtkNum = mOwner->GetNormalAtkNum();
-    //SharedPtr<SkillExecutor> pSkillExecutor = SharedPool<SkillExecutor>::Get();
-	//aCurExecutor = pSkillExecutor;
 	aCurExecutor->SetSourceUnit(aSourceUtilizer);
 	aCurExecutor->SetReflecter(aReflecter);
 	aCurExecutor->Init(mOwner, SharedFromThis(), aDelay, aParentExecutor);

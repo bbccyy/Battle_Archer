@@ -103,8 +103,6 @@ public:
     const vector<SharedPtr<Skill> >& GetChildSkill() const;
     const vector<SharedPtr<Skill> >& GetProbabilisticSkill() const;
     //const vector<SharedPtr<Skill> >& GetSemiAutoSkill() const;
-    int GetLastExecuteNormalAtkNum() const;
-	void ResetLastExecuteNormalAtkNum();
     int GetCastRange() const;
     void OffsetCD(int);
     void ResetCD();
@@ -223,7 +221,7 @@ private:
 	//vector<SharedPtr<Skill> > mSemiAutoSkillArr;
 
     int mLastExecuteTime = 0;
-    int mLastExecuteNormalAtkNum = 0; //上次执行时，owner的普攻次数
+    //int mLastExecuteNormalAtkNum = 0; //上次执行时，owner的普攻次数
     int mCDTime = 0;
 
     ETriggerMajor mTriggerType;  //TODO: Delete it? 

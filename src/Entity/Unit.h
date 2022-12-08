@@ -383,7 +383,7 @@ public:
 	bool HasCurrentAnimName() const;
 	int64 GetCurrentAnimStartTime() const;
 	int64 GetCurrentAnimTotalTime() const;
-    int GetNormalAtkNum() const;
+    //int GetNormalAtkNum() const;
     int GetUnitTime() const;
     int64 GetHp() const;
     int64 GetLostHp() const;
@@ -678,7 +678,6 @@ public:
 	int64 mRealHeal = 0;
 	int64 mTotalAbsorbBlood = 0;
 	WeakPtr<Skill> mAncestorSkill = nullptr;
-	//SharedPtr<MeleeRingMgr> mMeleeRingMgr;
 
 	const ConfigHero* mConfig = nullptr;  // hold value of Hero.xlsm in Design folder
 	const AvatarData* mAvatarConf = nullptr;
@@ -701,10 +700,6 @@ public:
 
 	bool mProvideKillRage = true;
 	//vector<int> mTextShiftSkill;
-
-	//int mIsEnemyMelee = 0;   //0->None, 1->Melee, 2->Distance 
-
-	//vector<Unit*> mBeanReceiverList; //used for tower side, records all enemies whom receives my bean 
 
 	int mTimeWhenDead = 0;			//will not consider field number 
 
@@ -873,7 +868,7 @@ private:
     vector<SharedPtr<SkillExecutor> > mSkillExecutorArr;
 	vector<SharedPtr<SceneBarrier>> mSceneBarrierArr;  //for instant SommonBarrier skills, their summons will be placed here
 	//int mNoTargetCounter = 0; //用于记录连续多少次没有选择到目标
-	int mNormalAtkNum = 0;
+	//int mNormalAtkNum = 0;
 	int mNormalAtkNumBeforeChangeAvatar = 0;
 	//int mCurrentSkillNum = 0;
 	//int mNextSemiAutoTime = 0;   //the time at which next semi auto skill will be executed 
