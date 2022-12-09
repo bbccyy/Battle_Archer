@@ -28,7 +28,7 @@
 
 
 int partitionUnit(vector<Unit*>& aArr, int aLeft, int aRight)
-{    
+{ 
     Unit* refUnit = aArr[aLeft];
     int64 ref = refUnit->mRegister0;
 	int64 ref1 = refUnit->mRegister1;

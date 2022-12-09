@@ -50,8 +50,6 @@ public:
 
     void Interrupt();
     void WhenSomeSkillInterrupted(const SharedPtr<SkillExecutor>& aSkillExecutor );
-	void CleanDefPointEvent();
-	void TryAddDefPointEvent();
 
     const SkillData* GetSkillConf() const;
     const AnimData* GetAnimConf() const;

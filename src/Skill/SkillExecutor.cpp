@@ -199,8 +199,6 @@ bool SkillExecutor::OnBegin(Timer<SkillExecutor>& aTimer)
 			mSkill->mBeginCount++;
 		}
 	}
-	//deal Defend Point Logic 
-	TryAddDefPointEvent();
 	//deal rage skill, unparallel skill or child skill 
     if (mSkill->IsMasterRageSkill())
     {
@@ -226,18 +224,10 @@ bool SkillExecutor::OnBegin(Timer<SkillExecutor>& aTimer)
 		{
 			LOG_FATAL("Unit %d Skill %d missing conf data: skilltriggerevents", mOwner->GetEntityId(), mSkill->GetId());
 		}
-		int delay = 0;
-		if (mSkill->HasDefPoint())
+		int delay = EDITOR_CONF_TIME_CONVERT(mAnimConf->skilltriggerevents(0).starttime());
+		if (delay != 0 && mSpeedFactor != 0 && !mReflecter)
 		{
-			delay = mSkill->GetDefPointDuration();
-		}
-		else
-		{
-			delay = EDITOR_CONF_TIME_CONVERT(mAnimConf->skilltriggerevents(0).starttime());
-			if (delay != 0 && mSpeedFactor != 0 && !mReflecter)
-			{
-				delay = delay * DENOM / (DENOM + mSpeedFactor);
-			}
+			delay = delay * DENOM / (DENOM + mSpeedFactor);
 		}
         mKeyFrameTime += delay; //adjust keyframe based on conf and speed factor
         mTimer->Reset(&SkillExecutor::OnKeyFrame, mKeyFrameTime);
@@ -268,7 +258,7 @@ bool SkillExecutor::OnKeyFrame(Timer<SkillExecutor>& aTimer)
 	}
 
 	//DefPoint Buff's life time: SkillBegin -> KeyFrame
-	CleanDefPointEvent();
+	//CleanDefPointEvent();
 
 	//Reflect Skill will skip KeyFrame phrase 
 	if (mReflecter)
@@ -483,7 +473,7 @@ void SkillExecutor::Interrupt()
 	}
     mStatus = ESkillStatus::Interrupted;
 	mSkill->CleanRefTargetArr();
-	CleanDefPointEvent();
+	//CleanDefPointEvent();
     mTimer->Cancel();
     for (auto& carrier : mCarrierArr)
     {
@@ -495,27 +485,6 @@ void SkillExecutor::Interrupt()
     mCarrierArr.clear();
 }
 
-void SkillExecutor::CleanDefPointEvent()
-{
-	if (!mSkill->HasDefPoint())
-		return;
-	int defPointBuffId = mSkill->GetDefPointBuffId();
-	if (defPointBuffId > 0)
-	{ //remove add defpoint buff 
-		mOwner->RemoveBuffAndTrigger(defPointBuffId, false);
-	}
-}
-
-void SkillExecutor::TryAddDefPointEvent()
-{
-	if (!mSkill->HasDefPoint())
-		return;
-	int defPointBuffId = mSkill->GetDefPointBuffId();
-	if (defPointBuffId > 0)
-	{ //auto add defpoint buff 
-		mOwner->TryReceiveBuff(mOwner, mOwner, defPointBuffId, 1, mSkill);
-	}
-}
 
 void SkillExecutor::WhenSomeSkillInterrupted(const SharedPtr<SkillExecutor>& aSkillExecutor )
 {
