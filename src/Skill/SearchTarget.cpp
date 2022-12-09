@@ -24,6 +24,7 @@
 #include "Log/Log.h"
 #include "Framework/Util.h"
 #include "Framework/Physics/Region.h"
+#include "ConfigMgr/ConfigMgr.h"
 
 
 int partitionUnit(vector<Unit*>& aArr, int aLeft, int aRight)

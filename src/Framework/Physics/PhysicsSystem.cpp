@@ -303,28 +303,6 @@ void PhysicsSystem::IntersectionTest2D(int const aGroupId, const Agent* aSubject
     RestoreObjToPool(subjectCenter);
 }
 
-
-bool PhysicsSystem::SegmentPolygon2(const Vector3& aA1, const Vector3& aA2, const Vector3& aB1, const Vector3& aB2, int const aRadius, Vector3* aResult)
-{
-	Vector3 tmp;
-	if (IntersectionSegSeg2D(aA1, aA2, aB1, aB2, tmp))
-	{
-		if (aRadius > MIN_LEN)
-		{
-			Vector3 reduction = aA1 - aA2;
-			reduction.ScaleToLen(aRadius);
-			aResult->Set(tmp.x + reduction.x, aA2.y, tmp.z + reduction.z);
-		}
-		else
-		{
-			aResult->Set(tmp.x, aA2.y, tmp.z);
-		}
-		return true;
-	}
-	return false;
-}
-
-
 bool PhysicsSystem::IntersectionSegSeg2D(const Vector3 & aA1, const Vector3 & aA2, const Vector3 & aB1, const Vector3 & aB2, Vector3 & aPoint)
 {
 	bool hasCollision = false;

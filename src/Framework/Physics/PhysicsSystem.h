@@ -75,8 +75,7 @@ public:
     //TODO Delete 
     void IntersectionTest2D(int const aGroupId, const Agent* aSubjectAgent, const Vector3*, vector<SharedPtr<Entity> >& aResult);
 	bool IntersectionSegSeg2D(const Vector3& aA1, const Vector3& aA2, const Vector3& aB1, const Vector3& aB2, Vector3& aPoint);
-	bool SegmentPolygon2(const Vector3&, const Vector3&, const Vector3& aB1, const Vector3& aB2, int const, Vector3*);
-
+	
 protected:
     vector<vector<Agent*>> mAgentGroupArr;
 };

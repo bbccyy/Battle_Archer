@@ -25,7 +25,6 @@
 #include "module/SceneConf3d.pb.h"
 #include "module/BuffData.pb.h"
 #include "Framework/Transform.h"
-#include "Entity/DestructableObject.h"
 #include "Framework/EventDispatcher.h"
 #include "SceneMgr/SceneManager.h"
 #include <ctime>
