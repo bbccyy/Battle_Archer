@@ -20,6 +20,7 @@
 #include "CollisionDetection.h"
 #include "Region.h"
 #include "Framework/Util.h"
+#include "SceneMgr/SceneManager.h"
 
 using namespace std;
 
@@ -89,11 +90,17 @@ PhysicsSystem::PhysicsSystem(int const aGroupCapacity, int const aAgentCapacity)
         mAgentGroupArr.emplace_back();
         mAgentGroupArr.back().reserve(aAgentCapacity);
     }
+    mSceneMgr = nullptr;
 }
 
 PhysicsSystem::~PhysicsSystem()
 {
+    mSceneMgr = nullptr;
+}
 
+void PhysicsSystem::Init(SceneManager* aSceneMgr)
+{
+    mSceneMgr = aSceneMgr;
 }
 
 Agent* PhysicsSystem::AddAgent(const WeakPtr<Entity>& aEntity, EBVType const aBVType, int const aGroupId)
@@ -322,7 +329,12 @@ bool PhysicsSystem::IntersectionSegSeg2D(const Vector3 & aA1, const Vector3 & aA
 	return hasCollision;
 }
 
-bool PhysicsSystem::SegmentPolygon(const Vector3& aStart, const Vector3& aEnd, vector<Vector3>& aPolygon, int const aRadius, Vector3* aResult)
+bool PhysicsSystem::SegmentPolygon(const Vector3& aStart, const Vector3& aEnd, int const aRadius, Vector3* aResult)
+{
+    return mSceneMgr->IntersectBoundaryWithRadius(aStart, aEnd, aRadius, aResult); 
+}
+
+bool PhysicsSystem::SegmentPolygon1(const Vector3& aStart, const Vector3& aEnd, vector<Vector3>& aPolygon, int const aRadius, Vector3* aResult)
 {
     bool ret = true;
     for (int i = 0, j = static_cast<int>(aPolygon.size() - 1); i < aPolygon.size(); ++i)

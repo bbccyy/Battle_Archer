@@ -58,6 +58,24 @@ void GameTileMap::Reset()
 	mCenterOffset.Set(0, 0);
 }
 
+bool GameTileMap::IntersectBoundaryWithRadius(const Vector2& aInputA, const Vector2& aInputB, int const aRadius, Vector2& aPoint)
+{
+	bool ret = DetectCollision(aInputA, aInputB, mTmp, mTmp2, aPoint);
+
+	if (!ret)
+		return ret;
+
+	if (aRadius > MIN_LEN)
+	{
+		Vector2 reduction = aInputA - aInputB;  //from EndPoint to StartPoint 
+		reduction.ScaleToLen(aRadius);
+		aPoint.x += reduction.x;
+		aPoint.z += reduction.z;
+	}
+
+	return ret;
+}
+
 bool GameTileMap::DetectCollision(const Vector2& aInputA, const Vector2& aInputB, Vector2& aHitSegA, Vector2& aHitSegB, Vector2& aPoint)
 {
 	auto InputVector = aInputB - aInputA;

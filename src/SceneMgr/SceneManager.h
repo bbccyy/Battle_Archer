@@ -25,6 +25,8 @@ public:
 
 	bool DetectCollision(const Vector3& aInputA, const Vector3& aInputB, Vector2& aHitSegA, Vector2& aHitSegB, Vector2& aPoint);
 
+	bool IntersectBoundaryWithRadius(const Vector3& aStart, const Vector3& aEnd, int const aRadius, Vector3* aResult);
+
 public:
 	int CurSceneId = 0;
 	int TotalFieldNum = 0;
@@ -44,5 +46,5 @@ private:
 
 	vector<ArcherScene> mFieldConfArr;
 
-	Vector2 mTmp, mTmp2;
+	Vector2 mTmp, mTmp2, mTmp3;
 };

@@ -136,6 +136,7 @@ BattleInstance::BattleInstance()
 	, mSceneMgr(new SceneManager())
 	, mNodeSize(50000)   //TODO: in conf
 {
+	mPhysics->Init(mSceneMgr);  //TODO: 在这里Init是不是太早了？ 如有问题可以往后移！ 
 	LOG_DEBUG("BattleInstance created");
 }
 
@@ -1302,7 +1303,7 @@ bool BattleInstance::RestrainToBattleArea(const Vector3& aStart, const Vector3& 
 	//TODO: Adapt to battle archer!
 	if (mStripD > 0 && !mFieldBlockLineArr.empty())
 		return false;
-    return mPhysics->SegmentPolygon(aStart, aEnd, mFieldAreaPointArr, aRadius, aResult); 
+    return mPhysics->SegmentPolygon(aStart, aEnd, aRadius, aResult); 
 }
 
 bool BattleInstance::RestrainWithBlockLines(const Vector3& aStart, const Vector3& aEnd, int aRadius, Vector3* aResult)
@@ -1311,7 +1312,7 @@ bool BattleInstance::RestrainWithBlockLines(const Vector3& aStart, const Vector3
 	FilterBlockLine(aStart, aEnd, affectedLines);
 	for (auto idx : affectedLines)
 	{
-		if (mPhysics->SegmentPolygon(aStart, aEnd, mFieldBlockLineArr[idx], aRadius, aResult)) return true;
+		if (mPhysics->SegmentPolygon(aStart, aEnd, aRadius, aResult)) return true;
 	}
 	return false;
 }

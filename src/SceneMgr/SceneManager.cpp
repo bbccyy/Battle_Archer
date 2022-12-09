@@ -54,6 +54,7 @@ void SceneManager::InitNextField()
 	mCurBornPoint.Set(0, 0, 0);
 	mTmp.Set(0, 0);
 	mTmp2.Set(0, 0);
+	mTmp3.Set(0, 0);
 
 	auto* fieldConf = &mFieldConfArr[CurSceneId];
 	//使用中间对象隔离配置与逻辑，方便开发期频繁修改配置,待稳定后可去除 
@@ -130,5 +131,19 @@ bool SceneManager::DetectCollision(const Vector3& aInputA, const Vector3& aInput
 	//前提是下面的方法内绝对不会触发再次调用到当前方法逻辑，不然使用mTmp和mTmp2将会不安全 
 	bool ret = mGameTileMgr->DetectCollision(mTmp, mTmp2, aHitSegA, aHitSegB, aPoint);
 
+	return ret;
+}
+
+bool SceneManager::IntersectBoundaryWithRadius(const Vector3& aStart, const Vector3& aEnd, int const aRadius, Vector3* aResult)
+{
+	mTmp.Set(aStart.x, aStart.z);
+	mTmp2.Set(aEnd.x, aEnd.z);
+
+	bool ret = mGameTileMgr->IntersectBoundaryWithRadius(mTmp, mTmp2, aRadius, mTmp3);
+	if (!ret)
+		return ret;
+
+	aResult->x = mTmp3.x;
+	aResult->z = mTmp3.z;
 	return ret;
 }

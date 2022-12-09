@@ -67,7 +67,7 @@ public:
 	void ResolveBlockLines();
 
 	bool DetectCollision(const Vector2& aInputA, const Vector2& aInputB, Vector2& aHitSegA, Vector2& aHitSegB, Vector2& aPoint);
-
+	bool IntersectBoundaryWithRadius(const Vector2& aInputA, const Vector2& aInputB, int const aRadius, Vector2& aPoint);
 public:
 	vector<SharedPtr<TileNode>> mTileNodeMap;
 

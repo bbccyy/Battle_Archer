@@ -23,6 +23,7 @@
 using namespace std;
 
 class Entity;
+class SceneManager;
 
 class Agent : public IPoolable
 {
@@ -61,6 +62,8 @@ public:
     PhysicsSystem(int const aGroupCapacity, int const aAgentCapacity = 64);
     ~PhysicsSystem();
 
+    void Init(SceneManager* aSceneMgr);
+
     Agent* AddAgent(const WeakPtr<Entity>& aEntity, EBVType const aBVType, int const aGroupId);
     void RemoveAgent(const Agent* aAgent);
     const vector<Agent*> GetAgentGroup(int const) const;
@@ -70,7 +73,11 @@ public:
 	//2)
     void SwepLineCircle2D(int const aGroupId, const Vector3& aStart, const Vector3& aEnd, int aLength, vector<SharedPtr<Entity> >& aCollisionEntityArr);
 	//3) Unit against boundary 
-    bool SegmentPolygon(const Vector3&, const Vector3&, vector<Vector3>& aPolygon, int const, Vector3*);
+
+    bool SegmentPolygon1(const Vector3&, const Vector3&, vector<Vector3>& aPolygon, int const, Vector3*);
+
+    bool SegmentPolygon(const Vector3&, const Vector3&, int const, Vector3*);
+
 
     //TODO Delete 
     void IntersectionTest2D(int const aGroupId, const Agent* aSubjectAgent, const Vector3*, vector<SharedPtr<Entity> >& aResult);
@@ -78,6 +85,7 @@ public:
 	
 protected:
     vector<vector<Agent*>> mAgentGroupArr;
+    SceneManager* mSceneMgr = nullptr;
 };
 
 
