@@ -317,10 +317,10 @@ Vector3 MoveController::GetTargetPos()
 		auto curPos = mControlledUnit->GetPosition();
 		Vector3 dest;
 		//TODO: 优化该项 
-		if (mUtilizer->GetBattleInstance().RestrainWithBlockLines(curPos, mRet, mControlledUnit->GetSize(), &dest) == true)
-		{ // if block suc, then no need to check with RestrainToBattleArea 
-			return dest;
-		}
+		//if (mUtilizer->GetBattleInstance().RestrainWithBlockLines(curPos, mRet, mControlledUnit->GetSize(), &dest) == true)
+		//{ // if block suc, then no need to check with RestrainToBattleArea 
+		//	return dest;
+		//}
 		if (mUtilizer->GetBattleInstance().RestrainToBattleArea(curPos, mRet, mControlledUnit->GetSize(), &dest) == true)
 		{
 			LOG_DEBUG("new pos {from=(%d,%d,%d) to=(%d,%d,%d)} out of battle area, restrict to (%d,%d,%d)"

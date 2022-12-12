@@ -416,12 +416,15 @@ void BattleInstance::InitNextFieldArcher()
 
 	mBornPointArr1.push_back(DirectedPosition::Create(mSceneMgr->mCurBornPoint, SceneManager::defaultPositiveDir));
 
+	//场景中心点有且只有2个，都在0点，不同队伍的朝向不同而已 
+	mCenterPointArr.push_back(DirectedPosition::Create(Vector3(0,0,0), SceneManager::defaultPositiveDir));
+	mCenterPointArr.push_back(DirectedPosition::Create(Vector3(0,0,0), SceneManager::defaultNegtiveDir));
+
 	for (int i = 0; i < mSceneMgr->mCurStandPointArr.size(); ++i)
 	{
 		auto pos = mSceneMgr->mCurStandPointArr[i];
 		mBornPointArr2.push_back(DirectedPosition::Create(pos, SceneManager::defaultNegtiveDir));
 		mStandPointArr.push_back(DirectedPosition::Create(pos, SceneManager::defaultNegtiveDir));
-		mCenterPointArr.push_back(DirectedPosition::Create(pos, SceneManager::defaultNegtiveDir));
 		mSummonPointArr1.push_back(DirectedPosition::Create(pos, SceneManager::defaultPositiveDir));
 		mSummonPointArr2.push_back(DirectedPosition::Create(pos, SceneManager::defaultNegtiveDir));
 	}
@@ -1301,20 +1304,20 @@ bool BattleInstance::RestrainToBattleArea(const Vector3& aStart, const Vector3& 
 {
 	//TODO: should replace by RestrainWithBlockLines 
 	//TODO: Adapt to battle archer!
-	if (mStripD > 0 && !mFieldBlockLineArr.empty())
-		return false;
+	//if (mStripD > 0 && !mFieldBlockLineArr.empty())
+	//	return false;
     return mPhysics->SegmentPolygon(aStart, aEnd, aRadius, aResult); 
 }
 
 bool BattleInstance::RestrainWithBlockLines(const Vector3& aStart, const Vector3& aEnd, int aRadius, Vector3* aResult)
 {
-	vector<int> affectedLines;
-	FilterBlockLine(aStart, aEnd, affectedLines);
-	for (auto idx : affectedLines)
-	{
-		if (mPhysics->SegmentPolygon(aStart, aEnd, aRadius, aResult)) return true;
-	}
-	return false;
+	//vector<int> affectedLines;
+	//FilterBlockLine(aStart, aEnd, affectedLines);
+	//for (auto idx : affectedLines)
+	//{
+	//	if (mPhysics->SegmentPolygon(aStart, aEnd, aRadius, aResult)) return true;
+	//}
+	return mPhysics->SegmentPolygon(aStart, aEnd, aRadius, aResult);
 }
 
 

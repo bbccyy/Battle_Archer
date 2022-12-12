@@ -881,27 +881,9 @@ void Army::SkillUseRage()
 	SubRage(mRageUnparallel);
 }
 
-void Army::GetCenterPointByIndex(int aIndex, Vector3& aPos, Vector3& aRot)
+void Army::GetCenterPoint(Vector3& aPos, Vector3& aRot)
 {
-	if (mCenterPoints.empty())
-	{
-		aRot.x = 100;
-		return;
-	}
-
-	if (aIndex >= mBornPoints.size())
-	{
-		LOG_FATAL("cant found bornPoint Idx:%d, only has size:%d", aIndex, mBornPoints.size());
-		aIndex = 0;
-	}
-
-	int gid = mBornPoints[aIndex].mGroupId;
-	if (gid >= mCenterPoints.size())
-	{
-		LOG_WARN("cant find centerPoint by gid %d", gid);
-		gid = 0;
-	}
-	auto& cp = mCenterPoints[gid];
+	auto& cp = mCenterPoints[mId - 1];
 	aPos.Set(cp.mPos);
 	aRot.Set(cp.mRot);
 

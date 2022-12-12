@@ -68,16 +68,15 @@ public:
     void RemoveAgent(const Agent* aAgent);
     const vector<Agent*> GetAgentGroup(int const) const;
 
-    //1)
+    //1)由弹道对象调用，检测是否击中目标 -> 碰撞简化为点与圆 
     void SwepCircle2D(int const aGroupId, const Vector3& aStart, const Vector3& aEnd, int aRadius, vector<SharedPtr<Entity> >& aCollisionEntityArr);
-	//2)
+	//2)由弹道对象调用，检测是否击中目标 -> 碰撞简化为OBB与圆 
     void SwepLineCircle2D(int const aGroupId, const Vector3& aStart, const Vector3& aEnd, int aLength, vector<SharedPtr<Entity> >& aCollisionEntityArr);
 	//3) Unit against boundary 
+    bool SegmentPolygon(const Vector3&, const Vector3&, int const, Vector3*); 
 
+    //TODO: Delete it 
     bool SegmentPolygon1(const Vector3&, const Vector3&, vector<Vector3>& aPolygon, int const, Vector3*);
-
-    bool SegmentPolygon(const Vector3&, const Vector3&, int const, Vector3*);
-
 
     //TODO Delete 
     void IntersectionTest2D(int const aGroupId, const Agent* aSubjectAgent, const Vector3*, vector<SharedPtr<Entity> >& aResult);

@@ -99,7 +99,7 @@ public:
 	SharedPtr<Unit> GetUnitByBornPointId(int aBid, bool aNeedAlived);
 	 vector<SharedPtr<Unit>> GetUnitByProfession(int aProfession, bool aNeedDead) const;
 	const DirectedPosition& GetBornPointByIndex(int aIndex);
-	void GetCenterPointByIndex(int aIndex, Vector3& aPos, Vector3& aRot);
+	void GetCenterPoint(Vector3& aPos, Vector3& aRot);
 	int GetSummonPointNum() const;
 
 	vector<SharedPtr<Unit> > mTDRecordDeletedArmy1Units;

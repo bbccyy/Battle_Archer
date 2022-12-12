@@ -1021,7 +1021,6 @@ void SearchRefTarget(const SharedPtr<Unit>& aUtilizer, const SharedPtr<Skill>& a
 	int filterParam2 = 0;
     int restRefTargetNum = skillConf->basedata().reftargetnum();
 	ENeedSummon needSummon = static_cast<ENeedSummon>(skillConf->basedata().reftargetsummontype());
-	//ENeedSummon needSummon = ENeedSummon::ESummonAndHero;
     bool needDead = false;
 	bool excludeSelf = false;
 	bool usePrioritySearch = true;
@@ -1401,7 +1400,7 @@ void SearchRefTarget(const SharedPtr<Unit>& aUtilizer, const SharedPtr<Skill>& a
 				auto& army = aUtilizer->GetArmy();
 				Vector3 pos = Vector3(0, 0, 0);
 				Vector3 rot = Vector3(0, 0, 0);
-				army.GetCenterPointByIndex(aUtilizer->GetBornPoint(), pos, rot);
+				army.GetCenterPoint(pos, rot);
 				RefTarget target;
 				int ct = 2;
 				for (auto pos2D : skillConf->basedata().scenepos())
@@ -1613,31 +1612,20 @@ void SearchRefTarget(const SharedPtr<Unit>& aUtilizer, const SharedPtr<Skill>& a
 		const auto& arr1 = battleInstance.TargetArmy(*aUtilizer.Get()).GetUnitArr(); 
 		allunits.reserve(arr1.size());
 		allbutdying.reserve(arr1.size());
-		bool hasFlyUnit = false;
 		for (auto& v : arr1)
 		{
-			if (aUtilizer->GetArmyId() == 2 ||
-				aUtilizer->IsSummoned() || aUtilizer->IsDummy())
-			{ 
-				allunits.push_back(v.Get());
-				if (v->IsDying())
-					dying.push_back(v.Get());
-				else
-				{
-					allbutdying.push_back(v.Get());
-				}
+			allunits.push_back(v.Get());
+			if (v->IsDying())
+				dying.push_back(v.Get());
+			else
+			{
+				allbutdying.push_back(v.Get());
 			}
-		}
-		if (hasFlyUnit)
-		{ //there are units should never reach out FlyUnit, while some others should focus on FlyUnit if exists 
-			//FilterByTDType(allbutdying, aUtilizer->mTDCanAtkFlyUnit);
 		}
 	}
 	break;
 	case ESearchTargetRelationFriend:
 	{
-		usePrioritySearch = false;
-		skipDying = true;
 		const auto& arr1 = aUtilizer->GetArmy().GetUnitArr();
 		allunits.reserve(arr1.size());
 		allbutdying.reserve(arr1.size());
@@ -1676,6 +1664,8 @@ void SearchRefTarget(const SharedPtr<Unit>& aUtilizer, const SharedPtr<Skill>& a
 	}
 	}
 
+	usePrioritySearch = false;
+	skipDying = true;
 	//TODO: 简化考虑优先级 
 
 	if (!allunits.empty())
