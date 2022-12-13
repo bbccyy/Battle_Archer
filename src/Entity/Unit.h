@@ -710,6 +710,7 @@ public:
 	UnitType mUnitType = UnitType::Undefined;
 
 	int mPlayerStallCounter = 0;
+	int mLastPlayerStallCounter = 0;
 
 private:
     const constexpr static char* FSM_NAME = "Unit";
@@ -894,6 +895,7 @@ private:
 
 	bool mAbleToChooseSkill = false;
 
+	void BreakPlayerStall();
 	bool ActionTickIdle(int);
     bool ActionChooseSkill(int);
     bool ActionMoveToRefTarget(int);

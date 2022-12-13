@@ -1666,7 +1666,6 @@ void SearchRefTarget(const SharedPtr<Unit>& aUtilizer, const SharedPtr<Skill>& a
 
 	usePrioritySearch = false;
 	skipDying = true;
-	//TODO: 简化考虑优先级 
 
 	if (!allunits.empty())
 	{
@@ -2309,7 +2308,6 @@ void SearchEffTarget(const SharedPtr<Unit>& aUtilizer, const SharedPtr<Skill>& a
 		const auto& arr1 = battleInstance.TargetArmy(*aUtilizer.Get()).GetUnitArr();
 		allunits.reserve(arr1.size());
 		allbutdying.reserve(arr1.size());
-		bool hasFlyUnit = false;
 		for (auto& v : arr1)
 		{
 			if (excludeRefTarget == v.Get() || v->IsDummy()) continue;
@@ -2322,16 +2320,10 @@ void SearchEffTarget(const SharedPtr<Unit>& aUtilizer, const SharedPtr<Skill>& a
 				//if (v->mTDFlyable) hasFlyUnit = true;
 			}
 		}
-		if (hasFlyUnit)
-		{
-			//FilterByTDType(allbutdying, aUtilizer->mTDCanAtkFlyUnit);
-		}
 	}
 	break;
 	case ESearchTargetRelationFriend:
 	{
-		usePrioritySearch = false;
-		skipDying = true;
 		const auto& arr1 = aUtilizer->GetArmy().GetUnitArr();
 		allunits.reserve(arr1.size());
 		allbutdying.reserve(arr1.size());
@@ -2372,6 +2364,9 @@ void SearchEffTarget(const SharedPtr<Unit>& aUtilizer, const SharedPtr<Skill>& a
 		}
 	}
 	}
+
+	usePrioritySearch = false;
+	skipDying = true;
 
 	if (usePrioritySearch)
 	{

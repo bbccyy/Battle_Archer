@@ -388,43 +388,24 @@ void GridMap::InitNeighbourSetting()
 
 void GridMap::RegisterGroundMask(int64 aSize)
 {
-	aSize = aSize - mMaskSub;
-	aSize = aSize > 0 ? aSize : mMaskSub;
+	if (aSize != 1)
+		aSize = 1;
 	if (mGroundMaskTable.count(aSize) != 0)
 		return;
 
-	int manhattanDist = static_cast<int>((aSize - mGridNodeSize.x / 2) / mGridNodeSize.x);
-	if (manhattanDist < 1) manhattanDist = 1;
-
 	vector<int> tmp;
 	vector<int> adjust;
-	int side = 0;
-	int base = 0;
-	int deltaCost = mCommonNativeCost / manhattanDist;
-	for (int i = -manhattanDist; i <= manhattanDist; ++i)
-	{
-		if (i <= 0)
-			side = i + manhattanDist;
-		else
-			side = manhattanDist - i;
-
-		base = i * mColNum;
-		for (int j = -side; j <= side; ++j)
-		{
-			tmp.push_back(base + j);
-			int dist = abs(i) + abs(j);
-			adjust.push_back(-deltaCost * dist);  //the farer the less
-		}
-	}
-	//mGroundMaskTable.insert(make_pair(aSize, tmp));
+	int deltaCost = 0;
+	tmp.push_back(0);
+	adjust.push_back(-deltaCost);
 	mGroundMaskTable[aSize] = tmp;
 	mGroundMaskAdjust[aSize] = adjust;
 }
 
 void GridMap::MarkGround(int aIndex, int64 aSize)
 {
-	aSize = aSize - mMaskSub;
-	aSize = aSize > 0 ? aSize : mMaskSub;
+	if (aSize != 1)
+		aSize = 1;
 	if (mGroundMaskTable.count(aSize) == 0)
 	{
 		LOG_WARN("Mark ground but not yet RegisterGroundMask, size = %d", aSize);
@@ -435,7 +416,7 @@ void GridMap::MarkGround(int aIndex, int64 aSize)
 	for (int idx = 0; idx < list.size(); ++idx)
 	{
 		int deltaIdx = list[idx];
-		auto node = GetOrInitNode(aIndex + deltaIdx);
+		auto node = GetOrInitNode(aIndex + deltaIdx);	//deltaIdx目前期望总是0 
 		if (node)
 		{
 			int adjustData = adj[idx];

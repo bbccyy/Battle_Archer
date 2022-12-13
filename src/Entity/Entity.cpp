@@ -526,7 +526,7 @@ void Entity::TryUpdateMapLocation(bool aRetrieve)
 		tmp.x = mPosition.x;
 		tmp.z = mPosition.z;
 	}
-	mPathMgr->UpdateLocation(mEntityId, tmp, mSize + AIPATH_RANGE);
+	mPathMgr->UpdateLocation(mEntityId, tmp, 1); //默认使用size == 1，只占据一个路径格子 
 }
 
 void Entity::WorldToLocal(Vector3& aPos) const

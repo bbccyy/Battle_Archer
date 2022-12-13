@@ -7,13 +7,15 @@ using pb::TBattleArgs;
 using pb::ArcherScene;
 using pb::EArcherGridType;
 
+class MersenneTwister;
+
 class SceneManager
 {
 public:
 	SceneManager();
 	~SceneManager();
 
-	void InitSceneManager(TBattleArgs* aPbMsg);
+	void InitSceneManager(TBattleArgs* aPbMsg, MersenneTwister* aRand);
 
 	void InitNextField();
 
@@ -26,6 +28,8 @@ public:
 	bool DetectCollision(const Vector3& aInputA, const Vector3& aInputB, Vector2& aHitSegA, Vector2& aHitSegB, Vector2& aPoint);
 
 	bool IntersectBoundaryWithRadius(const Vector3& aStart, const Vector3& aEnd, int const aRadius, Vector3* aResult);
+
+	void GetRandomPositionNearBy(const Vector3& aCurPos, const unsigned int aDistMin, const unsigned int aDistMax, Vector3& aOutputPosition);
 
 public:
 	int CurSceneId = 0;
@@ -47,4 +51,6 @@ private:
 	vector<ArcherScene> mFieldConfArr;
 
 	Vector2 mTmp, mTmp2, mTmp3;
+
+	MersenneTwister* mRand = nullptr;
 };

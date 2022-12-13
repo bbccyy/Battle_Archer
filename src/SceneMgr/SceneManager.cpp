@@ -1,6 +1,7 @@
 
 #include "SceneManager.h"
 #include "ConfigMgr/ConfigMgr.h"
+#include "ThirdParty/mt19937ar.h"
 
 
 const Vector3 SceneManager::defaultPositiveDir = Vector3(0, 0, 1);
@@ -10,6 +11,7 @@ SceneManager::SceneManager()
 {
 	mPathMgr = new PathFindingMgr();
 	mGameTileMgr = new GameTileMap();
+	mRand = nullptr;
 }
 
 SceneManager::~SceneManager()
@@ -18,10 +20,13 @@ SceneManager::~SceneManager()
 	delete mGameTileMgr;
 	mFieldConfArr.clear();
 	mCurStandPointArr.clear();
+
+	mRand = nullptr;
 }
 
-void SceneManager::InitSceneManager(TBattleArgs* aPbMsg)
+void SceneManager::InitSceneManager(TBattleArgs* aPbMsg, MersenneTwister* aRand)
 {
+	mRand = aRand;
 	mFieldConfArr.reserve(aPbMsg->sceneconf_size());
 	CurSceneId = -1;
 	const string* lastConfName = nullptr;
@@ -79,13 +84,14 @@ void SceneManager::InitNextField()
 	for (auto node : mGameTileMgr->mTileNodeMap)
 	{
 		if (node->Type == pb::EArcherGridType::Obstacle_All ||
-			node->Type == pb::EArcherGridType::Obstacle_Ground_Only)
+			node->Type == pb::EArcherGridType::Obstacle_Ground_Only ||
+			node->Type == pb::EArcherGridType::Trap)  //TODO: Trap 是否敌方不可行走？ 
 		{
 			mGameTileMgr->MappingFromTileToGrid(node->Index, gridMapIdxArr);
 			mPathMgr->ApplyBlockAreaManually(gridMapIdxArr);
 		}
 	}
-	mPathMgr->mJustNavigate = true; 
+	mPathMgr->mJustNavigate = false; 
 
 	//CommonStandPoints 
 	Vector3 curPos;
@@ -146,4 +152,34 @@ bool SceneManager::IntersectBoundaryWithRadius(const Vector3& aStart, const Vect
 	aResult->x = mTmp3.x;
 	aResult->z = mTmp3.z;
 	return ret;
+}
+
+void SceneManager::GetRandomPositionNearBy(const Vector3& aCurPos, const unsigned int aDistMin, const unsigned int aDistMax, Vector3& aOutputPosition)
+{
+	vector<int> candidates;
+	mGameTileMgr->GetAllAvailablePositionNearBy(aCurPos, aDistMin, aDistMax, candidates);
+
+	int r = uint32(mRand->genrand_int32()) % mGameTileMgr->mDivisionNum; //0~2
+	r -= mGameTileMgr->mDivisionNum / 2; //-1~1
+	int c = uint32(mRand->genrand_int32()) % mGameTileMgr->mDivisionNum; //0~2
+	c -= mGameTileMgr->mDivisionNum / 2; //-1~1
+	//this is local random offsets 
+	mTmp.Set(r * mGameTileMgr->mTileSizeOverDivisionNum, c * mGameTileMgr->mTileSizeOverDivisionNum);
+
+	if (candidates.empty())
+	{
+		LOG_WARN("unable to find any nearby tile, invalid input Dist?");
+		aOutputPosition.x = aCurPos.x + mTmp.x;
+		aOutputPosition.z = aCurPos.z + mTmp.z;
+		return;
+	}
+
+	//this is random offset among all available GameTiles 
+	int i = uint32(mRand->genrand_int32()) % candidates.size();
+	int idx = candidates[i];
+	mGameTileMgr->IndexToPosition(idx, aOutputPosition);
+
+	//apply local offsets thereby 
+	aOutputPosition.x = aOutputPosition.x + mTmp.x;
+	aOutputPosition.z = aOutputPosition.z + mTmp.z;
 }

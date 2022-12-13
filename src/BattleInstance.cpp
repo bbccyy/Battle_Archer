@@ -293,7 +293,7 @@ int BattleInstance::InitWithPbObjArcher(TBattleArgs* aPbMsg)
 	mArmy2DyingEnd = 0;
 	mNeedDoStatistics = false;
 
-	mSceneMgr->InitSceneManager(aPbMsg);
+	mSceneMgr->InitSceneManager(aPbMsg, mRand.Get());
 
 	mView->Init(*this);
 
@@ -2026,6 +2026,7 @@ void BattleInstance::UpdatePlayerPositionAndRotation()
 	if (!player || player->IsDead())
 		return;
 	const auto& lastPos = player->GetPosition();
+	player->mLastPlayerStallCounter = player->mPlayerStallCounter; //update last 
 	if (mPlayerPosition == lastPos)
 	{
 		player->mPlayerStallCounter++;

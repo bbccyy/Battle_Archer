@@ -1485,13 +1485,22 @@ bool Unit::ActionTickIdle(int aDeltaTime)
 	{
 		mAbleToChooseSkill = true;
 	}
+
 	//Step2: 确保完成了所有的SkillRecovery
 	return mAbleToChooseSkill && mRecoveryTime <= mUnitTime;
 }
 
+void Unit::BreakPlayerStall()
+{
+	if (mFsm->IsInState(mStateIdle->GetId()))
+		return;
+	SkillInterrupted(mCurSkillExecutor);
+	mFsm->DoTransition(mTransResetToIdle);
+	SetAnim(ANIM_NAME_IDLE); //TODO: set others? 
+}
+
 void Unit::InitFsmCommon()
 {
-	//todo del semi_auto skill logic 
 	//States
 	mStateIdle = mFsm->AddState(STATE_IDLE);	//Idle 
 	mStateIdle->SetOnTick(MakeFunction<>(*this, &Unit::ActionTickIdle));
@@ -1877,8 +1886,8 @@ bool Unit::ActionMoveToRefTarget(int const aDeltaTime)
 	
 	if (reach)
 	{
+		TryUpdateMapLocation();
 		return true;
-		//TryUpdateMapLocation();
 	}
 	return false;
 }
@@ -2507,6 +2516,12 @@ void Unit::OnTick(int const aDeltaTime)
     //int unitTime = aDeltaTime * (DENOM + mActionSpeedFactor) / DENOM;
     int unitTime = aDeltaTime;
     mUnitTime += unitTime;
+
+	if (mLastPlayerStallCounter >= PLAYER_STALL_THRESHOULD && mPlayerStallCounter == 0)
+	{
+		//触发状态打断，回归到默认状态 -> Idle 
+		BreakPlayerStall();
+	}
 
     CheckRageSkill();
 

@@ -68,22 +68,25 @@ public:
 
 	bool DetectCollision(const Vector2& aInputA, const Vector2& aInputB, Vector2& aHitSegA, Vector2& aHitSegB, Vector2& aPoint);
 	bool IntersectBoundaryWithRadius(const Vector2& aInputA, const Vector2& aInputB, int const aRadius, Vector2& aPoint);
+
+	void GetAllAvailablePositionNearBy(const Vector3& aCurPos, const unsigned int aDistMin, const unsigned int aDistMax, vector<int>& aOutput);
 public:
 	vector<SharedPtr<TileNode>> mTileNodeMap;
+	int mDivisionNum = 1;
+	int64 mTileSize = 0;
+	int64 mTileSizeOverDivisionNum = 0;
 
 private:
 	void GetLDandRUpositionFromBoxPosition(int aCol, int aRow, Vector2& aLD, Vector2& aRU);
 	int HasBlockLine(int aIdxCur, int aIdxOther, Vector2& A, Vector2& B);
 
 private:
-	int mDivisionNum = 1;
 	int mGridInTile = 0;
 	int mDeltaNum = 0;
 	int mColNum = 0;
 	int mHalfCol = 0;
 	int mRowNum = 0;
 	int mHalfRow = 0;
-	int64 mTileSize = 0;
 	int64 mTileHalfSize = 0;
 
 	Vector2 mTmp;

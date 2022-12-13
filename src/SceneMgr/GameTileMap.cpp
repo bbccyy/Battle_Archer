@@ -1,6 +1,13 @@
 
 #include "GameTileMap.h"
 #include "Framework/Physics/CollisionDetection.h"
+#include "Framework/IntMath.h"
+
+
+int CalDistanceByXZOffset(int x, int z)
+{
+	return static_cast<int>(Max(Abs(x), Abs(z)));
+}
 
 //aDivisionNum必须是奇数，代码会做检测 
 void GameTileMap::ReInit(int aWidthTileNum, int aLengthTileNum, int64 aTileSize, int aDivisionNum)
@@ -21,6 +28,7 @@ void GameTileMap::ReInit(int aWidthTileNum, int aLengthTileNum, int64 aTileSize,
 	mTileSize = aTileSize;
 	mTileHalfSize = mTileSize / 2;
 	mDivisionNum = aDivisionNum;
+	mTileSizeOverDivisionNum = mTileSize / mDivisionNum;
 	mGridInTile = mDivisionNum * mDivisionNum;
 	mDeltaNum = mDivisionNum * (mColNum - 1);
 
@@ -52,10 +60,36 @@ void GameTileMap::Reset()
 	mHalfRow = 0;
 	mTileSize = 0;
 	mTileHalfSize = 0;
+	mTileSizeOverDivisionNum = 0;
 
 	mTmp.Set(0, 0);
 	mTmp2.Set(0, 0);
 	mCenterOffset.Set(0, 0);
+}
+
+void GameTileMap::GetAllAvailablePositionNearBy(const Vector3& aCurPos, const unsigned int aDistMin, const unsigned int aDistMax, vector<int>& aOutput)
+{
+	aOutput.clear();
+	PositionToBoxPosition(aCurPos.x, aCurPos.z, mTmp);//mTmp.x -> 是col数， z是row数 
+	int idx = 0, dist;
+	for (int i = -aDistMax; i <= aDistMax; ++i)
+	{
+		for (int j = -aDistMax; j <= aDistMax; ++j)
+		{
+			if (mTmp.x + i >= 0 && mTmp.x + i < mColNum && mTmp.z + j >= 0 && mTmp.z + j < mRowNum)
+			{//在合法范围内
+				dist = CalDistanceByXZOffset(i, j);
+				if (dist >= aDistMin) //在指定距离区间 
+				{
+					idx = BoxPositionToIndex(mTmp.x + i, mTmp.z + j);
+					if (!mTileNodeMap[idx] || mTileNodeMap[idx]->Type == pb::EArcherGridType::Mission_Complete)
+					{//地块可用
+						aOutput.emplace_back(idx);
+					}
+				}
+			}
+		}
+	}
 }
 
 bool GameTileMap::IntersectBoundaryWithRadius(const Vector2& aInputA, const Vector2& aInputB, int const aRadius, Vector2& aPoint)
