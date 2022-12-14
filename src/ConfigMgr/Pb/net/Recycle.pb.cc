@@ -273,8 +273,9 @@ void protobuf_AssignDesc_net_2fRecycle_2eproto() {
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(TRecycleDecomposeArmsRsp));
   TRecycleRebornArmsReq_descriptor_ = file->message_type(6);
-  static const int TRecycleRebornArmsReq_offsets_[1] = {
+  static const int TRecycleRebornArmsReq_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(TRecycleRebornArmsReq, itemidarray_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(TRecycleRebornArmsReq, ispreview_),
   };
   TRecycleRebornArmsReq_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
@@ -303,8 +304,9 @@ void protobuf_AssignDesc_net_2fRecycle_2eproto() {
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(TRecycleRebornArmsRsp));
   TRecycleRebornAccessoryReq_descriptor_ = file->message_type(8);
-  static const int TRecycleRebornAccessoryReq_offsets_[1] = {
+  static const int TRecycleRebornAccessoryReq_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(TRecycleRebornAccessoryReq, itemidarray_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(TRecycleRebornAccessoryReq, ispreview_),
   };
   TRecycleRebornAccessoryReq_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
@@ -1178,75 +1180,76 @@ void protobuf_AddDesc_net_2fRecycle_2eproto() {
     "ard\"/\n\030TRecycleDecomposeArmsReq\022\023\n\013ItemI"
     "dArray\030\001 \003(\r\"B\n\030TRecycleDecomposeArmsRsp"
     "\022&\n\013RewardArray\030\001 \003(\0132\021.pb.TCommonReward"
-    "\",\n\025TRecycleRebornArmsReq\022\023\n\013ItemIdArray"
-    "\030\001 \003(\r\"\?\n\025TRecycleRebornArmsRsp\022&\n\013Rewar"
-    "dArray\030\001 \003(\0132\021.pb.TCommonReward\"1\n\032TRecy"
-    "cleRebornAccessoryReq\022\023\n\013ItemIdArray\030\001 \003"
-    "(\r\"D\n\032TRecycleRebornAccessoryRsp\022&\n\013Rewa"
-    "rdArray\030\001 \003(\0132\021.pb.TCommonReward\"4\n\035TRec"
-    "ycleDecomposeAccessoryReq\022\023\n\013ItemIdArray"
-    "\030\001 \003(\r\"G\n\035TRecycleDecomposeAccessoryRsp\022"
-    "&\n\013RewardArray\030\001 \003(\0132\021.pb.TCommonReward\""
-    "G\n\025TRecycleRebornHeroReq\022\013\n\003Hid\030\001 \001(\r\022\021\n"
-    "\tIsPreview\030\002 \001(\010\022\016\n\006IsHall\030\003 \001(\010\"\?\n\025TRec"
-    "ycleRebornHeroRsp\022&\n\013RewardArray\030\001 \003(\0132\021"
-    ".pb.TCommonReward\"8\n\026TRecycleInheritHero"
-    "Req\022\017\n\007FromHid\030\001 \001(\r\022\r\n\005ToHid\030\002 \001(\r\"@\n\026T"
-    "RecycleInheritHeroRsp\022&\n\013RewardArray\030\001 \003"
-    "(\0132\021.pb.TCommonReward\"4\n\035TRecycleDecompo"
-    "seExclEquipReq\022\023\n\013ItemIdArray\030\001 \003(\r\"G\n\035T"
-    "RecycleDecomposeExclEquipRsp\022&\n\013RewardAr"
-    "ray\030\001 \003(\0132\021.pb.TCommonReward\"1\n\032TRecycle"
-    "RebornExclEquipReq\022\023\n\013ItemIdArray\030\001 \003(\r\""
-    "D\n\032TRecycleRebornExclEquipRsp\022&\n\013RewardA"
-    "rray\030\001 \003(\0132\021.pb.TCommonReward\"7\n TRecycl"
-    "eRebornExclEquipRefineReq\022\023\n\013ItemIdArray"
-    "\030\001 \003(\r\"J\n TRecycleRebornExclEquipRefineR"
+    "\"\?\n\025TRecycleRebornArmsReq\022\023\n\013ItemIdArray"
+    "\030\001 \003(\r\022\021\n\tIsPreview\030\002 \001(\010\"\?\n\025TRecycleReb"
+    "ornArmsRsp\022&\n\013RewardArray\030\001 \003(\0132\021.pb.TCo"
+    "mmonReward\"D\n\032TRecycleRebornAccessoryReq"
+    "\022\023\n\013ItemIdArray\030\001 \003(\r\022\021\n\tIsPreview\030\002 \001(\010"
+    "\"D\n\032TRecycleRebornAccessoryRsp\022&\n\013Reward"
+    "Array\030\001 \003(\0132\021.pb.TCommonReward\"4\n\035TRecyc"
+    "leDecomposeAccessoryReq\022\023\n\013ItemIdArray\030\001"
+    " \003(\r\"G\n\035TRecycleDecomposeAccessoryRsp\022&\n"
+    "\013RewardArray\030\001 \003(\0132\021.pb.TCommonReward\"G\n"
+    "\025TRecycleRebornHeroReq\022\013\n\003Hid\030\001 \001(\r\022\021\n\tI"
+    "sPreview\030\002 \001(\010\022\016\n\006IsHall\030\003 \001(\010\"\?\n\025TRecyc"
+    "leRebornHeroRsp\022&\n\013RewardArray\030\001 \003(\0132\021.p"
+    "b.TCommonReward\"8\n\026TRecycleInheritHeroRe"
+    "q\022\017\n\007FromHid\030\001 \001(\r\022\r\n\005ToHid\030\002 \001(\r\"@\n\026TRe"
+    "cycleInheritHeroRsp\022&\n\013RewardArray\030\001 \003(\013"
+    "2\021.pb.TCommonReward\"4\n\035TRecycleDecompose"
+    "ExclEquipReq\022\023\n\013ItemIdArray\030\001 \003(\r\"G\n\035TRe"
+    "cycleDecomposeExclEquipRsp\022&\n\013RewardArra"
+    "y\030\001 \003(\0132\021.pb.TCommonReward\"1\n\032TRecycleRe"
+    "bornExclEquipReq\022\023\n\013ItemIdArray\030\001 \003(\r\"D\n"
+    "\032TRecycleRebornExclEquipRsp\022&\n\013RewardArr"
+    "ay\030\001 \003(\0132\021.pb.TCommonReward\"7\n TRecycleR"
+    "ebornExclEquipRefineReq\022\023\n\013ItemIdArray\030\001"
+    " \003(\r\"J\n TRecycleRebornExclEquipRefineRsp"
+    "\022&\n\013RewardArray\030\001 \003(\0132\021.pb.TCommonReward"
+    "\"J\n\032TRecycleRebornWarRidingReq\022\031\n\021WarRid"
+    "ingTidArray\030\001 \003(\r\022\021\n\tIsPreview\030\002 \001(\010\"D\n\032"
+    "TRecycleRebornWarRidingRsp\022&\n\013RewardArra"
+    "y\030\001 \003(\0132\021.pb.TCommonReward\".\n\026TRecycleRe"
+    "bornBeastReq\022\024\n\014BeastIdArray\030\001 \003(\r\"@\n\026TR"
+    "ecycleRebornBeastRsp\022&\n\013RewardArray\030\001 \003("
+    "\0132\021.pb.TCommonReward\"0\n\031TRecycleRebornBe"
+    "astArmReq\022\023\n\013ItemIdArray\030\001 \003(\r\"C\n\031TRecyc"
+    "leRebornBeastArmRsp\022&\n\013RewardArray\030\001 \003(\013"
+    "2\021.pb.TCommonReward\"3\n\034TRecycleDecompose"
+    "BeastArmReq\022\023\n\013ItemIdArray\030\001 \003(\r\"F\n\034TRec"
+    "ycleDecomposeBeastArmRsp\022&\n\013RewardArray\030"
+    "\001 \003(\0132\021.pb.TCommonReward\"-\n\033TRecycleRebo"
+    "rnMountEquipReq\022\016\n\006ItemId\030\001 \003(\r\"0\n\036TRecy"
+    "cleDecomposeMountEquipReq\022\016\n\006ItemId\030\001 \003("
+    "\r\"0\n\036TRecycleDecomposeDirectItemReq\022\016\n\006I"
+    "temId\030\001 \003(\r\"9\n\033TRecycleGoldHeroExchangeR"
+    "eq\022\014\n\004Hid1\030\001 \001(\r\022\014\n\004Hid2\030\002 \001(\r\"@\n\032TRecyc"
+    "leCountryExchangeReq\022\020\n\010Country1\030\001 \001(\r\022\020"
+    "\n\010Country2\030\002 \001(\r\"8\n\032TRecycleRedHeroExcha"
+    "ngeReq\022\014\n\004Hid1\030\001 \001(\r\022\014\n\004Hid2\030\002 \001(\r\"D\n\032TR"
+    "ecycleRedHeroExchangeRsp\022&\n\013RewardArray\030"
+    "\001 \003(\0132\021.pb.TCommonReward\"I\n\033TRecycleDeco"
+    "mposeArmFragReq\022*\n\tItemArray\030\001 \003(\0132\027.pb."
+    "TRecycleItemTidInfo\"O\n!TRecycleDecompose"
+    "AccessoryFragReq\022*\n\tItemArray\030\001 \003(\0132\027.pb"
+    ".TRecycleItemTidInfo\"*\n\030TRecycleRebornSi"
+    "lkBagReq\022\016\n\006ItemId\030\001 \003(\r\"-\n\033TRecycleDeco"
+    "mposeSilkBagReq\022\016\n\006ItemId\030\001 \003(\r\"H\n!TRecy"
+    "cleDecomposeTreasureStoneReq\022\020\n\010StoneTid"
+    "\030\001 \001(\r\022\021\n\tConsumNum\030\002 \001(\r\"6\n\037TRecycleDec"
+    "omposeDecorationsReq\022\023\n\013ItemIdArray\030\001 \003("
+    "\r\"I\n\037TRecycleDecomposeDecorationsRsp\022&\n\013"
+    "RewardArray\030\001 \003(\0132\021.pb.TCommonReward\"3\n\034"
+    "TRecycleRebornDecorationsReq\022\023\n\013ItemIdAr"
+    "ray\030\001 \003(\r\"F\n\034TRecycleRebornDecorationsRs"
+    "p\022&\n\013RewardArray\030\001 \003(\0132\021.pb.TCommonRewar"
+    "d\"1\n\032TRecycleRebornForceSoulReq\022\023\n\013ItemI"
+    "dArray\030\001 \003(\r\"D\n\032TRecycleRebornForceSoulR"
     "sp\022&\n\013RewardArray\030\001 \003(\0132\021.pb.TCommonRewa"
-    "rd\"J\n\032TRecycleRebornWarRidingReq\022\031\n\021WarR"
-    "idingTidArray\030\001 \003(\r\022\021\n\tIsPreview\030\002 \001(\010\"D"
-    "\n\032TRecycleRebornWarRidingRsp\022&\n\013RewardAr"
-    "ray\030\001 \003(\0132\021.pb.TCommonReward\".\n\026TRecycle"
-    "RebornBeastReq\022\024\n\014BeastIdArray\030\001 \003(\r\"@\n\026"
-    "TRecycleRebornBeastRsp\022&\n\013RewardArray\030\001 "
-    "\003(\0132\021.pb.TCommonReward\"0\n\031TRecycleReborn"
-    "BeastArmReq\022\023\n\013ItemIdArray\030\001 \003(\r\"C\n\031TRec"
-    "ycleRebornBeastArmRsp\022&\n\013RewardArray\030\001 \003"
-    "(\0132\021.pb.TCommonReward\"3\n\034TRecycleDecompo"
-    "seBeastArmReq\022\023\n\013ItemIdArray\030\001 \003(\r\"F\n\034TR"
-    "ecycleDecomposeBeastArmRsp\022&\n\013RewardArra"
-    "y\030\001 \003(\0132\021.pb.TCommonReward\"-\n\033TRecycleRe"
-    "bornMountEquipReq\022\016\n\006ItemId\030\001 \003(\r\"0\n\036TRe"
-    "cycleDecomposeMountEquipReq\022\016\n\006ItemId\030\001 "
-    "\003(\r\"0\n\036TRecycleDecomposeDirectItemReq\022\016\n"
-    "\006ItemId\030\001 \003(\r\"9\n\033TRecycleGoldHeroExchang"
-    "eReq\022\014\n\004Hid1\030\001 \001(\r\022\014\n\004Hid2\030\002 \001(\r\"@\n\032TRec"
-    "ycleCountryExchangeReq\022\020\n\010Country1\030\001 \001(\r"
-    "\022\020\n\010Country2\030\002 \001(\r\"8\n\032TRecycleRedHeroExc"
-    "hangeReq\022\014\n\004Hid1\030\001 \001(\r\022\014\n\004Hid2\030\002 \001(\r\"D\n\032"
-    "TRecycleRedHeroExchangeRsp\022&\n\013RewardArra"
-    "y\030\001 \003(\0132\021.pb.TCommonReward\"I\n\033TRecycleDe"
-    "composeArmFragReq\022*\n\tItemArray\030\001 \003(\0132\027.p"
-    "b.TRecycleItemTidInfo\"O\n!TRecycleDecompo"
-    "seAccessoryFragReq\022*\n\tItemArray\030\001 \003(\0132\027."
-    "pb.TRecycleItemTidInfo\"*\n\030TRecycleReborn"
-    "SilkBagReq\022\016\n\006ItemId\030\001 \003(\r\"-\n\033TRecycleDe"
-    "composeSilkBagReq\022\016\n\006ItemId\030\001 \003(\r\"H\n!TRe"
-    "cycleDecomposeTreasureStoneReq\022\020\n\010StoneT"
-    "id\030\001 \001(\r\022\021\n\tConsumNum\030\002 \001(\r\"6\n\037TRecycleD"
-    "ecomposeDecorationsReq\022\023\n\013ItemIdArray\030\001 "
-    "\003(\r\"I\n\037TRecycleDecomposeDecorationsRsp\022&"
-    "\n\013RewardArray\030\001 \003(\0132\021.pb.TCommonReward\"3"
-    "\n\034TRecycleRebornDecorationsReq\022\023\n\013ItemId"
-    "Array\030\001 \003(\r\"F\n\034TRecycleRebornDecorations"
-    "Rsp\022&\n\013RewardArray\030\001 \003(\0132\021.pb.TCommonRew"
-    "ard\"1\n\032TRecycleRebornForceSoulReq\022\023\n\013Ite"
-    "mIdArray\030\001 \003(\r\"D\n\032TRecycleRebornForceSou"
-    "lRsp\022&\n\013RewardArray\030\001 \003(\0132\021.pb.TCommonRe"
-    "ward\"4\n\035TRecycleDecomposeForceSoulReq\022\023\n"
-    "\013ItemIdArray\030\001 \003(\r\"G\n\035TRecycleDecomposeF"
-    "orceSoulRsp\022&\n\013RewardArray\030\001 \003(\0132\021.pb.TC"
-    "ommonReward", 3171);
+    "rd\"4\n\035TRecycleDecomposeForceSoulReq\022\023\n\013I"
+    "temIdArray\030\001 \003(\r\"G\n\035TRecycleDecomposeFor"
+    "ceSoulRsp\022&\n\013RewardArray\030\001 \003(\0132\021.pb.TCom"
+    "monReward", 3209);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "net/Recycle.proto", &protobuf_RegisterTypes);
   TRecycleGetInfoRsp::default_instance_ = new TRecycleGetInfoRsp();
@@ -2793,6 +2796,7 @@ void TRecycleDecomposeArmsRsp::Swap(TRecycleDecomposeArmsRsp* other) {
 
 #ifndef _MSC_VER
 const int TRecycleRebornArmsReq::kItemIdArrayFieldNumber;
+const int TRecycleRebornArmsReq::kIsPreviewFieldNumber;
 #endif  // !_MSC_VER
 
 TRecycleRebornArmsReq::TRecycleRebornArmsReq()
@@ -2813,6 +2817,7 @@ TRecycleRebornArmsReq::TRecycleRebornArmsReq(const TRecycleRebornArmsReq& from)
 
 void TRecycleRebornArmsReq::SharedCtor() {
   _cached_size_ = 0;
+  ispreview_ = false;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -2848,6 +2853,7 @@ TRecycleRebornArmsReq* TRecycleRebornArmsReq::New() const {
 }
 
 void TRecycleRebornArmsReq::Clear() {
+  ispreview_ = false;
   itemidarray_.Clear();
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
@@ -2878,6 +2884,21 @@ bool TRecycleRebornArmsReq::MergePartialFromCodedStream(
           goto handle_unusual;
         }
         if (input->ExpectTag(8)) goto parse_ItemIdArray;
+        if (input->ExpectTag(16)) goto parse_IsPreview;
+        break;
+      }
+
+      // optional bool IsPreview = 2;
+      case 2: {
+        if (tag == 16) {
+         parse_IsPreview:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
+                 input, &ispreview_)));
+          set_has_ispreview();
+        } else {
+          goto handle_unusual;
+        }
         if (input->ExpectAtEnd()) goto success;
         break;
       }
@@ -2913,6 +2934,11 @@ void TRecycleRebornArmsReq::SerializeWithCachedSizes(
       1, this->itemidarray(i), output);
   }
 
+  // optional bool IsPreview = 2;
+  if (has_ispreview()) {
+    ::google::protobuf::internal::WireFormatLite::WriteBool(2, this->ispreview(), output);
+  }
+
   if (!unknown_fields().empty()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
@@ -2929,6 +2955,11 @@ void TRecycleRebornArmsReq::SerializeWithCachedSizes(
       WriteUInt32ToArray(1, this->itemidarray(i), target);
   }
 
+  // optional bool IsPreview = 2;
+  if (has_ispreview()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(2, this->ispreview(), target);
+  }
+
   if (!unknown_fields().empty()) {
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         unknown_fields(), target);
@@ -2940,6 +2971,13 @@ void TRecycleRebornArmsReq::SerializeWithCachedSizes(
 int TRecycleRebornArmsReq::ByteSize() const {
   int total_size = 0;
 
+  if (_has_bits_[1 / 32] & (0xffu << (1 % 32))) {
+    // optional bool IsPreview = 2;
+    if (has_ispreview()) {
+      total_size += 1 + 1;
+    }
+
+  }
   // repeated uint32 ItemIdArray = 1;
   {
     int data_size = 0;
@@ -2976,6 +3014,11 @@ void TRecycleRebornArmsReq::MergeFrom(const ::google::protobuf::Message& from) {
 void TRecycleRebornArmsReq::MergeFrom(const TRecycleRebornArmsReq& from) {
   GOOGLE_CHECK_NE(&from, this);
   itemidarray_.MergeFrom(from.itemidarray_);
+  if (from._has_bits_[1 / 32] & (0xffu << (1 % 32))) {
+    if (from.has_ispreview()) {
+      set_ispreview(from.ispreview());
+    }
+  }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
 
@@ -2999,6 +3042,7 @@ bool TRecycleRebornArmsReq::IsInitialized() const {
 void TRecycleRebornArmsReq::Swap(TRecycleRebornArmsReq* other) {
   if (other != this) {
     itemidarray_.Swap(&other->itemidarray_);
+    std::swap(ispreview_, other->ispreview_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
@@ -3237,6 +3281,7 @@ void TRecycleRebornArmsRsp::Swap(TRecycleRebornArmsRsp* other) {
 
 #ifndef _MSC_VER
 const int TRecycleRebornAccessoryReq::kItemIdArrayFieldNumber;
+const int TRecycleRebornAccessoryReq::kIsPreviewFieldNumber;
 #endif  // !_MSC_VER
 
 TRecycleRebornAccessoryReq::TRecycleRebornAccessoryReq()
@@ -3257,6 +3302,7 @@ TRecycleRebornAccessoryReq::TRecycleRebornAccessoryReq(const TRecycleRebornAcces
 
 void TRecycleRebornAccessoryReq::SharedCtor() {
   _cached_size_ = 0;
+  ispreview_ = false;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -3292,6 +3338,7 @@ TRecycleRebornAccessoryReq* TRecycleRebornAccessoryReq::New() const {
 }
 
 void TRecycleRebornAccessoryReq::Clear() {
+  ispreview_ = false;
   itemidarray_.Clear();
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
@@ -3322,6 +3369,21 @@ bool TRecycleRebornAccessoryReq::MergePartialFromCodedStream(
           goto handle_unusual;
         }
         if (input->ExpectTag(8)) goto parse_ItemIdArray;
+        if (input->ExpectTag(16)) goto parse_IsPreview;
+        break;
+      }
+
+      // optional bool IsPreview = 2;
+      case 2: {
+        if (tag == 16) {
+         parse_IsPreview:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
+                 input, &ispreview_)));
+          set_has_ispreview();
+        } else {
+          goto handle_unusual;
+        }
         if (input->ExpectAtEnd()) goto success;
         break;
       }
@@ -3357,6 +3419,11 @@ void TRecycleRebornAccessoryReq::SerializeWithCachedSizes(
       1, this->itemidarray(i), output);
   }
 
+  // optional bool IsPreview = 2;
+  if (has_ispreview()) {
+    ::google::protobuf::internal::WireFormatLite::WriteBool(2, this->ispreview(), output);
+  }
+
   if (!unknown_fields().empty()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
@@ -3373,6 +3440,11 @@ void TRecycleRebornAccessoryReq::SerializeWithCachedSizes(
       WriteUInt32ToArray(1, this->itemidarray(i), target);
   }
 
+  // optional bool IsPreview = 2;
+  if (has_ispreview()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(2, this->ispreview(), target);
+  }
+
   if (!unknown_fields().empty()) {
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         unknown_fields(), target);
@@ -3384,6 +3456,13 @@ void TRecycleRebornAccessoryReq::SerializeWithCachedSizes(
 int TRecycleRebornAccessoryReq::ByteSize() const {
   int total_size = 0;
 
+  if (_has_bits_[1 / 32] & (0xffu << (1 % 32))) {
+    // optional bool IsPreview = 2;
+    if (has_ispreview()) {
+      total_size += 1 + 1;
+    }
+
+  }
   // repeated uint32 ItemIdArray = 1;
   {
     int data_size = 0;
@@ -3420,6 +3499,11 @@ void TRecycleRebornAccessoryReq::MergeFrom(const ::google::protobuf::Message& fr
 void TRecycleRebornAccessoryReq::MergeFrom(const TRecycleRebornAccessoryReq& from) {
   GOOGLE_CHECK_NE(&from, this);
   itemidarray_.MergeFrom(from.itemidarray_);
+  if (from._has_bits_[1 / 32] & (0xffu << (1 % 32))) {
+    if (from.has_ispreview()) {
+      set_ispreview(from.ispreview());
+    }
+  }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
 
@@ -3443,6 +3527,7 @@ bool TRecycleRebornAccessoryReq::IsInitialized() const {
 void TRecycleRebornAccessoryReq::Swap(TRecycleRebornAccessoryReq* other) {
   if (other != this) {
     itemidarray_.Swap(&other->itemidarray_);
+    std::swap(ispreview_, other->ispreview_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);

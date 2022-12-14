@@ -329,6 +329,7 @@ public:
 	SharedPtr<Unit> GetOneRandomUnit(int aMyArmy, int aWhichArmy, int aExcludeId);
 
 	PathFindingMgr* GetPathMgr();
+	SceneManager* GetSceneMgr();
 
 	void FilterBlockLine(const Vector3& aStart, const Vector3& aEnd, vector<int>& aBlockLineArr);
 

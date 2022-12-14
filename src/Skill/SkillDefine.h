@@ -322,6 +322,9 @@ enum ESearchRefTargetMethod
 	ESearchRefTargetMethodBornPointByCol,			//和自己同列(出生点) 
 	ESearchRefTargetMethodBornPointByNeighbour,		//和自己相邻(出生点) 
 
+    //以下是Battle Archer特于
+    ESearchRefTargetMethodRandomPosNearBy,          //在自己附近的随机位置 
+
 };
 
 enum ESearchEffTargetMethod

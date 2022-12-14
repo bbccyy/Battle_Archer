@@ -36,6 +36,9 @@ void protobuf_ShutdownFile_module_2fSkillBaseData2_2eproto();
 class SkillLevelSubSkill;
 class SkillLevelSubBuff;
 class SkillLevelProbSkill;
+class SkillCurveAcceleration;
+class SkillMoveData;
+class SkillCurveData;
 
 // ===================================================================
 
@@ -596,6 +599,1981 @@ class SkillLevelProbSkill : public ::google::protobuf::Message {
   void InitAsDefaultInstance();
   static SkillLevelProbSkill* default_instance_;
 };
+// -------------------------------------------------------------------
+
+/*FOR2LUA
+<Record>
+	<name>SkillCurveAcceleration</name>
+	<Function>
+		<name>CopyFrom</name>
+		<replaceName>MergeFrom</replaceName>
+		<handler>descripter = pb_copyfrom_cpp()</handler>
+	</Function>
+	<Function>
+		<name>operator_equal</name>
+		<replaceName>MergeFrom</replaceName>
+		<handler>descripter = pb_operator_equal_cpp()</handler>
+	</Function>
+	<Function>
+		<name>new</name>
+		<replaceName>module/SkillBaseData2.proto</replaceName>
+		<handler>descripter = pb_new_cpp()</handler>
+	</Function>
+	<Function>
+		<name>ParsePartialFromArray</name>
+		<replaceName>ParseFromString</replaceName>
+		<handler>descripter = pb_decode_cpp()</handler>
+	</Function>
+	<Function>
+		<name>SerializePartialToArray</name>
+		<replaceName>SerializeToString</replaceName>
+		<handler>descripter = pb_encode_cpp()</handler>
+	</Function>
+</Record>
+FOR2LUA*/
+class SkillCurveAcceleration : public ::google::protobuf::Message {
+ public:
+  SkillCurveAcceleration();
+  virtual ~SkillCurveAcceleration();
+
+  SkillCurveAcceleration(const SkillCurveAcceleration& from);
+
+  inline SkillCurveAcceleration& operator=(const SkillCurveAcceleration& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const SkillCurveAcceleration& default_instance();
+
+  void Swap(SkillCurveAcceleration* other);
+
+  // implements Message ----------------------------------------------
+
+  SkillCurveAcceleration* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const SkillCurveAcceleration& from);
+  void MergeFrom(const SkillCurveAcceleration& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 Speed = 1;
+  inline bool has_speed() const;
+  inline void clear_speed();
+  static const int kSpeedFieldNumber = 1;
+  /*FOR2LUA
+  <Record>
+  	<name>SkillCurveAcceleration</name>
+  	<Function>
+  		<name>speed</name>
+  		<replaceName>Speed</replaceName>
+  		<handler>descripter = pb_cpp()</handler>
+  	</Function>
+  	<Function>
+  		<name>set_speed</name>
+  		<replaceName>Speed</replaceName>
+  		<handler>descripter = pb_set_cpp()</handler>
+  	</Function>
+  	<Function>
+  		<name>has_speed</name>
+  		<replaceName>Speed</replaceName>
+  		<handler>descripter = pb_has_cpp()</handler>
+  	</Function>
+  </Record>
+  FOR2LUA*/
+  inline ::google::protobuf::int32 speed() const;
+  inline void set_speed(::google::protobuf::int32 value);
+
+  // optional int32 Rate = 2;
+  inline bool has_rate() const;
+  inline void clear_rate();
+  static const int kRateFieldNumber = 2;
+  /*FOR2LUA
+  <Record>
+  	<name>SkillCurveAcceleration</name>
+  	<Function>
+  		<name>rate</name>
+  		<replaceName>Rate</replaceName>
+  		<handler>descripter = pb_cpp()</handler>
+  	</Function>
+  	<Function>
+  		<name>set_rate</name>
+  		<replaceName>Rate</replaceName>
+  		<handler>descripter = pb_set_cpp()</handler>
+  	</Function>
+  	<Function>
+  		<name>has_rate</name>
+  		<replaceName>Rate</replaceName>
+  		<handler>descripter = pb_has_cpp()</handler>
+  	</Function>
+  </Record>
+  FOR2LUA*/
+  inline ::google::protobuf::int32 rate() const;
+  inline void set_rate(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:pb.SkillCurveAcceleration)
+ private:
+  inline void set_has_speed();
+  inline void clear_has_speed();
+  inline void set_has_rate();
+  inline void clear_has_rate();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint32 _has_bits_[1];
+  mutable int _cached_size_;
+  ::google::protobuf::int32 speed_;
+  ::google::protobuf::int32 rate_;
+  friend void  protobuf_AddDesc_module_2fSkillBaseData2_2eproto();
+  friend void protobuf_AssignDesc_module_2fSkillBaseData2_2eproto();
+  friend void protobuf_ShutdownFile_module_2fSkillBaseData2_2eproto();
+
+  void InitAsDefaultInstance();
+  static SkillCurveAcceleration* default_instance_;
+};
+// -------------------------------------------------------------------
+
+/*FOR2LUA
+<Record>
+	<name>SkillMoveData</name>
+	<Function>
+		<name>CopyFrom</name>
+		<replaceName>MergeFrom</replaceName>
+		<handler>descripter = pb_copyfrom_cpp()</handler>
+	</Function>
+	<Function>
+		<name>operator_equal</name>
+		<replaceName>MergeFrom</replaceName>
+		<handler>descripter = pb_operator_equal_cpp()</handler>
+	</Function>
+	<Function>
+		<name>new</name>
+		<replaceName>module/SkillBaseData2.proto</replaceName>
+		<handler>descripter = pb_new_cpp()</handler>
+	</Function>
+	<Function>
+		<name>ParsePartialFromArray</name>
+		<replaceName>ParseFromString</replaceName>
+		<handler>descripter = pb_decode_cpp()</handler>
+	</Function>
+	<Function>
+		<name>SerializePartialToArray</name>
+		<replaceName>SerializeToString</replaceName>
+		<handler>descripter = pb_encode_cpp()</handler>
+	</Function>
+</Record>
+FOR2LUA*/
+class SkillMoveData : public ::google::protobuf::Message {
+ public:
+  SkillMoveData();
+  virtual ~SkillMoveData();
+
+  SkillMoveData(const SkillMoveData& from);
+
+  inline SkillMoveData& operator=(const SkillMoveData& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const SkillMoveData& default_instance();
+
+  void Swap(SkillMoveData* other);
+
+  // implements Message ----------------------------------------------
+
+  SkillMoveData* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const SkillMoveData& from);
+  void MergeFrom(const SkillMoveData& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 DamageTime = 1;
+  inline bool has_damagetime() const;
+  inline void clear_damagetime();
+  static const int kDamageTimeFieldNumber = 1;
+  /*FOR2LUA
+  <Record>
+  	<name>SkillMoveData</name>
+  	<Function>
+  		<name>damagetime</name>
+  		<replaceName>DamageTime</replaceName>
+  		<handler>descripter = pb_cpp()</handler>
+  	</Function>
+  	<Function>
+  		<name>set_damagetime</name>
+  		<replaceName>DamageTime</replaceName>
+  		<handler>descripter = pb_set_cpp()</handler>
+  	</Function>
+  	<Function>
+  		<name>has_damagetime</name>
+  		<replaceName>DamageTime</replaceName>
+  		<handler>descripter = pb_has_cpp()</handler>
+  	</Function>
+  </Record>
+  FOR2LUA*/
+  inline ::google::protobuf::int32 damagetime() const;
+  inline void set_damagetime(::google::protobuf::int32 value);
+
+  // optional int32 MoveType = 2;
+  inline bool has_movetype() const;
+  inline void clear_movetype();
+  static const int kMoveTypeFieldNumber = 2;
+  /*FOR2LUA
+  <Record>
+  	<name>SkillMoveData</name>
+  	<Function>
+  		<name>movetype</name>
+  		<replaceName>MoveType</replaceName>
+  		<handler>descripter = pb_cpp()</handler>
+  	</Function>
+  	<Function>
+  		<name>set_movetype</name>
+  		<replaceName>MoveType</replaceName>
+  		<handler>descripter = pb_set_cpp()</handler>
+  	</Function>
+  	<Function>
+  		<name>has_movetype</name>
+  		<replaceName>MoveType</replaceName>
+  		<handler>descripter = pb_has_cpp()</handler>
+  	</Function>
+  </Record>
+  FOR2LUA*/
+  inline ::google::protobuf::int32 movetype() const;
+  inline void set_movetype(::google::protobuf::int32 value);
+
+  // optional int32 MoveTypeParam = 3;
+  inline bool has_movetypeparam() const;
+  inline void clear_movetypeparam();
+  static const int kMoveTypeParamFieldNumber = 3;
+  /*FOR2LUA
+  <Record>
+  	<name>SkillMoveData</name>
+  	<Function>
+  		<name>movetypeparam</name>
+  		<replaceName>MoveTypeParam</replaceName>
+  		<handler>descripter = pb_cpp()</handler>
+  	</Function>
+  	<Function>
+  		<name>set_movetypeparam</name>
+  		<replaceName>MoveTypeParam</replaceName>
+  		<handler>descripter = pb_set_cpp()</handler>
+  	</Function>
+  	<Function>
+  		<name>has_movetypeparam</name>
+  		<replaceName>MoveTypeParam</replaceName>
+  		<handler>descripter = pb_has_cpp()</handler>
+  	</Function>
+  </Record>
+  FOR2LUA*/
+  inline ::google::protobuf::int32 movetypeparam() const;
+  inline void set_movetypeparam(::google::protobuf::int32 value);
+
+  // optional int32 MoveSpeed = 4;
+  inline bool has_movespeed() const;
+  inline void clear_movespeed();
+  static const int kMoveSpeedFieldNumber = 4;
+  /*FOR2LUA
+  <Record>
+  	<name>SkillMoveData</name>
+  	<Function>
+  		<name>movespeed</name>
+  		<replaceName>MoveSpeed</replaceName>
+  		<handler>descripter = pb_cpp()</handler>
+  	</Function>
+  	<Function>
+  		<name>set_movespeed</name>
+  		<replaceName>MoveSpeed</replaceName>
+  		<handler>descripter = pb_set_cpp()</handler>
+  	</Function>
+  	<Function>
+  		<name>has_movespeed</name>
+  		<replaceName>MoveSpeed</replaceName>
+  		<handler>descripter = pb_has_cpp()</handler>
+  	</Function>
+  </Record>
+  FOR2LUA*/
+  inline ::google::protobuf::int32 movespeed() const;
+  inline void set_movespeed(::google::protobuf::int32 value);
+
+  // optional int32 MoveHeight = 5;
+  inline bool has_moveheight() const;
+  inline void clear_moveheight();
+  static const int kMoveHeightFieldNumber = 5;
+  /*FOR2LUA
+  <Record>
+  	<name>SkillMoveData</name>
+  	<Function>
+  		<name>moveheight</name>
+  		<replaceName>MoveHeight</replaceName>
+  		<handler>descripter = pb_cpp()</handler>
+  	</Function>
+  	<Function>
+  		<name>set_moveheight</name>
+  		<replaceName>MoveHeight</replaceName>
+  		<handler>descripter = pb_set_cpp()</handler>
+  	</Function>
+  	<Function>
+  		<name>has_moveheight</name>
+  		<replaceName>MoveHeight</replaceName>
+  		<handler>descripter = pb_has_cpp()</handler>
+  	</Function>
+  </Record>
+  FOR2LUA*/
+  inline ::google::protobuf::int32 moveheight() const;
+  inline void set_moveheight(::google::protobuf::int32 value);
+
+  // optional int32 MoveUpSpeed = 6;
+  inline bool has_moveupspeed() const;
+  inline void clear_moveupspeed();
+  static const int kMoveUpSpeedFieldNumber = 6;
+  /*FOR2LUA
+  <Record>
+  	<name>SkillMoveData</name>
+  	<Function>
+  		<name>moveupspeed</name>
+  		<replaceName>MoveUpSpeed</replaceName>
+  		<handler>descripter = pb_cpp()</handler>
+  	</Function>
+  	<Function>
+  		<name>set_moveupspeed</name>
+  		<replaceName>MoveUpSpeed</replaceName>
+  		<handler>descripter = pb_set_cpp()</handler>
+  	</Function>
+  	<Function>
+  		<name>has_moveupspeed</name>
+  		<replaceName>MoveUpSpeed</replaceName>
+  		<handler>descripter = pb_has_cpp()</handler>
+  	</Function>
+  </Record>
+  FOR2LUA*/
+  inline ::google::protobuf::int32 moveupspeed() const;
+  inline void set_moveupspeed(::google::protobuf::int32 value);
+
+  // optional int32 MoveDownSpeed = 7;
+  inline bool has_movedownspeed() const;
+  inline void clear_movedownspeed();
+  static const int kMoveDownSpeedFieldNumber = 7;
+  /*FOR2LUA
+  <Record>
+  	<name>SkillMoveData</name>
+  	<Function>
+  		<name>movedownspeed</name>
+  		<replaceName>MoveDownSpeed</replaceName>
+  		<handler>descripter = pb_cpp()</handler>
+  	</Function>
+  	<Function>
+  		<name>set_movedownspeed</name>
+  		<replaceName>MoveDownSpeed</replaceName>
+  		<handler>descripter = pb_set_cpp()</handler>
+  	</Function>
+  	<Function>
+  		<name>has_movedownspeed</name>
+  		<replaceName>MoveDownSpeed</replaceName>
+  		<handler>descripter = pb_has_cpp()</handler>
+  	</Function>
+  </Record>
+  FOR2LUA*/
+  inline ::google::protobuf::int32 movedownspeed() const;
+  inline void set_movedownspeed(::google::protobuf::int32 value);
+
+  // optional int32 StayTimeOnPeak = 10;
+  inline bool has_staytimeonpeak() const;
+  inline void clear_staytimeonpeak();
+  static const int kStayTimeOnPeakFieldNumber = 10;
+  /*FOR2LUA
+  <Record>
+  	<name>SkillMoveData</name>
+  	<Function>
+  		<name>staytimeonpeak</name>
+  		<replaceName>StayTimeOnPeak</replaceName>
+  		<handler>descripter = pb_cpp()</handler>
+  	</Function>
+  	<Function>
+  		<name>set_staytimeonpeak</name>
+  		<replaceName>StayTimeOnPeak</replaceName>
+  		<handler>descripter = pb_set_cpp()</handler>
+  	</Function>
+  	<Function>
+  		<name>has_staytimeonpeak</name>
+  		<replaceName>StayTimeOnPeak</replaceName>
+  		<handler>descripter = pb_has_cpp()</handler>
+  	</Function>
+  </Record>
+  FOR2LUA*/
+  inline ::google::protobuf::int32 staytimeonpeak() const;
+  inline void set_staytimeonpeak(::google::protobuf::int32 value);
+
+  // optional bool CanBeRefTarget = 11;
+  inline bool has_canbereftarget() const;
+  inline void clear_canbereftarget();
+  static const int kCanBeRefTargetFieldNumber = 11;
+  /*FOR2LUA
+  <Record>
+  	<name>SkillMoveData</name>
+  	<Function>
+  		<name>canbereftarget</name>
+  		<replaceName>CanBeRefTarget</replaceName>
+  		<handler>descripter = pb_cpp()</handler>
+  	</Function>
+  	<Function>
+  		<name>set_canbereftarget</name>
+  		<replaceName>CanBeRefTarget</replaceName>
+  		<handler>descripter = pb_set_cpp()</handler>
+  	</Function>
+  	<Function>
+  		<name>has_canbereftarget</name>
+  		<replaceName>CanBeRefTarget</replaceName>
+  		<handler>descripter = pb_has_cpp()</handler>
+  	</Function>
+  </Record>
+  FOR2LUA*/
+  inline bool canbereftarget() const;
+  inline void set_canbereftarget(bool value);
+
+  // optional bool CanBeEffectTarget = 12;
+  inline bool has_canbeeffecttarget() const;
+  inline void clear_canbeeffecttarget();
+  static const int kCanBeEffectTargetFieldNumber = 12;
+  /*FOR2LUA
+  <Record>
+  	<name>SkillMoveData</name>
+  	<Function>
+  		<name>canbeeffecttarget</name>
+  		<replaceName>CanBeEffectTarget</replaceName>
+  		<handler>descripter = pb_cpp()</handler>
+  	</Function>
+  	<Function>
+  		<name>set_canbeeffecttarget</name>
+  		<replaceName>CanBeEffectTarget</replaceName>
+  		<handler>descripter = pb_set_cpp()</handler>
+  	</Function>
+  	<Function>
+  		<name>has_canbeeffecttarget</name>
+  		<replaceName>CanBeEffectTarget</replaceName>
+  		<handler>descripter = pb_has_cpp()</handler>
+  	</Function>
+  </Record>
+  FOR2LUA*/
+  inline bool canbeeffecttarget() const;
+  inline void set_canbeeffecttarget(bool value);
+
+  // optional int32 MoveDownHeight = 13;
+  inline bool has_movedownheight() const;
+  inline void clear_movedownheight();
+  static const int kMoveDownHeightFieldNumber = 13;
+  /*FOR2LUA
+  <Record>
+  	<name>SkillMoveData</name>
+  	<Function>
+  		<name>movedownheight</name>
+  		<replaceName>MoveDownHeight</replaceName>
+  		<handler>descripter = pb_cpp()</handler>
+  	</Function>
+  	<Function>
+  		<name>set_movedownheight</name>
+  		<replaceName>MoveDownHeight</replaceName>
+  		<handler>descripter = pb_set_cpp()</handler>
+  	</Function>
+  	<Function>
+  		<name>has_movedownheight</name>
+  		<replaceName>MoveDownHeight</replaceName>
+  		<handler>descripter = pb_has_cpp()</handler>
+  	</Function>
+  </Record>
+  FOR2LUA*/
+  inline ::google::protobuf::int32 movedownheight() const;
+  inline void set_movedownheight(::google::protobuf::int32 value);
+
+  // optional bool FallToGround = 14;
+  inline bool has_falltoground() const;
+  inline void clear_falltoground();
+  static const int kFallToGroundFieldNumber = 14;
+  /*FOR2LUA
+  <Record>
+  	<name>SkillMoveData</name>
+  	<Function>
+  		<name>falltoground</name>
+  		<replaceName>FallToGround</replaceName>
+  		<handler>descripter = pb_cpp()</handler>
+  	</Function>
+  	<Function>
+  		<name>set_falltoground</name>
+  		<replaceName>FallToGround</replaceName>
+  		<handler>descripter = pb_set_cpp()</handler>
+  	</Function>
+  	<Function>
+  		<name>has_falltoground</name>
+  		<replaceName>FallToGround</replaceName>
+  		<handler>descripter = pb_has_cpp()</handler>
+  	</Function>
+  </Record>
+  FOR2LUA*/
+  inline bool falltoground() const;
+  inline void set_falltoground(bool value);
+
+  // optional .pb.SkillCurveAcceleration MoveUpAcceleration = 15;
+  inline bool has_moveupacceleration() const;
+  inline void clear_moveupacceleration();
+  static const int kMoveUpAccelerationFieldNumber = 15;
+  /*FOR2LUA
+  <Record>
+  	<name>SkillMoveData</name>
+  	<Function>
+  		<name>moveupacceleration</name>
+  		<replaceName>MoveUpAcceleration</replaceName>
+  		<handler>descripter = pb_cpp()</handler>
+  	</Function>
+  	<Function>
+  		<name>set_moveupacceleration</name>
+  		<replaceName>MoveUpAcceleration</replaceName>
+  		<handler>descripter = pb_set_message_cpp()</handler>
+  	</Function>
+  	<Function>
+  		<name>set_allocated_moveupacceleration</name>
+  		<replaceName>MoveUpAcceleration</replaceName>
+  		<handler>descripter = pb_set_message_cpp()</handler>
+  	</Function>
+  	<Function>
+  		<name>has_moveupacceleration</name>
+  		<replaceName>MoveUpAcceleration</replaceName>
+  		<handler>descripter = pb_has_cpp()</handler>
+  	</Function>
+  </Record>
+  FOR2LUA*/
+  inline const ::pb::SkillCurveAcceleration& moveupacceleration() const;
+  inline ::pb::SkillCurveAcceleration* mutable_moveupacceleration();
+  inline ::pb::SkillCurveAcceleration* release_moveupacceleration();
+  inline void set_allocated_moveupacceleration(::pb::SkillCurveAcceleration* moveupacceleration);
+
+  // optional .pb.SkillCurveAcceleration MoveDownAcceleration = 16;
+  inline bool has_movedownacceleration() const;
+  inline void clear_movedownacceleration();
+  static const int kMoveDownAccelerationFieldNumber = 16;
+  /*FOR2LUA
+  <Record>
+  	<name>SkillMoveData</name>
+  	<Function>
+  		<name>movedownacceleration</name>
+  		<replaceName>MoveDownAcceleration</replaceName>
+  		<handler>descripter = pb_cpp()</handler>
+  	</Function>
+  	<Function>
+  		<name>set_movedownacceleration</name>
+  		<replaceName>MoveDownAcceleration</replaceName>
+  		<handler>descripter = pb_set_message_cpp()</handler>
+  	</Function>
+  	<Function>
+  		<name>set_allocated_movedownacceleration</name>
+  		<replaceName>MoveDownAcceleration</replaceName>
+  		<handler>descripter = pb_set_message_cpp()</handler>
+  	</Function>
+  	<Function>
+  		<name>has_movedownacceleration</name>
+  		<replaceName>MoveDownAcceleration</replaceName>
+  		<handler>descripter = pb_has_cpp()</handler>
+  	</Function>
+  </Record>
+  FOR2LUA*/
+  inline const ::pb::SkillCurveAcceleration& movedownacceleration() const;
+  inline ::pb::SkillCurveAcceleration* mutable_movedownacceleration();
+  inline ::pb::SkillCurveAcceleration* release_movedownacceleration();
+  inline void set_allocated_movedownacceleration(::pb::SkillCurveAcceleration* movedownacceleration);
+
+  // optional bool PlayFloatAwayAnim = 17;
+  inline bool has_playfloatawayanim() const;
+  inline void clear_playfloatawayanim();
+  static const int kPlayFloatAwayAnimFieldNumber = 17;
+  /*FOR2LUA
+  <Record>
+  	<name>SkillMoveData</name>
+  	<Function>
+  		<name>playfloatawayanim</name>
+  		<replaceName>PlayFloatAwayAnim</replaceName>
+  		<handler>descripter = pb_cpp()</handler>
+  	</Function>
+  	<Function>
+  		<name>set_playfloatawayanim</name>
+  		<replaceName>PlayFloatAwayAnim</replaceName>
+  		<handler>descripter = pb_set_cpp()</handler>
+  	</Function>
+  	<Function>
+  		<name>has_playfloatawayanim</name>
+  		<replaceName>PlayFloatAwayAnim</replaceName>
+  		<handler>descripter = pb_has_cpp()</handler>
+  	</Function>
+  </Record>
+  FOR2LUA*/
+  inline bool playfloatawayanim() const;
+  inline void set_playfloatawayanim(bool value);
+
+  // optional bool AllowReplaceAnim = 18;
+  inline bool has_allowreplaceanim() const;
+  inline void clear_allowreplaceanim();
+  static const int kAllowReplaceAnimFieldNumber = 18;
+  /*FOR2LUA
+  <Record>
+  	<name>SkillMoveData</name>
+  	<Function>
+  		<name>allowreplaceanim</name>
+  		<replaceName>AllowReplaceAnim</replaceName>
+  		<handler>descripter = pb_cpp()</handler>
+  	</Function>
+  	<Function>
+  		<name>set_allowreplaceanim</name>
+  		<replaceName>AllowReplaceAnim</replaceName>
+  		<handler>descripter = pb_set_cpp()</handler>
+  	</Function>
+  	<Function>
+  		<name>has_allowreplaceanim</name>
+  		<replaceName>AllowReplaceAnim</replaceName>
+  		<handler>descripter = pb_has_cpp()</handler>
+  	</Function>
+  </Record>
+  FOR2LUA*/
+  inline bool allowreplaceanim() const;
+  inline void set_allowreplaceanim(bool value);
+
+  // optional bool PlayFloatCtrlAinm = 19;
+  inline bool has_playfloatctrlainm() const;
+  inline void clear_playfloatctrlainm();
+  static const int kPlayFloatCtrlAinmFieldNumber = 19;
+  /*FOR2LUA
+  <Record>
+  	<name>SkillMoveData</name>
+  	<Function>
+  		<name>playfloatctrlainm</name>
+  		<replaceName>PlayFloatCtrlAinm</replaceName>
+  		<handler>descripter = pb_cpp()</handler>
+  	</Function>
+  	<Function>
+  		<name>set_playfloatctrlainm</name>
+  		<replaceName>PlayFloatCtrlAinm</replaceName>
+  		<handler>descripter = pb_set_cpp()</handler>
+  	</Function>
+  	<Function>
+  		<name>has_playfloatctrlainm</name>
+  		<replaceName>PlayFloatCtrlAinm</replaceName>
+  		<handler>descripter = pb_has_cpp()</handler>
+  	</Function>
+  </Record>
+  FOR2LUA*/
+  inline bool playfloatctrlainm() const;
+  inline void set_playfloatctrlainm(bool value);
+
+  // optional string AnimOnFloatUpAndKeep = 21;
+  inline bool has_animonfloatupandkeep() const;
+  inline void clear_animonfloatupandkeep();
+  static const int kAnimOnFloatUpAndKeepFieldNumber = 21;
+  /*FOR2LUA
+  <Record>
+  	<name>SkillMoveData</name>
+  	<Function>
+  		<name>animonfloatupandkeep</name>
+  		<replaceName>AnimOnFloatUpAndKeep</replaceName>
+  		<handler>descripter = pb_cpp()</handler>
+  	</Function>
+  	<Function>
+  		<name>set_animonfloatupandkeep</name>
+  		<replaceName>AnimOnFloatUpAndKeep</replaceName>
+  		<handler>descripter = pb_set_cpp()</handler>
+  	</Function>
+  	<Function>
+  		<name>has_animonfloatupandkeep</name>
+  		<replaceName>AnimOnFloatUpAndKeep</replaceName>
+  		<handler>descripter = pb_has_cpp()</handler>
+  	</Function>
+  </Record>
+  FOR2LUA*/
+  inline const ::std::string& animonfloatupandkeep() const;
+  inline void set_animonfloatupandkeep(const ::std::string& value);
+  inline void set_animonfloatupandkeep(const char* value);
+  inline void set_animonfloatupandkeep(const char* value, size_t size);
+  inline ::std::string* mutable_animonfloatupandkeep();
+  inline ::std::string* release_animonfloatupandkeep();
+  inline void set_allocated_animonfloatupandkeep(::std::string* animonfloatupandkeep);
+
+  // optional string AnimOnFloatDown = 22;
+  inline bool has_animonfloatdown() const;
+  inline void clear_animonfloatdown();
+  static const int kAnimOnFloatDownFieldNumber = 22;
+  /*FOR2LUA
+  <Record>
+  	<name>SkillMoveData</name>
+  	<Function>
+  		<name>animonfloatdown</name>
+  		<replaceName>AnimOnFloatDown</replaceName>
+  		<handler>descripter = pb_cpp()</handler>
+  	</Function>
+  	<Function>
+  		<name>set_animonfloatdown</name>
+  		<replaceName>AnimOnFloatDown</replaceName>
+  		<handler>descripter = pb_set_cpp()</handler>
+  	</Function>
+  	<Function>
+  		<name>has_animonfloatdown</name>
+  		<replaceName>AnimOnFloatDown</replaceName>
+  		<handler>descripter = pb_has_cpp()</handler>
+  	</Function>
+  </Record>
+  FOR2LUA*/
+  inline const ::std::string& animonfloatdown() const;
+  inline void set_animonfloatdown(const ::std::string& value);
+  inline void set_animonfloatdown(const char* value);
+  inline void set_animonfloatdown(const char* value, size_t size);
+  inline ::std::string* mutable_animonfloatdown();
+  inline ::std::string* release_animonfloatdown();
+  inline void set_allocated_animonfloatdown(::std::string* animonfloatdown);
+
+  // optional bool BreakByObstacle = 23;
+  inline bool has_breakbyobstacle() const;
+  inline void clear_breakbyobstacle();
+  static const int kBreakByObstacleFieldNumber = 23;
+  /*FOR2LUA
+  <Record>
+  	<name>SkillMoveData</name>
+  	<Function>
+  		<name>breakbyobstacle</name>
+  		<replaceName>BreakByObstacle</replaceName>
+  		<handler>descripter = pb_cpp()</handler>
+  	</Function>
+  	<Function>
+  		<name>set_breakbyobstacle</name>
+  		<replaceName>BreakByObstacle</replaceName>
+  		<handler>descripter = pb_set_cpp()</handler>
+  	</Function>
+  	<Function>
+  		<name>has_breakbyobstacle</name>
+  		<replaceName>BreakByObstacle</replaceName>
+  		<handler>descripter = pb_has_cpp()</handler>
+  	</Function>
+  </Record>
+  FOR2LUA*/
+  inline bool breakbyobstacle() const;
+  inline void set_breakbyobstacle(bool value);
+
+  // optional int32 MoveAcceleration = 24;
+  inline bool has_moveacceleration() const;
+  inline void clear_moveacceleration();
+  static const int kMoveAccelerationFieldNumber = 24;
+  /*FOR2LUA
+  <Record>
+  	<name>SkillMoveData</name>
+  	<Function>
+  		<name>moveacceleration</name>
+  		<replaceName>MoveAcceleration</replaceName>
+  		<handler>descripter = pb_cpp()</handler>
+  	</Function>
+  	<Function>
+  		<name>set_moveacceleration</name>
+  		<replaceName>MoveAcceleration</replaceName>
+  		<handler>descripter = pb_set_cpp()</handler>
+  	</Function>
+  	<Function>
+  		<name>has_moveacceleration</name>
+  		<replaceName>MoveAcceleration</replaceName>
+  		<handler>descripter = pb_has_cpp()</handler>
+  	</Function>
+  </Record>
+  FOR2LUA*/
+  inline ::google::protobuf::int32 moveacceleration() const;
+  inline void set_moveacceleration(::google::protobuf::int32 value);
+
+  // optional bool TDNeedBlockByLine = 25;
+  inline bool has_tdneedblockbyline() const;
+  inline void clear_tdneedblockbyline();
+  static const int kTDNeedBlockByLineFieldNumber = 25;
+  /*FOR2LUA
+  <Record>
+  	<name>SkillMoveData</name>
+  	<Function>
+  		<name>tdneedblockbyline</name>
+  		<replaceName>TDNeedBlockByLine</replaceName>
+  		<handler>descripter = pb_cpp()</handler>
+  	</Function>
+  	<Function>
+  		<name>set_tdneedblockbyline</name>
+  		<replaceName>TDNeedBlockByLine</replaceName>
+  		<handler>descripter = pb_set_cpp()</handler>
+  	</Function>
+  	<Function>
+  		<name>has_tdneedblockbyline</name>
+  		<replaceName>TDNeedBlockByLine</replaceName>
+  		<handler>descripter = pb_has_cpp()</handler>
+  	</Function>
+  </Record>
+  FOR2LUA*/
+  inline bool tdneedblockbyline() const;
+  inline void set_tdneedblockbyline(bool value);
+
+  // @@protoc_insertion_point(class_scope:pb.SkillMoveData)
+ private:
+  inline void set_has_damagetime();
+  inline void clear_has_damagetime();
+  inline void set_has_movetype();
+  inline void clear_has_movetype();
+  inline void set_has_movetypeparam();
+  inline void clear_has_movetypeparam();
+  inline void set_has_movespeed();
+  inline void clear_has_movespeed();
+  inline void set_has_moveheight();
+  inline void clear_has_moveheight();
+  inline void set_has_moveupspeed();
+  inline void clear_has_moveupspeed();
+  inline void set_has_movedownspeed();
+  inline void clear_has_movedownspeed();
+  inline void set_has_staytimeonpeak();
+  inline void clear_has_staytimeonpeak();
+  inline void set_has_canbereftarget();
+  inline void clear_has_canbereftarget();
+  inline void set_has_canbeeffecttarget();
+  inline void clear_has_canbeeffecttarget();
+  inline void set_has_movedownheight();
+  inline void clear_has_movedownheight();
+  inline void set_has_falltoground();
+  inline void clear_has_falltoground();
+  inline void set_has_moveupacceleration();
+  inline void clear_has_moveupacceleration();
+  inline void set_has_movedownacceleration();
+  inline void clear_has_movedownacceleration();
+  inline void set_has_playfloatawayanim();
+  inline void clear_has_playfloatawayanim();
+  inline void set_has_allowreplaceanim();
+  inline void clear_has_allowreplaceanim();
+  inline void set_has_playfloatctrlainm();
+  inline void clear_has_playfloatctrlainm();
+  inline void set_has_animonfloatupandkeep();
+  inline void clear_has_animonfloatupandkeep();
+  inline void set_has_animonfloatdown();
+  inline void clear_has_animonfloatdown();
+  inline void set_has_breakbyobstacle();
+  inline void clear_has_breakbyobstacle();
+  inline void set_has_moveacceleration();
+  inline void clear_has_moveacceleration();
+  inline void set_has_tdneedblockbyline();
+  inline void clear_has_tdneedblockbyline();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint32 _has_bits_[1];
+  mutable int _cached_size_;
+  ::google::protobuf::int32 damagetime_;
+  ::google::protobuf::int32 movetype_;
+  ::google::protobuf::int32 movetypeparam_;
+  ::google::protobuf::int32 movespeed_;
+  ::google::protobuf::int32 moveheight_;
+  ::google::protobuf::int32 moveupspeed_;
+  ::google::protobuf::int32 movedownspeed_;
+  ::google::protobuf::int32 staytimeonpeak_;
+  ::google::protobuf::int32 movedownheight_;
+  bool canbereftarget_;
+  bool canbeeffecttarget_;
+  bool falltoground_;
+  bool playfloatawayanim_;
+  ::pb::SkillCurveAcceleration* moveupacceleration_;
+  ::pb::SkillCurveAcceleration* movedownacceleration_;
+  ::std::string* animonfloatupandkeep_;
+  ::std::string* animonfloatdown_;
+  bool allowreplaceanim_;
+  bool playfloatctrlainm_;
+  bool breakbyobstacle_;
+  bool tdneedblockbyline_;
+  ::google::protobuf::int32 moveacceleration_;
+  friend void  protobuf_AddDesc_module_2fSkillBaseData2_2eproto();
+  friend void protobuf_AssignDesc_module_2fSkillBaseData2_2eproto();
+  friend void protobuf_ShutdownFile_module_2fSkillBaseData2_2eproto();
+
+  void InitAsDefaultInstance();
+  static SkillMoveData* default_instance_;
+};
+// -------------------------------------------------------------------
+
+/*FOR2LUA
+<Record>
+	<name>SkillCurveData</name>
+	<Function>
+		<name>CopyFrom</name>
+		<replaceName>MergeFrom</replaceName>
+		<handler>descripter = pb_copyfrom_cpp()</handler>
+	</Function>
+	<Function>
+		<name>operator_equal</name>
+		<replaceName>MergeFrom</replaceName>
+		<handler>descripter = pb_operator_equal_cpp()</handler>
+	</Function>
+	<Function>
+		<name>new</name>
+		<replaceName>module/SkillBaseData2.proto</replaceName>
+		<handler>descripter = pb_new_cpp()</handler>
+	</Function>
+	<Function>
+		<name>ParsePartialFromArray</name>
+		<replaceName>ParseFromString</replaceName>
+		<handler>descripter = pb_decode_cpp()</handler>
+	</Function>
+	<Function>
+		<name>SerializePartialToArray</name>
+		<replaceName>SerializeToString</replaceName>
+		<handler>descripter = pb_encode_cpp()</handler>
+	</Function>
+</Record>
+FOR2LUA*/
+class SkillCurveData : public ::google::protobuf::Message {
+ public:
+  SkillCurveData();
+  virtual ~SkillCurveData();
+
+  SkillCurveData(const SkillCurveData& from);
+
+  inline SkillCurveData& operator=(const SkillCurveData& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const SkillCurveData& default_instance();
+
+  void Swap(SkillCurveData* other);
+
+  // implements Message ----------------------------------------------
+
+  SkillCurveData* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const SkillCurveData& from);
+  void MergeFrom(const SkillCurveData& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 IsCurve = 1;
+  inline bool has_iscurve() const;
+  inline void clear_iscurve();
+  static const int kIsCurveFieldNumber = 1;
+  /*FOR2LUA
+  <Record>
+  	<name>SkillCurveData</name>
+  	<Function>
+  		<name>iscurve</name>
+  		<replaceName>IsCurve</replaceName>
+  		<handler>descripter = pb_cpp()</handler>
+  	</Function>
+  	<Function>
+  		<name>set_iscurve</name>
+  		<replaceName>IsCurve</replaceName>
+  		<handler>descripter = pb_set_cpp()</handler>
+  	</Function>
+  	<Function>
+  		<name>has_iscurve</name>
+  		<replaceName>IsCurve</replaceName>
+  		<handler>descripter = pb_has_cpp()</handler>
+  	</Function>
+  </Record>
+  FOR2LUA*/
+  inline ::google::protobuf::int32 iscurve() const;
+  inline void set_iscurve(::google::protobuf::int32 value);
+
+  // optional int32 CurveType = 2;
+  inline bool has_curvetype() const;
+  inline void clear_curvetype();
+  static const int kCurveTypeFieldNumber = 2;
+  /*FOR2LUA
+  <Record>
+  	<name>SkillCurveData</name>
+  	<Function>
+  		<name>curvetype</name>
+  		<replaceName>CurveType</replaceName>
+  		<handler>descripter = pb_cpp()</handler>
+  	</Function>
+  	<Function>
+  		<name>set_curvetype</name>
+  		<replaceName>CurveType</replaceName>
+  		<handler>descripter = pb_set_cpp()</handler>
+  	</Function>
+  	<Function>
+  		<name>has_curvetype</name>
+  		<replaceName>CurveType</replaceName>
+  		<handler>descripter = pb_has_cpp()</handler>
+  	</Function>
+  </Record>
+  FOR2LUA*/
+  inline ::google::protobuf::int32 curvetype() const;
+  inline void set_curvetype(::google::protobuf::int32 value);
+
+  // optional int32 CurveRadiu = 3;
+  inline bool has_curveradiu() const;
+  inline void clear_curveradiu();
+  static const int kCurveRadiuFieldNumber = 3;
+  /*FOR2LUA
+  <Record>
+  	<name>SkillCurveData</name>
+  	<Function>
+  		<name>curveradiu</name>
+  		<replaceName>CurveRadiu</replaceName>
+  		<handler>descripter = pb_cpp()</handler>
+  	</Function>
+  	<Function>
+  		<name>set_curveradiu</name>
+  		<replaceName>CurveRadiu</replaceName>
+  		<handler>descripter = pb_set_cpp()</handler>
+  	</Function>
+  	<Function>
+  		<name>has_curveradiu</name>
+  		<replaceName>CurveRadiu</replaceName>
+  		<handler>descripter = pb_has_cpp()</handler>
+  	</Function>
+  </Record>
+  FOR2LUA*/
+  inline ::google::protobuf::int32 curveradiu() const;
+  inline void set_curveradiu(::google::protobuf::int32 value);
+
+  // optional string CurveParent = 4;
+  inline bool has_curveparent() const;
+  inline void clear_curveparent();
+  static const int kCurveParentFieldNumber = 4;
+  /*FOR2LUA
+  <Record>
+  	<name>SkillCurveData</name>
+  	<Function>
+  		<name>curveparent</name>
+  		<replaceName>CurveParent</replaceName>
+  		<handler>descripter = pb_cpp()</handler>
+  	</Function>
+  	<Function>
+  		<name>set_curveparent</name>
+  		<replaceName>CurveParent</replaceName>
+  		<handler>descripter = pb_set_cpp()</handler>
+  	</Function>
+  	<Function>
+  		<name>has_curveparent</name>
+  		<replaceName>CurveParent</replaceName>
+  		<handler>descripter = pb_has_cpp()</handler>
+  	</Function>
+  </Record>
+  FOR2LUA*/
+  inline const ::std::string& curveparent() const;
+  inline void set_curveparent(const ::std::string& value);
+  inline void set_curveparent(const char* value);
+  inline void set_curveparent(const char* value, size_t size);
+  inline ::std::string* mutable_curveparent();
+  inline ::std::string* release_curveparent();
+  inline void set_allocated_curveparent(::std::string* curveparent);
+
+  // optional string CurveEffect = 5;
+  inline bool has_curveeffect() const;
+  inline void clear_curveeffect();
+  static const int kCurveEffectFieldNumber = 5;
+  /*FOR2LUA
+  <Record>
+  	<name>SkillCurveData</name>
+  	<Function>
+  		<name>curveeffect</name>
+  		<replaceName>CurveEffect</replaceName>
+  		<handler>descripter = pb_cpp()</handler>
+  	</Function>
+  	<Function>
+  		<name>set_curveeffect</name>
+  		<replaceName>CurveEffect</replaceName>
+  		<handler>descripter = pb_set_cpp()</handler>
+  	</Function>
+  	<Function>
+  		<name>has_curveeffect</name>
+  		<replaceName>CurveEffect</replaceName>
+  		<handler>descripter = pb_has_cpp()</handler>
+  	</Function>
+  </Record>
+  FOR2LUA*/
+  inline const ::std::string& curveeffect() const;
+  inline void set_curveeffect(const ::std::string& value);
+  inline void set_curveeffect(const char* value);
+  inline void set_curveeffect(const char* value, size_t size);
+  inline ::std::string* mutable_curveeffect();
+  inline ::std::string* release_curveeffect();
+  inline void set_allocated_curveeffect(::std::string* curveeffect);
+
+  // optional string NoneCurveEffet = 6;
+  inline bool has_nonecurveeffet() const;
+  inline void clear_nonecurveeffet();
+  static const int kNoneCurveEffetFieldNumber = 6;
+  /*FOR2LUA
+  <Record>
+  	<name>SkillCurveData</name>
+  	<Function>
+  		<name>nonecurveeffet</name>
+  		<replaceName>NoneCurveEffet</replaceName>
+  		<handler>descripter = pb_cpp()</handler>
+  	</Function>
+  	<Function>
+  		<name>set_nonecurveeffet</name>
+  		<replaceName>NoneCurveEffet</replaceName>
+  		<handler>descripter = pb_set_cpp()</handler>
+  	</Function>
+  	<Function>
+  		<name>has_nonecurveeffet</name>
+  		<replaceName>NoneCurveEffet</replaceName>
+  		<handler>descripter = pb_has_cpp()</handler>
+  	</Function>
+  </Record>
+  FOR2LUA*/
+  inline const ::std::string& nonecurveeffet() const;
+  inline void set_nonecurveeffet(const ::std::string& value);
+  inline void set_nonecurveeffet(const char* value);
+  inline void set_nonecurveeffet(const char* value, size_t size);
+  inline ::std::string* mutable_nonecurveeffet();
+  inline ::std::string* release_nonecurveeffet();
+  inline void set_allocated_nonecurveeffet(::std::string* nonecurveeffet);
+
+  // optional bool IsTrackCurve = 7;
+  inline bool has_istrackcurve() const;
+  inline void clear_istrackcurve();
+  static const int kIsTrackCurveFieldNumber = 7;
+  /*FOR2LUA
+  <Record>
+  	<name>SkillCurveData</name>
+  	<Function>
+  		<name>istrackcurve</name>
+  		<replaceName>IsTrackCurve</replaceName>
+  		<handler>descripter = pb_cpp()</handler>
+  	</Function>
+  	<Function>
+  		<name>set_istrackcurve</name>
+  		<replaceName>IsTrackCurve</replaceName>
+  		<handler>descripter = pb_set_cpp()</handler>
+  	</Function>
+  	<Function>
+  		<name>has_istrackcurve</name>
+  		<replaceName>IsTrackCurve</replaceName>
+  		<handler>descripter = pb_has_cpp()</handler>
+  	</Function>
+  </Record>
+  FOR2LUA*/
+  inline bool istrackcurve() const;
+  inline void set_istrackcurve(bool value);
+
+  // optional bool IsThroughCurve = 8;
+  inline bool has_isthroughcurve() const;
+  inline void clear_isthroughcurve();
+  static const int kIsThroughCurveFieldNumber = 8;
+  /*FOR2LUA
+  <Record>
+  	<name>SkillCurveData</name>
+  	<Function>
+  		<name>isthroughcurve</name>
+  		<replaceName>IsThroughCurve</replaceName>
+  		<handler>descripter = pb_cpp()</handler>
+  	</Function>
+  	<Function>
+  		<name>set_isthroughcurve</name>
+  		<replaceName>IsThroughCurve</replaceName>
+  		<handler>descripter = pb_set_cpp()</handler>
+  	</Function>
+  	<Function>
+  		<name>has_isthroughcurve</name>
+  		<replaceName>IsThroughCurve</replaceName>
+  		<handler>descripter = pb_has_cpp()</handler>
+  	</Function>
+  </Record>
+  FOR2LUA*/
+  inline bool isthroughcurve() const;
+  inline void set_isthroughcurve(bool value);
+
+  // optional int32 MaxThroughNum = 9;
+  inline bool has_maxthroughnum() const;
+  inline void clear_maxthroughnum();
+  static const int kMaxThroughNumFieldNumber = 9;
+  /*FOR2LUA
+  <Record>
+  	<name>SkillCurveData</name>
+  	<Function>
+  		<name>maxthroughnum</name>
+  		<replaceName>MaxThroughNum</replaceName>
+  		<handler>descripter = pb_cpp()</handler>
+  	</Function>
+  	<Function>
+  		<name>set_maxthroughnum</name>
+  		<replaceName>MaxThroughNum</replaceName>
+  		<handler>descripter = pb_set_cpp()</handler>
+  	</Function>
+  	<Function>
+  		<name>has_maxthroughnum</name>
+  		<replaceName>MaxThroughNum</replaceName>
+  		<handler>descripter = pb_has_cpp()</handler>
+  	</Function>
+  </Record>
+  FOR2LUA*/
+  inline ::google::protobuf::int32 maxthroughnum() const;
+  inline void set_maxthroughnum(::google::protobuf::int32 value);
+
+  // optional bool IsDisappearOnCollision = 10;
+  inline bool has_isdisappearoncollision() const;
+  inline void clear_isdisappearoncollision();
+  static const int kIsDisappearOnCollisionFieldNumber = 10;
+  /*FOR2LUA
+  <Record>
+  	<name>SkillCurveData</name>
+  	<Function>
+  		<name>isdisappearoncollision</name>
+  		<replaceName>IsDisappearOnCollision</replaceName>
+  		<handler>descripter = pb_cpp()</handler>
+  	</Function>
+  	<Function>
+  		<name>set_isdisappearoncollision</name>
+  		<replaceName>IsDisappearOnCollision</replaceName>
+  		<handler>descripter = pb_set_cpp()</handler>
+  	</Function>
+  	<Function>
+  		<name>has_isdisappearoncollision</name>
+  		<replaceName>IsDisappearOnCollision</replaceName>
+  		<handler>descripter = pb_has_cpp()</handler>
+  	</Function>
+  </Record>
+  FOR2LUA*/
+  inline bool isdisappearoncollision() const;
+  inline void set_isdisappearoncollision(bool value);
+
+  // optional int32 CollisionDetectionType = 11;
+  inline bool has_collisiondetectiontype() const;
+  inline void clear_collisiondetectiontype();
+  static const int kCollisionDetectionTypeFieldNumber = 11;
+  /*FOR2LUA
+  <Record>
+  	<name>SkillCurveData</name>
+  	<Function>
+  		<name>collisiondetectiontype</name>
+  		<replaceName>CollisionDetectionType</replaceName>
+  		<handler>descripter = pb_cpp()</handler>
+  	</Function>
+  	<Function>
+  		<name>set_collisiondetectiontype</name>
+  		<replaceName>CollisionDetectionType</replaceName>
+  		<handler>descripter = pb_set_cpp()</handler>
+  	</Function>
+  	<Function>
+  		<name>has_collisiondetectiontype</name>
+  		<replaceName>CollisionDetectionType</replaceName>
+  		<handler>descripter = pb_has_cpp()</handler>
+  	</Function>
+  </Record>
+  FOR2LUA*/
+  inline ::google::protobuf::int32 collisiondetectiontype() const;
+  inline void set_collisiondetectiontype(::google::protobuf::int32 value);
+
+  // optional int32 CurveSpeed = 12;
+  inline bool has_curvespeed() const;
+  inline void clear_curvespeed();
+  static const int kCurveSpeedFieldNumber = 12;
+  /*FOR2LUA
+  <Record>
+  	<name>SkillCurveData</name>
+  	<Function>
+  		<name>curvespeed</name>
+  		<replaceName>CurveSpeed</replaceName>
+  		<handler>descripter = pb_cpp()</handler>
+  	</Function>
+  	<Function>
+  		<name>set_curvespeed</name>
+  		<replaceName>CurveSpeed</replaceName>
+  		<handler>descripter = pb_set_cpp()</handler>
+  	</Function>
+  	<Function>
+  		<name>has_curvespeed</name>
+  		<replaceName>CurveSpeed</replaceName>
+  		<handler>descripter = pb_has_cpp()</handler>
+  	</Function>
+  </Record>
+  FOR2LUA*/
+  inline ::google::protobuf::int32 curvespeed() const;
+  inline void set_curvespeed(::google::protobuf::int32 value);
+
+  // repeated .pb.SkillCurveAcceleration CurveAcceleration = 13;
+  inline int curveacceleration_size() const;
+  inline void clear_curveacceleration();
+  static const int kCurveAccelerationFieldNumber = 13;
+  /*FOR2LUA
+  <Record>
+  	<name>SkillCurveData</name>
+  	<Function>
+  		<name>curveacceleration</name>
+  		<replaceName>CurveAcceleration</replaceName>
+  		<handler>descripter = pb_cpp()</handler>
+  	</Function>
+  	<Function>
+  		<name>mutable_curveacceleration</name>
+  		<replaceName>CurveAcceleration</replaceName>
+  		<handler>descripter = pb_cpp()</handler>
+  	</Function>
+  	<Function>
+  		<name>add_curveacceleration</name>
+  		<replaceName>CurveAcceleration</replaceName>
+  		<handler>descripter = pb_repeated_add_cpp()</handler>
+  	</Function>
+  	<Function>
+  		<name>has_curveacceleration</name>
+  		<replaceName>CurveAcceleration</replaceName>
+  		<handler>descripter = pb_has_cpp()</handler>
+  	</Function>
+  	<Function>
+  		<name>curveacceleration_size</name>
+  		<replaceName>CurveAcceleration</replaceName>
+  		<handler>descripter = pb_repeated_size_cpp()</handler>
+  	</Function>
+  </Record>
+  FOR2LUA*/
+  inline const ::pb::SkillCurveAcceleration& curveacceleration(int index) const;
+  inline ::pb::SkillCurveAcceleration* mutable_curveacceleration(int index);
+  inline ::pb::SkillCurveAcceleration* add_curveacceleration();
+  inline const ::google::protobuf::RepeatedPtrField< ::pb::SkillCurveAcceleration >&
+      curveacceleration() const;
+  inline ::google::protobuf::RepeatedPtrField< ::pb::SkillCurveAcceleration >*
+      mutable_curveacceleration();
+
+  // optional bool IsCurveBack = 14;
+  inline bool has_iscurveback() const;
+  inline void clear_iscurveback();
+  static const int kIsCurveBackFieldNumber = 14;
+  /*FOR2LUA
+  <Record>
+  	<name>SkillCurveData</name>
+  	<Function>
+  		<name>iscurveback</name>
+  		<replaceName>IsCurveBack</replaceName>
+  		<handler>descripter = pb_cpp()</handler>
+  	</Function>
+  	<Function>
+  		<name>set_iscurveback</name>
+  		<replaceName>IsCurveBack</replaceName>
+  		<handler>descripter = pb_set_cpp()</handler>
+  	</Function>
+  	<Function>
+  		<name>has_iscurveback</name>
+  		<replaceName>IsCurveBack</replaceName>
+  		<handler>descripter = pb_has_cpp()</handler>
+  	</Function>
+  </Record>
+  FOR2LUA*/
+  inline bool iscurveback() const;
+  inline void set_iscurveback(bool value);
+
+  // optional bool EffectOnBack = 15;
+  inline bool has_effectonback() const;
+  inline void clear_effectonback();
+  static const int kEffectOnBackFieldNumber = 15;
+  /*FOR2LUA
+  <Record>
+  	<name>SkillCurveData</name>
+  	<Function>
+  		<name>effectonback</name>
+  		<replaceName>EffectOnBack</replaceName>
+  		<handler>descripter = pb_cpp()</handler>
+  	</Function>
+  	<Function>
+  		<name>set_effectonback</name>
+  		<replaceName>EffectOnBack</replaceName>
+  		<handler>descripter = pb_set_cpp()</handler>
+  	</Function>
+  	<Function>
+  		<name>has_effectonback</name>
+  		<replaceName>EffectOnBack</replaceName>
+  		<handler>descripter = pb_has_cpp()</handler>
+  	</Function>
+  </Record>
+  FOR2LUA*/
+  inline bool effectonback() const;
+  inline void set_effectonback(bool value);
+
+  // optional int32 CurveBackSpeed = 16;
+  inline bool has_curvebackspeed() const;
+  inline void clear_curvebackspeed();
+  static const int kCurveBackSpeedFieldNumber = 16;
+  /*FOR2LUA
+  <Record>
+  	<name>SkillCurveData</name>
+  	<Function>
+  		<name>curvebackspeed</name>
+  		<replaceName>CurveBackSpeed</replaceName>
+  		<handler>descripter = pb_cpp()</handler>
+  	</Function>
+  	<Function>
+  		<name>set_curvebackspeed</name>
+  		<replaceName>CurveBackSpeed</replaceName>
+  		<handler>descripter = pb_set_cpp()</handler>
+  	</Function>
+  	<Function>
+  		<name>has_curvebackspeed</name>
+  		<replaceName>CurveBackSpeed</replaceName>
+  		<handler>descripter = pb_has_cpp()</handler>
+  	</Function>
+  </Record>
+  FOR2LUA*/
+  inline ::google::protobuf::int32 curvebackspeed() const;
+  inline void set_curvebackspeed(::google::protobuf::int32 value);
+
+  // repeated .pb.SkillCurveAcceleration CurveBackAcceleration = 17;
+  inline int curvebackacceleration_size() const;
+  inline void clear_curvebackacceleration();
+  static const int kCurveBackAccelerationFieldNumber = 17;
+  /*FOR2LUA
+  <Record>
+  	<name>SkillCurveData</name>
+  	<Function>
+  		<name>curvebackacceleration</name>
+  		<replaceName>CurveBackAcceleration</replaceName>
+  		<handler>descripter = pb_cpp()</handler>
+  	</Function>
+  	<Function>
+  		<name>mutable_curvebackacceleration</name>
+  		<replaceName>CurveBackAcceleration</replaceName>
+  		<handler>descripter = pb_cpp()</handler>
+  	</Function>
+  	<Function>
+  		<name>add_curvebackacceleration</name>
+  		<replaceName>CurveBackAcceleration</replaceName>
+  		<handler>descripter = pb_repeated_add_cpp()</handler>
+  	</Function>
+  	<Function>
+  		<name>has_curvebackacceleration</name>
+  		<replaceName>CurveBackAcceleration</replaceName>
+  		<handler>descripter = pb_has_cpp()</handler>
+  	</Function>
+  	<Function>
+  		<name>curvebackacceleration_size</name>
+  		<replaceName>CurveBackAcceleration</replaceName>
+  		<handler>descripter = pb_repeated_size_cpp()</handler>
+  	</Function>
+  </Record>
+  FOR2LUA*/
+  inline const ::pb::SkillCurveAcceleration& curvebackacceleration(int index) const;
+  inline ::pb::SkillCurveAcceleration* mutable_curvebackacceleration(int index);
+  inline ::pb::SkillCurveAcceleration* add_curvebackacceleration();
+  inline const ::google::protobuf::RepeatedPtrField< ::pb::SkillCurveAcceleration >&
+      curvebackacceleration() const;
+  inline ::google::protobuf::RepeatedPtrField< ::pb::SkillCurveAcceleration >*
+      mutable_curvebackacceleration();
+
+  // optional int32 AngleOffset = 18;
+  inline bool has_angleoffset() const;
+  inline void clear_angleoffset();
+  static const int kAngleOffsetFieldNumber = 18;
+  /*FOR2LUA
+  <Record>
+  	<name>SkillCurveData</name>
+  	<Function>
+  		<name>angleoffset</name>
+  		<replaceName>AngleOffset</replaceName>
+  		<handler>descripter = pb_cpp()</handler>
+  	</Function>
+  	<Function>
+  		<name>set_angleoffset</name>
+  		<replaceName>AngleOffset</replaceName>
+  		<handler>descripter = pb_set_cpp()</handler>
+  	</Function>
+  	<Function>
+  		<name>has_angleoffset</name>
+  		<replaceName>AngleOffset</replaceName>
+  		<handler>descripter = pb_has_cpp()</handler>
+  	</Function>
+  </Record>
+  FOR2LUA*/
+  inline ::google::protobuf::int32 angleoffset() const;
+  inline void set_angleoffset(::google::protobuf::int32 value);
+
+  // repeated int32 ControllerOffset = 19;
+  inline int controlleroffset_size() const;
+  inline void clear_controlleroffset();
+  static const int kControllerOffsetFieldNumber = 19;
+  /*FOR2LUA
+  <Record>
+  	<name>SkillCurveData</name>
+  	<Function>
+  		<name>controlleroffset</name>
+  		<replaceName>ControllerOffset</replaceName>
+  		<handler>descripter = pb_cpp()</handler>
+  	</Function>
+  	<Function>
+  		<name>mutable_controlleroffset</name>
+  		<replaceName>ControllerOffset</replaceName>
+  		<handler>descripter = pb_cpp()</handler>
+  	</Function>
+  	<Function>
+  		<name>add_controlleroffset</name>
+  		<replaceName>ControllerOffset</replaceName>
+  		<handler>descripter = pb_repeated_add_cpp()</handler>
+  	</Function>
+  	<Function>
+  		<name>has_controlleroffset</name>
+  		<replaceName>ControllerOffset</replaceName>
+  		<handler>descripter = pb_has_cpp()</handler>
+  	</Function>
+  	<Function>
+  		<name>controlleroffset_size</name>
+  		<replaceName>ControllerOffset</replaceName>
+  		<handler>descripter = pb_repeated_size_cpp()</handler>
+  	</Function>
+  </Record>
+  FOR2LUA*/
+  inline ::google::protobuf::int32 controlleroffset(int index) const;
+  inline void set_controlleroffset(int index, ::google::protobuf::int32 value);
+  inline void add_controlleroffset(::google::protobuf::int32 value);
+  inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
+      controlleroffset() const;
+  inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
+      mutable_controlleroffset();
+
+  // optional int32 CurveLastTime = 20;
+  inline bool has_curvelasttime() const;
+  inline void clear_curvelasttime();
+  static const int kCurveLastTimeFieldNumber = 20;
+  /*FOR2LUA
+  <Record>
+  	<name>SkillCurveData</name>
+  	<Function>
+  		<name>curvelasttime</name>
+  		<replaceName>CurveLastTime</replaceName>
+  		<handler>descripter = pb_cpp()</handler>
+  	</Function>
+  	<Function>
+  		<name>set_curvelasttime</name>
+  		<replaceName>CurveLastTime</replaceName>
+  		<handler>descripter = pb_set_cpp()</handler>
+  	</Function>
+  	<Function>
+  		<name>has_curvelasttime</name>
+  		<replaceName>CurveLastTime</replaceName>
+  		<handler>descripter = pb_has_cpp()</handler>
+  	</Function>
+  </Record>
+  FOR2LUA*/
+  inline ::google::protobuf::int32 curvelasttime() const;
+  inline void set_curvelasttime(::google::protobuf::int32 value);
+
+  // optional int32 ThroughCollisionDetectionType = 21;
+  inline bool has_throughcollisiondetectiontype() const;
+  inline void clear_throughcollisiondetectiontype();
+  static const int kThroughCollisionDetectionTypeFieldNumber = 21;
+  /*FOR2LUA
+  <Record>
+  	<name>SkillCurveData</name>
+  	<Function>
+  		<name>throughcollisiondetectiontype</name>
+  		<replaceName>ThroughCollisionDetectionType</replaceName>
+  		<handler>descripter = pb_cpp()</handler>
+  	</Function>
+  	<Function>
+  		<name>set_throughcollisiondetectiontype</name>
+  		<replaceName>ThroughCollisionDetectionType</replaceName>
+  		<handler>descripter = pb_set_cpp()</handler>
+  	</Function>
+  	<Function>
+  		<name>has_throughcollisiondetectiontype</name>
+  		<replaceName>ThroughCollisionDetectionType</replaceName>
+  		<handler>descripter = pb_has_cpp()</handler>
+  	</Function>
+  </Record>
+  FOR2LUA*/
+  inline ::google::protobuf::int32 throughcollisiondetectiontype() const;
+  inline void set_throughcollisiondetectiontype(::google::protobuf::int32 value);
+
+  // optional string HeadCurveEffect = 22;
+  inline bool has_headcurveeffect() const;
+  inline void clear_headcurveeffect();
+  static const int kHeadCurveEffectFieldNumber = 22;
+  /*FOR2LUA
+  <Record>
+  	<name>SkillCurveData</name>
+  	<Function>
+  		<name>headcurveeffect</name>
+  		<replaceName>HeadCurveEffect</replaceName>
+  		<handler>descripter = pb_cpp()</handler>
+  	</Function>
+  	<Function>
+  		<name>set_headcurveeffect</name>
+  		<replaceName>HeadCurveEffect</replaceName>
+  		<handler>descripter = pb_set_cpp()</handler>
+  	</Function>
+  	<Function>
+  		<name>has_headcurveeffect</name>
+  		<replaceName>HeadCurveEffect</replaceName>
+  		<handler>descripter = pb_has_cpp()</handler>
+  	</Function>
+  </Record>
+  FOR2LUA*/
+  inline const ::std::string& headcurveeffect() const;
+  inline void set_headcurveeffect(const ::std::string& value);
+  inline void set_headcurveeffect(const char* value);
+  inline void set_headcurveeffect(const char* value, size_t size);
+  inline ::std::string* mutable_headcurveeffect();
+  inline ::std::string* release_headcurveeffect();
+  inline void set_allocated_headcurveeffect(::std::string* headcurveeffect);
+
+  // optional bool IsFixedTime = 23;
+  inline bool has_isfixedtime() const;
+  inline void clear_isfixedtime();
+  static const int kIsFixedTimeFieldNumber = 23;
+  /*FOR2LUA
+  <Record>
+  	<name>SkillCurveData</name>
+  	<Function>
+  		<name>isfixedtime</name>
+  		<replaceName>IsFixedTime</replaceName>
+  		<handler>descripter = pb_cpp()</handler>
+  	</Function>
+  	<Function>
+  		<name>set_isfixedtime</name>
+  		<replaceName>IsFixedTime</replaceName>
+  		<handler>descripter = pb_set_cpp()</handler>
+  	</Function>
+  	<Function>
+  		<name>has_isfixedtime</name>
+  		<replaceName>IsFixedTime</replaceName>
+  		<handler>descripter = pb_has_cpp()</handler>
+  	</Function>
+  </Record>
+  FOR2LUA*/
+  inline bool isfixedtime() const;
+  inline void set_isfixedtime(bool value);
+
+  // optional int32 CurveFlyTime = 24;
+  inline bool has_curveflytime() const;
+  inline void clear_curveflytime();
+  static const int kCurveFlyTimeFieldNumber = 24;
+  /*FOR2LUA
+  <Record>
+  	<name>SkillCurveData</name>
+  	<Function>
+  		<name>curveflytime</name>
+  		<replaceName>CurveFlyTime</replaceName>
+  		<handler>descripter = pb_cpp()</handler>
+  	</Function>
+  	<Function>
+  		<name>set_curveflytime</name>
+  		<replaceName>CurveFlyTime</replaceName>
+  		<handler>descripter = pb_set_cpp()</handler>
+  	</Function>
+  	<Function>
+  		<name>has_curveflytime</name>
+  		<replaceName>CurveFlyTime</replaceName>
+  		<handler>descripter = pb_has_cpp()</handler>
+  	</Function>
+  </Record>
+  FOR2LUA*/
+  inline ::google::protobuf::int32 curveflytime() const;
+  inline void set_curveflytime(::google::protobuf::int32 value);
+
+  // optional bool NoVerticalMove = 25;
+  inline bool has_noverticalmove() const;
+  inline void clear_noverticalmove();
+  static const int kNoVerticalMoveFieldNumber = 25;
+  /*FOR2LUA
+  <Record>
+  	<name>SkillCurveData</name>
+  	<Function>
+  		<name>noverticalmove</name>
+  		<replaceName>NoVerticalMove</replaceName>
+  		<handler>descripter = pb_cpp()</handler>
+  	</Function>
+  	<Function>
+  		<name>set_noverticalmove</name>
+  		<replaceName>NoVerticalMove</replaceName>
+  		<handler>descripter = pb_set_cpp()</handler>
+  	</Function>
+  	<Function>
+  		<name>has_noverticalmove</name>
+  		<replaceName>NoVerticalMove</replaceName>
+  		<handler>descripter = pb_has_cpp()</handler>
+  	</Function>
+  </Record>
+  FOR2LUA*/
+  inline bool noverticalmove() const;
+  inline void set_noverticalmove(bool value);
+
+  // optional bool IsLine = 26;
+  inline bool has_isline() const;
+  inline void clear_isline();
+  static const int kIsLineFieldNumber = 26;
+  /*FOR2LUA
+  <Record>
+  	<name>SkillCurveData</name>
+  	<Function>
+  		<name>isline</name>
+  		<replaceName>IsLine</replaceName>
+  		<handler>descripter = pb_cpp()</handler>
+  	</Function>
+  	<Function>
+  		<name>set_isline</name>
+  		<replaceName>IsLine</replaceName>
+  		<handler>descripter = pb_set_cpp()</handler>
+  	</Function>
+  	<Function>
+  		<name>has_isline</name>
+  		<replaceName>IsLine</replaceName>
+  		<handler>descripter = pb_has_cpp()</handler>
+  	</Function>
+  </Record>
+  FOR2LUA*/
+  inline bool isline() const;
+  inline void set_isline(bool value);
+
+  // optional int32 ShapeParam1 = 27;
+  inline bool has_shapeparam1() const;
+  inline void clear_shapeparam1();
+  static const int kShapeParam1FieldNumber = 27;
+  /*FOR2LUA
+  <Record>
+  	<name>SkillCurveData</name>
+  	<Function>
+  		<name>shapeparam1</name>
+  		<replaceName>ShapeParam1</replaceName>
+  		<handler>descripter = pb_cpp()</handler>
+  	</Function>
+  	<Function>
+  		<name>set_shapeparam1</name>
+  		<replaceName>ShapeParam1</replaceName>
+  		<handler>descripter = pb_set_cpp()</handler>
+  	</Function>
+  	<Function>
+  		<name>has_shapeparam1</name>
+  		<replaceName>ShapeParam1</replaceName>
+  		<handler>descripter = pb_has_cpp()</handler>
+  	</Function>
+  </Record>
+  FOR2LUA*/
+  inline ::google::protobuf::int32 shapeparam1() const;
+  inline void set_shapeparam1(::google::protobuf::int32 value);
+
+  // optional bool DisappearOnReachRefTarget = 28;
+  inline bool has_disappearonreachreftarget() const;
+  inline void clear_disappearonreachreftarget();
+  static const int kDisappearOnReachRefTargetFieldNumber = 28;
+  /*FOR2LUA
+  <Record>
+  	<name>SkillCurveData</name>
+  	<Function>
+  		<name>disappearonreachreftarget</name>
+  		<replaceName>DisappearOnReachRefTarget</replaceName>
+  		<handler>descripter = pb_cpp()</handler>
+  	</Function>
+  	<Function>
+  		<name>set_disappearonreachreftarget</name>
+  		<replaceName>DisappearOnReachRefTarget</replaceName>
+  		<handler>descripter = pb_set_cpp()</handler>
+  	</Function>
+  	<Function>
+  		<name>has_disappearonreachreftarget</name>
+  		<replaceName>DisappearOnReachRefTarget</replaceName>
+  		<handler>descripter = pb_has_cpp()</handler>
+  	</Function>
+  </Record>
+  FOR2LUA*/
+  inline bool disappearonreachreftarget() const;
+  inline void set_disappearonreachreftarget(bool value);
+
+  // optional string ReceiverCurveParent = 29;
+  inline bool has_receivercurveparent() const;
+  inline void clear_receivercurveparent();
+  static const int kReceiverCurveParentFieldNumber = 29;
+  /*FOR2LUA
+  <Record>
+  	<name>SkillCurveData</name>
+  	<Function>
+  		<name>receivercurveparent</name>
+  		<replaceName>ReceiverCurveParent</replaceName>
+  		<handler>descripter = pb_cpp()</handler>
+  	</Function>
+  	<Function>
+  		<name>set_receivercurveparent</name>
+  		<replaceName>ReceiverCurveParent</replaceName>
+  		<handler>descripter = pb_set_cpp()</handler>
+  	</Function>
+  	<Function>
+  		<name>has_receivercurveparent</name>
+  		<replaceName>ReceiverCurveParent</replaceName>
+  		<handler>descripter = pb_has_cpp()</handler>
+  	</Function>
+  </Record>
+  FOR2LUA*/
+  inline const ::std::string& receivercurveparent() const;
+  inline void set_receivercurveparent(const ::std::string& value);
+  inline void set_receivercurveparent(const char* value);
+  inline void set_receivercurveparent(const char* value, size_t size);
+  inline ::std::string* mutable_receivercurveparent();
+  inline ::std::string* release_receivercurveparent();
+  inline void set_allocated_receivercurveparent(::std::string* receivercurveparent);
+
+  // @@protoc_insertion_point(class_scope:pb.SkillCurveData)
+ private:
+  inline void set_has_iscurve();
+  inline void clear_has_iscurve();
+  inline void set_has_curvetype();
+  inline void clear_has_curvetype();
+  inline void set_has_curveradiu();
+  inline void clear_has_curveradiu();
+  inline void set_has_curveparent();
+  inline void clear_has_curveparent();
+  inline void set_has_curveeffect();
+  inline void clear_has_curveeffect();
+  inline void set_has_nonecurveeffet();
+  inline void clear_has_nonecurveeffet();
+  inline void set_has_istrackcurve();
+  inline void clear_has_istrackcurve();
+  inline void set_has_isthroughcurve();
+  inline void clear_has_isthroughcurve();
+  inline void set_has_maxthroughnum();
+  inline void clear_has_maxthroughnum();
+  inline void set_has_isdisappearoncollision();
+  inline void clear_has_isdisappearoncollision();
+  inline void set_has_collisiondetectiontype();
+  inline void clear_has_collisiondetectiontype();
+  inline void set_has_curvespeed();
+  inline void clear_has_curvespeed();
+  inline void set_has_iscurveback();
+  inline void clear_has_iscurveback();
+  inline void set_has_effectonback();
+  inline void clear_has_effectonback();
+  inline void set_has_curvebackspeed();
+  inline void clear_has_curvebackspeed();
+  inline void set_has_angleoffset();
+  inline void clear_has_angleoffset();
+  inline void set_has_curvelasttime();
+  inline void clear_has_curvelasttime();
+  inline void set_has_throughcollisiondetectiontype();
+  inline void clear_has_throughcollisiondetectiontype();
+  inline void set_has_headcurveeffect();
+  inline void clear_has_headcurveeffect();
+  inline void set_has_isfixedtime();
+  inline void clear_has_isfixedtime();
+  inline void set_has_curveflytime();
+  inline void clear_has_curveflytime();
+  inline void set_has_noverticalmove();
+  inline void clear_has_noverticalmove();
+  inline void set_has_isline();
+  inline void clear_has_isline();
+  inline void set_has_shapeparam1();
+  inline void clear_has_shapeparam1();
+  inline void set_has_disappearonreachreftarget();
+  inline void clear_has_disappearonreachreftarget();
+  inline void set_has_receivercurveparent();
+  inline void clear_has_receivercurveparent();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint32 _has_bits_[1];
+  mutable int _cached_size_;
+  ::google::protobuf::int32 iscurve_;
+  ::google::protobuf::int32 curvetype_;
+  ::std::string* curveparent_;
+  ::std::string* curveeffect_;
+  ::std::string* nonecurveeffet_;
+  ::google::protobuf::int32 curveradiu_;
+  ::google::protobuf::int32 maxthroughnum_;
+  bool istrackcurve_;
+  bool isthroughcurve_;
+  bool isdisappearoncollision_;
+  bool iscurveback_;
+  ::google::protobuf::int32 collisiondetectiontype_;
+  ::google::protobuf::RepeatedPtrField< ::pb::SkillCurveAcceleration > curveacceleration_;
+  ::google::protobuf::int32 curvespeed_;
+  ::google::protobuf::int32 curvebackspeed_;
+  ::google::protobuf::RepeatedPtrField< ::pb::SkillCurveAcceleration > curvebackacceleration_;
+  ::google::protobuf::RepeatedField< ::google::protobuf::int32 > controlleroffset_;
+  ::google::protobuf::int32 angleoffset_;
+  ::google::protobuf::int32 curvelasttime_;
+  ::std::string* headcurveeffect_;
+  ::google::protobuf::int32 throughcollisiondetectiontype_;
+  bool effectonback_;
+  bool isfixedtime_;
+  bool noverticalmove_;
+  bool isline_;
+  ::google::protobuf::int32 curveflytime_;
+  ::google::protobuf::int32 shapeparam1_;
+  ::std::string* receivercurveparent_;
+  bool disappearonreachreftarget_;
+  friend void  protobuf_AddDesc_module_2fSkillBaseData2_2eproto();
+  friend void protobuf_AssignDesc_module_2fSkillBaseData2_2eproto();
+  friend void protobuf_ShutdownFile_module_2fSkillBaseData2_2eproto();
+
+  void InitAsDefaultInstance();
+  static SkillCurveData* default_instance_;
+};
 // ===================================================================
 
 
@@ -801,6 +2779,1706 @@ inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
 SkillLevelProbSkill::mutable_probabilisticskills() {
   // @@protoc_insertion_point(field_mutable_list:pb.SkillLevelProbSkill.ProbabilisticSkills)
   return &probabilisticskills_;
+}
+
+// -------------------------------------------------------------------
+
+// SkillCurveAcceleration
+
+// optional int32 Speed = 1;
+inline bool SkillCurveAcceleration::has_speed() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void SkillCurveAcceleration::set_has_speed() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void SkillCurveAcceleration::clear_has_speed() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void SkillCurveAcceleration::clear_speed() {
+  speed_ = 0;
+  clear_has_speed();
+}
+inline ::google::protobuf::int32 SkillCurveAcceleration::speed() const {
+  // @@protoc_insertion_point(field_get:pb.SkillCurveAcceleration.Speed)
+  return speed_;
+}
+inline void SkillCurveAcceleration::set_speed(::google::protobuf::int32 value) {
+  set_has_speed();
+  speed_ = value;
+  // @@protoc_insertion_point(field_set:pb.SkillCurveAcceleration.Speed)
+}
+
+// optional int32 Rate = 2;
+inline bool SkillCurveAcceleration::has_rate() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void SkillCurveAcceleration::set_has_rate() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void SkillCurveAcceleration::clear_has_rate() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void SkillCurveAcceleration::clear_rate() {
+  rate_ = 0;
+  clear_has_rate();
+}
+inline ::google::protobuf::int32 SkillCurveAcceleration::rate() const {
+  // @@protoc_insertion_point(field_get:pb.SkillCurveAcceleration.Rate)
+  return rate_;
+}
+inline void SkillCurveAcceleration::set_rate(::google::protobuf::int32 value) {
+  set_has_rate();
+  rate_ = value;
+  // @@protoc_insertion_point(field_set:pb.SkillCurveAcceleration.Rate)
+}
+
+// -------------------------------------------------------------------
+
+// SkillMoveData
+
+// optional int32 DamageTime = 1;
+inline bool SkillMoveData::has_damagetime() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void SkillMoveData::set_has_damagetime() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void SkillMoveData::clear_has_damagetime() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void SkillMoveData::clear_damagetime() {
+  damagetime_ = 0;
+  clear_has_damagetime();
+}
+inline ::google::protobuf::int32 SkillMoveData::damagetime() const {
+  // @@protoc_insertion_point(field_get:pb.SkillMoveData.DamageTime)
+  return damagetime_;
+}
+inline void SkillMoveData::set_damagetime(::google::protobuf::int32 value) {
+  set_has_damagetime();
+  damagetime_ = value;
+  // @@protoc_insertion_point(field_set:pb.SkillMoveData.DamageTime)
+}
+
+// optional int32 MoveType = 2;
+inline bool SkillMoveData::has_movetype() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void SkillMoveData::set_has_movetype() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void SkillMoveData::clear_has_movetype() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void SkillMoveData::clear_movetype() {
+  movetype_ = 0;
+  clear_has_movetype();
+}
+inline ::google::protobuf::int32 SkillMoveData::movetype() const {
+  // @@protoc_insertion_point(field_get:pb.SkillMoveData.MoveType)
+  return movetype_;
+}
+inline void SkillMoveData::set_movetype(::google::protobuf::int32 value) {
+  set_has_movetype();
+  movetype_ = value;
+  // @@protoc_insertion_point(field_set:pb.SkillMoveData.MoveType)
+}
+
+// optional int32 MoveTypeParam = 3;
+inline bool SkillMoveData::has_movetypeparam() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void SkillMoveData::set_has_movetypeparam() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void SkillMoveData::clear_has_movetypeparam() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void SkillMoveData::clear_movetypeparam() {
+  movetypeparam_ = 0;
+  clear_has_movetypeparam();
+}
+inline ::google::protobuf::int32 SkillMoveData::movetypeparam() const {
+  // @@protoc_insertion_point(field_get:pb.SkillMoveData.MoveTypeParam)
+  return movetypeparam_;
+}
+inline void SkillMoveData::set_movetypeparam(::google::protobuf::int32 value) {
+  set_has_movetypeparam();
+  movetypeparam_ = value;
+  // @@protoc_insertion_point(field_set:pb.SkillMoveData.MoveTypeParam)
+}
+
+// optional int32 MoveSpeed = 4;
+inline bool SkillMoveData::has_movespeed() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void SkillMoveData::set_has_movespeed() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void SkillMoveData::clear_has_movespeed() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void SkillMoveData::clear_movespeed() {
+  movespeed_ = 0;
+  clear_has_movespeed();
+}
+inline ::google::protobuf::int32 SkillMoveData::movespeed() const {
+  // @@protoc_insertion_point(field_get:pb.SkillMoveData.MoveSpeed)
+  return movespeed_;
+}
+inline void SkillMoveData::set_movespeed(::google::protobuf::int32 value) {
+  set_has_movespeed();
+  movespeed_ = value;
+  // @@protoc_insertion_point(field_set:pb.SkillMoveData.MoveSpeed)
+}
+
+// optional int32 MoveHeight = 5;
+inline bool SkillMoveData::has_moveheight() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+inline void SkillMoveData::set_has_moveheight() {
+  _has_bits_[0] |= 0x00000010u;
+}
+inline void SkillMoveData::clear_has_moveheight() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline void SkillMoveData::clear_moveheight() {
+  moveheight_ = 0;
+  clear_has_moveheight();
+}
+inline ::google::protobuf::int32 SkillMoveData::moveheight() const {
+  // @@protoc_insertion_point(field_get:pb.SkillMoveData.MoveHeight)
+  return moveheight_;
+}
+inline void SkillMoveData::set_moveheight(::google::protobuf::int32 value) {
+  set_has_moveheight();
+  moveheight_ = value;
+  // @@protoc_insertion_point(field_set:pb.SkillMoveData.MoveHeight)
+}
+
+// optional int32 MoveUpSpeed = 6;
+inline bool SkillMoveData::has_moveupspeed() const {
+  return (_has_bits_[0] & 0x00000020u) != 0;
+}
+inline void SkillMoveData::set_has_moveupspeed() {
+  _has_bits_[0] |= 0x00000020u;
+}
+inline void SkillMoveData::clear_has_moveupspeed() {
+  _has_bits_[0] &= ~0x00000020u;
+}
+inline void SkillMoveData::clear_moveupspeed() {
+  moveupspeed_ = 0;
+  clear_has_moveupspeed();
+}
+inline ::google::protobuf::int32 SkillMoveData::moveupspeed() const {
+  // @@protoc_insertion_point(field_get:pb.SkillMoveData.MoveUpSpeed)
+  return moveupspeed_;
+}
+inline void SkillMoveData::set_moveupspeed(::google::protobuf::int32 value) {
+  set_has_moveupspeed();
+  moveupspeed_ = value;
+  // @@protoc_insertion_point(field_set:pb.SkillMoveData.MoveUpSpeed)
+}
+
+// optional int32 MoveDownSpeed = 7;
+inline bool SkillMoveData::has_movedownspeed() const {
+  return (_has_bits_[0] & 0x00000040u) != 0;
+}
+inline void SkillMoveData::set_has_movedownspeed() {
+  _has_bits_[0] |= 0x00000040u;
+}
+inline void SkillMoveData::clear_has_movedownspeed() {
+  _has_bits_[0] &= ~0x00000040u;
+}
+inline void SkillMoveData::clear_movedownspeed() {
+  movedownspeed_ = 0;
+  clear_has_movedownspeed();
+}
+inline ::google::protobuf::int32 SkillMoveData::movedownspeed() const {
+  // @@protoc_insertion_point(field_get:pb.SkillMoveData.MoveDownSpeed)
+  return movedownspeed_;
+}
+inline void SkillMoveData::set_movedownspeed(::google::protobuf::int32 value) {
+  set_has_movedownspeed();
+  movedownspeed_ = value;
+  // @@protoc_insertion_point(field_set:pb.SkillMoveData.MoveDownSpeed)
+}
+
+// optional int32 StayTimeOnPeak = 10;
+inline bool SkillMoveData::has_staytimeonpeak() const {
+  return (_has_bits_[0] & 0x00000080u) != 0;
+}
+inline void SkillMoveData::set_has_staytimeonpeak() {
+  _has_bits_[0] |= 0x00000080u;
+}
+inline void SkillMoveData::clear_has_staytimeonpeak() {
+  _has_bits_[0] &= ~0x00000080u;
+}
+inline void SkillMoveData::clear_staytimeonpeak() {
+  staytimeonpeak_ = 0;
+  clear_has_staytimeonpeak();
+}
+inline ::google::protobuf::int32 SkillMoveData::staytimeonpeak() const {
+  // @@protoc_insertion_point(field_get:pb.SkillMoveData.StayTimeOnPeak)
+  return staytimeonpeak_;
+}
+inline void SkillMoveData::set_staytimeonpeak(::google::protobuf::int32 value) {
+  set_has_staytimeonpeak();
+  staytimeonpeak_ = value;
+  // @@protoc_insertion_point(field_set:pb.SkillMoveData.StayTimeOnPeak)
+}
+
+// optional bool CanBeRefTarget = 11;
+inline bool SkillMoveData::has_canbereftarget() const {
+  return (_has_bits_[0] & 0x00000100u) != 0;
+}
+inline void SkillMoveData::set_has_canbereftarget() {
+  _has_bits_[0] |= 0x00000100u;
+}
+inline void SkillMoveData::clear_has_canbereftarget() {
+  _has_bits_[0] &= ~0x00000100u;
+}
+inline void SkillMoveData::clear_canbereftarget() {
+  canbereftarget_ = false;
+  clear_has_canbereftarget();
+}
+inline bool SkillMoveData::canbereftarget() const {
+  // @@protoc_insertion_point(field_get:pb.SkillMoveData.CanBeRefTarget)
+  return canbereftarget_;
+}
+inline void SkillMoveData::set_canbereftarget(bool value) {
+  set_has_canbereftarget();
+  canbereftarget_ = value;
+  // @@protoc_insertion_point(field_set:pb.SkillMoveData.CanBeRefTarget)
+}
+
+// optional bool CanBeEffectTarget = 12;
+inline bool SkillMoveData::has_canbeeffecttarget() const {
+  return (_has_bits_[0] & 0x00000200u) != 0;
+}
+inline void SkillMoveData::set_has_canbeeffecttarget() {
+  _has_bits_[0] |= 0x00000200u;
+}
+inline void SkillMoveData::clear_has_canbeeffecttarget() {
+  _has_bits_[0] &= ~0x00000200u;
+}
+inline void SkillMoveData::clear_canbeeffecttarget() {
+  canbeeffecttarget_ = false;
+  clear_has_canbeeffecttarget();
+}
+inline bool SkillMoveData::canbeeffecttarget() const {
+  // @@protoc_insertion_point(field_get:pb.SkillMoveData.CanBeEffectTarget)
+  return canbeeffecttarget_;
+}
+inline void SkillMoveData::set_canbeeffecttarget(bool value) {
+  set_has_canbeeffecttarget();
+  canbeeffecttarget_ = value;
+  // @@protoc_insertion_point(field_set:pb.SkillMoveData.CanBeEffectTarget)
+}
+
+// optional int32 MoveDownHeight = 13;
+inline bool SkillMoveData::has_movedownheight() const {
+  return (_has_bits_[0] & 0x00000400u) != 0;
+}
+inline void SkillMoveData::set_has_movedownheight() {
+  _has_bits_[0] |= 0x00000400u;
+}
+inline void SkillMoveData::clear_has_movedownheight() {
+  _has_bits_[0] &= ~0x00000400u;
+}
+inline void SkillMoveData::clear_movedownheight() {
+  movedownheight_ = 0;
+  clear_has_movedownheight();
+}
+inline ::google::protobuf::int32 SkillMoveData::movedownheight() const {
+  // @@protoc_insertion_point(field_get:pb.SkillMoveData.MoveDownHeight)
+  return movedownheight_;
+}
+inline void SkillMoveData::set_movedownheight(::google::protobuf::int32 value) {
+  set_has_movedownheight();
+  movedownheight_ = value;
+  // @@protoc_insertion_point(field_set:pb.SkillMoveData.MoveDownHeight)
+}
+
+// optional bool FallToGround = 14;
+inline bool SkillMoveData::has_falltoground() const {
+  return (_has_bits_[0] & 0x00000800u) != 0;
+}
+inline void SkillMoveData::set_has_falltoground() {
+  _has_bits_[0] |= 0x00000800u;
+}
+inline void SkillMoveData::clear_has_falltoground() {
+  _has_bits_[0] &= ~0x00000800u;
+}
+inline void SkillMoveData::clear_falltoground() {
+  falltoground_ = false;
+  clear_has_falltoground();
+}
+inline bool SkillMoveData::falltoground() const {
+  // @@protoc_insertion_point(field_get:pb.SkillMoveData.FallToGround)
+  return falltoground_;
+}
+inline void SkillMoveData::set_falltoground(bool value) {
+  set_has_falltoground();
+  falltoground_ = value;
+  // @@protoc_insertion_point(field_set:pb.SkillMoveData.FallToGround)
+}
+
+// optional .pb.SkillCurveAcceleration MoveUpAcceleration = 15;
+inline bool SkillMoveData::has_moveupacceleration() const {
+  return (_has_bits_[0] & 0x00001000u) != 0;
+}
+inline void SkillMoveData::set_has_moveupacceleration() {
+  _has_bits_[0] |= 0x00001000u;
+}
+inline void SkillMoveData::clear_has_moveupacceleration() {
+  _has_bits_[0] &= ~0x00001000u;
+}
+inline void SkillMoveData::clear_moveupacceleration() {
+  if (moveupacceleration_ != NULL) moveupacceleration_->::pb::SkillCurveAcceleration::Clear();
+  clear_has_moveupacceleration();
+}
+inline const ::pb::SkillCurveAcceleration& SkillMoveData::moveupacceleration() const {
+  // @@protoc_insertion_point(field_get:pb.SkillMoveData.MoveUpAcceleration)
+  return moveupacceleration_ != NULL ? *moveupacceleration_ : *default_instance_->moveupacceleration_;
+}
+inline ::pb::SkillCurveAcceleration* SkillMoveData::mutable_moveupacceleration() {
+  set_has_moveupacceleration();
+  if (moveupacceleration_ == NULL) moveupacceleration_ = new ::pb::SkillCurveAcceleration;
+  // @@protoc_insertion_point(field_mutable:pb.SkillMoveData.MoveUpAcceleration)
+  return moveupacceleration_;
+}
+inline ::pb::SkillCurveAcceleration* SkillMoveData::release_moveupacceleration() {
+  clear_has_moveupacceleration();
+  ::pb::SkillCurveAcceleration* temp = moveupacceleration_;
+  moveupacceleration_ = NULL;
+  return temp;
+}
+inline void SkillMoveData::set_allocated_moveupacceleration(::pb::SkillCurveAcceleration* moveupacceleration) {
+  delete moveupacceleration_;
+  moveupacceleration_ = moveupacceleration;
+  if (moveupacceleration) {
+    set_has_moveupacceleration();
+  } else {
+    clear_has_moveupacceleration();
+  }
+  // @@protoc_insertion_point(field_set_allocated:pb.SkillMoveData.MoveUpAcceleration)
+}
+
+// optional .pb.SkillCurveAcceleration MoveDownAcceleration = 16;
+inline bool SkillMoveData::has_movedownacceleration() const {
+  return (_has_bits_[0] & 0x00002000u) != 0;
+}
+inline void SkillMoveData::set_has_movedownacceleration() {
+  _has_bits_[0] |= 0x00002000u;
+}
+inline void SkillMoveData::clear_has_movedownacceleration() {
+  _has_bits_[0] &= ~0x00002000u;
+}
+inline void SkillMoveData::clear_movedownacceleration() {
+  if (movedownacceleration_ != NULL) movedownacceleration_->::pb::SkillCurveAcceleration::Clear();
+  clear_has_movedownacceleration();
+}
+inline const ::pb::SkillCurveAcceleration& SkillMoveData::movedownacceleration() const {
+  // @@protoc_insertion_point(field_get:pb.SkillMoveData.MoveDownAcceleration)
+  return movedownacceleration_ != NULL ? *movedownacceleration_ : *default_instance_->movedownacceleration_;
+}
+inline ::pb::SkillCurveAcceleration* SkillMoveData::mutable_movedownacceleration() {
+  set_has_movedownacceleration();
+  if (movedownacceleration_ == NULL) movedownacceleration_ = new ::pb::SkillCurveAcceleration;
+  // @@protoc_insertion_point(field_mutable:pb.SkillMoveData.MoveDownAcceleration)
+  return movedownacceleration_;
+}
+inline ::pb::SkillCurveAcceleration* SkillMoveData::release_movedownacceleration() {
+  clear_has_movedownacceleration();
+  ::pb::SkillCurveAcceleration* temp = movedownacceleration_;
+  movedownacceleration_ = NULL;
+  return temp;
+}
+inline void SkillMoveData::set_allocated_movedownacceleration(::pb::SkillCurveAcceleration* movedownacceleration) {
+  delete movedownacceleration_;
+  movedownacceleration_ = movedownacceleration;
+  if (movedownacceleration) {
+    set_has_movedownacceleration();
+  } else {
+    clear_has_movedownacceleration();
+  }
+  // @@protoc_insertion_point(field_set_allocated:pb.SkillMoveData.MoveDownAcceleration)
+}
+
+// optional bool PlayFloatAwayAnim = 17;
+inline bool SkillMoveData::has_playfloatawayanim() const {
+  return (_has_bits_[0] & 0x00004000u) != 0;
+}
+inline void SkillMoveData::set_has_playfloatawayanim() {
+  _has_bits_[0] |= 0x00004000u;
+}
+inline void SkillMoveData::clear_has_playfloatawayanim() {
+  _has_bits_[0] &= ~0x00004000u;
+}
+inline void SkillMoveData::clear_playfloatawayanim() {
+  playfloatawayanim_ = false;
+  clear_has_playfloatawayanim();
+}
+inline bool SkillMoveData::playfloatawayanim() const {
+  // @@protoc_insertion_point(field_get:pb.SkillMoveData.PlayFloatAwayAnim)
+  return playfloatawayanim_;
+}
+inline void SkillMoveData::set_playfloatawayanim(bool value) {
+  set_has_playfloatawayanim();
+  playfloatawayanim_ = value;
+  // @@protoc_insertion_point(field_set:pb.SkillMoveData.PlayFloatAwayAnim)
+}
+
+// optional bool AllowReplaceAnim = 18;
+inline bool SkillMoveData::has_allowreplaceanim() const {
+  return (_has_bits_[0] & 0x00008000u) != 0;
+}
+inline void SkillMoveData::set_has_allowreplaceanim() {
+  _has_bits_[0] |= 0x00008000u;
+}
+inline void SkillMoveData::clear_has_allowreplaceanim() {
+  _has_bits_[0] &= ~0x00008000u;
+}
+inline void SkillMoveData::clear_allowreplaceanim() {
+  allowreplaceanim_ = false;
+  clear_has_allowreplaceanim();
+}
+inline bool SkillMoveData::allowreplaceanim() const {
+  // @@protoc_insertion_point(field_get:pb.SkillMoveData.AllowReplaceAnim)
+  return allowreplaceanim_;
+}
+inline void SkillMoveData::set_allowreplaceanim(bool value) {
+  set_has_allowreplaceanim();
+  allowreplaceanim_ = value;
+  // @@protoc_insertion_point(field_set:pb.SkillMoveData.AllowReplaceAnim)
+}
+
+// optional bool PlayFloatCtrlAinm = 19;
+inline bool SkillMoveData::has_playfloatctrlainm() const {
+  return (_has_bits_[0] & 0x00010000u) != 0;
+}
+inline void SkillMoveData::set_has_playfloatctrlainm() {
+  _has_bits_[0] |= 0x00010000u;
+}
+inline void SkillMoveData::clear_has_playfloatctrlainm() {
+  _has_bits_[0] &= ~0x00010000u;
+}
+inline void SkillMoveData::clear_playfloatctrlainm() {
+  playfloatctrlainm_ = false;
+  clear_has_playfloatctrlainm();
+}
+inline bool SkillMoveData::playfloatctrlainm() const {
+  // @@protoc_insertion_point(field_get:pb.SkillMoveData.PlayFloatCtrlAinm)
+  return playfloatctrlainm_;
+}
+inline void SkillMoveData::set_playfloatctrlainm(bool value) {
+  set_has_playfloatctrlainm();
+  playfloatctrlainm_ = value;
+  // @@protoc_insertion_point(field_set:pb.SkillMoveData.PlayFloatCtrlAinm)
+}
+
+// optional string AnimOnFloatUpAndKeep = 21;
+inline bool SkillMoveData::has_animonfloatupandkeep() const {
+  return (_has_bits_[0] & 0x00020000u) != 0;
+}
+inline void SkillMoveData::set_has_animonfloatupandkeep() {
+  _has_bits_[0] |= 0x00020000u;
+}
+inline void SkillMoveData::clear_has_animonfloatupandkeep() {
+  _has_bits_[0] &= ~0x00020000u;
+}
+inline void SkillMoveData::clear_animonfloatupandkeep() {
+  if (animonfloatupandkeep_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    animonfloatupandkeep_->clear();
+  }
+  clear_has_animonfloatupandkeep();
+}
+inline const ::std::string& SkillMoveData::animonfloatupandkeep() const {
+  // @@protoc_insertion_point(field_get:pb.SkillMoveData.AnimOnFloatUpAndKeep)
+  return *animonfloatupandkeep_;
+}
+inline void SkillMoveData::set_animonfloatupandkeep(const ::std::string& value) {
+  set_has_animonfloatupandkeep();
+  if (animonfloatupandkeep_ == &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    animonfloatupandkeep_ = new ::std::string;
+  }
+  animonfloatupandkeep_->assign(value);
+  // @@protoc_insertion_point(field_set:pb.SkillMoveData.AnimOnFloatUpAndKeep)
+}
+inline void SkillMoveData::set_animonfloatupandkeep(const char* value) {
+  set_has_animonfloatupandkeep();
+  if (animonfloatupandkeep_ == &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    animonfloatupandkeep_ = new ::std::string;
+  }
+  animonfloatupandkeep_->assign(value);
+  // @@protoc_insertion_point(field_set_char:pb.SkillMoveData.AnimOnFloatUpAndKeep)
+}
+inline void SkillMoveData::set_animonfloatupandkeep(const char* value, size_t size) {
+  set_has_animonfloatupandkeep();
+  if (animonfloatupandkeep_ == &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    animonfloatupandkeep_ = new ::std::string;
+  }
+  animonfloatupandkeep_->assign(reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_set_pointer:pb.SkillMoveData.AnimOnFloatUpAndKeep)
+}
+inline ::std::string* SkillMoveData::mutable_animonfloatupandkeep() {
+  set_has_animonfloatupandkeep();
+  if (animonfloatupandkeep_ == &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    animonfloatupandkeep_ = new ::std::string;
+  }
+  // @@protoc_insertion_point(field_mutable:pb.SkillMoveData.AnimOnFloatUpAndKeep)
+  return animonfloatupandkeep_;
+}
+inline ::std::string* SkillMoveData::release_animonfloatupandkeep() {
+  clear_has_animonfloatupandkeep();
+  if (animonfloatupandkeep_ == &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    return NULL;
+  } else {
+    ::std::string* temp = animonfloatupandkeep_;
+    animonfloatupandkeep_ = const_cast< ::std::string*>(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+    return temp;
+  }
+}
+inline void SkillMoveData::set_allocated_animonfloatupandkeep(::std::string* animonfloatupandkeep) {
+  if (animonfloatupandkeep_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    delete animonfloatupandkeep_;
+  }
+  if (animonfloatupandkeep) {
+    set_has_animonfloatupandkeep();
+    animonfloatupandkeep_ = animonfloatupandkeep;
+  } else {
+    clear_has_animonfloatupandkeep();
+    animonfloatupandkeep_ = const_cast< ::std::string*>(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  }
+  // @@protoc_insertion_point(field_set_allocated:pb.SkillMoveData.AnimOnFloatUpAndKeep)
+}
+
+// optional string AnimOnFloatDown = 22;
+inline bool SkillMoveData::has_animonfloatdown() const {
+  return (_has_bits_[0] & 0x00040000u) != 0;
+}
+inline void SkillMoveData::set_has_animonfloatdown() {
+  _has_bits_[0] |= 0x00040000u;
+}
+inline void SkillMoveData::clear_has_animonfloatdown() {
+  _has_bits_[0] &= ~0x00040000u;
+}
+inline void SkillMoveData::clear_animonfloatdown() {
+  if (animonfloatdown_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    animonfloatdown_->clear();
+  }
+  clear_has_animonfloatdown();
+}
+inline const ::std::string& SkillMoveData::animonfloatdown() const {
+  // @@protoc_insertion_point(field_get:pb.SkillMoveData.AnimOnFloatDown)
+  return *animonfloatdown_;
+}
+inline void SkillMoveData::set_animonfloatdown(const ::std::string& value) {
+  set_has_animonfloatdown();
+  if (animonfloatdown_ == &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    animonfloatdown_ = new ::std::string;
+  }
+  animonfloatdown_->assign(value);
+  // @@protoc_insertion_point(field_set:pb.SkillMoveData.AnimOnFloatDown)
+}
+inline void SkillMoveData::set_animonfloatdown(const char* value) {
+  set_has_animonfloatdown();
+  if (animonfloatdown_ == &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    animonfloatdown_ = new ::std::string;
+  }
+  animonfloatdown_->assign(value);
+  // @@protoc_insertion_point(field_set_char:pb.SkillMoveData.AnimOnFloatDown)
+}
+inline void SkillMoveData::set_animonfloatdown(const char* value, size_t size) {
+  set_has_animonfloatdown();
+  if (animonfloatdown_ == &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    animonfloatdown_ = new ::std::string;
+  }
+  animonfloatdown_->assign(reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_set_pointer:pb.SkillMoveData.AnimOnFloatDown)
+}
+inline ::std::string* SkillMoveData::mutable_animonfloatdown() {
+  set_has_animonfloatdown();
+  if (animonfloatdown_ == &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    animonfloatdown_ = new ::std::string;
+  }
+  // @@protoc_insertion_point(field_mutable:pb.SkillMoveData.AnimOnFloatDown)
+  return animonfloatdown_;
+}
+inline ::std::string* SkillMoveData::release_animonfloatdown() {
+  clear_has_animonfloatdown();
+  if (animonfloatdown_ == &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    return NULL;
+  } else {
+    ::std::string* temp = animonfloatdown_;
+    animonfloatdown_ = const_cast< ::std::string*>(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+    return temp;
+  }
+}
+inline void SkillMoveData::set_allocated_animonfloatdown(::std::string* animonfloatdown) {
+  if (animonfloatdown_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    delete animonfloatdown_;
+  }
+  if (animonfloatdown) {
+    set_has_animonfloatdown();
+    animonfloatdown_ = animonfloatdown;
+  } else {
+    clear_has_animonfloatdown();
+    animonfloatdown_ = const_cast< ::std::string*>(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  }
+  // @@protoc_insertion_point(field_set_allocated:pb.SkillMoveData.AnimOnFloatDown)
+}
+
+// optional bool BreakByObstacle = 23;
+inline bool SkillMoveData::has_breakbyobstacle() const {
+  return (_has_bits_[0] & 0x00080000u) != 0;
+}
+inline void SkillMoveData::set_has_breakbyobstacle() {
+  _has_bits_[0] |= 0x00080000u;
+}
+inline void SkillMoveData::clear_has_breakbyobstacle() {
+  _has_bits_[0] &= ~0x00080000u;
+}
+inline void SkillMoveData::clear_breakbyobstacle() {
+  breakbyobstacle_ = false;
+  clear_has_breakbyobstacle();
+}
+inline bool SkillMoveData::breakbyobstacle() const {
+  // @@protoc_insertion_point(field_get:pb.SkillMoveData.BreakByObstacle)
+  return breakbyobstacle_;
+}
+inline void SkillMoveData::set_breakbyobstacle(bool value) {
+  set_has_breakbyobstacle();
+  breakbyobstacle_ = value;
+  // @@protoc_insertion_point(field_set:pb.SkillMoveData.BreakByObstacle)
+}
+
+// optional int32 MoveAcceleration = 24;
+inline bool SkillMoveData::has_moveacceleration() const {
+  return (_has_bits_[0] & 0x00100000u) != 0;
+}
+inline void SkillMoveData::set_has_moveacceleration() {
+  _has_bits_[0] |= 0x00100000u;
+}
+inline void SkillMoveData::clear_has_moveacceleration() {
+  _has_bits_[0] &= ~0x00100000u;
+}
+inline void SkillMoveData::clear_moveacceleration() {
+  moveacceleration_ = 0;
+  clear_has_moveacceleration();
+}
+inline ::google::protobuf::int32 SkillMoveData::moveacceleration() const {
+  // @@protoc_insertion_point(field_get:pb.SkillMoveData.MoveAcceleration)
+  return moveacceleration_;
+}
+inline void SkillMoveData::set_moveacceleration(::google::protobuf::int32 value) {
+  set_has_moveacceleration();
+  moveacceleration_ = value;
+  // @@protoc_insertion_point(field_set:pb.SkillMoveData.MoveAcceleration)
+}
+
+// optional bool TDNeedBlockByLine = 25;
+inline bool SkillMoveData::has_tdneedblockbyline() const {
+  return (_has_bits_[0] & 0x00200000u) != 0;
+}
+inline void SkillMoveData::set_has_tdneedblockbyline() {
+  _has_bits_[0] |= 0x00200000u;
+}
+inline void SkillMoveData::clear_has_tdneedblockbyline() {
+  _has_bits_[0] &= ~0x00200000u;
+}
+inline void SkillMoveData::clear_tdneedblockbyline() {
+  tdneedblockbyline_ = false;
+  clear_has_tdneedblockbyline();
+}
+inline bool SkillMoveData::tdneedblockbyline() const {
+  // @@protoc_insertion_point(field_get:pb.SkillMoveData.TDNeedBlockByLine)
+  return tdneedblockbyline_;
+}
+inline void SkillMoveData::set_tdneedblockbyline(bool value) {
+  set_has_tdneedblockbyline();
+  tdneedblockbyline_ = value;
+  // @@protoc_insertion_point(field_set:pb.SkillMoveData.TDNeedBlockByLine)
+}
+
+// -------------------------------------------------------------------
+
+// SkillCurveData
+
+// optional int32 IsCurve = 1;
+inline bool SkillCurveData::has_iscurve() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void SkillCurveData::set_has_iscurve() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void SkillCurveData::clear_has_iscurve() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void SkillCurveData::clear_iscurve() {
+  iscurve_ = 0;
+  clear_has_iscurve();
+}
+inline ::google::protobuf::int32 SkillCurveData::iscurve() const {
+  // @@protoc_insertion_point(field_get:pb.SkillCurveData.IsCurve)
+  return iscurve_;
+}
+inline void SkillCurveData::set_iscurve(::google::protobuf::int32 value) {
+  set_has_iscurve();
+  iscurve_ = value;
+  // @@protoc_insertion_point(field_set:pb.SkillCurveData.IsCurve)
+}
+
+// optional int32 CurveType = 2;
+inline bool SkillCurveData::has_curvetype() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void SkillCurveData::set_has_curvetype() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void SkillCurveData::clear_has_curvetype() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void SkillCurveData::clear_curvetype() {
+  curvetype_ = 0;
+  clear_has_curvetype();
+}
+inline ::google::protobuf::int32 SkillCurveData::curvetype() const {
+  // @@protoc_insertion_point(field_get:pb.SkillCurveData.CurveType)
+  return curvetype_;
+}
+inline void SkillCurveData::set_curvetype(::google::protobuf::int32 value) {
+  set_has_curvetype();
+  curvetype_ = value;
+  // @@protoc_insertion_point(field_set:pb.SkillCurveData.CurveType)
+}
+
+// optional int32 CurveRadiu = 3;
+inline bool SkillCurveData::has_curveradiu() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void SkillCurveData::set_has_curveradiu() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void SkillCurveData::clear_has_curveradiu() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void SkillCurveData::clear_curveradiu() {
+  curveradiu_ = 0;
+  clear_has_curveradiu();
+}
+inline ::google::protobuf::int32 SkillCurveData::curveradiu() const {
+  // @@protoc_insertion_point(field_get:pb.SkillCurveData.CurveRadiu)
+  return curveradiu_;
+}
+inline void SkillCurveData::set_curveradiu(::google::protobuf::int32 value) {
+  set_has_curveradiu();
+  curveradiu_ = value;
+  // @@protoc_insertion_point(field_set:pb.SkillCurveData.CurveRadiu)
+}
+
+// optional string CurveParent = 4;
+inline bool SkillCurveData::has_curveparent() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void SkillCurveData::set_has_curveparent() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void SkillCurveData::clear_has_curveparent() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void SkillCurveData::clear_curveparent() {
+  if (curveparent_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    curveparent_->clear();
+  }
+  clear_has_curveparent();
+}
+inline const ::std::string& SkillCurveData::curveparent() const {
+  // @@protoc_insertion_point(field_get:pb.SkillCurveData.CurveParent)
+  return *curveparent_;
+}
+inline void SkillCurveData::set_curveparent(const ::std::string& value) {
+  set_has_curveparent();
+  if (curveparent_ == &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    curveparent_ = new ::std::string;
+  }
+  curveparent_->assign(value);
+  // @@protoc_insertion_point(field_set:pb.SkillCurveData.CurveParent)
+}
+inline void SkillCurveData::set_curveparent(const char* value) {
+  set_has_curveparent();
+  if (curveparent_ == &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    curveparent_ = new ::std::string;
+  }
+  curveparent_->assign(value);
+  // @@protoc_insertion_point(field_set_char:pb.SkillCurveData.CurveParent)
+}
+inline void SkillCurveData::set_curveparent(const char* value, size_t size) {
+  set_has_curveparent();
+  if (curveparent_ == &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    curveparent_ = new ::std::string;
+  }
+  curveparent_->assign(reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_set_pointer:pb.SkillCurveData.CurveParent)
+}
+inline ::std::string* SkillCurveData::mutable_curveparent() {
+  set_has_curveparent();
+  if (curveparent_ == &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    curveparent_ = new ::std::string;
+  }
+  // @@protoc_insertion_point(field_mutable:pb.SkillCurveData.CurveParent)
+  return curveparent_;
+}
+inline ::std::string* SkillCurveData::release_curveparent() {
+  clear_has_curveparent();
+  if (curveparent_ == &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    return NULL;
+  } else {
+    ::std::string* temp = curveparent_;
+    curveparent_ = const_cast< ::std::string*>(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+    return temp;
+  }
+}
+inline void SkillCurveData::set_allocated_curveparent(::std::string* curveparent) {
+  if (curveparent_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    delete curveparent_;
+  }
+  if (curveparent) {
+    set_has_curveparent();
+    curveparent_ = curveparent;
+  } else {
+    clear_has_curveparent();
+    curveparent_ = const_cast< ::std::string*>(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  }
+  // @@protoc_insertion_point(field_set_allocated:pb.SkillCurveData.CurveParent)
+}
+
+// optional string CurveEffect = 5;
+inline bool SkillCurveData::has_curveeffect() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+inline void SkillCurveData::set_has_curveeffect() {
+  _has_bits_[0] |= 0x00000010u;
+}
+inline void SkillCurveData::clear_has_curveeffect() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline void SkillCurveData::clear_curveeffect() {
+  if (curveeffect_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    curveeffect_->clear();
+  }
+  clear_has_curveeffect();
+}
+inline const ::std::string& SkillCurveData::curveeffect() const {
+  // @@protoc_insertion_point(field_get:pb.SkillCurveData.CurveEffect)
+  return *curveeffect_;
+}
+inline void SkillCurveData::set_curveeffect(const ::std::string& value) {
+  set_has_curveeffect();
+  if (curveeffect_ == &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    curveeffect_ = new ::std::string;
+  }
+  curveeffect_->assign(value);
+  // @@protoc_insertion_point(field_set:pb.SkillCurveData.CurveEffect)
+}
+inline void SkillCurveData::set_curveeffect(const char* value) {
+  set_has_curveeffect();
+  if (curveeffect_ == &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    curveeffect_ = new ::std::string;
+  }
+  curveeffect_->assign(value);
+  // @@protoc_insertion_point(field_set_char:pb.SkillCurveData.CurveEffect)
+}
+inline void SkillCurveData::set_curveeffect(const char* value, size_t size) {
+  set_has_curveeffect();
+  if (curveeffect_ == &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    curveeffect_ = new ::std::string;
+  }
+  curveeffect_->assign(reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_set_pointer:pb.SkillCurveData.CurveEffect)
+}
+inline ::std::string* SkillCurveData::mutable_curveeffect() {
+  set_has_curveeffect();
+  if (curveeffect_ == &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    curveeffect_ = new ::std::string;
+  }
+  // @@protoc_insertion_point(field_mutable:pb.SkillCurveData.CurveEffect)
+  return curveeffect_;
+}
+inline ::std::string* SkillCurveData::release_curveeffect() {
+  clear_has_curveeffect();
+  if (curveeffect_ == &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    return NULL;
+  } else {
+    ::std::string* temp = curveeffect_;
+    curveeffect_ = const_cast< ::std::string*>(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+    return temp;
+  }
+}
+inline void SkillCurveData::set_allocated_curveeffect(::std::string* curveeffect) {
+  if (curveeffect_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    delete curveeffect_;
+  }
+  if (curveeffect) {
+    set_has_curveeffect();
+    curveeffect_ = curveeffect;
+  } else {
+    clear_has_curveeffect();
+    curveeffect_ = const_cast< ::std::string*>(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  }
+  // @@protoc_insertion_point(field_set_allocated:pb.SkillCurveData.CurveEffect)
+}
+
+// optional string NoneCurveEffet = 6;
+inline bool SkillCurveData::has_nonecurveeffet() const {
+  return (_has_bits_[0] & 0x00000020u) != 0;
+}
+inline void SkillCurveData::set_has_nonecurveeffet() {
+  _has_bits_[0] |= 0x00000020u;
+}
+inline void SkillCurveData::clear_has_nonecurveeffet() {
+  _has_bits_[0] &= ~0x00000020u;
+}
+inline void SkillCurveData::clear_nonecurveeffet() {
+  if (nonecurveeffet_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    nonecurveeffet_->clear();
+  }
+  clear_has_nonecurveeffet();
+}
+inline const ::std::string& SkillCurveData::nonecurveeffet() const {
+  // @@protoc_insertion_point(field_get:pb.SkillCurveData.NoneCurveEffet)
+  return *nonecurveeffet_;
+}
+inline void SkillCurveData::set_nonecurveeffet(const ::std::string& value) {
+  set_has_nonecurveeffet();
+  if (nonecurveeffet_ == &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    nonecurveeffet_ = new ::std::string;
+  }
+  nonecurveeffet_->assign(value);
+  // @@protoc_insertion_point(field_set:pb.SkillCurveData.NoneCurveEffet)
+}
+inline void SkillCurveData::set_nonecurveeffet(const char* value) {
+  set_has_nonecurveeffet();
+  if (nonecurveeffet_ == &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    nonecurveeffet_ = new ::std::string;
+  }
+  nonecurveeffet_->assign(value);
+  // @@protoc_insertion_point(field_set_char:pb.SkillCurveData.NoneCurveEffet)
+}
+inline void SkillCurveData::set_nonecurveeffet(const char* value, size_t size) {
+  set_has_nonecurveeffet();
+  if (nonecurveeffet_ == &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    nonecurveeffet_ = new ::std::string;
+  }
+  nonecurveeffet_->assign(reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_set_pointer:pb.SkillCurveData.NoneCurveEffet)
+}
+inline ::std::string* SkillCurveData::mutable_nonecurveeffet() {
+  set_has_nonecurveeffet();
+  if (nonecurveeffet_ == &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    nonecurveeffet_ = new ::std::string;
+  }
+  // @@protoc_insertion_point(field_mutable:pb.SkillCurveData.NoneCurveEffet)
+  return nonecurveeffet_;
+}
+inline ::std::string* SkillCurveData::release_nonecurveeffet() {
+  clear_has_nonecurveeffet();
+  if (nonecurveeffet_ == &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    return NULL;
+  } else {
+    ::std::string* temp = nonecurveeffet_;
+    nonecurveeffet_ = const_cast< ::std::string*>(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+    return temp;
+  }
+}
+inline void SkillCurveData::set_allocated_nonecurveeffet(::std::string* nonecurveeffet) {
+  if (nonecurveeffet_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    delete nonecurveeffet_;
+  }
+  if (nonecurveeffet) {
+    set_has_nonecurveeffet();
+    nonecurveeffet_ = nonecurveeffet;
+  } else {
+    clear_has_nonecurveeffet();
+    nonecurveeffet_ = const_cast< ::std::string*>(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  }
+  // @@protoc_insertion_point(field_set_allocated:pb.SkillCurveData.NoneCurveEffet)
+}
+
+// optional bool IsTrackCurve = 7;
+inline bool SkillCurveData::has_istrackcurve() const {
+  return (_has_bits_[0] & 0x00000040u) != 0;
+}
+inline void SkillCurveData::set_has_istrackcurve() {
+  _has_bits_[0] |= 0x00000040u;
+}
+inline void SkillCurveData::clear_has_istrackcurve() {
+  _has_bits_[0] &= ~0x00000040u;
+}
+inline void SkillCurveData::clear_istrackcurve() {
+  istrackcurve_ = false;
+  clear_has_istrackcurve();
+}
+inline bool SkillCurveData::istrackcurve() const {
+  // @@protoc_insertion_point(field_get:pb.SkillCurveData.IsTrackCurve)
+  return istrackcurve_;
+}
+inline void SkillCurveData::set_istrackcurve(bool value) {
+  set_has_istrackcurve();
+  istrackcurve_ = value;
+  // @@protoc_insertion_point(field_set:pb.SkillCurveData.IsTrackCurve)
+}
+
+// optional bool IsThroughCurve = 8;
+inline bool SkillCurveData::has_isthroughcurve() const {
+  return (_has_bits_[0] & 0x00000080u) != 0;
+}
+inline void SkillCurveData::set_has_isthroughcurve() {
+  _has_bits_[0] |= 0x00000080u;
+}
+inline void SkillCurveData::clear_has_isthroughcurve() {
+  _has_bits_[0] &= ~0x00000080u;
+}
+inline void SkillCurveData::clear_isthroughcurve() {
+  isthroughcurve_ = false;
+  clear_has_isthroughcurve();
+}
+inline bool SkillCurveData::isthroughcurve() const {
+  // @@protoc_insertion_point(field_get:pb.SkillCurveData.IsThroughCurve)
+  return isthroughcurve_;
+}
+inline void SkillCurveData::set_isthroughcurve(bool value) {
+  set_has_isthroughcurve();
+  isthroughcurve_ = value;
+  // @@protoc_insertion_point(field_set:pb.SkillCurveData.IsThroughCurve)
+}
+
+// optional int32 MaxThroughNum = 9;
+inline bool SkillCurveData::has_maxthroughnum() const {
+  return (_has_bits_[0] & 0x00000100u) != 0;
+}
+inline void SkillCurveData::set_has_maxthroughnum() {
+  _has_bits_[0] |= 0x00000100u;
+}
+inline void SkillCurveData::clear_has_maxthroughnum() {
+  _has_bits_[0] &= ~0x00000100u;
+}
+inline void SkillCurveData::clear_maxthroughnum() {
+  maxthroughnum_ = 0;
+  clear_has_maxthroughnum();
+}
+inline ::google::protobuf::int32 SkillCurveData::maxthroughnum() const {
+  // @@protoc_insertion_point(field_get:pb.SkillCurveData.MaxThroughNum)
+  return maxthroughnum_;
+}
+inline void SkillCurveData::set_maxthroughnum(::google::protobuf::int32 value) {
+  set_has_maxthroughnum();
+  maxthroughnum_ = value;
+  // @@protoc_insertion_point(field_set:pb.SkillCurveData.MaxThroughNum)
+}
+
+// optional bool IsDisappearOnCollision = 10;
+inline bool SkillCurveData::has_isdisappearoncollision() const {
+  return (_has_bits_[0] & 0x00000200u) != 0;
+}
+inline void SkillCurveData::set_has_isdisappearoncollision() {
+  _has_bits_[0] |= 0x00000200u;
+}
+inline void SkillCurveData::clear_has_isdisappearoncollision() {
+  _has_bits_[0] &= ~0x00000200u;
+}
+inline void SkillCurveData::clear_isdisappearoncollision() {
+  isdisappearoncollision_ = false;
+  clear_has_isdisappearoncollision();
+}
+inline bool SkillCurveData::isdisappearoncollision() const {
+  // @@protoc_insertion_point(field_get:pb.SkillCurveData.IsDisappearOnCollision)
+  return isdisappearoncollision_;
+}
+inline void SkillCurveData::set_isdisappearoncollision(bool value) {
+  set_has_isdisappearoncollision();
+  isdisappearoncollision_ = value;
+  // @@protoc_insertion_point(field_set:pb.SkillCurveData.IsDisappearOnCollision)
+}
+
+// optional int32 CollisionDetectionType = 11;
+inline bool SkillCurveData::has_collisiondetectiontype() const {
+  return (_has_bits_[0] & 0x00000400u) != 0;
+}
+inline void SkillCurveData::set_has_collisiondetectiontype() {
+  _has_bits_[0] |= 0x00000400u;
+}
+inline void SkillCurveData::clear_has_collisiondetectiontype() {
+  _has_bits_[0] &= ~0x00000400u;
+}
+inline void SkillCurveData::clear_collisiondetectiontype() {
+  collisiondetectiontype_ = 0;
+  clear_has_collisiondetectiontype();
+}
+inline ::google::protobuf::int32 SkillCurveData::collisiondetectiontype() const {
+  // @@protoc_insertion_point(field_get:pb.SkillCurveData.CollisionDetectionType)
+  return collisiondetectiontype_;
+}
+inline void SkillCurveData::set_collisiondetectiontype(::google::protobuf::int32 value) {
+  set_has_collisiondetectiontype();
+  collisiondetectiontype_ = value;
+  // @@protoc_insertion_point(field_set:pb.SkillCurveData.CollisionDetectionType)
+}
+
+// optional int32 CurveSpeed = 12;
+inline bool SkillCurveData::has_curvespeed() const {
+  return (_has_bits_[0] & 0x00000800u) != 0;
+}
+inline void SkillCurveData::set_has_curvespeed() {
+  _has_bits_[0] |= 0x00000800u;
+}
+inline void SkillCurveData::clear_has_curvespeed() {
+  _has_bits_[0] &= ~0x00000800u;
+}
+inline void SkillCurveData::clear_curvespeed() {
+  curvespeed_ = 0;
+  clear_has_curvespeed();
+}
+inline ::google::protobuf::int32 SkillCurveData::curvespeed() const {
+  // @@protoc_insertion_point(field_get:pb.SkillCurveData.CurveSpeed)
+  return curvespeed_;
+}
+inline void SkillCurveData::set_curvespeed(::google::protobuf::int32 value) {
+  set_has_curvespeed();
+  curvespeed_ = value;
+  // @@protoc_insertion_point(field_set:pb.SkillCurveData.CurveSpeed)
+}
+
+// repeated .pb.SkillCurveAcceleration CurveAcceleration = 13;
+inline int SkillCurveData::curveacceleration_size() const {
+  return curveacceleration_.size();
+}
+inline void SkillCurveData::clear_curveacceleration() {
+  curveacceleration_.Clear();
+}
+inline const ::pb::SkillCurveAcceleration& SkillCurveData::curveacceleration(int index) const {
+  // @@protoc_insertion_point(field_get:pb.SkillCurveData.CurveAcceleration)
+  return curveacceleration_.Get(index);
+}
+inline ::pb::SkillCurveAcceleration* SkillCurveData::mutable_curveacceleration(int index) {
+  // @@protoc_insertion_point(field_mutable:pb.SkillCurveData.CurveAcceleration)
+  return curveacceleration_.Mutable(index);
+}
+inline ::pb::SkillCurveAcceleration* SkillCurveData::add_curveacceleration() {
+  // @@protoc_insertion_point(field_add:pb.SkillCurveData.CurveAcceleration)
+  return curveacceleration_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::pb::SkillCurveAcceleration >&
+SkillCurveData::curveacceleration() const {
+  // @@protoc_insertion_point(field_list:pb.SkillCurveData.CurveAcceleration)
+  return curveacceleration_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::pb::SkillCurveAcceleration >*
+SkillCurveData::mutable_curveacceleration() {
+  // @@protoc_insertion_point(field_mutable_list:pb.SkillCurveData.CurveAcceleration)
+  return &curveacceleration_;
+}
+
+// optional bool IsCurveBack = 14;
+inline bool SkillCurveData::has_iscurveback() const {
+  return (_has_bits_[0] & 0x00002000u) != 0;
+}
+inline void SkillCurveData::set_has_iscurveback() {
+  _has_bits_[0] |= 0x00002000u;
+}
+inline void SkillCurveData::clear_has_iscurveback() {
+  _has_bits_[0] &= ~0x00002000u;
+}
+inline void SkillCurveData::clear_iscurveback() {
+  iscurveback_ = false;
+  clear_has_iscurveback();
+}
+inline bool SkillCurveData::iscurveback() const {
+  // @@protoc_insertion_point(field_get:pb.SkillCurveData.IsCurveBack)
+  return iscurveback_;
+}
+inline void SkillCurveData::set_iscurveback(bool value) {
+  set_has_iscurveback();
+  iscurveback_ = value;
+  // @@protoc_insertion_point(field_set:pb.SkillCurveData.IsCurveBack)
+}
+
+// optional bool EffectOnBack = 15;
+inline bool SkillCurveData::has_effectonback() const {
+  return (_has_bits_[0] & 0x00004000u) != 0;
+}
+inline void SkillCurveData::set_has_effectonback() {
+  _has_bits_[0] |= 0x00004000u;
+}
+inline void SkillCurveData::clear_has_effectonback() {
+  _has_bits_[0] &= ~0x00004000u;
+}
+inline void SkillCurveData::clear_effectonback() {
+  effectonback_ = false;
+  clear_has_effectonback();
+}
+inline bool SkillCurveData::effectonback() const {
+  // @@protoc_insertion_point(field_get:pb.SkillCurveData.EffectOnBack)
+  return effectonback_;
+}
+inline void SkillCurveData::set_effectonback(bool value) {
+  set_has_effectonback();
+  effectonback_ = value;
+  // @@protoc_insertion_point(field_set:pb.SkillCurveData.EffectOnBack)
+}
+
+// optional int32 CurveBackSpeed = 16;
+inline bool SkillCurveData::has_curvebackspeed() const {
+  return (_has_bits_[0] & 0x00008000u) != 0;
+}
+inline void SkillCurveData::set_has_curvebackspeed() {
+  _has_bits_[0] |= 0x00008000u;
+}
+inline void SkillCurveData::clear_has_curvebackspeed() {
+  _has_bits_[0] &= ~0x00008000u;
+}
+inline void SkillCurveData::clear_curvebackspeed() {
+  curvebackspeed_ = 0;
+  clear_has_curvebackspeed();
+}
+inline ::google::protobuf::int32 SkillCurveData::curvebackspeed() const {
+  // @@protoc_insertion_point(field_get:pb.SkillCurveData.CurveBackSpeed)
+  return curvebackspeed_;
+}
+inline void SkillCurveData::set_curvebackspeed(::google::protobuf::int32 value) {
+  set_has_curvebackspeed();
+  curvebackspeed_ = value;
+  // @@protoc_insertion_point(field_set:pb.SkillCurveData.CurveBackSpeed)
+}
+
+// repeated .pb.SkillCurveAcceleration CurveBackAcceleration = 17;
+inline int SkillCurveData::curvebackacceleration_size() const {
+  return curvebackacceleration_.size();
+}
+inline void SkillCurveData::clear_curvebackacceleration() {
+  curvebackacceleration_.Clear();
+}
+inline const ::pb::SkillCurveAcceleration& SkillCurveData::curvebackacceleration(int index) const {
+  // @@protoc_insertion_point(field_get:pb.SkillCurveData.CurveBackAcceleration)
+  return curvebackacceleration_.Get(index);
+}
+inline ::pb::SkillCurveAcceleration* SkillCurveData::mutable_curvebackacceleration(int index) {
+  // @@protoc_insertion_point(field_mutable:pb.SkillCurveData.CurveBackAcceleration)
+  return curvebackacceleration_.Mutable(index);
+}
+inline ::pb::SkillCurveAcceleration* SkillCurveData::add_curvebackacceleration() {
+  // @@protoc_insertion_point(field_add:pb.SkillCurveData.CurveBackAcceleration)
+  return curvebackacceleration_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::pb::SkillCurveAcceleration >&
+SkillCurveData::curvebackacceleration() const {
+  // @@protoc_insertion_point(field_list:pb.SkillCurveData.CurveBackAcceleration)
+  return curvebackacceleration_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::pb::SkillCurveAcceleration >*
+SkillCurveData::mutable_curvebackacceleration() {
+  // @@protoc_insertion_point(field_mutable_list:pb.SkillCurveData.CurveBackAcceleration)
+  return &curvebackacceleration_;
+}
+
+// optional int32 AngleOffset = 18;
+inline bool SkillCurveData::has_angleoffset() const {
+  return (_has_bits_[0] & 0x00020000u) != 0;
+}
+inline void SkillCurveData::set_has_angleoffset() {
+  _has_bits_[0] |= 0x00020000u;
+}
+inline void SkillCurveData::clear_has_angleoffset() {
+  _has_bits_[0] &= ~0x00020000u;
+}
+inline void SkillCurveData::clear_angleoffset() {
+  angleoffset_ = 0;
+  clear_has_angleoffset();
+}
+inline ::google::protobuf::int32 SkillCurveData::angleoffset() const {
+  // @@protoc_insertion_point(field_get:pb.SkillCurveData.AngleOffset)
+  return angleoffset_;
+}
+inline void SkillCurveData::set_angleoffset(::google::protobuf::int32 value) {
+  set_has_angleoffset();
+  angleoffset_ = value;
+  // @@protoc_insertion_point(field_set:pb.SkillCurveData.AngleOffset)
+}
+
+// repeated int32 ControllerOffset = 19;
+inline int SkillCurveData::controlleroffset_size() const {
+  return controlleroffset_.size();
+}
+inline void SkillCurveData::clear_controlleroffset() {
+  controlleroffset_.Clear();
+}
+inline ::google::protobuf::int32 SkillCurveData::controlleroffset(int index) const {
+  // @@protoc_insertion_point(field_get:pb.SkillCurveData.ControllerOffset)
+  return controlleroffset_.Get(index);
+}
+inline void SkillCurveData::set_controlleroffset(int index, ::google::protobuf::int32 value) {
+  controlleroffset_.Set(index, value);
+  // @@protoc_insertion_point(field_set:pb.SkillCurveData.ControllerOffset)
+}
+inline void SkillCurveData::add_controlleroffset(::google::protobuf::int32 value) {
+  controlleroffset_.Add(value);
+  // @@protoc_insertion_point(field_add:pb.SkillCurveData.ControllerOffset)
+}
+inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
+SkillCurveData::controlleroffset() const {
+  // @@protoc_insertion_point(field_list:pb.SkillCurveData.ControllerOffset)
+  return controlleroffset_;
+}
+inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
+SkillCurveData::mutable_controlleroffset() {
+  // @@protoc_insertion_point(field_mutable_list:pb.SkillCurveData.ControllerOffset)
+  return &controlleroffset_;
+}
+
+// optional int32 CurveLastTime = 20;
+inline bool SkillCurveData::has_curvelasttime() const {
+  return (_has_bits_[0] & 0x00080000u) != 0;
+}
+inline void SkillCurveData::set_has_curvelasttime() {
+  _has_bits_[0] |= 0x00080000u;
+}
+inline void SkillCurveData::clear_has_curvelasttime() {
+  _has_bits_[0] &= ~0x00080000u;
+}
+inline void SkillCurveData::clear_curvelasttime() {
+  curvelasttime_ = 0;
+  clear_has_curvelasttime();
+}
+inline ::google::protobuf::int32 SkillCurveData::curvelasttime() const {
+  // @@protoc_insertion_point(field_get:pb.SkillCurveData.CurveLastTime)
+  return curvelasttime_;
+}
+inline void SkillCurveData::set_curvelasttime(::google::protobuf::int32 value) {
+  set_has_curvelasttime();
+  curvelasttime_ = value;
+  // @@protoc_insertion_point(field_set:pb.SkillCurveData.CurveLastTime)
+}
+
+// optional int32 ThroughCollisionDetectionType = 21;
+inline bool SkillCurveData::has_throughcollisiondetectiontype() const {
+  return (_has_bits_[0] & 0x00100000u) != 0;
+}
+inline void SkillCurveData::set_has_throughcollisiondetectiontype() {
+  _has_bits_[0] |= 0x00100000u;
+}
+inline void SkillCurveData::clear_has_throughcollisiondetectiontype() {
+  _has_bits_[0] &= ~0x00100000u;
+}
+inline void SkillCurveData::clear_throughcollisiondetectiontype() {
+  throughcollisiondetectiontype_ = 0;
+  clear_has_throughcollisiondetectiontype();
+}
+inline ::google::protobuf::int32 SkillCurveData::throughcollisiondetectiontype() const {
+  // @@protoc_insertion_point(field_get:pb.SkillCurveData.ThroughCollisionDetectionType)
+  return throughcollisiondetectiontype_;
+}
+inline void SkillCurveData::set_throughcollisiondetectiontype(::google::protobuf::int32 value) {
+  set_has_throughcollisiondetectiontype();
+  throughcollisiondetectiontype_ = value;
+  // @@protoc_insertion_point(field_set:pb.SkillCurveData.ThroughCollisionDetectionType)
+}
+
+// optional string HeadCurveEffect = 22;
+inline bool SkillCurveData::has_headcurveeffect() const {
+  return (_has_bits_[0] & 0x00200000u) != 0;
+}
+inline void SkillCurveData::set_has_headcurveeffect() {
+  _has_bits_[0] |= 0x00200000u;
+}
+inline void SkillCurveData::clear_has_headcurveeffect() {
+  _has_bits_[0] &= ~0x00200000u;
+}
+inline void SkillCurveData::clear_headcurveeffect() {
+  if (headcurveeffect_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    headcurveeffect_->clear();
+  }
+  clear_has_headcurveeffect();
+}
+inline const ::std::string& SkillCurveData::headcurveeffect() const {
+  // @@protoc_insertion_point(field_get:pb.SkillCurveData.HeadCurveEffect)
+  return *headcurveeffect_;
+}
+inline void SkillCurveData::set_headcurveeffect(const ::std::string& value) {
+  set_has_headcurveeffect();
+  if (headcurveeffect_ == &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    headcurveeffect_ = new ::std::string;
+  }
+  headcurveeffect_->assign(value);
+  // @@protoc_insertion_point(field_set:pb.SkillCurveData.HeadCurveEffect)
+}
+inline void SkillCurveData::set_headcurveeffect(const char* value) {
+  set_has_headcurveeffect();
+  if (headcurveeffect_ == &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    headcurveeffect_ = new ::std::string;
+  }
+  headcurveeffect_->assign(value);
+  // @@protoc_insertion_point(field_set_char:pb.SkillCurveData.HeadCurveEffect)
+}
+inline void SkillCurveData::set_headcurveeffect(const char* value, size_t size) {
+  set_has_headcurveeffect();
+  if (headcurveeffect_ == &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    headcurveeffect_ = new ::std::string;
+  }
+  headcurveeffect_->assign(reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_set_pointer:pb.SkillCurveData.HeadCurveEffect)
+}
+inline ::std::string* SkillCurveData::mutable_headcurveeffect() {
+  set_has_headcurveeffect();
+  if (headcurveeffect_ == &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    headcurveeffect_ = new ::std::string;
+  }
+  // @@protoc_insertion_point(field_mutable:pb.SkillCurveData.HeadCurveEffect)
+  return headcurveeffect_;
+}
+inline ::std::string* SkillCurveData::release_headcurveeffect() {
+  clear_has_headcurveeffect();
+  if (headcurveeffect_ == &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    return NULL;
+  } else {
+    ::std::string* temp = headcurveeffect_;
+    headcurveeffect_ = const_cast< ::std::string*>(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+    return temp;
+  }
+}
+inline void SkillCurveData::set_allocated_headcurveeffect(::std::string* headcurveeffect) {
+  if (headcurveeffect_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    delete headcurveeffect_;
+  }
+  if (headcurveeffect) {
+    set_has_headcurveeffect();
+    headcurveeffect_ = headcurveeffect;
+  } else {
+    clear_has_headcurveeffect();
+    headcurveeffect_ = const_cast< ::std::string*>(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  }
+  // @@protoc_insertion_point(field_set_allocated:pb.SkillCurveData.HeadCurveEffect)
+}
+
+// optional bool IsFixedTime = 23;
+inline bool SkillCurveData::has_isfixedtime() const {
+  return (_has_bits_[0] & 0x00400000u) != 0;
+}
+inline void SkillCurveData::set_has_isfixedtime() {
+  _has_bits_[0] |= 0x00400000u;
+}
+inline void SkillCurveData::clear_has_isfixedtime() {
+  _has_bits_[0] &= ~0x00400000u;
+}
+inline void SkillCurveData::clear_isfixedtime() {
+  isfixedtime_ = false;
+  clear_has_isfixedtime();
+}
+inline bool SkillCurveData::isfixedtime() const {
+  // @@protoc_insertion_point(field_get:pb.SkillCurveData.IsFixedTime)
+  return isfixedtime_;
+}
+inline void SkillCurveData::set_isfixedtime(bool value) {
+  set_has_isfixedtime();
+  isfixedtime_ = value;
+  // @@protoc_insertion_point(field_set:pb.SkillCurveData.IsFixedTime)
+}
+
+// optional int32 CurveFlyTime = 24;
+inline bool SkillCurveData::has_curveflytime() const {
+  return (_has_bits_[0] & 0x00800000u) != 0;
+}
+inline void SkillCurveData::set_has_curveflytime() {
+  _has_bits_[0] |= 0x00800000u;
+}
+inline void SkillCurveData::clear_has_curveflytime() {
+  _has_bits_[0] &= ~0x00800000u;
+}
+inline void SkillCurveData::clear_curveflytime() {
+  curveflytime_ = 0;
+  clear_has_curveflytime();
+}
+inline ::google::protobuf::int32 SkillCurveData::curveflytime() const {
+  // @@protoc_insertion_point(field_get:pb.SkillCurveData.CurveFlyTime)
+  return curveflytime_;
+}
+inline void SkillCurveData::set_curveflytime(::google::protobuf::int32 value) {
+  set_has_curveflytime();
+  curveflytime_ = value;
+  // @@protoc_insertion_point(field_set:pb.SkillCurveData.CurveFlyTime)
+}
+
+// optional bool NoVerticalMove = 25;
+inline bool SkillCurveData::has_noverticalmove() const {
+  return (_has_bits_[0] & 0x01000000u) != 0;
+}
+inline void SkillCurveData::set_has_noverticalmove() {
+  _has_bits_[0] |= 0x01000000u;
+}
+inline void SkillCurveData::clear_has_noverticalmove() {
+  _has_bits_[0] &= ~0x01000000u;
+}
+inline void SkillCurveData::clear_noverticalmove() {
+  noverticalmove_ = false;
+  clear_has_noverticalmove();
+}
+inline bool SkillCurveData::noverticalmove() const {
+  // @@protoc_insertion_point(field_get:pb.SkillCurveData.NoVerticalMove)
+  return noverticalmove_;
+}
+inline void SkillCurveData::set_noverticalmove(bool value) {
+  set_has_noverticalmove();
+  noverticalmove_ = value;
+  // @@protoc_insertion_point(field_set:pb.SkillCurveData.NoVerticalMove)
+}
+
+// optional bool IsLine = 26;
+inline bool SkillCurveData::has_isline() const {
+  return (_has_bits_[0] & 0x02000000u) != 0;
+}
+inline void SkillCurveData::set_has_isline() {
+  _has_bits_[0] |= 0x02000000u;
+}
+inline void SkillCurveData::clear_has_isline() {
+  _has_bits_[0] &= ~0x02000000u;
+}
+inline void SkillCurveData::clear_isline() {
+  isline_ = false;
+  clear_has_isline();
+}
+inline bool SkillCurveData::isline() const {
+  // @@protoc_insertion_point(field_get:pb.SkillCurveData.IsLine)
+  return isline_;
+}
+inline void SkillCurveData::set_isline(bool value) {
+  set_has_isline();
+  isline_ = value;
+  // @@protoc_insertion_point(field_set:pb.SkillCurveData.IsLine)
+}
+
+// optional int32 ShapeParam1 = 27;
+inline bool SkillCurveData::has_shapeparam1() const {
+  return (_has_bits_[0] & 0x04000000u) != 0;
+}
+inline void SkillCurveData::set_has_shapeparam1() {
+  _has_bits_[0] |= 0x04000000u;
+}
+inline void SkillCurveData::clear_has_shapeparam1() {
+  _has_bits_[0] &= ~0x04000000u;
+}
+inline void SkillCurveData::clear_shapeparam1() {
+  shapeparam1_ = 0;
+  clear_has_shapeparam1();
+}
+inline ::google::protobuf::int32 SkillCurveData::shapeparam1() const {
+  // @@protoc_insertion_point(field_get:pb.SkillCurveData.ShapeParam1)
+  return shapeparam1_;
+}
+inline void SkillCurveData::set_shapeparam1(::google::protobuf::int32 value) {
+  set_has_shapeparam1();
+  shapeparam1_ = value;
+  // @@protoc_insertion_point(field_set:pb.SkillCurveData.ShapeParam1)
+}
+
+// optional bool DisappearOnReachRefTarget = 28;
+inline bool SkillCurveData::has_disappearonreachreftarget() const {
+  return (_has_bits_[0] & 0x08000000u) != 0;
+}
+inline void SkillCurveData::set_has_disappearonreachreftarget() {
+  _has_bits_[0] |= 0x08000000u;
+}
+inline void SkillCurveData::clear_has_disappearonreachreftarget() {
+  _has_bits_[0] &= ~0x08000000u;
+}
+inline void SkillCurveData::clear_disappearonreachreftarget() {
+  disappearonreachreftarget_ = false;
+  clear_has_disappearonreachreftarget();
+}
+inline bool SkillCurveData::disappearonreachreftarget() const {
+  // @@protoc_insertion_point(field_get:pb.SkillCurveData.DisappearOnReachRefTarget)
+  return disappearonreachreftarget_;
+}
+inline void SkillCurveData::set_disappearonreachreftarget(bool value) {
+  set_has_disappearonreachreftarget();
+  disappearonreachreftarget_ = value;
+  // @@protoc_insertion_point(field_set:pb.SkillCurveData.DisappearOnReachRefTarget)
+}
+
+// optional string ReceiverCurveParent = 29;
+inline bool SkillCurveData::has_receivercurveparent() const {
+  return (_has_bits_[0] & 0x10000000u) != 0;
+}
+inline void SkillCurveData::set_has_receivercurveparent() {
+  _has_bits_[0] |= 0x10000000u;
+}
+inline void SkillCurveData::clear_has_receivercurveparent() {
+  _has_bits_[0] &= ~0x10000000u;
+}
+inline void SkillCurveData::clear_receivercurveparent() {
+  if (receivercurveparent_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    receivercurveparent_->clear();
+  }
+  clear_has_receivercurveparent();
+}
+inline const ::std::string& SkillCurveData::receivercurveparent() const {
+  // @@protoc_insertion_point(field_get:pb.SkillCurveData.ReceiverCurveParent)
+  return *receivercurveparent_;
+}
+inline void SkillCurveData::set_receivercurveparent(const ::std::string& value) {
+  set_has_receivercurveparent();
+  if (receivercurveparent_ == &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    receivercurveparent_ = new ::std::string;
+  }
+  receivercurveparent_->assign(value);
+  // @@protoc_insertion_point(field_set:pb.SkillCurveData.ReceiverCurveParent)
+}
+inline void SkillCurveData::set_receivercurveparent(const char* value) {
+  set_has_receivercurveparent();
+  if (receivercurveparent_ == &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    receivercurveparent_ = new ::std::string;
+  }
+  receivercurveparent_->assign(value);
+  // @@protoc_insertion_point(field_set_char:pb.SkillCurveData.ReceiverCurveParent)
+}
+inline void SkillCurveData::set_receivercurveparent(const char* value, size_t size) {
+  set_has_receivercurveparent();
+  if (receivercurveparent_ == &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    receivercurveparent_ = new ::std::string;
+  }
+  receivercurveparent_->assign(reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_set_pointer:pb.SkillCurveData.ReceiverCurveParent)
+}
+inline ::std::string* SkillCurveData::mutable_receivercurveparent() {
+  set_has_receivercurveparent();
+  if (receivercurveparent_ == &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    receivercurveparent_ = new ::std::string;
+  }
+  // @@protoc_insertion_point(field_mutable:pb.SkillCurveData.ReceiverCurveParent)
+  return receivercurveparent_;
+}
+inline ::std::string* SkillCurveData::release_receivercurveparent() {
+  clear_has_receivercurveparent();
+  if (receivercurveparent_ == &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    return NULL;
+  } else {
+    ::std::string* temp = receivercurveparent_;
+    receivercurveparent_ = const_cast< ::std::string*>(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+    return temp;
+  }
+}
+inline void SkillCurveData::set_allocated_receivercurveparent(::std::string* receivercurveparent) {
+  if (receivercurveparent_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    delete receivercurveparent_;
+  }
+  if (receivercurveparent) {
+    set_has_receivercurveparent();
+    receivercurveparent_ = receivercurveparent;
+  } else {
+    clear_has_receivercurveparent();
+    receivercurveparent_ = const_cast< ::std::string*>(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  }
+  // @@protoc_insertion_point(field_set_allocated:pb.SkillCurveData.ReceiverCurveParent)
 }
 
 

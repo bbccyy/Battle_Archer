@@ -25,6 +25,7 @@
 #include "Framework/Util.h"
 #include "Framework/Physics/Region.h"
 #include "ConfigMgr/ConfigMgr.h"
+#include "SceneMgr/SceneManager.h"
 
 
 int partitionUnit(vector<Unit*>& aArr, int aLeft, int aRight)
@@ -1028,6 +1029,25 @@ void SearchRefTarget(const SharedPtr<Unit>& aUtilizer, const SharedPtr<Skill>& a
 	ESearchRefTargetMethod type = static_cast<ESearchRefTargetMethod>(reftargettype);
     switch(type)
     {
+		case ESearchRefTargetMethodRandomPosNearBy: //在自己附近的随机位置 
+			{
+				RefTarget target;
+				auto* smgr = battleInstance.GetSceneMgr();
+				Vector3 pos;
+				int distMin = skillConf->basedata().archerparam1();
+				int distMax = skillConf->basedata().archerparam2();
+				smgr->GetRandomPositionNearBy(aUtilizer->GetPosition(), distMin, distMax, pos);
+				pos.y = 0;
+				target.SetPos(pos);
+				aTargetArr.emplace_back(target);
+				RestoreObjToPool(target);
+				return;
+			}
+			break;
+		case ESearchRefTargetMethodNearestEnemy: //离自己最近的敌方 
+			relation = ESearchTargetRelationEnemy;
+			filter = ESearchTargetFilterNearest;
+			break;
         case ESearchRefTargetMethodRandEnemy: //随机敌方单位 
             relation = ESearchTargetRelationEnemy; 
             break;
@@ -1059,10 +1079,6 @@ void SearchRefTarget(const SharedPtr<Unit>& aUtilizer, const SharedPtr<Skill>& a
 				RestoreObjToPool(target);
                 return;
             }
-            break;
-        case ESearchRefTargetMethodNearestEnemy: //离自己最近的敌方 
-            relation = ESearchTargetRelationEnemy;
-            filter = ESearchTargetFilterNearest;
             break;
         case ESearchRefTargetMethodNearestFriend: //离自己最近的友方 
             relation = ESearchTargetRelationFriend;

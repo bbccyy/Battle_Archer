@@ -38,10 +38,12 @@ class TActUnionRechargeBackUserReward;
 class TActUnionRechargeBackAllyReward;
 class TActUnionRechargeBackGetUserInfoRsp;
 class TActUnionRechargeBackReceiveRewardReq;
+class TActUnionRechargeBackReceiveRewardRsp;
 class TActUnionRechargeBackGetAllyInfoRsp;
 class TActUnionRechargeBackRank;
 class TActUnionRechargeBackGetRankInfoRsp;
 class TActUnionRechargeBackScoreChangeNotify;
+class TActUnionRechargeBackAllyChangeNotify;
 
 // ===================================================================
 
@@ -799,6 +801,135 @@ class TActUnionRechargeBackReceiveRewardReq : public ::google::protobuf::Message
 
 /*FOR2LUA
 <Record>
+	<name>TActUnionRechargeBackReceiveRewardRsp</name>
+	<Function>
+		<name>CopyFrom</name>
+		<replaceName>MergeFrom</replaceName>
+		<handler>descripter = pb_copyfrom_cpp()</handler>
+	</Function>
+	<Function>
+		<name>operator_equal</name>
+		<replaceName>MergeFrom</replaceName>
+		<handler>descripter = pb_operator_equal_cpp()</handler>
+	</Function>
+	<Function>
+		<name>new</name>
+		<replaceName>net/ActUnionRechargeBack.proto</replaceName>
+		<handler>descripter = pb_new_cpp()</handler>
+	</Function>
+	<Function>
+		<name>ParsePartialFromArray</name>
+		<replaceName>ParseFromString</replaceName>
+		<handler>descripter = pb_decode_cpp()</handler>
+	</Function>
+	<Function>
+		<name>SerializePartialToArray</name>
+		<replaceName>SerializeToString</replaceName>
+		<handler>descripter = pb_encode_cpp()</handler>
+	</Function>
+</Record>
+FOR2LUA*/
+class TActUnionRechargeBackReceiveRewardRsp : public ::google::protobuf::Message {
+ public:
+  TActUnionRechargeBackReceiveRewardRsp();
+  virtual ~TActUnionRechargeBackReceiveRewardRsp();
+
+  TActUnionRechargeBackReceiveRewardRsp(const TActUnionRechargeBackReceiveRewardRsp& from);
+
+  inline TActUnionRechargeBackReceiveRewardRsp& operator=(const TActUnionRechargeBackReceiveRewardRsp& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const TActUnionRechargeBackReceiveRewardRsp& default_instance();
+
+  void Swap(TActUnionRechargeBackReceiveRewardRsp* other);
+
+  // implements Message ----------------------------------------------
+
+  TActUnionRechargeBackReceiveRewardRsp* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const TActUnionRechargeBackReceiveRewardRsp& from);
+  void MergeFrom(const TActUnionRechargeBackReceiveRewardRsp& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional bool IsOk = 1;
+  inline bool has_isok() const;
+  inline void clear_isok();
+  static const int kIsOkFieldNumber = 1;
+  /*FOR2LUA
+  <Record>
+  	<name>TActUnionRechargeBackReceiveRewardRsp</name>
+  	<Function>
+  		<name>isok</name>
+  		<replaceName>IsOk</replaceName>
+  		<handler>descripter = pb_cpp()</handler>
+  	</Function>
+  	<Function>
+  		<name>set_isok</name>
+  		<replaceName>IsOk</replaceName>
+  		<handler>descripter = pb_set_cpp()</handler>
+  	</Function>
+  	<Function>
+  		<name>has_isok</name>
+  		<replaceName>IsOk</replaceName>
+  		<handler>descripter = pb_has_cpp()</handler>
+  	</Function>
+  </Record>
+  FOR2LUA*/
+  inline bool isok() const;
+  inline void set_isok(bool value);
+
+  // @@protoc_insertion_point(class_scope:pb.TActUnionRechargeBackReceiveRewardRsp)
+ private:
+  inline void set_has_isok();
+  inline void clear_has_isok();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint32 _has_bits_[1];
+  mutable int _cached_size_;
+  bool isok_;
+  friend void  protobuf_AddDesc_net_2fActUnionRechargeBack_2eproto();
+  friend void protobuf_AssignDesc_net_2fActUnionRechargeBack_2eproto();
+  friend void protobuf_ShutdownFile_net_2fActUnionRechargeBack_2eproto();
+
+  void InitAsDefaultInstance();
+  static TActUnionRechargeBackReceiveRewardRsp* default_instance_;
+};
+// -------------------------------------------------------------------
+
+/*FOR2LUA
+<Record>
 	<name>TActUnionRechargeBackGetAllyInfoRsp</name>
 	<Function>
 		<name>CopyFrom</name>
@@ -1421,6 +1552,135 @@ class TActUnionRechargeBackScoreChangeNotify : public ::google::protobuf::Messag
   void InitAsDefaultInstance();
   static TActUnionRechargeBackScoreChangeNotify* default_instance_;
 };
+// -------------------------------------------------------------------
+
+/*FOR2LUA
+<Record>
+	<name>TActUnionRechargeBackAllyChangeNotify</name>
+	<Function>
+		<name>CopyFrom</name>
+		<replaceName>MergeFrom</replaceName>
+		<handler>descripter = pb_copyfrom_cpp()</handler>
+	</Function>
+	<Function>
+		<name>operator_equal</name>
+		<replaceName>MergeFrom</replaceName>
+		<handler>descripter = pb_operator_equal_cpp()</handler>
+	</Function>
+	<Function>
+		<name>new</name>
+		<replaceName>net/ActUnionRechargeBack.proto</replaceName>
+		<handler>descripter = pb_new_cpp()</handler>
+	</Function>
+	<Function>
+		<name>ParsePartialFromArray</name>
+		<replaceName>ParseFromString</replaceName>
+		<handler>descripter = pb_decode_cpp()</handler>
+	</Function>
+	<Function>
+		<name>SerializePartialToArray</name>
+		<replaceName>SerializeToString</replaceName>
+		<handler>descripter = pb_encode_cpp()</handler>
+	</Function>
+</Record>
+FOR2LUA*/
+class TActUnionRechargeBackAllyChangeNotify : public ::google::protobuf::Message {
+ public:
+  TActUnionRechargeBackAllyChangeNotify();
+  virtual ~TActUnionRechargeBackAllyChangeNotify();
+
+  TActUnionRechargeBackAllyChangeNotify(const TActUnionRechargeBackAllyChangeNotify& from);
+
+  inline TActUnionRechargeBackAllyChangeNotify& operator=(const TActUnionRechargeBackAllyChangeNotify& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const TActUnionRechargeBackAllyChangeNotify& default_instance();
+
+  void Swap(TActUnionRechargeBackAllyChangeNotify* other);
+
+  // implements Message ----------------------------------------------
+
+  TActUnionRechargeBackAllyChangeNotify* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const TActUnionRechargeBackAllyChangeNotify& from);
+  void MergeFrom(const TActUnionRechargeBackAllyChangeNotify& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional uint32 AllyScore = 1;
+  inline bool has_allyscore() const;
+  inline void clear_allyscore();
+  static const int kAllyScoreFieldNumber = 1;
+  /*FOR2LUA
+  <Record>
+  	<name>TActUnionRechargeBackAllyChangeNotify</name>
+  	<Function>
+  		<name>allyscore</name>
+  		<replaceName>AllyScore</replaceName>
+  		<handler>descripter = pb_cpp()</handler>
+  	</Function>
+  	<Function>
+  		<name>set_allyscore</name>
+  		<replaceName>AllyScore</replaceName>
+  		<handler>descripter = pb_set_cpp()</handler>
+  	</Function>
+  	<Function>
+  		<name>has_allyscore</name>
+  		<replaceName>AllyScore</replaceName>
+  		<handler>descripter = pb_has_cpp()</handler>
+  	</Function>
+  </Record>
+  FOR2LUA*/
+  inline ::google::protobuf::uint32 allyscore() const;
+  inline void set_allyscore(::google::protobuf::uint32 value);
+
+  // @@protoc_insertion_point(class_scope:pb.TActUnionRechargeBackAllyChangeNotify)
+ private:
+  inline void set_has_allyscore();
+  inline void clear_has_allyscore();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint32 _has_bits_[1];
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 allyscore_;
+  friend void  protobuf_AddDesc_net_2fActUnionRechargeBack_2eproto();
+  friend void protobuf_AssignDesc_net_2fActUnionRechargeBack_2eproto();
+  friend void protobuf_ShutdownFile_net_2fActUnionRechargeBack_2eproto();
+
+  void InitAsDefaultInstance();
+  static TActUnionRechargeBackAllyChangeNotify* default_instance_;
+};
 // ===================================================================
 
 
@@ -1718,6 +1978,34 @@ inline void TActUnionRechargeBackReceiveRewardReq::set_id(::google::protobuf::ui
 
 // -------------------------------------------------------------------
 
+// TActUnionRechargeBackReceiveRewardRsp
+
+// optional bool IsOk = 1;
+inline bool TActUnionRechargeBackReceiveRewardRsp::has_isok() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void TActUnionRechargeBackReceiveRewardRsp::set_has_isok() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void TActUnionRechargeBackReceiveRewardRsp::clear_has_isok() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void TActUnionRechargeBackReceiveRewardRsp::clear_isok() {
+  isok_ = false;
+  clear_has_isok();
+}
+inline bool TActUnionRechargeBackReceiveRewardRsp::isok() const {
+  // @@protoc_insertion_point(field_get:pb.TActUnionRechargeBackReceiveRewardRsp.IsOk)
+  return isok_;
+}
+inline void TActUnionRechargeBackReceiveRewardRsp::set_isok(bool value) {
+  set_has_isok();
+  isok_ = value;
+  // @@protoc_insertion_point(field_set:pb.TActUnionRechargeBackReceiveRewardRsp.IsOk)
+}
+
+// -------------------------------------------------------------------
+
 // TActUnionRechargeBackGetAllyInfoRsp
 
 // optional uint32 Score = 1;
@@ -1921,6 +2209,34 @@ inline void TActUnionRechargeBackScoreChangeNotify::set_userallyscore(::google::
   set_has_userallyscore();
   userallyscore_ = value;
   // @@protoc_insertion_point(field_set:pb.TActUnionRechargeBackScoreChangeNotify.UserAllyScore)
+}
+
+// -------------------------------------------------------------------
+
+// TActUnionRechargeBackAllyChangeNotify
+
+// optional uint32 AllyScore = 1;
+inline bool TActUnionRechargeBackAllyChangeNotify::has_allyscore() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void TActUnionRechargeBackAllyChangeNotify::set_has_allyscore() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void TActUnionRechargeBackAllyChangeNotify::clear_has_allyscore() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void TActUnionRechargeBackAllyChangeNotify::clear_allyscore() {
+  allyscore_ = 0u;
+  clear_has_allyscore();
+}
+inline ::google::protobuf::uint32 TActUnionRechargeBackAllyChangeNotify::allyscore() const {
+  // @@protoc_insertion_point(field_get:pb.TActUnionRechargeBackAllyChangeNotify.AllyScore)
+  return allyscore_;
+}
+inline void TActUnionRechargeBackAllyChangeNotify::set_allyscore(::google::protobuf::uint32 value) {
+  set_has_allyscore();
+  allyscore_ = value;
+  // @@protoc_insertion_point(field_set:pb.TActUnionRechargeBackAllyChangeNotify.AllyScore)
 }
 
 

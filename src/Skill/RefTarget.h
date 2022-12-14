@@ -38,6 +38,27 @@ enum class ERefFaceTo
 	OppTarget = 2
 };
 
+enum class EProjectileStartPoint
+{
+	SLOT_FRONT_1 = 0,		//  -> 1,2,3,4,5 <-   +1弹道取3号；+2弹道取2和4号；+3弹道取1,3,5号 
+	SLOT_FRONT_2 = 1,
+	SLOT_FRONT_3 = 2,
+	SLOT_FRONT_4 = 3,
+	SLOT_FRONT_5 = 4,
+
+	SLOT_ANGULAR_1 = 5,		//	-> 1,2,3,4 <-	+1弹道取左侧1和右侧4号；+2弹道取左侧1,2和右侧4,3号 
+	SLOT_ANGULAR_2 = 6,
+	SLOT_ANGULAR_3 = 7,
+	SLOT_ANGULAR_4 = 8,
+
+	SLOT_LEFT = 9,			// 就是左侧和右侧 
+	SLOT_RIGHT = 10,
+
+	SLOT_BACK_1 = 11,		// -> 1,2,3 <- +1弹道取2号； +2弹道取1，3号 
+	SLOT_BACK_2 = 12,
+	SLOT_BACK_3 = 13,
+};
+
 class RefTarget
 {
 public:

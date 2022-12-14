@@ -1300,6 +1300,11 @@ PathFindingMgr* BattleInstance::GetPathMgr()
 	return nullptr;
 }
 
+SceneManager* BattleInstance::GetSceneMgr()
+{
+	return mSceneMgr;
+}
+
 bool BattleInstance::RestrainToBattleArea(const Vector3& aStart, const Vector3& aEnd, int aRadius, Vector3* aResult)
 {
 	//TODO: should replace by RestrainWithBlockLines 

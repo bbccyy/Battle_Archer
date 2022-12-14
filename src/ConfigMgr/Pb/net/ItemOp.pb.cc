@@ -812,9 +812,8 @@ void protobuf_AssignDesc_net_2fItemOp_2eproto() {
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(TItemOpWhiteGoldBreakArmReq));
   TItemOpVioletGoldBreakArmReq_descriptor_ = file->message_type(37);
-  static const int TItemOpVioletGoldBreakArmReq_offsets_[2] = {
+  static const int TItemOpVioletGoldBreakArmReq_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(TItemOpVioletGoldBreakArmReq, itemid_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(TItemOpVioletGoldBreakArmReq, costarr_),
   };
   TItemOpVioletGoldBreakArmReq_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
@@ -874,9 +873,8 @@ void protobuf_AssignDesc_net_2fItemOp_2eproto() {
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(TItemOpWhiteGoldBreakAccessoryReq));
   TItemOpVioletGoldBreakAccessoryReq_descriptor_ = file->message_type(41);
-  static const int TItemOpVioletGoldBreakAccessoryReq_offsets_[2] = {
+  static const int TItemOpVioletGoldBreakAccessoryReq_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(TItemOpVioletGoldBreakAccessoryReq, itemid_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(TItemOpVioletGoldBreakAccessoryReq, costarr_),
   };
   TItemOpVioletGoldBreakAccessoryReq_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
@@ -1617,53 +1615,52 @@ void protobuf_AddDesc_net_2fItemOp_2eproto() {
     "fo\030\001 \003(\0132\033.pb.TItemOpHeroSoulDropInfo\"$\n"
     "\022TItemOpBreakArmReq\022\016\n\006ItemId\030\001 \001(\r\"-\n\033T"
     "ItemOpWhiteGoldBreakArmReq\022\016\n\006ItemId\030\001 \001"
-    "(\r\"P\n\034TItemOpVioletGoldBreakArmReq\022\016\n\006It"
-    "emId\030\001 \001(\r\022 \n\007CostArr\030\002 \003(\0132\017.pb.TSimple"
-    "Item\"P\n\034TItemOpVioletGoldTrainArmReq\022\016\n\006"
-    "ItemId\030\001 \001(\r\022 \n\007CostArr\030\002 \003(\0132\017.pb.TSimp"
-    "leItem\"*\n\030TItemOpBreakAccessoryReq\022\016\n\006It"
-    "emId\030\001 \001(\r\"3\n!TItemOpWhiteGoldBreakAcces"
-    "soryReq\022\016\n\006ItemId\030\001 \001(\r\"V\n\"TItemOpViolet"
-    "GoldBreakAccessoryReq\022\016\n\006ItemId\030\001 \001(\r\022 \n"
-    "\007CostArr\030\002 \003(\0132\017.pb.TSimpleItem\"V\n\"TItem"
-    "OpVioletGoldTrainAccessoryReq\022\016\n\006ItemId\030"
-    "\001 \001(\r\022 \n\007CostArr\030\002 \003(\0132\017.pb.TSimpleItem\""
-    ":\n\033TItemOpTransformHeroSoulReq\022\016\n\006ItemId"
-    "\030\001 \001(\r\022\013\n\003Num\030\002 \001(\r\"C\n\033TItemOpTransformH"
-    "eroSoulRsp\022$\n\tarrReward\030\001 \003(\0132\021.pb.TComm"
-    "onReward\";\n\030TItemOpMountEquipLvUpReq\022\016\n\006"
-    "ItemId\030\001 \001(\r\022\017\n\007UpLevel\030\002 \001(\r\"2\n TItemOp"
-    "GoldTransformExclEquipReq\022\016\n\006ItemId\030\001 \001("
-    "\r\",\n\032TItemOpEngraveExclEquipReq\022\016\n\006ItemI"
-    "d\030\001 \001(\r\")\n\032TItemOpTreasureActivateReq\022\013\n"
-    "\003Tid\030\001 \001(\r\"7\n\033TItemOpTreasureFragmentIte"
-    "m\022\013\n\003Tid\030\001 \001(\r\022\013\n\003Num\030\002 \001(\r\"c\n\035TItemOpTr"
-    "easureStarLevelUpReq\022\016\n\006ItemId\030\001 \001(\r\0222\n\t"
-    "ConsumArr\030\002 \003(\0132\037.pb.TItemOpTreasureFrag"
-    "mentItem\"]\n\027TItemOpTreasureAwakeReq\022\016\n\006I"
-    "temId\030\001 \001(\r\0222\n\tConsumArr\030\002 \003(\0132\037.pb.TIte"
-    "mOpTreasureFragmentItem\">\n\030TItemOpSilkBa"
-    "gEnhanceReq\022\016\n\006ItemId\030\001 \001(\r\022\022\n\nEnhanceNu"
-    "m\030\002 \001(\r\")\n\027TItemOpSilkBagStarUpReq\022\016\n\006It"
-    "emId\030\001 \001(\r\"E\n\036TItemOpTreasureStoneCombin"
-    "eReq\022\020\n\010StoneTid\030\001 \001(\r\022\021\n\tConsumNum\030\002 \001("
-    "\r\"\'\n\025TItemOpRefineArmLvReq\022\016\n\006ItemId\030\001 \001"
-    "(\r\"-\n\033TItemOpRefineAccessoryLvReq\022\016\n\006Ite"
-    "mId\030\001 \001(\r\"$\n\022TItemOpArmCarveReq\022\016\n\006ItemI"
-    "d\030\001 \001(\r\"1\n\025TItemOpDecorationItem\022\013\n\003Tid\030"
-    "\001 \001(\r\022\013\n\003Num\030\002 \001(\r\"d\n\037TItemOpDecorationS"
-    "tarLevelUpReq\022\016\n\006ItemId\030\001 \001(\r\0221\n\016Consume"
-    "ItemArr\030\002 \003(\0132\031.pb.TItemOpDecorationItem"
-    "\"2\n\023TItemOpArmEvolveReq\022\016\n\006ItemId\030\001 \001(\r\022"
-    "\013\n\003Num\030\002 \001(\r\"(\n\023TItemOpArmEvolveRsp\022\021\n\tC"
-    "ritRatio\030\001 \001(\r\")\n\027TItemOpArmEvolveLvUpRe"
-    "q\022\016\n\006ItemId\030\001 \001(\r\"9\n\032TItemOpForceSoulEnh"
-    "anceReq\022\016\n\006ItemId\030\001 \001(\r\022\013\n\003num\030\002 \001(\r\">\n\031"
-    "TItemOpForceSoulStarUpReq\022\016\n\006ItemId\030\001 \001("
-    "\r\022\021\n\tArrItemId\030\002 \003(\r\"<\n\032TItemOpComposeFo"
-    "rceSoulReq\022\013\n\003Tid\030\001 \001(\r\022\021\n\tArrItemId\030\002 \003"
-    "(\r*E\n\027EBeastArmRefineCostType\022\024\n\020REFINE_"
-    "COST_ITEM\020\001\022\024\n\020REFINE_COST_GOLD\020\002", 4313);
+    "(\r\".\n\034TItemOpVioletGoldBreakArmReq\022\016\n\006It"
+    "emId\030\001 \001(\r\"P\n\034TItemOpVioletGoldTrainArmR"
+    "eq\022\016\n\006ItemId\030\001 \001(\r\022 \n\007CostArr\030\002 \003(\0132\017.pb"
+    ".TSimpleItem\"*\n\030TItemOpBreakAccessoryReq"
+    "\022\016\n\006ItemId\030\001 \001(\r\"3\n!TItemOpWhiteGoldBrea"
+    "kAccessoryReq\022\016\n\006ItemId\030\001 \001(\r\"4\n\"TItemOp"
+    "VioletGoldBreakAccessoryReq\022\016\n\006ItemId\030\001 "
+    "\001(\r\"V\n\"TItemOpVioletGoldTrainAccessoryRe"
+    "q\022\016\n\006ItemId\030\001 \001(\r\022 \n\007CostArr\030\002 \003(\0132\017.pb."
+    "TSimpleItem\":\n\033TItemOpTransformHeroSoulR"
+    "eq\022\016\n\006ItemId\030\001 \001(\r\022\013\n\003Num\030\002 \001(\r\"C\n\033TItem"
+    "OpTransformHeroSoulRsp\022$\n\tarrReward\030\001 \003("
+    "\0132\021.pb.TCommonReward\";\n\030TItemOpMountEqui"
+    "pLvUpReq\022\016\n\006ItemId\030\001 \001(\r\022\017\n\007UpLevel\030\002 \001("
+    "\r\"2\n TItemOpGoldTransformExclEquipReq\022\016\n"
+    "\006ItemId\030\001 \001(\r\",\n\032TItemOpEngraveExclEquip"
+    "Req\022\016\n\006ItemId\030\001 \001(\r\")\n\032TItemOpTreasureAc"
+    "tivateReq\022\013\n\003Tid\030\001 \001(\r\"7\n\033TItemOpTreasur"
+    "eFragmentItem\022\013\n\003Tid\030\001 \001(\r\022\013\n\003Num\030\002 \001(\r\""
+    "c\n\035TItemOpTreasureStarLevelUpReq\022\016\n\006Item"
+    "Id\030\001 \001(\r\0222\n\tConsumArr\030\002 \003(\0132\037.pb.TItemOp"
+    "TreasureFragmentItem\"]\n\027TItemOpTreasureA"
+    "wakeReq\022\016\n\006ItemId\030\001 \001(\r\0222\n\tConsumArr\030\002 \003"
+    "(\0132\037.pb.TItemOpTreasureFragmentItem\">\n\030T"
+    "ItemOpSilkBagEnhanceReq\022\016\n\006ItemId\030\001 \001(\r\022"
+    "\022\n\nEnhanceNum\030\002 \001(\r\")\n\027TItemOpSilkBagSta"
+    "rUpReq\022\016\n\006ItemId\030\001 \001(\r\"E\n\036TItemOpTreasur"
+    "eStoneCombineReq\022\020\n\010StoneTid\030\001 \001(\r\022\021\n\tCo"
+    "nsumNum\030\002 \001(\r\"\'\n\025TItemOpRefineArmLvReq\022\016"
+    "\n\006ItemId\030\001 \001(\r\"-\n\033TItemOpRefineAccessory"
+    "LvReq\022\016\n\006ItemId\030\001 \001(\r\"$\n\022TItemOpArmCarve"
+    "Req\022\016\n\006ItemId\030\001 \001(\r\"1\n\025TItemOpDecoration"
+    "Item\022\013\n\003Tid\030\001 \001(\r\022\013\n\003Num\030\002 \001(\r\"d\n\037TItemO"
+    "pDecorationStarLevelUpReq\022\016\n\006ItemId\030\001 \001("
+    "\r\0221\n\016ConsumeItemArr\030\002 \003(\0132\031.pb.TItemOpDe"
+    "corationItem\"2\n\023TItemOpArmEvolveReq\022\016\n\006I"
+    "temId\030\001 \001(\r\022\013\n\003Num\030\002 \001(\r\"(\n\023TItemOpArmEv"
+    "olveRsp\022\021\n\tCritRatio\030\001 \001(\r\")\n\027TItemOpArm"
+    "EvolveLvUpReq\022\016\n\006ItemId\030\001 \001(\r\"9\n\032TItemOp"
+    "ForceSoulEnhanceReq\022\016\n\006ItemId\030\001 \001(\r\022\013\n\003n"
+    "um\030\002 \001(\r\">\n\031TItemOpForceSoulStarUpReq\022\016\n"
+    "\006ItemId\030\001 \001(\r\022\021\n\tArrItemId\030\002 \003(\r\"<\n\032TIte"
+    "mOpComposeForceSoulReq\022\013\n\003Tid\030\001 \001(\r\022\021\n\tA"
+    "rrItemId\030\002 \003(\r*E\n\027EBeastArmRefineCostTyp"
+    "e\022\024\n\020REFINE_COST_ITEM\020\001\022\024\n\020REFINE_COST_G"
+    "OLD\020\002", 4245);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "net/ItemOp.proto", &protobuf_RegisterTypes);
   TItemOpCombinePromoteReq::default_instance_ = new TItemOpCombinePromoteReq();
@@ -11301,7 +11298,6 @@ void TItemOpWhiteGoldBreakArmReq::Swap(TItemOpWhiteGoldBreakArmReq* other) {
 
 #ifndef _MSC_VER
 const int TItemOpVioletGoldBreakArmReq::kItemIdFieldNumber;
-const int TItemOpVioletGoldBreakArmReq::kCostArrFieldNumber;
 #endif  // !_MSC_VER
 
 TItemOpVioletGoldBreakArmReq::TItemOpVioletGoldBreakArmReq()
@@ -11359,7 +11355,6 @@ TItemOpVioletGoldBreakArmReq* TItemOpVioletGoldBreakArmReq::New() const {
 
 void TItemOpVioletGoldBreakArmReq::Clear() {
   itemid_ = 0u;
-  costarr_.Clear();
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
 }
@@ -11384,20 +11379,6 @@ bool TItemOpVioletGoldBreakArmReq::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(18)) goto parse_CostArr;
-        break;
-      }
-
-      // repeated .pb.TSimpleItem CostArr = 2;
-      case 2: {
-        if (tag == 18) {
-         parse_CostArr:
-          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
-                input, add_costarr()));
-        } else {
-          goto handle_unusual;
-        }
-        if (input->ExpectTag(18)) goto parse_CostArr;
         if (input->ExpectAtEnd()) goto success;
         break;
       }
@@ -11432,12 +11413,6 @@ void TItemOpVioletGoldBreakArmReq::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->itemid(), output);
   }
 
-  // repeated .pb.TSimpleItem CostArr = 2;
-  for (int i = 0; i < this->costarr_size(); i++) {
-    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      2, this->costarr(i), output);
-  }
-
   if (!unknown_fields().empty()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
@@ -11451,13 +11426,6 @@ void TItemOpVioletGoldBreakArmReq::SerializeWithCachedSizes(
   // optional uint32 ItemId = 1;
   if (has_itemid()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(1, this->itemid(), target);
-  }
-
-  // repeated .pb.TSimpleItem CostArr = 2;
-  for (int i = 0; i < this->costarr_size(); i++) {
-    target = ::google::protobuf::internal::WireFormatLite::
-      WriteMessageNoVirtualToArray(
-        2, this->costarr(i), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -11480,14 +11448,6 @@ int TItemOpVioletGoldBreakArmReq::ByteSize() const {
     }
 
   }
-  // repeated .pb.TSimpleItem CostArr = 2;
-  total_size += 1 * this->costarr_size();
-  for (int i = 0; i < this->costarr_size(); i++) {
-    total_size +=
-      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-        this->costarr(i));
-  }
-
   if (!unknown_fields().empty()) {
     total_size +=
       ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
@@ -11513,7 +11473,6 @@ void TItemOpVioletGoldBreakArmReq::MergeFrom(const ::google::protobuf::Message& 
 
 void TItemOpVioletGoldBreakArmReq::MergeFrom(const TItemOpVioletGoldBreakArmReq& from) {
   GOOGLE_CHECK_NE(&from, this);
-  costarr_.MergeFrom(from.costarr_);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     if (from.has_itemid()) {
       set_itemid(from.itemid());
@@ -11542,7 +11501,6 @@ bool TItemOpVioletGoldBreakArmReq::IsInitialized() const {
 void TItemOpVioletGoldBreakArmReq::Swap(TItemOpVioletGoldBreakArmReq* other) {
   if (other != this) {
     std::swap(itemid_, other->itemid_);
-    costarr_.Swap(&other->costarr_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
@@ -12267,7 +12225,6 @@ void TItemOpWhiteGoldBreakAccessoryReq::Swap(TItemOpWhiteGoldBreakAccessoryReq* 
 
 #ifndef _MSC_VER
 const int TItemOpVioletGoldBreakAccessoryReq::kItemIdFieldNumber;
-const int TItemOpVioletGoldBreakAccessoryReq::kCostArrFieldNumber;
 #endif  // !_MSC_VER
 
 TItemOpVioletGoldBreakAccessoryReq::TItemOpVioletGoldBreakAccessoryReq()
@@ -12325,7 +12282,6 @@ TItemOpVioletGoldBreakAccessoryReq* TItemOpVioletGoldBreakAccessoryReq::New() co
 
 void TItemOpVioletGoldBreakAccessoryReq::Clear() {
   itemid_ = 0u;
-  costarr_.Clear();
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
 }
@@ -12350,20 +12306,6 @@ bool TItemOpVioletGoldBreakAccessoryReq::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(18)) goto parse_CostArr;
-        break;
-      }
-
-      // repeated .pb.TSimpleItem CostArr = 2;
-      case 2: {
-        if (tag == 18) {
-         parse_CostArr:
-          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
-                input, add_costarr()));
-        } else {
-          goto handle_unusual;
-        }
-        if (input->ExpectTag(18)) goto parse_CostArr;
         if (input->ExpectAtEnd()) goto success;
         break;
       }
@@ -12398,12 +12340,6 @@ void TItemOpVioletGoldBreakAccessoryReq::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->itemid(), output);
   }
 
-  // repeated .pb.TSimpleItem CostArr = 2;
-  for (int i = 0; i < this->costarr_size(); i++) {
-    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      2, this->costarr(i), output);
-  }
-
   if (!unknown_fields().empty()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
@@ -12417,13 +12353,6 @@ void TItemOpVioletGoldBreakAccessoryReq::SerializeWithCachedSizes(
   // optional uint32 ItemId = 1;
   if (has_itemid()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(1, this->itemid(), target);
-  }
-
-  // repeated .pb.TSimpleItem CostArr = 2;
-  for (int i = 0; i < this->costarr_size(); i++) {
-    target = ::google::protobuf::internal::WireFormatLite::
-      WriteMessageNoVirtualToArray(
-        2, this->costarr(i), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -12446,14 +12375,6 @@ int TItemOpVioletGoldBreakAccessoryReq::ByteSize() const {
     }
 
   }
-  // repeated .pb.TSimpleItem CostArr = 2;
-  total_size += 1 * this->costarr_size();
-  for (int i = 0; i < this->costarr_size(); i++) {
-    total_size +=
-      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-        this->costarr(i));
-  }
-
   if (!unknown_fields().empty()) {
     total_size +=
       ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
@@ -12479,7 +12400,6 @@ void TItemOpVioletGoldBreakAccessoryReq::MergeFrom(const ::google::protobuf::Mes
 
 void TItemOpVioletGoldBreakAccessoryReq::MergeFrom(const TItemOpVioletGoldBreakAccessoryReq& from) {
   GOOGLE_CHECK_NE(&from, this);
-  costarr_.MergeFrom(from.costarr_);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     if (from.has_itemid()) {
       set_itemid(from.itemid());
@@ -12508,7 +12428,6 @@ bool TItemOpVioletGoldBreakAccessoryReq::IsInitialized() const {
 void TItemOpVioletGoldBreakAccessoryReq::Swap(TItemOpVioletGoldBreakAccessoryReq* other) {
   if (other != this) {
     std::swap(itemid_, other->itemid_);
-    costarr_.Swap(&other->costarr_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);

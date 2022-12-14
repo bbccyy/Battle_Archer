@@ -29,6 +29,15 @@ const ::google::protobuf::internal::GeneratedMessageReflection*
 const ::google::protobuf::Descriptor* SkillLevelProbSkill_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   SkillLevelProbSkill_reflection_ = NULL;
+const ::google::protobuf::Descriptor* SkillCurveAcceleration_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  SkillCurveAcceleration_reflection_ = NULL;
+const ::google::protobuf::Descriptor* SkillMoveData_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  SkillMoveData_reflection_ = NULL;
+const ::google::protobuf::Descriptor* SkillCurveData_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  SkillCurveData_reflection_ = NULL;
 
 }  // namespace
 
@@ -88,6 +97,101 @@ void protobuf_AssignDesc_module_2fSkillBaseData2_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(SkillLevelProbSkill));
+  SkillCurveAcceleration_descriptor_ = file->message_type(3);
+  static const int SkillCurveAcceleration_offsets_[2] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SkillCurveAcceleration, speed_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SkillCurveAcceleration, rate_),
+  };
+  SkillCurveAcceleration_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      SkillCurveAcceleration_descriptor_,
+      SkillCurveAcceleration::default_instance_,
+      SkillCurveAcceleration_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SkillCurveAcceleration, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SkillCurveAcceleration, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(SkillCurveAcceleration));
+  SkillMoveData_descriptor_ = file->message_type(4);
+  static const int SkillMoveData_offsets_[22] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SkillMoveData, damagetime_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SkillMoveData, movetype_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SkillMoveData, movetypeparam_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SkillMoveData, movespeed_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SkillMoveData, moveheight_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SkillMoveData, moveupspeed_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SkillMoveData, movedownspeed_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SkillMoveData, staytimeonpeak_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SkillMoveData, canbereftarget_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SkillMoveData, canbeeffecttarget_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SkillMoveData, movedownheight_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SkillMoveData, falltoground_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SkillMoveData, moveupacceleration_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SkillMoveData, movedownacceleration_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SkillMoveData, playfloatawayanim_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SkillMoveData, allowreplaceanim_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SkillMoveData, playfloatctrlainm_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SkillMoveData, animonfloatupandkeep_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SkillMoveData, animonfloatdown_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SkillMoveData, breakbyobstacle_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SkillMoveData, moveacceleration_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SkillMoveData, tdneedblockbyline_),
+  };
+  SkillMoveData_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      SkillMoveData_descriptor_,
+      SkillMoveData::default_instance_,
+      SkillMoveData_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SkillMoveData, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SkillMoveData, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(SkillMoveData));
+  SkillCurveData_descriptor_ = file->message_type(5);
+  static const int SkillCurveData_offsets_[29] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SkillCurveData, iscurve_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SkillCurveData, curvetype_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SkillCurveData, curveradiu_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SkillCurveData, curveparent_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SkillCurveData, curveeffect_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SkillCurveData, nonecurveeffet_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SkillCurveData, istrackcurve_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SkillCurveData, isthroughcurve_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SkillCurveData, maxthroughnum_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SkillCurveData, isdisappearoncollision_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SkillCurveData, collisiondetectiontype_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SkillCurveData, curvespeed_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SkillCurveData, curveacceleration_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SkillCurveData, iscurveback_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SkillCurveData, effectonback_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SkillCurveData, curvebackspeed_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SkillCurveData, curvebackacceleration_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SkillCurveData, angleoffset_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SkillCurveData, controlleroffset_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SkillCurveData, curvelasttime_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SkillCurveData, throughcollisiondetectiontype_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SkillCurveData, headcurveeffect_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SkillCurveData, isfixedtime_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SkillCurveData, curveflytime_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SkillCurveData, noverticalmove_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SkillCurveData, isline_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SkillCurveData, shapeparam1_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SkillCurveData, disappearonreachreftarget_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SkillCurveData, receivercurveparent_),
+  };
+  SkillCurveData_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      SkillCurveData_descriptor_,
+      SkillCurveData::default_instance_,
+      SkillCurveData_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SkillCurveData, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SkillCurveData, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(SkillCurveData));
 }
 
 namespace {
@@ -106,6 +210,12 @@ void protobuf_RegisterTypes(const ::std::string&) {
     SkillLevelSubBuff_descriptor_, &SkillLevelSubBuff::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     SkillLevelProbSkill_descriptor_, &SkillLevelProbSkill::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    SkillCurveAcceleration_descriptor_, &SkillCurveAcceleration::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    SkillMoveData_descriptor_, &SkillMoveData::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    SkillCurveData_descriptor_, &SkillCurveData::default_instance());
 }
 
 }  // namespace
@@ -117,6 +227,12 @@ void protobuf_ShutdownFile_module_2fSkillBaseData2_2eproto() {
   delete SkillLevelSubBuff_reflection_;
   delete SkillLevelProbSkill::default_instance_;
   delete SkillLevelProbSkill_reflection_;
+  delete SkillCurveAcceleration::default_instance_;
+  delete SkillCurveAcceleration_reflection_;
+  delete SkillMoveData::default_instance_;
+  delete SkillMoveData_reflection_;
+  delete SkillCurveData::default_instance_;
+  delete SkillCurveData_reflection_;
 }
 
 void protobuf_AddDesc_module_2fSkillBaseData2_2eproto() {
@@ -131,15 +247,57 @@ void protobuf_AddDesc_module_2fSkillBaseData2_2eproto() {
     "(\005\".\n\021SkillLevelSubBuff\022\r\n\005Level\030\001 \001(\005\022\n"
     "\n\002ID\030\002 \003(\005\"^\n\023SkillLevelProbSkill\022\r\n\005Lev"
     "el\030\001 \001(\005\022\033\n\023ProbabilisticParams\030\002 \003(\005\022\033\n"
-    "\023ProbabilisticSkills\030\003 \003(\005", 226);
+    "\023ProbabilisticSkills\030\003 \003(\005\"5\n\026SkillCurve"
+    "Acceleration\022\r\n\005Speed\030\001 \001(\005\022\014\n\004Rate\030\002 \001("
+    "\005\"\337\004\n\rSkillMoveData\022\022\n\nDamageTime\030\001 \001(\005\022"
+    "\020\n\010MoveType\030\002 \001(\005\022\025\n\rMoveTypeParam\030\003 \001(\005"
+    "\022\021\n\tMoveSpeed\030\004 \001(\005\022\022\n\nMoveHeight\030\005 \001(\005\022"
+    "\023\n\013MoveUpSpeed\030\006 \001(\005\022\025\n\rMoveDownSpeed\030\007 "
+    "\001(\005\022\026\n\016StayTimeOnPeak\030\n \001(\005\022\026\n\016CanBeRefT"
+    "arget\030\013 \001(\010\022\031\n\021CanBeEffectTarget\030\014 \001(\010\022\026"
+    "\n\016MoveDownHeight\030\r \001(\005\022\024\n\014FallToGround\030\016"
+    " \001(\010\0226\n\022MoveUpAcceleration\030\017 \001(\0132\032.pb.Sk"
+    "illCurveAcceleration\0228\n\024MoveDownAccelera"
+    "tion\030\020 \001(\0132\032.pb.SkillCurveAcceleration\022\031"
+    "\n\021PlayFloatAwayAnim\030\021 \001(\010\022\030\n\020AllowReplac"
+    "eAnim\030\022 \001(\010\022\031\n\021PlayFloatCtrlAinm\030\023 \001(\010\022\034"
+    "\n\024AnimOnFloatUpAndKeep\030\025 \001(\t\022\027\n\017AnimOnFl"
+    "oatDown\030\026 \001(\t\022\027\n\017BreakByObstacle\030\027 \001(\010\022\030"
+    "\n\020MoveAcceleration\030\030 \001(\005\022\031\n\021TDNeedBlockB"
+    "yLine\030\031 \001(\010\"\206\006\n\016SkillCurveData\022\017\n\007IsCurv"
+    "e\030\001 \001(\005\022\021\n\tCurveType\030\002 \001(\005\022\022\n\nCurveRadiu"
+    "\030\003 \001(\005\022\023\n\013CurveParent\030\004 \001(\t\022\023\n\013CurveEffe"
+    "ct\030\005 \001(\t\022\026\n\016NoneCurveEffet\030\006 \001(\t\022\024\n\014IsTr"
+    "ackCurve\030\007 \001(\010\022\026\n\016IsThroughCurve\030\010 \001(\010\022\025"
+    "\n\rMaxThroughNum\030\t \001(\005\022\036\n\026IsDisappearOnCo"
+    "llision\030\n \001(\010\022\036\n\026CollisionDetectionType\030"
+    "\013 \001(\005\022\022\n\nCurveSpeed\030\014 \001(\005\0225\n\021CurveAccele"
+    "ration\030\r \003(\0132\032.pb.SkillCurveAcceleration"
+    "\022\023\n\013IsCurveBack\030\016 \001(\010\022\024\n\014EffectOnBack\030\017 "
+    "\001(\010\022\026\n\016CurveBackSpeed\030\020 \001(\005\0229\n\025CurveBack"
+    "Acceleration\030\021 \003(\0132\032.pb.SkillCurveAccele"
+    "ration\022\023\n\013AngleOffset\030\022 \001(\005\022\030\n\020Controlle"
+    "rOffset\030\023 \003(\005\022\025\n\rCurveLastTime\030\024 \001(\005\022%\n\035"
+    "ThroughCollisionDetectionType\030\025 \001(\005\022\027\n\017H"
+    "eadCurveEffect\030\026 \001(\t\022\023\n\013IsFixedTime\030\027 \001("
+    "\010\022\024\n\014CurveFlyTime\030\030 \001(\005\022\026\n\016NoVerticalMov"
+    "e\030\031 \001(\010\022\016\n\006IsLine\030\032 \001(\010\022\023\n\013ShapeParam1\030\033"
+    " \001(\005\022!\n\031DisappearOnReachRefTarget\030\034 \001(\010\022"
+    "\033\n\023ReceiverCurveParent\030\035 \001(\t", 1668);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "module/SkillBaseData2.proto", &protobuf_RegisterTypes);
   SkillLevelSubSkill::default_instance_ = new SkillLevelSubSkill();
   SkillLevelSubBuff::default_instance_ = new SkillLevelSubBuff();
   SkillLevelProbSkill::default_instance_ = new SkillLevelProbSkill();
+  SkillCurveAcceleration::default_instance_ = new SkillCurveAcceleration();
+  SkillMoveData::default_instance_ = new SkillMoveData();
+  SkillCurveData::default_instance_ = new SkillCurveData();
   SkillLevelSubSkill::default_instance_->InitAsDefaultInstance();
   SkillLevelSubBuff::default_instance_->InitAsDefaultInstance();
   SkillLevelProbSkill::default_instance_->InitAsDefaultInstance();
+  SkillCurveAcceleration::default_instance_->InitAsDefaultInstance();
+  SkillMoveData::default_instance_->InitAsDefaultInstance();
+  SkillCurveData::default_instance_->InitAsDefaultInstance();
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_module_2fSkillBaseData2_2eproto);
 }
 
@@ -992,6 +1150,2800 @@ void SkillLevelProbSkill::Swap(SkillLevelProbSkill* other) {
   ::google::protobuf::Metadata metadata;
   metadata.descriptor = SkillLevelProbSkill_descriptor_;
   metadata.reflection = SkillLevelProbSkill_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int SkillCurveAcceleration::kSpeedFieldNumber;
+const int SkillCurveAcceleration::kRateFieldNumber;
+#endif  // !_MSC_VER
+
+SkillCurveAcceleration::SkillCurveAcceleration()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:pb.SkillCurveAcceleration)
+}
+
+void SkillCurveAcceleration::InitAsDefaultInstance() {
+}
+
+SkillCurveAcceleration::SkillCurveAcceleration(const SkillCurveAcceleration& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+  // @@protoc_insertion_point(copy_constructor:pb.SkillCurveAcceleration)
+}
+
+void SkillCurveAcceleration::SharedCtor() {
+  _cached_size_ = 0;
+  speed_ = 0;
+  rate_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+SkillCurveAcceleration::~SkillCurveAcceleration() {
+  // @@protoc_insertion_point(destructor:pb.SkillCurveAcceleration)
+  SharedDtor();
+}
+
+void SkillCurveAcceleration::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void SkillCurveAcceleration::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* SkillCurveAcceleration::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return SkillCurveAcceleration_descriptor_;
+}
+
+const SkillCurveAcceleration& SkillCurveAcceleration::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_module_2fSkillBaseData2_2eproto();
+  return *default_instance_;
+}
+
+SkillCurveAcceleration* SkillCurveAcceleration::default_instance_ = NULL;
+
+SkillCurveAcceleration* SkillCurveAcceleration::New() const {
+  return new SkillCurveAcceleration;
+}
+
+void SkillCurveAcceleration::Clear() {
+#define OFFSET_OF_FIELD_(f) (reinterpret_cast<char*>(      \
+  &reinterpret_cast<SkillCurveAcceleration*>(16)->f) - \
+   reinterpret_cast<char*>(16))
+
+#define ZR_(first, last) do {                              \
+    size_t f = OFFSET_OF_FIELD_(first);                    \
+    size_t n = OFFSET_OF_FIELD_(last) - f + sizeof(last);  \
+    ::memset(&first, 0, n);                                \
+  } while (0)
+
+  ZR_(speed_, rate_);
+
+#undef OFFSET_OF_FIELD_
+#undef ZR_
+
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool SkillCurveAcceleration::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:pb.SkillCurveAcceleration)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional int32 Speed = 1;
+      case 1: {
+        if (tag == 8) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &speed_)));
+          set_has_speed();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(16)) goto parse_Rate;
+        break;
+      }
+
+      // optional int32 Rate = 2;
+      case 2: {
+        if (tag == 16) {
+         parse_Rate:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &rate_)));
+          set_has_rate();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectAtEnd()) goto success;
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0 ||
+            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:pb.SkillCurveAcceleration)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:pb.SkillCurveAcceleration)
+  return false;
+#undef DO_
+}
+
+void SkillCurveAcceleration::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:pb.SkillCurveAcceleration)
+  // optional int32 Speed = 1;
+  if (has_speed()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->speed(), output);
+  }
+
+  // optional int32 Rate = 2;
+  if (has_rate()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->rate(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+  // @@protoc_insertion_point(serialize_end:pb.SkillCurveAcceleration)
+}
+
+::google::protobuf::uint8* SkillCurveAcceleration::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // @@protoc_insertion_point(serialize_to_array_start:pb.SkillCurveAcceleration)
+  // optional int32 Speed = 1;
+  if (has_speed()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->speed(), target);
+  }
+
+  // optional int32 Rate = 2;
+  if (has_rate()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->rate(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:pb.SkillCurveAcceleration)
+  return target;
+}
+
+int SkillCurveAcceleration::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // optional int32 Speed = 1;
+    if (has_speed()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->speed());
+    }
+
+    // optional int32 Rate = 2;
+    if (has_rate()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->rate());
+    }
+
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void SkillCurveAcceleration::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const SkillCurveAcceleration* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const SkillCurveAcceleration*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void SkillCurveAcceleration::MergeFrom(const SkillCurveAcceleration& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_speed()) {
+      set_speed(from.speed());
+    }
+    if (from.has_rate()) {
+      set_rate(from.rate());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void SkillCurveAcceleration::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void SkillCurveAcceleration::CopyFrom(const SkillCurveAcceleration& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool SkillCurveAcceleration::IsInitialized() const {
+
+  return true;
+}
+
+void SkillCurveAcceleration::Swap(SkillCurveAcceleration* other) {
+  if (other != this) {
+    std::swap(speed_, other->speed_);
+    std::swap(rate_, other->rate_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata SkillCurveAcceleration::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = SkillCurveAcceleration_descriptor_;
+  metadata.reflection = SkillCurveAcceleration_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int SkillMoveData::kDamageTimeFieldNumber;
+const int SkillMoveData::kMoveTypeFieldNumber;
+const int SkillMoveData::kMoveTypeParamFieldNumber;
+const int SkillMoveData::kMoveSpeedFieldNumber;
+const int SkillMoveData::kMoveHeightFieldNumber;
+const int SkillMoveData::kMoveUpSpeedFieldNumber;
+const int SkillMoveData::kMoveDownSpeedFieldNumber;
+const int SkillMoveData::kStayTimeOnPeakFieldNumber;
+const int SkillMoveData::kCanBeRefTargetFieldNumber;
+const int SkillMoveData::kCanBeEffectTargetFieldNumber;
+const int SkillMoveData::kMoveDownHeightFieldNumber;
+const int SkillMoveData::kFallToGroundFieldNumber;
+const int SkillMoveData::kMoveUpAccelerationFieldNumber;
+const int SkillMoveData::kMoveDownAccelerationFieldNumber;
+const int SkillMoveData::kPlayFloatAwayAnimFieldNumber;
+const int SkillMoveData::kAllowReplaceAnimFieldNumber;
+const int SkillMoveData::kPlayFloatCtrlAinmFieldNumber;
+const int SkillMoveData::kAnimOnFloatUpAndKeepFieldNumber;
+const int SkillMoveData::kAnimOnFloatDownFieldNumber;
+const int SkillMoveData::kBreakByObstacleFieldNumber;
+const int SkillMoveData::kMoveAccelerationFieldNumber;
+const int SkillMoveData::kTDNeedBlockByLineFieldNumber;
+#endif  // !_MSC_VER
+
+SkillMoveData::SkillMoveData()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:pb.SkillMoveData)
+}
+
+void SkillMoveData::InitAsDefaultInstance() {
+  moveupacceleration_ = const_cast< ::pb::SkillCurveAcceleration*>(&::pb::SkillCurveAcceleration::default_instance());
+  movedownacceleration_ = const_cast< ::pb::SkillCurveAcceleration*>(&::pb::SkillCurveAcceleration::default_instance());
+}
+
+SkillMoveData::SkillMoveData(const SkillMoveData& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+  // @@protoc_insertion_point(copy_constructor:pb.SkillMoveData)
+}
+
+void SkillMoveData::SharedCtor() {
+  ::google::protobuf::internal::GetEmptyString();
+  _cached_size_ = 0;
+  damagetime_ = 0;
+  movetype_ = 0;
+  movetypeparam_ = 0;
+  movespeed_ = 0;
+  moveheight_ = 0;
+  moveupspeed_ = 0;
+  movedownspeed_ = 0;
+  staytimeonpeak_ = 0;
+  canbereftarget_ = false;
+  canbeeffecttarget_ = false;
+  movedownheight_ = 0;
+  falltoground_ = false;
+  moveupacceleration_ = NULL;
+  movedownacceleration_ = NULL;
+  playfloatawayanim_ = false;
+  allowreplaceanim_ = false;
+  playfloatctrlainm_ = false;
+  animonfloatupandkeep_ = const_cast< ::std::string*>(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  animonfloatdown_ = const_cast< ::std::string*>(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  breakbyobstacle_ = false;
+  moveacceleration_ = 0;
+  tdneedblockbyline_ = false;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+SkillMoveData::~SkillMoveData() {
+  // @@protoc_insertion_point(destructor:pb.SkillMoveData)
+  SharedDtor();
+}
+
+void SkillMoveData::SharedDtor() {
+  if (animonfloatupandkeep_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    delete animonfloatupandkeep_;
+  }
+  if (animonfloatdown_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    delete animonfloatdown_;
+  }
+  if (this != default_instance_) {
+    delete moveupacceleration_;
+    delete movedownacceleration_;
+  }
+}
+
+void SkillMoveData::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* SkillMoveData::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return SkillMoveData_descriptor_;
+}
+
+const SkillMoveData& SkillMoveData::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_module_2fSkillBaseData2_2eproto();
+  return *default_instance_;
+}
+
+SkillMoveData* SkillMoveData::default_instance_ = NULL;
+
+SkillMoveData* SkillMoveData::New() const {
+  return new SkillMoveData;
+}
+
+void SkillMoveData::Clear() {
+#define OFFSET_OF_FIELD_(f) (reinterpret_cast<char*>(      \
+  &reinterpret_cast<SkillMoveData*>(16)->f) - \
+   reinterpret_cast<char*>(16))
+
+#define ZR_(first, last) do {                              \
+    size_t f = OFFSET_OF_FIELD_(first);                    \
+    size_t n = OFFSET_OF_FIELD_(last) - f + sizeof(last);  \
+    ::memset(&first, 0, n);                                \
+  } while (0)
+
+  if (_has_bits_[0 / 32] & 255) {
+    ZR_(damagetime_, staytimeonpeak_);
+  }
+  if (_has_bits_[8 / 32] & 65280) {
+    ZR_(movedownheight_, playfloatawayanim_);
+    if (has_moveupacceleration()) {
+      if (moveupacceleration_ != NULL) moveupacceleration_->::pb::SkillCurveAcceleration::Clear();
+    }
+    if (has_movedownacceleration()) {
+      if (movedownacceleration_ != NULL) movedownacceleration_->::pb::SkillCurveAcceleration::Clear();
+    }
+    allowreplaceanim_ = false;
+  }
+  if (_has_bits_[16 / 32] & 4128768) {
+    ZR_(playfloatctrlainm_, moveacceleration_);
+    if (has_animonfloatupandkeep()) {
+      if (animonfloatupandkeep_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+        animonfloatupandkeep_->clear();
+      }
+    }
+    if (has_animonfloatdown()) {
+      if (animonfloatdown_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+        animonfloatdown_->clear();
+      }
+    }
+  }
+
+#undef OFFSET_OF_FIELD_
+#undef ZR_
+
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool SkillMoveData::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:pb.SkillMoveData)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(16383);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional int32 DamageTime = 1;
+      case 1: {
+        if (tag == 8) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &damagetime_)));
+          set_has_damagetime();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(16)) goto parse_MoveType;
+        break;
+      }
+
+      // optional int32 MoveType = 2;
+      case 2: {
+        if (tag == 16) {
+         parse_MoveType:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &movetype_)));
+          set_has_movetype();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(24)) goto parse_MoveTypeParam;
+        break;
+      }
+
+      // optional int32 MoveTypeParam = 3;
+      case 3: {
+        if (tag == 24) {
+         parse_MoveTypeParam:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &movetypeparam_)));
+          set_has_movetypeparam();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(32)) goto parse_MoveSpeed;
+        break;
+      }
+
+      // optional int32 MoveSpeed = 4;
+      case 4: {
+        if (tag == 32) {
+         parse_MoveSpeed:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &movespeed_)));
+          set_has_movespeed();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(40)) goto parse_MoveHeight;
+        break;
+      }
+
+      // optional int32 MoveHeight = 5;
+      case 5: {
+        if (tag == 40) {
+         parse_MoveHeight:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &moveheight_)));
+          set_has_moveheight();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(48)) goto parse_MoveUpSpeed;
+        break;
+      }
+
+      // optional int32 MoveUpSpeed = 6;
+      case 6: {
+        if (tag == 48) {
+         parse_MoveUpSpeed:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &moveupspeed_)));
+          set_has_moveupspeed();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(56)) goto parse_MoveDownSpeed;
+        break;
+      }
+
+      // optional int32 MoveDownSpeed = 7;
+      case 7: {
+        if (tag == 56) {
+         parse_MoveDownSpeed:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &movedownspeed_)));
+          set_has_movedownspeed();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(80)) goto parse_StayTimeOnPeak;
+        break;
+      }
+
+      // optional int32 StayTimeOnPeak = 10;
+      case 10: {
+        if (tag == 80) {
+         parse_StayTimeOnPeak:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &staytimeonpeak_)));
+          set_has_staytimeonpeak();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(88)) goto parse_CanBeRefTarget;
+        break;
+      }
+
+      // optional bool CanBeRefTarget = 11;
+      case 11: {
+        if (tag == 88) {
+         parse_CanBeRefTarget:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
+                 input, &canbereftarget_)));
+          set_has_canbereftarget();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(96)) goto parse_CanBeEffectTarget;
+        break;
+      }
+
+      // optional bool CanBeEffectTarget = 12;
+      case 12: {
+        if (tag == 96) {
+         parse_CanBeEffectTarget:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
+                 input, &canbeeffecttarget_)));
+          set_has_canbeeffecttarget();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(104)) goto parse_MoveDownHeight;
+        break;
+      }
+
+      // optional int32 MoveDownHeight = 13;
+      case 13: {
+        if (tag == 104) {
+         parse_MoveDownHeight:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &movedownheight_)));
+          set_has_movedownheight();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(112)) goto parse_FallToGround;
+        break;
+      }
+
+      // optional bool FallToGround = 14;
+      case 14: {
+        if (tag == 112) {
+         parse_FallToGround:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
+                 input, &falltoground_)));
+          set_has_falltoground();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(122)) goto parse_MoveUpAcceleration;
+        break;
+      }
+
+      // optional .pb.SkillCurveAcceleration MoveUpAcceleration = 15;
+      case 15: {
+        if (tag == 122) {
+         parse_MoveUpAcceleration:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+               input, mutable_moveupacceleration()));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(130)) goto parse_MoveDownAcceleration;
+        break;
+      }
+
+      // optional .pb.SkillCurveAcceleration MoveDownAcceleration = 16;
+      case 16: {
+        if (tag == 130) {
+         parse_MoveDownAcceleration:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+               input, mutable_movedownacceleration()));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(136)) goto parse_PlayFloatAwayAnim;
+        break;
+      }
+
+      // optional bool PlayFloatAwayAnim = 17;
+      case 17: {
+        if (tag == 136) {
+         parse_PlayFloatAwayAnim:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
+                 input, &playfloatawayanim_)));
+          set_has_playfloatawayanim();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(144)) goto parse_AllowReplaceAnim;
+        break;
+      }
+
+      // optional bool AllowReplaceAnim = 18;
+      case 18: {
+        if (tag == 144) {
+         parse_AllowReplaceAnim:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
+                 input, &allowreplaceanim_)));
+          set_has_allowreplaceanim();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(152)) goto parse_PlayFloatCtrlAinm;
+        break;
+      }
+
+      // optional bool PlayFloatCtrlAinm = 19;
+      case 19: {
+        if (tag == 152) {
+         parse_PlayFloatCtrlAinm:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
+                 input, &playfloatctrlainm_)));
+          set_has_playfloatctrlainm();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(170)) goto parse_AnimOnFloatUpAndKeep;
+        break;
+      }
+
+      // optional string AnimOnFloatUpAndKeep = 21;
+      case 21: {
+        if (tag == 170) {
+         parse_AnimOnFloatUpAndKeep:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_animonfloatupandkeep()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
+            this->animonfloatupandkeep().data(), this->animonfloatupandkeep().length(),
+            ::google::protobuf::internal::WireFormat::PARSE,
+            "animonfloatupandkeep");
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(178)) goto parse_AnimOnFloatDown;
+        break;
+      }
+
+      // optional string AnimOnFloatDown = 22;
+      case 22: {
+        if (tag == 178) {
+         parse_AnimOnFloatDown:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_animonfloatdown()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
+            this->animonfloatdown().data(), this->animonfloatdown().length(),
+            ::google::protobuf::internal::WireFormat::PARSE,
+            "animonfloatdown");
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(184)) goto parse_BreakByObstacle;
+        break;
+      }
+
+      // optional bool BreakByObstacle = 23;
+      case 23: {
+        if (tag == 184) {
+         parse_BreakByObstacle:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
+                 input, &breakbyobstacle_)));
+          set_has_breakbyobstacle();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(192)) goto parse_MoveAcceleration;
+        break;
+      }
+
+      // optional int32 MoveAcceleration = 24;
+      case 24: {
+        if (tag == 192) {
+         parse_MoveAcceleration:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &moveacceleration_)));
+          set_has_moveacceleration();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(200)) goto parse_TDNeedBlockByLine;
+        break;
+      }
+
+      // optional bool TDNeedBlockByLine = 25;
+      case 25: {
+        if (tag == 200) {
+         parse_TDNeedBlockByLine:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
+                 input, &tdneedblockbyline_)));
+          set_has_tdneedblockbyline();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectAtEnd()) goto success;
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0 ||
+            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:pb.SkillMoveData)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:pb.SkillMoveData)
+  return false;
+#undef DO_
+}
+
+void SkillMoveData::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:pb.SkillMoveData)
+  // optional int32 DamageTime = 1;
+  if (has_damagetime()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->damagetime(), output);
+  }
+
+  // optional int32 MoveType = 2;
+  if (has_movetype()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->movetype(), output);
+  }
+
+  // optional int32 MoveTypeParam = 3;
+  if (has_movetypeparam()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->movetypeparam(), output);
+  }
+
+  // optional int32 MoveSpeed = 4;
+  if (has_movespeed()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->movespeed(), output);
+  }
+
+  // optional int32 MoveHeight = 5;
+  if (has_moveheight()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(5, this->moveheight(), output);
+  }
+
+  // optional int32 MoveUpSpeed = 6;
+  if (has_moveupspeed()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(6, this->moveupspeed(), output);
+  }
+
+  // optional int32 MoveDownSpeed = 7;
+  if (has_movedownspeed()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(7, this->movedownspeed(), output);
+  }
+
+  // optional int32 StayTimeOnPeak = 10;
+  if (has_staytimeonpeak()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(10, this->staytimeonpeak(), output);
+  }
+
+  // optional bool CanBeRefTarget = 11;
+  if (has_canbereftarget()) {
+    ::google::protobuf::internal::WireFormatLite::WriteBool(11, this->canbereftarget(), output);
+  }
+
+  // optional bool CanBeEffectTarget = 12;
+  if (has_canbeeffecttarget()) {
+    ::google::protobuf::internal::WireFormatLite::WriteBool(12, this->canbeeffecttarget(), output);
+  }
+
+  // optional int32 MoveDownHeight = 13;
+  if (has_movedownheight()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(13, this->movedownheight(), output);
+  }
+
+  // optional bool FallToGround = 14;
+  if (has_falltoground()) {
+    ::google::protobuf::internal::WireFormatLite::WriteBool(14, this->falltoground(), output);
+  }
+
+  // optional .pb.SkillCurveAcceleration MoveUpAcceleration = 15;
+  if (has_moveupacceleration()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      15, this->moveupacceleration(), output);
+  }
+
+  // optional .pb.SkillCurveAcceleration MoveDownAcceleration = 16;
+  if (has_movedownacceleration()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      16, this->movedownacceleration(), output);
+  }
+
+  // optional bool PlayFloatAwayAnim = 17;
+  if (has_playfloatawayanim()) {
+    ::google::protobuf::internal::WireFormatLite::WriteBool(17, this->playfloatawayanim(), output);
+  }
+
+  // optional bool AllowReplaceAnim = 18;
+  if (has_allowreplaceanim()) {
+    ::google::protobuf::internal::WireFormatLite::WriteBool(18, this->allowreplaceanim(), output);
+  }
+
+  // optional bool PlayFloatCtrlAinm = 19;
+  if (has_playfloatctrlainm()) {
+    ::google::protobuf::internal::WireFormatLite::WriteBool(19, this->playfloatctrlainm(), output);
+  }
+
+  // optional string AnimOnFloatUpAndKeep = 21;
+  if (has_animonfloatupandkeep()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
+      this->animonfloatupandkeep().data(), this->animonfloatupandkeep().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE,
+      "animonfloatupandkeep");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      21, this->animonfloatupandkeep(), output);
+  }
+
+  // optional string AnimOnFloatDown = 22;
+  if (has_animonfloatdown()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
+      this->animonfloatdown().data(), this->animonfloatdown().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE,
+      "animonfloatdown");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      22, this->animonfloatdown(), output);
+  }
+
+  // optional bool BreakByObstacle = 23;
+  if (has_breakbyobstacle()) {
+    ::google::protobuf::internal::WireFormatLite::WriteBool(23, this->breakbyobstacle(), output);
+  }
+
+  // optional int32 MoveAcceleration = 24;
+  if (has_moveacceleration()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(24, this->moveacceleration(), output);
+  }
+
+  // optional bool TDNeedBlockByLine = 25;
+  if (has_tdneedblockbyline()) {
+    ::google::protobuf::internal::WireFormatLite::WriteBool(25, this->tdneedblockbyline(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+  // @@protoc_insertion_point(serialize_end:pb.SkillMoveData)
+}
+
+::google::protobuf::uint8* SkillMoveData::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // @@protoc_insertion_point(serialize_to_array_start:pb.SkillMoveData)
+  // optional int32 DamageTime = 1;
+  if (has_damagetime()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->damagetime(), target);
+  }
+
+  // optional int32 MoveType = 2;
+  if (has_movetype()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->movetype(), target);
+  }
+
+  // optional int32 MoveTypeParam = 3;
+  if (has_movetypeparam()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->movetypeparam(), target);
+  }
+
+  // optional int32 MoveSpeed = 4;
+  if (has_movespeed()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->movespeed(), target);
+  }
+
+  // optional int32 MoveHeight = 5;
+  if (has_moveheight()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(5, this->moveheight(), target);
+  }
+
+  // optional int32 MoveUpSpeed = 6;
+  if (has_moveupspeed()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(6, this->moveupspeed(), target);
+  }
+
+  // optional int32 MoveDownSpeed = 7;
+  if (has_movedownspeed()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(7, this->movedownspeed(), target);
+  }
+
+  // optional int32 StayTimeOnPeak = 10;
+  if (has_staytimeonpeak()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(10, this->staytimeonpeak(), target);
+  }
+
+  // optional bool CanBeRefTarget = 11;
+  if (has_canbereftarget()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(11, this->canbereftarget(), target);
+  }
+
+  // optional bool CanBeEffectTarget = 12;
+  if (has_canbeeffecttarget()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(12, this->canbeeffecttarget(), target);
+  }
+
+  // optional int32 MoveDownHeight = 13;
+  if (has_movedownheight()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(13, this->movedownheight(), target);
+  }
+
+  // optional bool FallToGround = 14;
+  if (has_falltoground()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(14, this->falltoground(), target);
+  }
+
+  // optional .pb.SkillCurveAcceleration MoveUpAcceleration = 15;
+  if (has_moveupacceleration()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        15, this->moveupacceleration(), target);
+  }
+
+  // optional .pb.SkillCurveAcceleration MoveDownAcceleration = 16;
+  if (has_movedownacceleration()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        16, this->movedownacceleration(), target);
+  }
+
+  // optional bool PlayFloatAwayAnim = 17;
+  if (has_playfloatawayanim()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(17, this->playfloatawayanim(), target);
+  }
+
+  // optional bool AllowReplaceAnim = 18;
+  if (has_allowreplaceanim()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(18, this->allowreplaceanim(), target);
+  }
+
+  // optional bool PlayFloatCtrlAinm = 19;
+  if (has_playfloatctrlainm()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(19, this->playfloatctrlainm(), target);
+  }
+
+  // optional string AnimOnFloatUpAndKeep = 21;
+  if (has_animonfloatupandkeep()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
+      this->animonfloatupandkeep().data(), this->animonfloatupandkeep().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE,
+      "animonfloatupandkeep");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        21, this->animonfloatupandkeep(), target);
+  }
+
+  // optional string AnimOnFloatDown = 22;
+  if (has_animonfloatdown()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
+      this->animonfloatdown().data(), this->animonfloatdown().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE,
+      "animonfloatdown");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        22, this->animonfloatdown(), target);
+  }
+
+  // optional bool BreakByObstacle = 23;
+  if (has_breakbyobstacle()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(23, this->breakbyobstacle(), target);
+  }
+
+  // optional int32 MoveAcceleration = 24;
+  if (has_moveacceleration()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(24, this->moveacceleration(), target);
+  }
+
+  // optional bool TDNeedBlockByLine = 25;
+  if (has_tdneedblockbyline()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(25, this->tdneedblockbyline(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:pb.SkillMoveData)
+  return target;
+}
+
+int SkillMoveData::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // optional int32 DamageTime = 1;
+    if (has_damagetime()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->damagetime());
+    }
+
+    // optional int32 MoveType = 2;
+    if (has_movetype()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->movetype());
+    }
+
+    // optional int32 MoveTypeParam = 3;
+    if (has_movetypeparam()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->movetypeparam());
+    }
+
+    // optional int32 MoveSpeed = 4;
+    if (has_movespeed()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->movespeed());
+    }
+
+    // optional int32 MoveHeight = 5;
+    if (has_moveheight()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->moveheight());
+    }
+
+    // optional int32 MoveUpSpeed = 6;
+    if (has_moveupspeed()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->moveupspeed());
+    }
+
+    // optional int32 MoveDownSpeed = 7;
+    if (has_movedownspeed()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->movedownspeed());
+    }
+
+    // optional int32 StayTimeOnPeak = 10;
+    if (has_staytimeonpeak()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->staytimeonpeak());
+    }
+
+  }
+  if (_has_bits_[8 / 32] & (0xffu << (8 % 32))) {
+    // optional bool CanBeRefTarget = 11;
+    if (has_canbereftarget()) {
+      total_size += 1 + 1;
+    }
+
+    // optional bool CanBeEffectTarget = 12;
+    if (has_canbeeffecttarget()) {
+      total_size += 1 + 1;
+    }
+
+    // optional int32 MoveDownHeight = 13;
+    if (has_movedownheight()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->movedownheight());
+    }
+
+    // optional bool FallToGround = 14;
+    if (has_falltoground()) {
+      total_size += 1 + 1;
+    }
+
+    // optional .pb.SkillCurveAcceleration MoveUpAcceleration = 15;
+    if (has_moveupacceleration()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+          this->moveupacceleration());
+    }
+
+    // optional .pb.SkillCurveAcceleration MoveDownAcceleration = 16;
+    if (has_movedownacceleration()) {
+      total_size += 2 +
+        ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+          this->movedownacceleration());
+    }
+
+    // optional bool PlayFloatAwayAnim = 17;
+    if (has_playfloatawayanim()) {
+      total_size += 2 + 1;
+    }
+
+    // optional bool AllowReplaceAnim = 18;
+    if (has_allowreplaceanim()) {
+      total_size += 2 + 1;
+    }
+
+  }
+  if (_has_bits_[16 / 32] & (0xffu << (16 % 32))) {
+    // optional bool PlayFloatCtrlAinm = 19;
+    if (has_playfloatctrlainm()) {
+      total_size += 2 + 1;
+    }
+
+    // optional string AnimOnFloatUpAndKeep = 21;
+    if (has_animonfloatupandkeep()) {
+      total_size += 2 +
+        ::google::protobuf::internal::WireFormatLite::StringSize(
+          this->animonfloatupandkeep());
+    }
+
+    // optional string AnimOnFloatDown = 22;
+    if (has_animonfloatdown()) {
+      total_size += 2 +
+        ::google::protobuf::internal::WireFormatLite::StringSize(
+          this->animonfloatdown());
+    }
+
+    // optional bool BreakByObstacle = 23;
+    if (has_breakbyobstacle()) {
+      total_size += 2 + 1;
+    }
+
+    // optional int32 MoveAcceleration = 24;
+    if (has_moveacceleration()) {
+      total_size += 2 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->moveacceleration());
+    }
+
+    // optional bool TDNeedBlockByLine = 25;
+    if (has_tdneedblockbyline()) {
+      total_size += 2 + 1;
+    }
+
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void SkillMoveData::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const SkillMoveData* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const SkillMoveData*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void SkillMoveData::MergeFrom(const SkillMoveData& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_damagetime()) {
+      set_damagetime(from.damagetime());
+    }
+    if (from.has_movetype()) {
+      set_movetype(from.movetype());
+    }
+    if (from.has_movetypeparam()) {
+      set_movetypeparam(from.movetypeparam());
+    }
+    if (from.has_movespeed()) {
+      set_movespeed(from.movespeed());
+    }
+    if (from.has_moveheight()) {
+      set_moveheight(from.moveheight());
+    }
+    if (from.has_moveupspeed()) {
+      set_moveupspeed(from.moveupspeed());
+    }
+    if (from.has_movedownspeed()) {
+      set_movedownspeed(from.movedownspeed());
+    }
+    if (from.has_staytimeonpeak()) {
+      set_staytimeonpeak(from.staytimeonpeak());
+    }
+  }
+  if (from._has_bits_[8 / 32] & (0xffu << (8 % 32))) {
+    if (from.has_canbereftarget()) {
+      set_canbereftarget(from.canbereftarget());
+    }
+    if (from.has_canbeeffecttarget()) {
+      set_canbeeffecttarget(from.canbeeffecttarget());
+    }
+    if (from.has_movedownheight()) {
+      set_movedownheight(from.movedownheight());
+    }
+    if (from.has_falltoground()) {
+      set_falltoground(from.falltoground());
+    }
+    if (from.has_moveupacceleration()) {
+      mutable_moveupacceleration()->::pb::SkillCurveAcceleration::MergeFrom(from.moveupacceleration());
+    }
+    if (from.has_movedownacceleration()) {
+      mutable_movedownacceleration()->::pb::SkillCurveAcceleration::MergeFrom(from.movedownacceleration());
+    }
+    if (from.has_playfloatawayanim()) {
+      set_playfloatawayanim(from.playfloatawayanim());
+    }
+    if (from.has_allowreplaceanim()) {
+      set_allowreplaceanim(from.allowreplaceanim());
+    }
+  }
+  if (from._has_bits_[16 / 32] & (0xffu << (16 % 32))) {
+    if (from.has_playfloatctrlainm()) {
+      set_playfloatctrlainm(from.playfloatctrlainm());
+    }
+    if (from.has_animonfloatupandkeep()) {
+      set_animonfloatupandkeep(from.animonfloatupandkeep());
+    }
+    if (from.has_animonfloatdown()) {
+      set_animonfloatdown(from.animonfloatdown());
+    }
+    if (from.has_breakbyobstacle()) {
+      set_breakbyobstacle(from.breakbyobstacle());
+    }
+    if (from.has_moveacceleration()) {
+      set_moveacceleration(from.moveacceleration());
+    }
+    if (from.has_tdneedblockbyline()) {
+      set_tdneedblockbyline(from.tdneedblockbyline());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void SkillMoveData::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void SkillMoveData::CopyFrom(const SkillMoveData& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool SkillMoveData::IsInitialized() const {
+
+  return true;
+}
+
+void SkillMoveData::Swap(SkillMoveData* other) {
+  if (other != this) {
+    std::swap(damagetime_, other->damagetime_);
+    std::swap(movetype_, other->movetype_);
+    std::swap(movetypeparam_, other->movetypeparam_);
+    std::swap(movespeed_, other->movespeed_);
+    std::swap(moveheight_, other->moveheight_);
+    std::swap(moveupspeed_, other->moveupspeed_);
+    std::swap(movedownspeed_, other->movedownspeed_);
+    std::swap(staytimeonpeak_, other->staytimeonpeak_);
+    std::swap(canbereftarget_, other->canbereftarget_);
+    std::swap(canbeeffecttarget_, other->canbeeffecttarget_);
+    std::swap(movedownheight_, other->movedownheight_);
+    std::swap(falltoground_, other->falltoground_);
+    std::swap(moveupacceleration_, other->moveupacceleration_);
+    std::swap(movedownacceleration_, other->movedownacceleration_);
+    std::swap(playfloatawayanim_, other->playfloatawayanim_);
+    std::swap(allowreplaceanim_, other->allowreplaceanim_);
+    std::swap(playfloatctrlainm_, other->playfloatctrlainm_);
+    std::swap(animonfloatupandkeep_, other->animonfloatupandkeep_);
+    std::swap(animonfloatdown_, other->animonfloatdown_);
+    std::swap(breakbyobstacle_, other->breakbyobstacle_);
+    std::swap(moveacceleration_, other->moveacceleration_);
+    std::swap(tdneedblockbyline_, other->tdneedblockbyline_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata SkillMoveData::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = SkillMoveData_descriptor_;
+  metadata.reflection = SkillMoveData_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int SkillCurveData::kIsCurveFieldNumber;
+const int SkillCurveData::kCurveTypeFieldNumber;
+const int SkillCurveData::kCurveRadiuFieldNumber;
+const int SkillCurveData::kCurveParentFieldNumber;
+const int SkillCurveData::kCurveEffectFieldNumber;
+const int SkillCurveData::kNoneCurveEffetFieldNumber;
+const int SkillCurveData::kIsTrackCurveFieldNumber;
+const int SkillCurveData::kIsThroughCurveFieldNumber;
+const int SkillCurveData::kMaxThroughNumFieldNumber;
+const int SkillCurveData::kIsDisappearOnCollisionFieldNumber;
+const int SkillCurveData::kCollisionDetectionTypeFieldNumber;
+const int SkillCurveData::kCurveSpeedFieldNumber;
+const int SkillCurveData::kCurveAccelerationFieldNumber;
+const int SkillCurveData::kIsCurveBackFieldNumber;
+const int SkillCurveData::kEffectOnBackFieldNumber;
+const int SkillCurveData::kCurveBackSpeedFieldNumber;
+const int SkillCurveData::kCurveBackAccelerationFieldNumber;
+const int SkillCurveData::kAngleOffsetFieldNumber;
+const int SkillCurveData::kControllerOffsetFieldNumber;
+const int SkillCurveData::kCurveLastTimeFieldNumber;
+const int SkillCurveData::kThroughCollisionDetectionTypeFieldNumber;
+const int SkillCurveData::kHeadCurveEffectFieldNumber;
+const int SkillCurveData::kIsFixedTimeFieldNumber;
+const int SkillCurveData::kCurveFlyTimeFieldNumber;
+const int SkillCurveData::kNoVerticalMoveFieldNumber;
+const int SkillCurveData::kIsLineFieldNumber;
+const int SkillCurveData::kShapeParam1FieldNumber;
+const int SkillCurveData::kDisappearOnReachRefTargetFieldNumber;
+const int SkillCurveData::kReceiverCurveParentFieldNumber;
+#endif  // !_MSC_VER
+
+SkillCurveData::SkillCurveData()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:pb.SkillCurveData)
+}
+
+void SkillCurveData::InitAsDefaultInstance() {
+}
+
+SkillCurveData::SkillCurveData(const SkillCurveData& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+  // @@protoc_insertion_point(copy_constructor:pb.SkillCurveData)
+}
+
+void SkillCurveData::SharedCtor() {
+  ::google::protobuf::internal::GetEmptyString();
+  _cached_size_ = 0;
+  iscurve_ = 0;
+  curvetype_ = 0;
+  curveradiu_ = 0;
+  curveparent_ = const_cast< ::std::string*>(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  curveeffect_ = const_cast< ::std::string*>(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  nonecurveeffet_ = const_cast< ::std::string*>(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  istrackcurve_ = false;
+  isthroughcurve_ = false;
+  maxthroughnum_ = 0;
+  isdisappearoncollision_ = false;
+  collisiondetectiontype_ = 0;
+  curvespeed_ = 0;
+  iscurveback_ = false;
+  effectonback_ = false;
+  curvebackspeed_ = 0;
+  angleoffset_ = 0;
+  curvelasttime_ = 0;
+  throughcollisiondetectiontype_ = 0;
+  headcurveeffect_ = const_cast< ::std::string*>(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  isfixedtime_ = false;
+  curveflytime_ = 0;
+  noverticalmove_ = false;
+  isline_ = false;
+  shapeparam1_ = 0;
+  disappearonreachreftarget_ = false;
+  receivercurveparent_ = const_cast< ::std::string*>(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+SkillCurveData::~SkillCurveData() {
+  // @@protoc_insertion_point(destructor:pb.SkillCurveData)
+  SharedDtor();
+}
+
+void SkillCurveData::SharedDtor() {
+  if (curveparent_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    delete curveparent_;
+  }
+  if (curveeffect_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    delete curveeffect_;
+  }
+  if (nonecurveeffet_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    delete nonecurveeffet_;
+  }
+  if (headcurveeffect_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    delete headcurveeffect_;
+  }
+  if (receivercurveparent_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    delete receivercurveparent_;
+  }
+  if (this != default_instance_) {
+  }
+}
+
+void SkillCurveData::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* SkillCurveData::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return SkillCurveData_descriptor_;
+}
+
+const SkillCurveData& SkillCurveData::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_module_2fSkillBaseData2_2eproto();
+  return *default_instance_;
+}
+
+SkillCurveData* SkillCurveData::default_instance_ = NULL;
+
+SkillCurveData* SkillCurveData::New() const {
+  return new SkillCurveData;
+}
+
+void SkillCurveData::Clear() {
+#define OFFSET_OF_FIELD_(f) (reinterpret_cast<char*>(      \
+  &reinterpret_cast<SkillCurveData*>(16)->f) - \
+   reinterpret_cast<char*>(16))
+
+#define ZR_(first, last) do {                              \
+    size_t f = OFFSET_OF_FIELD_(first);                    \
+    size_t n = OFFSET_OF_FIELD_(last) - f + sizeof(last);  \
+    ::memset(&first, 0, n);                                \
+  } while (0)
+
+  if (_has_bits_[0 / 32] & 255) {
+    ZR_(iscurve_, curvetype_);
+    ZR_(istrackcurve_, isthroughcurve_);
+    curveradiu_ = 0;
+    if (has_curveparent()) {
+      if (curveparent_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+        curveparent_->clear();
+      }
+    }
+    if (has_curveeffect()) {
+      if (curveeffect_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+        curveeffect_->clear();
+      }
+    }
+    if (has_nonecurveeffet()) {
+      if (nonecurveeffet_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+        nonecurveeffet_->clear();
+      }
+    }
+  }
+  if (_has_bits_[8 / 32] & 61184) {
+    ZR_(isdisappearoncollision_, collisiondetectiontype_);
+    ZR_(curvespeed_, curvebackspeed_);
+    maxthroughnum_ = 0;
+    effectonback_ = false;
+  }
+  if (_has_bits_[16 / 32] & 16384000) {
+    ZR_(angleoffset_, curvelasttime_);
+    throughcollisiondetectiontype_ = 0;
+    if (has_headcurveeffect()) {
+      if (headcurveeffect_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+        headcurveeffect_->clear();
+      }
+    }
+    isfixedtime_ = false;
+    curveflytime_ = 0;
+  }
+  if (_has_bits_[24 / 32] & 520093696) {
+    ZR_(noverticalmove_, isline_);
+    shapeparam1_ = 0;
+    disappearonreachreftarget_ = false;
+    if (has_receivercurveparent()) {
+      if (receivercurveparent_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+        receivercurveparent_->clear();
+      }
+    }
+  }
+
+#undef OFFSET_OF_FIELD_
+#undef ZR_
+
+  curveacceleration_.Clear();
+  curvebackacceleration_.Clear();
+  controlleroffset_.Clear();
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool SkillCurveData::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:pb.SkillCurveData)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(16383);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional int32 IsCurve = 1;
+      case 1: {
+        if (tag == 8) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &iscurve_)));
+          set_has_iscurve();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(16)) goto parse_CurveType;
+        break;
+      }
+
+      // optional int32 CurveType = 2;
+      case 2: {
+        if (tag == 16) {
+         parse_CurveType:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &curvetype_)));
+          set_has_curvetype();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(24)) goto parse_CurveRadiu;
+        break;
+      }
+
+      // optional int32 CurveRadiu = 3;
+      case 3: {
+        if (tag == 24) {
+         parse_CurveRadiu:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &curveradiu_)));
+          set_has_curveradiu();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(34)) goto parse_CurveParent;
+        break;
+      }
+
+      // optional string CurveParent = 4;
+      case 4: {
+        if (tag == 34) {
+         parse_CurveParent:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_curveparent()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
+            this->curveparent().data(), this->curveparent().length(),
+            ::google::protobuf::internal::WireFormat::PARSE,
+            "curveparent");
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(42)) goto parse_CurveEffect;
+        break;
+      }
+
+      // optional string CurveEffect = 5;
+      case 5: {
+        if (tag == 42) {
+         parse_CurveEffect:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_curveeffect()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
+            this->curveeffect().data(), this->curveeffect().length(),
+            ::google::protobuf::internal::WireFormat::PARSE,
+            "curveeffect");
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(50)) goto parse_NoneCurveEffet;
+        break;
+      }
+
+      // optional string NoneCurveEffet = 6;
+      case 6: {
+        if (tag == 50) {
+         parse_NoneCurveEffet:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_nonecurveeffet()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
+            this->nonecurveeffet().data(), this->nonecurveeffet().length(),
+            ::google::protobuf::internal::WireFormat::PARSE,
+            "nonecurveeffet");
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(56)) goto parse_IsTrackCurve;
+        break;
+      }
+
+      // optional bool IsTrackCurve = 7;
+      case 7: {
+        if (tag == 56) {
+         parse_IsTrackCurve:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
+                 input, &istrackcurve_)));
+          set_has_istrackcurve();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(64)) goto parse_IsThroughCurve;
+        break;
+      }
+
+      // optional bool IsThroughCurve = 8;
+      case 8: {
+        if (tag == 64) {
+         parse_IsThroughCurve:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
+                 input, &isthroughcurve_)));
+          set_has_isthroughcurve();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(72)) goto parse_MaxThroughNum;
+        break;
+      }
+
+      // optional int32 MaxThroughNum = 9;
+      case 9: {
+        if (tag == 72) {
+         parse_MaxThroughNum:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &maxthroughnum_)));
+          set_has_maxthroughnum();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(80)) goto parse_IsDisappearOnCollision;
+        break;
+      }
+
+      // optional bool IsDisappearOnCollision = 10;
+      case 10: {
+        if (tag == 80) {
+         parse_IsDisappearOnCollision:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
+                 input, &isdisappearoncollision_)));
+          set_has_isdisappearoncollision();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(88)) goto parse_CollisionDetectionType;
+        break;
+      }
+
+      // optional int32 CollisionDetectionType = 11;
+      case 11: {
+        if (tag == 88) {
+         parse_CollisionDetectionType:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &collisiondetectiontype_)));
+          set_has_collisiondetectiontype();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(96)) goto parse_CurveSpeed;
+        break;
+      }
+
+      // optional int32 CurveSpeed = 12;
+      case 12: {
+        if (tag == 96) {
+         parse_CurveSpeed:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &curvespeed_)));
+          set_has_curvespeed();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(106)) goto parse_CurveAcceleration;
+        break;
+      }
+
+      // repeated .pb.SkillCurveAcceleration CurveAcceleration = 13;
+      case 13: {
+        if (tag == 106) {
+         parse_CurveAcceleration:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+                input, add_curveacceleration()));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(106)) goto parse_CurveAcceleration;
+        if (input->ExpectTag(112)) goto parse_IsCurveBack;
+        break;
+      }
+
+      // optional bool IsCurveBack = 14;
+      case 14: {
+        if (tag == 112) {
+         parse_IsCurveBack:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
+                 input, &iscurveback_)));
+          set_has_iscurveback();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(120)) goto parse_EffectOnBack;
+        break;
+      }
+
+      // optional bool EffectOnBack = 15;
+      case 15: {
+        if (tag == 120) {
+         parse_EffectOnBack:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
+                 input, &effectonback_)));
+          set_has_effectonback();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(128)) goto parse_CurveBackSpeed;
+        break;
+      }
+
+      // optional int32 CurveBackSpeed = 16;
+      case 16: {
+        if (tag == 128) {
+         parse_CurveBackSpeed:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &curvebackspeed_)));
+          set_has_curvebackspeed();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(138)) goto parse_CurveBackAcceleration;
+        break;
+      }
+
+      // repeated .pb.SkillCurveAcceleration CurveBackAcceleration = 17;
+      case 17: {
+        if (tag == 138) {
+         parse_CurveBackAcceleration:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+                input, add_curvebackacceleration()));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(138)) goto parse_CurveBackAcceleration;
+        if (input->ExpectTag(144)) goto parse_AngleOffset;
+        break;
+      }
+
+      // optional int32 AngleOffset = 18;
+      case 18: {
+        if (tag == 144) {
+         parse_AngleOffset:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &angleoffset_)));
+          set_has_angleoffset();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(152)) goto parse_ControllerOffset;
+        break;
+      }
+
+      // repeated int32 ControllerOffset = 19;
+      case 19: {
+        if (tag == 152) {
+         parse_ControllerOffset:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadRepeatedPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 2, 152, input, this->mutable_controlleroffset())));
+        } else if (tag == 154) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPackedPrimitiveNoInline<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, this->mutable_controlleroffset())));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(152)) goto parse_ControllerOffset;
+        if (input->ExpectTag(160)) goto parse_CurveLastTime;
+        break;
+      }
+
+      // optional int32 CurveLastTime = 20;
+      case 20: {
+        if (tag == 160) {
+         parse_CurveLastTime:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &curvelasttime_)));
+          set_has_curvelasttime();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(168)) goto parse_ThroughCollisionDetectionType;
+        break;
+      }
+
+      // optional int32 ThroughCollisionDetectionType = 21;
+      case 21: {
+        if (tag == 168) {
+         parse_ThroughCollisionDetectionType:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &throughcollisiondetectiontype_)));
+          set_has_throughcollisiondetectiontype();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(178)) goto parse_HeadCurveEffect;
+        break;
+      }
+
+      // optional string HeadCurveEffect = 22;
+      case 22: {
+        if (tag == 178) {
+         parse_HeadCurveEffect:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_headcurveeffect()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
+            this->headcurveeffect().data(), this->headcurveeffect().length(),
+            ::google::protobuf::internal::WireFormat::PARSE,
+            "headcurveeffect");
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(184)) goto parse_IsFixedTime;
+        break;
+      }
+
+      // optional bool IsFixedTime = 23;
+      case 23: {
+        if (tag == 184) {
+         parse_IsFixedTime:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
+                 input, &isfixedtime_)));
+          set_has_isfixedtime();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(192)) goto parse_CurveFlyTime;
+        break;
+      }
+
+      // optional int32 CurveFlyTime = 24;
+      case 24: {
+        if (tag == 192) {
+         parse_CurveFlyTime:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &curveflytime_)));
+          set_has_curveflytime();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(200)) goto parse_NoVerticalMove;
+        break;
+      }
+
+      // optional bool NoVerticalMove = 25;
+      case 25: {
+        if (tag == 200) {
+         parse_NoVerticalMove:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
+                 input, &noverticalmove_)));
+          set_has_noverticalmove();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(208)) goto parse_IsLine;
+        break;
+      }
+
+      // optional bool IsLine = 26;
+      case 26: {
+        if (tag == 208) {
+         parse_IsLine:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
+                 input, &isline_)));
+          set_has_isline();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(216)) goto parse_ShapeParam1;
+        break;
+      }
+
+      // optional int32 ShapeParam1 = 27;
+      case 27: {
+        if (tag == 216) {
+         parse_ShapeParam1:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &shapeparam1_)));
+          set_has_shapeparam1();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(224)) goto parse_DisappearOnReachRefTarget;
+        break;
+      }
+
+      // optional bool DisappearOnReachRefTarget = 28;
+      case 28: {
+        if (tag == 224) {
+         parse_DisappearOnReachRefTarget:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
+                 input, &disappearonreachreftarget_)));
+          set_has_disappearonreachreftarget();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(234)) goto parse_ReceiverCurveParent;
+        break;
+      }
+
+      // optional string ReceiverCurveParent = 29;
+      case 29: {
+        if (tag == 234) {
+         parse_ReceiverCurveParent:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_receivercurveparent()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
+            this->receivercurveparent().data(), this->receivercurveparent().length(),
+            ::google::protobuf::internal::WireFormat::PARSE,
+            "receivercurveparent");
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectAtEnd()) goto success;
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0 ||
+            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:pb.SkillCurveData)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:pb.SkillCurveData)
+  return false;
+#undef DO_
+}
+
+void SkillCurveData::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:pb.SkillCurveData)
+  // optional int32 IsCurve = 1;
+  if (has_iscurve()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->iscurve(), output);
+  }
+
+  // optional int32 CurveType = 2;
+  if (has_curvetype()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->curvetype(), output);
+  }
+
+  // optional int32 CurveRadiu = 3;
+  if (has_curveradiu()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->curveradiu(), output);
+  }
+
+  // optional string CurveParent = 4;
+  if (has_curveparent()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
+      this->curveparent().data(), this->curveparent().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE,
+      "curveparent");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      4, this->curveparent(), output);
+  }
+
+  // optional string CurveEffect = 5;
+  if (has_curveeffect()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
+      this->curveeffect().data(), this->curveeffect().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE,
+      "curveeffect");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      5, this->curveeffect(), output);
+  }
+
+  // optional string NoneCurveEffet = 6;
+  if (has_nonecurveeffet()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
+      this->nonecurveeffet().data(), this->nonecurveeffet().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE,
+      "nonecurveeffet");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      6, this->nonecurveeffet(), output);
+  }
+
+  // optional bool IsTrackCurve = 7;
+  if (has_istrackcurve()) {
+    ::google::protobuf::internal::WireFormatLite::WriteBool(7, this->istrackcurve(), output);
+  }
+
+  // optional bool IsThroughCurve = 8;
+  if (has_isthroughcurve()) {
+    ::google::protobuf::internal::WireFormatLite::WriteBool(8, this->isthroughcurve(), output);
+  }
+
+  // optional int32 MaxThroughNum = 9;
+  if (has_maxthroughnum()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(9, this->maxthroughnum(), output);
+  }
+
+  // optional bool IsDisappearOnCollision = 10;
+  if (has_isdisappearoncollision()) {
+    ::google::protobuf::internal::WireFormatLite::WriteBool(10, this->isdisappearoncollision(), output);
+  }
+
+  // optional int32 CollisionDetectionType = 11;
+  if (has_collisiondetectiontype()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(11, this->collisiondetectiontype(), output);
+  }
+
+  // optional int32 CurveSpeed = 12;
+  if (has_curvespeed()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(12, this->curvespeed(), output);
+  }
+
+  // repeated .pb.SkillCurveAcceleration CurveAcceleration = 13;
+  for (int i = 0; i < this->curveacceleration_size(); i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      13, this->curveacceleration(i), output);
+  }
+
+  // optional bool IsCurveBack = 14;
+  if (has_iscurveback()) {
+    ::google::protobuf::internal::WireFormatLite::WriteBool(14, this->iscurveback(), output);
+  }
+
+  // optional bool EffectOnBack = 15;
+  if (has_effectonback()) {
+    ::google::protobuf::internal::WireFormatLite::WriteBool(15, this->effectonback(), output);
+  }
+
+  // optional int32 CurveBackSpeed = 16;
+  if (has_curvebackspeed()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(16, this->curvebackspeed(), output);
+  }
+
+  // repeated .pb.SkillCurveAcceleration CurveBackAcceleration = 17;
+  for (int i = 0; i < this->curvebackacceleration_size(); i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      17, this->curvebackacceleration(i), output);
+  }
+
+  // optional int32 AngleOffset = 18;
+  if (has_angleoffset()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(18, this->angleoffset(), output);
+  }
+
+  // repeated int32 ControllerOffset = 19;
+  for (int i = 0; i < this->controlleroffset_size(); i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(
+      19, this->controlleroffset(i), output);
+  }
+
+  // optional int32 CurveLastTime = 20;
+  if (has_curvelasttime()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(20, this->curvelasttime(), output);
+  }
+
+  // optional int32 ThroughCollisionDetectionType = 21;
+  if (has_throughcollisiondetectiontype()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(21, this->throughcollisiondetectiontype(), output);
+  }
+
+  // optional string HeadCurveEffect = 22;
+  if (has_headcurveeffect()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
+      this->headcurveeffect().data(), this->headcurveeffect().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE,
+      "headcurveeffect");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      22, this->headcurveeffect(), output);
+  }
+
+  // optional bool IsFixedTime = 23;
+  if (has_isfixedtime()) {
+    ::google::protobuf::internal::WireFormatLite::WriteBool(23, this->isfixedtime(), output);
+  }
+
+  // optional int32 CurveFlyTime = 24;
+  if (has_curveflytime()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(24, this->curveflytime(), output);
+  }
+
+  // optional bool NoVerticalMove = 25;
+  if (has_noverticalmove()) {
+    ::google::protobuf::internal::WireFormatLite::WriteBool(25, this->noverticalmove(), output);
+  }
+
+  // optional bool IsLine = 26;
+  if (has_isline()) {
+    ::google::protobuf::internal::WireFormatLite::WriteBool(26, this->isline(), output);
+  }
+
+  // optional int32 ShapeParam1 = 27;
+  if (has_shapeparam1()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(27, this->shapeparam1(), output);
+  }
+
+  // optional bool DisappearOnReachRefTarget = 28;
+  if (has_disappearonreachreftarget()) {
+    ::google::protobuf::internal::WireFormatLite::WriteBool(28, this->disappearonreachreftarget(), output);
+  }
+
+  // optional string ReceiverCurveParent = 29;
+  if (has_receivercurveparent()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
+      this->receivercurveparent().data(), this->receivercurveparent().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE,
+      "receivercurveparent");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      29, this->receivercurveparent(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+  // @@protoc_insertion_point(serialize_end:pb.SkillCurveData)
+}
+
+::google::protobuf::uint8* SkillCurveData::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // @@protoc_insertion_point(serialize_to_array_start:pb.SkillCurveData)
+  // optional int32 IsCurve = 1;
+  if (has_iscurve()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->iscurve(), target);
+  }
+
+  // optional int32 CurveType = 2;
+  if (has_curvetype()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->curvetype(), target);
+  }
+
+  // optional int32 CurveRadiu = 3;
+  if (has_curveradiu()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->curveradiu(), target);
+  }
+
+  // optional string CurveParent = 4;
+  if (has_curveparent()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
+      this->curveparent().data(), this->curveparent().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE,
+      "curveparent");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        4, this->curveparent(), target);
+  }
+
+  // optional string CurveEffect = 5;
+  if (has_curveeffect()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
+      this->curveeffect().data(), this->curveeffect().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE,
+      "curveeffect");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        5, this->curveeffect(), target);
+  }
+
+  // optional string NoneCurveEffet = 6;
+  if (has_nonecurveeffet()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
+      this->nonecurveeffet().data(), this->nonecurveeffet().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE,
+      "nonecurveeffet");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        6, this->nonecurveeffet(), target);
+  }
+
+  // optional bool IsTrackCurve = 7;
+  if (has_istrackcurve()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(7, this->istrackcurve(), target);
+  }
+
+  // optional bool IsThroughCurve = 8;
+  if (has_isthroughcurve()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(8, this->isthroughcurve(), target);
+  }
+
+  // optional int32 MaxThroughNum = 9;
+  if (has_maxthroughnum()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(9, this->maxthroughnum(), target);
+  }
+
+  // optional bool IsDisappearOnCollision = 10;
+  if (has_isdisappearoncollision()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(10, this->isdisappearoncollision(), target);
+  }
+
+  // optional int32 CollisionDetectionType = 11;
+  if (has_collisiondetectiontype()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(11, this->collisiondetectiontype(), target);
+  }
+
+  // optional int32 CurveSpeed = 12;
+  if (has_curvespeed()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(12, this->curvespeed(), target);
+  }
+
+  // repeated .pb.SkillCurveAcceleration CurveAcceleration = 13;
+  for (int i = 0; i < this->curveacceleration_size(); i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        13, this->curveacceleration(i), target);
+  }
+
+  // optional bool IsCurveBack = 14;
+  if (has_iscurveback()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(14, this->iscurveback(), target);
+  }
+
+  // optional bool EffectOnBack = 15;
+  if (has_effectonback()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(15, this->effectonback(), target);
+  }
+
+  // optional int32 CurveBackSpeed = 16;
+  if (has_curvebackspeed()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(16, this->curvebackspeed(), target);
+  }
+
+  // repeated .pb.SkillCurveAcceleration CurveBackAcceleration = 17;
+  for (int i = 0; i < this->curvebackacceleration_size(); i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        17, this->curvebackacceleration(i), target);
+  }
+
+  // optional int32 AngleOffset = 18;
+  if (has_angleoffset()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(18, this->angleoffset(), target);
+  }
+
+  // repeated int32 ControllerOffset = 19;
+  for (int i = 0; i < this->controlleroffset_size(); i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteInt32ToArray(19, this->controlleroffset(i), target);
+  }
+
+  // optional int32 CurveLastTime = 20;
+  if (has_curvelasttime()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(20, this->curvelasttime(), target);
+  }
+
+  // optional int32 ThroughCollisionDetectionType = 21;
+  if (has_throughcollisiondetectiontype()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(21, this->throughcollisiondetectiontype(), target);
+  }
+
+  // optional string HeadCurveEffect = 22;
+  if (has_headcurveeffect()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
+      this->headcurveeffect().data(), this->headcurveeffect().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE,
+      "headcurveeffect");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        22, this->headcurveeffect(), target);
+  }
+
+  // optional bool IsFixedTime = 23;
+  if (has_isfixedtime()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(23, this->isfixedtime(), target);
+  }
+
+  // optional int32 CurveFlyTime = 24;
+  if (has_curveflytime()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(24, this->curveflytime(), target);
+  }
+
+  // optional bool NoVerticalMove = 25;
+  if (has_noverticalmove()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(25, this->noverticalmove(), target);
+  }
+
+  // optional bool IsLine = 26;
+  if (has_isline()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(26, this->isline(), target);
+  }
+
+  // optional int32 ShapeParam1 = 27;
+  if (has_shapeparam1()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(27, this->shapeparam1(), target);
+  }
+
+  // optional bool DisappearOnReachRefTarget = 28;
+  if (has_disappearonreachreftarget()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(28, this->disappearonreachreftarget(), target);
+  }
+
+  // optional string ReceiverCurveParent = 29;
+  if (has_receivercurveparent()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
+      this->receivercurveparent().data(), this->receivercurveparent().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE,
+      "receivercurveparent");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        29, this->receivercurveparent(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:pb.SkillCurveData)
+  return target;
+}
+
+int SkillCurveData::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // optional int32 IsCurve = 1;
+    if (has_iscurve()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->iscurve());
+    }
+
+    // optional int32 CurveType = 2;
+    if (has_curvetype()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->curvetype());
+    }
+
+    // optional int32 CurveRadiu = 3;
+    if (has_curveradiu()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->curveradiu());
+    }
+
+    // optional string CurveParent = 4;
+    if (has_curveparent()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::StringSize(
+          this->curveparent());
+    }
+
+    // optional string CurveEffect = 5;
+    if (has_curveeffect()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::StringSize(
+          this->curveeffect());
+    }
+
+    // optional string NoneCurveEffet = 6;
+    if (has_nonecurveeffet()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::StringSize(
+          this->nonecurveeffet());
+    }
+
+    // optional bool IsTrackCurve = 7;
+    if (has_istrackcurve()) {
+      total_size += 1 + 1;
+    }
+
+    // optional bool IsThroughCurve = 8;
+    if (has_isthroughcurve()) {
+      total_size += 1 + 1;
+    }
+
+  }
+  if (_has_bits_[8 / 32] & (0xffu << (8 % 32))) {
+    // optional int32 MaxThroughNum = 9;
+    if (has_maxthroughnum()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->maxthroughnum());
+    }
+
+    // optional bool IsDisappearOnCollision = 10;
+    if (has_isdisappearoncollision()) {
+      total_size += 1 + 1;
+    }
+
+    // optional int32 CollisionDetectionType = 11;
+    if (has_collisiondetectiontype()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->collisiondetectiontype());
+    }
+
+    // optional int32 CurveSpeed = 12;
+    if (has_curvespeed()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->curvespeed());
+    }
+
+    // optional bool IsCurveBack = 14;
+    if (has_iscurveback()) {
+      total_size += 1 + 1;
+    }
+
+    // optional bool EffectOnBack = 15;
+    if (has_effectonback()) {
+      total_size += 1 + 1;
+    }
+
+    // optional int32 CurveBackSpeed = 16;
+    if (has_curvebackspeed()) {
+      total_size += 2 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->curvebackspeed());
+    }
+
+  }
+  if (_has_bits_[17 / 32] & (0xffu << (17 % 32))) {
+    // optional int32 AngleOffset = 18;
+    if (has_angleoffset()) {
+      total_size += 2 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->angleoffset());
+    }
+
+    // optional int32 CurveLastTime = 20;
+    if (has_curvelasttime()) {
+      total_size += 2 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->curvelasttime());
+    }
+
+    // optional int32 ThroughCollisionDetectionType = 21;
+    if (has_throughcollisiondetectiontype()) {
+      total_size += 2 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->throughcollisiondetectiontype());
+    }
+
+    // optional string HeadCurveEffect = 22;
+    if (has_headcurveeffect()) {
+      total_size += 2 +
+        ::google::protobuf::internal::WireFormatLite::StringSize(
+          this->headcurveeffect());
+    }
+
+    // optional bool IsFixedTime = 23;
+    if (has_isfixedtime()) {
+      total_size += 2 + 1;
+    }
+
+    // optional int32 CurveFlyTime = 24;
+    if (has_curveflytime()) {
+      total_size += 2 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->curveflytime());
+    }
+
+  }
+  if (_has_bits_[24 / 32] & (0xffu << (24 % 32))) {
+    // optional bool NoVerticalMove = 25;
+    if (has_noverticalmove()) {
+      total_size += 2 + 1;
+    }
+
+    // optional bool IsLine = 26;
+    if (has_isline()) {
+      total_size += 2 + 1;
+    }
+
+    // optional int32 ShapeParam1 = 27;
+    if (has_shapeparam1()) {
+      total_size += 2 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->shapeparam1());
+    }
+
+    // optional bool DisappearOnReachRefTarget = 28;
+    if (has_disappearonreachreftarget()) {
+      total_size += 2 + 1;
+    }
+
+    // optional string ReceiverCurveParent = 29;
+    if (has_receivercurveparent()) {
+      total_size += 2 +
+        ::google::protobuf::internal::WireFormatLite::StringSize(
+          this->receivercurveparent());
+    }
+
+  }
+  // repeated .pb.SkillCurveAcceleration CurveAcceleration = 13;
+  total_size += 1 * this->curveacceleration_size();
+  for (int i = 0; i < this->curveacceleration_size(); i++) {
+    total_size +=
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        this->curveacceleration(i));
+  }
+
+  // repeated .pb.SkillCurveAcceleration CurveBackAcceleration = 17;
+  total_size += 2 * this->curvebackacceleration_size();
+  for (int i = 0; i < this->curvebackacceleration_size(); i++) {
+    total_size +=
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        this->curvebackacceleration(i));
+  }
+
+  // repeated int32 ControllerOffset = 19;
+  {
+    int data_size = 0;
+    for (int i = 0; i < this->controlleroffset_size(); i++) {
+      data_size += ::google::protobuf::internal::WireFormatLite::
+        Int32Size(this->controlleroffset(i));
+    }
+    total_size += 2 * this->controlleroffset_size() + data_size;
+  }
+
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void SkillCurveData::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const SkillCurveData* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const SkillCurveData*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void SkillCurveData::MergeFrom(const SkillCurveData& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  curveacceleration_.MergeFrom(from.curveacceleration_);
+  curvebackacceleration_.MergeFrom(from.curvebackacceleration_);
+  controlleroffset_.MergeFrom(from.controlleroffset_);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_iscurve()) {
+      set_iscurve(from.iscurve());
+    }
+    if (from.has_curvetype()) {
+      set_curvetype(from.curvetype());
+    }
+    if (from.has_curveradiu()) {
+      set_curveradiu(from.curveradiu());
+    }
+    if (from.has_curveparent()) {
+      set_curveparent(from.curveparent());
+    }
+    if (from.has_curveeffect()) {
+      set_curveeffect(from.curveeffect());
+    }
+    if (from.has_nonecurveeffet()) {
+      set_nonecurveeffet(from.nonecurveeffet());
+    }
+    if (from.has_istrackcurve()) {
+      set_istrackcurve(from.istrackcurve());
+    }
+    if (from.has_isthroughcurve()) {
+      set_isthroughcurve(from.isthroughcurve());
+    }
+  }
+  if (from._has_bits_[8 / 32] & (0xffu << (8 % 32))) {
+    if (from.has_maxthroughnum()) {
+      set_maxthroughnum(from.maxthroughnum());
+    }
+    if (from.has_isdisappearoncollision()) {
+      set_isdisappearoncollision(from.isdisappearoncollision());
+    }
+    if (from.has_collisiondetectiontype()) {
+      set_collisiondetectiontype(from.collisiondetectiontype());
+    }
+    if (from.has_curvespeed()) {
+      set_curvespeed(from.curvespeed());
+    }
+    if (from.has_iscurveback()) {
+      set_iscurveback(from.iscurveback());
+    }
+    if (from.has_effectonback()) {
+      set_effectonback(from.effectonback());
+    }
+    if (from.has_curvebackspeed()) {
+      set_curvebackspeed(from.curvebackspeed());
+    }
+  }
+  if (from._has_bits_[17 / 32] & (0xffu << (17 % 32))) {
+    if (from.has_angleoffset()) {
+      set_angleoffset(from.angleoffset());
+    }
+    if (from.has_curvelasttime()) {
+      set_curvelasttime(from.curvelasttime());
+    }
+    if (from.has_throughcollisiondetectiontype()) {
+      set_throughcollisiondetectiontype(from.throughcollisiondetectiontype());
+    }
+    if (from.has_headcurveeffect()) {
+      set_headcurveeffect(from.headcurveeffect());
+    }
+    if (from.has_isfixedtime()) {
+      set_isfixedtime(from.isfixedtime());
+    }
+    if (from.has_curveflytime()) {
+      set_curveflytime(from.curveflytime());
+    }
+  }
+  if (from._has_bits_[24 / 32] & (0xffu << (24 % 32))) {
+    if (from.has_noverticalmove()) {
+      set_noverticalmove(from.noverticalmove());
+    }
+    if (from.has_isline()) {
+      set_isline(from.isline());
+    }
+    if (from.has_shapeparam1()) {
+      set_shapeparam1(from.shapeparam1());
+    }
+    if (from.has_disappearonreachreftarget()) {
+      set_disappearonreachreftarget(from.disappearonreachreftarget());
+    }
+    if (from.has_receivercurveparent()) {
+      set_receivercurveparent(from.receivercurveparent());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void SkillCurveData::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void SkillCurveData::CopyFrom(const SkillCurveData& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool SkillCurveData::IsInitialized() const {
+
+  return true;
+}
+
+void SkillCurveData::Swap(SkillCurveData* other) {
+  if (other != this) {
+    std::swap(iscurve_, other->iscurve_);
+    std::swap(curvetype_, other->curvetype_);
+    std::swap(curveradiu_, other->curveradiu_);
+    std::swap(curveparent_, other->curveparent_);
+    std::swap(curveeffect_, other->curveeffect_);
+    std::swap(nonecurveeffet_, other->nonecurveeffet_);
+    std::swap(istrackcurve_, other->istrackcurve_);
+    std::swap(isthroughcurve_, other->isthroughcurve_);
+    std::swap(maxthroughnum_, other->maxthroughnum_);
+    std::swap(isdisappearoncollision_, other->isdisappearoncollision_);
+    std::swap(collisiondetectiontype_, other->collisiondetectiontype_);
+    std::swap(curvespeed_, other->curvespeed_);
+    curveacceleration_.Swap(&other->curveacceleration_);
+    std::swap(iscurveback_, other->iscurveback_);
+    std::swap(effectonback_, other->effectonback_);
+    std::swap(curvebackspeed_, other->curvebackspeed_);
+    curvebackacceleration_.Swap(&other->curvebackacceleration_);
+    std::swap(angleoffset_, other->angleoffset_);
+    controlleroffset_.Swap(&other->controlleroffset_);
+    std::swap(curvelasttime_, other->curvelasttime_);
+    std::swap(throughcollisiondetectiontype_, other->throughcollisiondetectiontype_);
+    std::swap(headcurveeffect_, other->headcurveeffect_);
+    std::swap(isfixedtime_, other->isfixedtime_);
+    std::swap(curveflytime_, other->curveflytime_);
+    std::swap(noverticalmove_, other->noverticalmove_);
+    std::swap(isline_, other->isline_);
+    std::swap(shapeparam1_, other->shapeparam1_);
+    std::swap(disappearonreachreftarget_, other->disappearonreachreftarget_);
+    std::swap(receivercurveparent_, other->receivercurveparent_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata SkillCurveData::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = SkillCurveData_descriptor_;
+  metadata.reflection = SkillCurveData_reflection_;
   return metadata;
 }
 

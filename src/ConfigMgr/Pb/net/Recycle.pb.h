@@ -1098,14 +1098,44 @@ class TRecycleRebornArmsReq : public ::google::protobuf::Message {
   inline ::google::protobuf::RepeatedField< ::google::protobuf::uint32 >*
       mutable_itemidarray();
 
+  // optional bool IsPreview = 2;
+  inline bool has_ispreview() const;
+  inline void clear_ispreview();
+  static const int kIsPreviewFieldNumber = 2;
+  /*FOR2LUA
+  <Record>
+  	<name>TRecycleRebornArmsReq</name>
+  	<Function>
+  		<name>ispreview</name>
+  		<replaceName>IsPreview</replaceName>
+  		<handler>descripter = pb_cpp()</handler>
+  	</Function>
+  	<Function>
+  		<name>set_ispreview</name>
+  		<replaceName>IsPreview</replaceName>
+  		<handler>descripter = pb_set_cpp()</handler>
+  	</Function>
+  	<Function>
+  		<name>has_ispreview</name>
+  		<replaceName>IsPreview</replaceName>
+  		<handler>descripter = pb_has_cpp()</handler>
+  	</Function>
+  </Record>
+  FOR2LUA*/
+  inline bool ispreview() const;
+  inline void set_ispreview(bool value);
+
   // @@protoc_insertion_point(class_scope:pb.TRecycleRebornArmsReq)
  private:
+  inline void set_has_ispreview();
+  inline void clear_has_ispreview();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
   ::google::protobuf::uint32 _has_bits_[1];
   mutable int _cached_size_;
   ::google::protobuf::RepeatedField< ::google::protobuf::uint32 > itemidarray_;
+  bool ispreview_;
   friend void  protobuf_AddDesc_net_2fRecycle_2eproto();
   friend void protobuf_AssignDesc_net_2fRecycle_2eproto();
   friend void protobuf_ShutdownFile_net_2fRecycle_2eproto();
@@ -1382,14 +1412,44 @@ class TRecycleRebornAccessoryReq : public ::google::protobuf::Message {
   inline ::google::protobuf::RepeatedField< ::google::protobuf::uint32 >*
       mutable_itemidarray();
 
+  // optional bool IsPreview = 2;
+  inline bool has_ispreview() const;
+  inline void clear_ispreview();
+  static const int kIsPreviewFieldNumber = 2;
+  /*FOR2LUA
+  <Record>
+  	<name>TRecycleRebornAccessoryReq</name>
+  	<Function>
+  		<name>ispreview</name>
+  		<replaceName>IsPreview</replaceName>
+  		<handler>descripter = pb_cpp()</handler>
+  	</Function>
+  	<Function>
+  		<name>set_ispreview</name>
+  		<replaceName>IsPreview</replaceName>
+  		<handler>descripter = pb_set_cpp()</handler>
+  	</Function>
+  	<Function>
+  		<name>has_ispreview</name>
+  		<replaceName>IsPreview</replaceName>
+  		<handler>descripter = pb_has_cpp()</handler>
+  	</Function>
+  </Record>
+  FOR2LUA*/
+  inline bool ispreview() const;
+  inline void set_ispreview(bool value);
+
   // @@protoc_insertion_point(class_scope:pb.TRecycleRebornAccessoryReq)
  private:
+  inline void set_has_ispreview();
+  inline void clear_has_ispreview();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
   ::google::protobuf::uint32 _has_bits_[1];
   mutable int _cached_size_;
   ::google::protobuf::RepeatedField< ::google::protobuf::uint32 > itemidarray_;
+  bool ispreview_;
   friend void  protobuf_AddDesc_net_2fRecycle_2eproto();
   friend void protobuf_AssignDesc_net_2fRecycle_2eproto();
   friend void protobuf_ShutdownFile_net_2fRecycle_2eproto();
@@ -7658,6 +7718,30 @@ TRecycleRebornArmsReq::mutable_itemidarray() {
   return &itemidarray_;
 }
 
+// optional bool IsPreview = 2;
+inline bool TRecycleRebornArmsReq::has_ispreview() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void TRecycleRebornArmsReq::set_has_ispreview() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void TRecycleRebornArmsReq::clear_has_ispreview() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void TRecycleRebornArmsReq::clear_ispreview() {
+  ispreview_ = false;
+  clear_has_ispreview();
+}
+inline bool TRecycleRebornArmsReq::ispreview() const {
+  // @@protoc_insertion_point(field_get:pb.TRecycleRebornArmsReq.IsPreview)
+  return ispreview_;
+}
+inline void TRecycleRebornArmsReq::set_ispreview(bool value) {
+  set_has_ispreview();
+  ispreview_ = value;
+  // @@protoc_insertion_point(field_set:pb.TRecycleRebornArmsReq.IsPreview)
+}
+
 // -------------------------------------------------------------------
 
 // TRecycleRebornArmsRsp
@@ -7724,6 +7808,30 @@ inline ::google::protobuf::RepeatedField< ::google::protobuf::uint32 >*
 TRecycleRebornAccessoryReq::mutable_itemidarray() {
   // @@protoc_insertion_point(field_mutable_list:pb.TRecycleRebornAccessoryReq.ItemIdArray)
   return &itemidarray_;
+}
+
+// optional bool IsPreview = 2;
+inline bool TRecycleRebornAccessoryReq::has_ispreview() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void TRecycleRebornAccessoryReq::set_has_ispreview() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void TRecycleRebornAccessoryReq::clear_has_ispreview() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void TRecycleRebornAccessoryReq::clear_ispreview() {
+  ispreview_ = false;
+  clear_has_ispreview();
+}
+inline bool TRecycleRebornAccessoryReq::ispreview() const {
+  // @@protoc_insertion_point(field_get:pb.TRecycleRebornAccessoryReq.IsPreview)
+  return ispreview_;
+}
+inline void TRecycleRebornAccessoryReq::set_ispreview(bool value) {
+  set_has_ispreview();
+  ispreview_ = value;
+  // @@protoc_insertion_point(field_set:pb.TRecycleRebornAccessoryReq.IsPreview)
 }
 
 // -------------------------------------------------------------------

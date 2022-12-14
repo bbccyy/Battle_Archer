@@ -155,7 +155,7 @@ int SkillProjectile::CollisionDetection(Vector3& aStart, Vector3& aEnd)
                 canTouch = ! mOwner->IsEnemy(unit);
                 break;
         }
-        if( canTouch && mTouchedEntityIdArr.count(entityId) == 0 )
+        if( canTouch && mTouchedEntityIdArr.count(entityId) == 0 )  //TODO: <Id, LastHitTimeStamp> minRehitableGap
         {
 			++mCurCollisionNum;
 			++collisionNum;

@@ -32,6 +32,9 @@ const ::google::protobuf::internal::GeneratedMessageReflection*
 const ::google::protobuf::Descriptor* TActUnionRechargeBackReceiveRewardReq_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   TActUnionRechargeBackReceiveRewardReq_reflection_ = NULL;
+const ::google::protobuf::Descriptor* TActUnionRechargeBackReceiveRewardRsp_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  TActUnionRechargeBackReceiveRewardRsp_reflection_ = NULL;
 const ::google::protobuf::Descriptor* TActUnionRechargeBackGetAllyInfoRsp_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   TActUnionRechargeBackGetAllyInfoRsp_reflection_ = NULL;
@@ -44,6 +47,9 @@ const ::google::protobuf::internal::GeneratedMessageReflection*
 const ::google::protobuf::Descriptor* TActUnionRechargeBackScoreChangeNotify_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   TActUnionRechargeBackScoreChangeNotify_reflection_ = NULL;
+const ::google::protobuf::Descriptor* TActUnionRechargeBackAllyChangeNotify_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  TActUnionRechargeBackAllyChangeNotify_reflection_ = NULL;
 
 }  // namespace
 
@@ -121,7 +127,22 @@ void protobuf_AssignDesc_net_2fActUnionRechargeBack_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(TActUnionRechargeBackReceiveRewardReq));
-  TActUnionRechargeBackGetAllyInfoRsp_descriptor_ = file->message_type(4);
+  TActUnionRechargeBackReceiveRewardRsp_descriptor_ = file->message_type(4);
+  static const int TActUnionRechargeBackReceiveRewardRsp_offsets_[1] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(TActUnionRechargeBackReceiveRewardRsp, isok_),
+  };
+  TActUnionRechargeBackReceiveRewardRsp_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      TActUnionRechargeBackReceiveRewardRsp_descriptor_,
+      TActUnionRechargeBackReceiveRewardRsp::default_instance_,
+      TActUnionRechargeBackReceiveRewardRsp_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(TActUnionRechargeBackReceiveRewardRsp, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(TActUnionRechargeBackReceiveRewardRsp, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(TActUnionRechargeBackReceiveRewardRsp));
+  TActUnionRechargeBackGetAllyInfoRsp_descriptor_ = file->message_type(5);
   static const int TActUnionRechargeBackGetAllyInfoRsp_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(TActUnionRechargeBackGetAllyInfoRsp, score_),
   };
@@ -136,7 +157,7 @@ void protobuf_AssignDesc_net_2fActUnionRechargeBack_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(TActUnionRechargeBackGetAllyInfoRsp));
-  TActUnionRechargeBackRank_descriptor_ = file->message_type(5);
+  TActUnionRechargeBackRank_descriptor_ = file->message_type(6);
   static const int TActUnionRechargeBackRank_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(TActUnionRechargeBackRank, userinfo_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(TActUnionRechargeBackRank, score_),
@@ -152,7 +173,7 @@ void protobuf_AssignDesc_net_2fActUnionRechargeBack_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(TActUnionRechargeBackRank));
-  TActUnionRechargeBackGetRankInfoRsp_descriptor_ = file->message_type(6);
+  TActUnionRechargeBackGetRankInfoRsp_descriptor_ = file->message_type(7);
   static const int TActUnionRechargeBackGetRankInfoRsp_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(TActUnionRechargeBackGetRankInfoRsp, rankarr_),
   };
@@ -167,7 +188,7 @@ void protobuf_AssignDesc_net_2fActUnionRechargeBack_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(TActUnionRechargeBackGetRankInfoRsp));
-  TActUnionRechargeBackScoreChangeNotify_descriptor_ = file->message_type(7);
+  TActUnionRechargeBackScoreChangeNotify_descriptor_ = file->message_type(8);
   static const int TActUnionRechargeBackScoreChangeNotify_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(TActUnionRechargeBackScoreChangeNotify, userscore_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(TActUnionRechargeBackScoreChangeNotify, allyscore_),
@@ -184,6 +205,21 @@ void protobuf_AssignDesc_net_2fActUnionRechargeBack_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(TActUnionRechargeBackScoreChangeNotify));
+  TActUnionRechargeBackAllyChangeNotify_descriptor_ = file->message_type(9);
+  static const int TActUnionRechargeBackAllyChangeNotify_offsets_[1] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(TActUnionRechargeBackAllyChangeNotify, allyscore_),
+  };
+  TActUnionRechargeBackAllyChangeNotify_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      TActUnionRechargeBackAllyChangeNotify_descriptor_,
+      TActUnionRechargeBackAllyChangeNotify::default_instance_,
+      TActUnionRechargeBackAllyChangeNotify_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(TActUnionRechargeBackAllyChangeNotify, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(TActUnionRechargeBackAllyChangeNotify, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(TActUnionRechargeBackAllyChangeNotify));
 }
 
 namespace {
@@ -205,6 +241,8 @@ void protobuf_RegisterTypes(const ::std::string&) {
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     TActUnionRechargeBackReceiveRewardReq_descriptor_, &TActUnionRechargeBackReceiveRewardReq::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    TActUnionRechargeBackReceiveRewardRsp_descriptor_, &TActUnionRechargeBackReceiveRewardRsp::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     TActUnionRechargeBackGetAllyInfoRsp_descriptor_, &TActUnionRechargeBackGetAllyInfoRsp::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     TActUnionRechargeBackRank_descriptor_, &TActUnionRechargeBackRank::default_instance());
@@ -212,6 +250,8 @@ void protobuf_RegisterTypes(const ::std::string&) {
     TActUnionRechargeBackGetRankInfoRsp_descriptor_, &TActUnionRechargeBackGetRankInfoRsp::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     TActUnionRechargeBackScoreChangeNotify_descriptor_, &TActUnionRechargeBackScoreChangeNotify::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    TActUnionRechargeBackAllyChangeNotify_descriptor_, &TActUnionRechargeBackAllyChangeNotify::default_instance());
 }
 
 }  // namespace
@@ -225,6 +265,8 @@ void protobuf_ShutdownFile_net_2fActUnionRechargeBack_2eproto() {
   delete TActUnionRechargeBackGetUserInfoRsp_reflection_;
   delete TActUnionRechargeBackReceiveRewardReq::default_instance_;
   delete TActUnionRechargeBackReceiveRewardReq_reflection_;
+  delete TActUnionRechargeBackReceiveRewardRsp::default_instance_;
+  delete TActUnionRechargeBackReceiveRewardRsp_reflection_;
   delete TActUnionRechargeBackGetAllyInfoRsp::default_instance_;
   delete TActUnionRechargeBackGetAllyInfoRsp_reflection_;
   delete TActUnionRechargeBackRank::default_instance_;
@@ -233,6 +275,8 @@ void protobuf_ShutdownFile_net_2fActUnionRechargeBack_2eproto() {
   delete TActUnionRechargeBackGetRankInfoRsp_reflection_;
   delete TActUnionRechargeBackScoreChangeNotify::default_instance_;
   delete TActUnionRechargeBackScoreChangeNotify_reflection_;
+  delete TActUnionRechargeBackAllyChangeNotify::default_instance_;
+  delete TActUnionRechargeBackAllyChangeNotify_reflection_;
 }
 
 void protobuf_AddDesc_net_2fActUnionRechargeBack_2eproto() {
@@ -254,33 +298,40 @@ void protobuf_AddDesc_net_2fActUnionRechargeBack_2eproto() {
     ":\n\rAllyRewardArr\030\003 \003(\0132#.pb.TActUnionRec"
     "hargeBackAllyReward\022\025\n\rUserAllyScore\030\004 \001"
     "(\r\"3\n%TActUnionRechargeBackReceiveReward"
-    "Req\022\n\n\002Id\030\001 \001(\r\"4\n#TActUnionRechargeBack"
-    "GetAllyInfoRsp\022\r\n\005Score\030\001 \001(\r\"Q\n\031TActUni"
-    "onRechargeBackRank\022%\n\010UserInfo\030\001 \001(\0132\023.p"
-    "b.TUserSimpleInfo\022\r\n\005Score\030\002 \001(\r\"U\n#TAct"
-    "UnionRechargeBackGetRankInfoRsp\022.\n\007RankA"
-    "rr\030\001 \003(\0132\035.pb.TActUnionRechargeBackRank\""
-    "e\n&TActUnionRechargeBackScoreChangeNotif"
-    "y\022\021\n\tUserScore\030\001 \001(\r\022\021\n\tAllyScore\030\002 \001(\r\022"
-    "\025\n\rUserAllyScore\030\003 \001(\r", 782);
+    "Req\022\n\n\002Id\030\001 \001(\r\"5\n%TActUnionRechargeBack"
+    "ReceiveRewardRsp\022\014\n\004IsOk\030\001 \001(\010\"4\n#TActUn"
+    "ionRechargeBackGetAllyInfoRsp\022\r\n\005Score\030\001"
+    " \001(\r\"Q\n\031TActUnionRechargeBackRank\022%\n\010Use"
+    "rInfo\030\001 \001(\0132\023.pb.TUserSimpleInfo\022\r\n\005Scor"
+    "e\030\002 \001(\r\"U\n#TActUnionRechargeBackGetRankI"
+    "nfoRsp\022.\n\007RankArr\030\001 \003(\0132\035.pb.TActUnionRe"
+    "chargeBackRank\"e\n&TActUnionRechargeBackS"
+    "coreChangeNotify\022\021\n\tUserScore\030\001 \001(\r\022\021\n\tA"
+    "llyScore\030\002 \001(\r\022\025\n\rUserAllyScore\030\003 \001(\r\":\n"
+    "%TActUnionRechargeBackAllyChangeNotify\022\021"
+    "\n\tAllyScore\030\001 \001(\r", 897);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "net/ActUnionRechargeBack.proto", &protobuf_RegisterTypes);
   TActUnionRechargeBackUserReward::default_instance_ = new TActUnionRechargeBackUserReward();
   TActUnionRechargeBackAllyReward::default_instance_ = new TActUnionRechargeBackAllyReward();
   TActUnionRechargeBackGetUserInfoRsp::default_instance_ = new TActUnionRechargeBackGetUserInfoRsp();
   TActUnionRechargeBackReceiveRewardReq::default_instance_ = new TActUnionRechargeBackReceiveRewardReq();
+  TActUnionRechargeBackReceiveRewardRsp::default_instance_ = new TActUnionRechargeBackReceiveRewardRsp();
   TActUnionRechargeBackGetAllyInfoRsp::default_instance_ = new TActUnionRechargeBackGetAllyInfoRsp();
   TActUnionRechargeBackRank::default_instance_ = new TActUnionRechargeBackRank();
   TActUnionRechargeBackGetRankInfoRsp::default_instance_ = new TActUnionRechargeBackGetRankInfoRsp();
   TActUnionRechargeBackScoreChangeNotify::default_instance_ = new TActUnionRechargeBackScoreChangeNotify();
+  TActUnionRechargeBackAllyChangeNotify::default_instance_ = new TActUnionRechargeBackAllyChangeNotify();
   TActUnionRechargeBackUserReward::default_instance_->InitAsDefaultInstance();
   TActUnionRechargeBackAllyReward::default_instance_->InitAsDefaultInstance();
   TActUnionRechargeBackGetUserInfoRsp::default_instance_->InitAsDefaultInstance();
   TActUnionRechargeBackReceiveRewardReq::default_instance_->InitAsDefaultInstance();
+  TActUnionRechargeBackReceiveRewardRsp::default_instance_->InitAsDefaultInstance();
   TActUnionRechargeBackGetAllyInfoRsp::default_instance_->InitAsDefaultInstance();
   TActUnionRechargeBackRank::default_instance_->InitAsDefaultInstance();
   TActUnionRechargeBackGetRankInfoRsp::default_instance_->InitAsDefaultInstance();
   TActUnionRechargeBackScoreChangeNotify::default_instance_->InitAsDefaultInstance();
+  TActUnionRechargeBackAllyChangeNotify::default_instance_->InitAsDefaultInstance();
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_net_2fActUnionRechargeBack_2eproto);
 }
 
@@ -1492,6 +1543,226 @@ void TActUnionRechargeBackReceiveRewardReq::Swap(TActUnionRechargeBackReceiveRew
 // ===================================================================
 
 #ifndef _MSC_VER
+const int TActUnionRechargeBackReceiveRewardRsp::kIsOkFieldNumber;
+#endif  // !_MSC_VER
+
+TActUnionRechargeBackReceiveRewardRsp::TActUnionRechargeBackReceiveRewardRsp()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:pb.TActUnionRechargeBackReceiveRewardRsp)
+}
+
+void TActUnionRechargeBackReceiveRewardRsp::InitAsDefaultInstance() {
+}
+
+TActUnionRechargeBackReceiveRewardRsp::TActUnionRechargeBackReceiveRewardRsp(const TActUnionRechargeBackReceiveRewardRsp& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+  // @@protoc_insertion_point(copy_constructor:pb.TActUnionRechargeBackReceiveRewardRsp)
+}
+
+void TActUnionRechargeBackReceiveRewardRsp::SharedCtor() {
+  _cached_size_ = 0;
+  isok_ = false;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+TActUnionRechargeBackReceiveRewardRsp::~TActUnionRechargeBackReceiveRewardRsp() {
+  // @@protoc_insertion_point(destructor:pb.TActUnionRechargeBackReceiveRewardRsp)
+  SharedDtor();
+}
+
+void TActUnionRechargeBackReceiveRewardRsp::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void TActUnionRechargeBackReceiveRewardRsp::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* TActUnionRechargeBackReceiveRewardRsp::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return TActUnionRechargeBackReceiveRewardRsp_descriptor_;
+}
+
+const TActUnionRechargeBackReceiveRewardRsp& TActUnionRechargeBackReceiveRewardRsp::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_net_2fActUnionRechargeBack_2eproto();
+  return *default_instance_;
+}
+
+TActUnionRechargeBackReceiveRewardRsp* TActUnionRechargeBackReceiveRewardRsp::default_instance_ = NULL;
+
+TActUnionRechargeBackReceiveRewardRsp* TActUnionRechargeBackReceiveRewardRsp::New() const {
+  return new TActUnionRechargeBackReceiveRewardRsp;
+}
+
+void TActUnionRechargeBackReceiveRewardRsp::Clear() {
+  isok_ = false;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool TActUnionRechargeBackReceiveRewardRsp::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:pb.TActUnionRechargeBackReceiveRewardRsp)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional bool IsOk = 1;
+      case 1: {
+        if (tag == 8) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
+                 input, &isok_)));
+          set_has_isok();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectAtEnd()) goto success;
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0 ||
+            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:pb.TActUnionRechargeBackReceiveRewardRsp)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:pb.TActUnionRechargeBackReceiveRewardRsp)
+  return false;
+#undef DO_
+}
+
+void TActUnionRechargeBackReceiveRewardRsp::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:pb.TActUnionRechargeBackReceiveRewardRsp)
+  // optional bool IsOk = 1;
+  if (has_isok()) {
+    ::google::protobuf::internal::WireFormatLite::WriteBool(1, this->isok(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+  // @@protoc_insertion_point(serialize_end:pb.TActUnionRechargeBackReceiveRewardRsp)
+}
+
+::google::protobuf::uint8* TActUnionRechargeBackReceiveRewardRsp::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // @@protoc_insertion_point(serialize_to_array_start:pb.TActUnionRechargeBackReceiveRewardRsp)
+  // optional bool IsOk = 1;
+  if (has_isok()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(1, this->isok(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:pb.TActUnionRechargeBackReceiveRewardRsp)
+  return target;
+}
+
+int TActUnionRechargeBackReceiveRewardRsp::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // optional bool IsOk = 1;
+    if (has_isok()) {
+      total_size += 1 + 1;
+    }
+
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void TActUnionRechargeBackReceiveRewardRsp::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const TActUnionRechargeBackReceiveRewardRsp* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const TActUnionRechargeBackReceiveRewardRsp*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void TActUnionRechargeBackReceiveRewardRsp::MergeFrom(const TActUnionRechargeBackReceiveRewardRsp& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_isok()) {
+      set_isok(from.isok());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void TActUnionRechargeBackReceiveRewardRsp::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void TActUnionRechargeBackReceiveRewardRsp::CopyFrom(const TActUnionRechargeBackReceiveRewardRsp& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool TActUnionRechargeBackReceiveRewardRsp::IsInitialized() const {
+
+  return true;
+}
+
+void TActUnionRechargeBackReceiveRewardRsp::Swap(TActUnionRechargeBackReceiveRewardRsp* other) {
+  if (other != this) {
+    std::swap(isok_, other->isok_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata TActUnionRechargeBackReceiveRewardRsp::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = TActUnionRechargeBackReceiveRewardRsp_descriptor_;
+  metadata.reflection = TActUnionRechargeBackReceiveRewardRsp_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
 const int TActUnionRechargeBackGetAllyInfoRsp::kScoreFieldNumber;
 #endif  // !_MSC_VER
 
@@ -2506,6 +2777,228 @@ void TActUnionRechargeBackScoreChangeNotify::Swap(TActUnionRechargeBackScoreChan
   ::google::protobuf::Metadata metadata;
   metadata.descriptor = TActUnionRechargeBackScoreChangeNotify_descriptor_;
   metadata.reflection = TActUnionRechargeBackScoreChangeNotify_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int TActUnionRechargeBackAllyChangeNotify::kAllyScoreFieldNumber;
+#endif  // !_MSC_VER
+
+TActUnionRechargeBackAllyChangeNotify::TActUnionRechargeBackAllyChangeNotify()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:pb.TActUnionRechargeBackAllyChangeNotify)
+}
+
+void TActUnionRechargeBackAllyChangeNotify::InitAsDefaultInstance() {
+}
+
+TActUnionRechargeBackAllyChangeNotify::TActUnionRechargeBackAllyChangeNotify(const TActUnionRechargeBackAllyChangeNotify& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+  // @@protoc_insertion_point(copy_constructor:pb.TActUnionRechargeBackAllyChangeNotify)
+}
+
+void TActUnionRechargeBackAllyChangeNotify::SharedCtor() {
+  _cached_size_ = 0;
+  allyscore_ = 0u;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+TActUnionRechargeBackAllyChangeNotify::~TActUnionRechargeBackAllyChangeNotify() {
+  // @@protoc_insertion_point(destructor:pb.TActUnionRechargeBackAllyChangeNotify)
+  SharedDtor();
+}
+
+void TActUnionRechargeBackAllyChangeNotify::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void TActUnionRechargeBackAllyChangeNotify::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* TActUnionRechargeBackAllyChangeNotify::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return TActUnionRechargeBackAllyChangeNotify_descriptor_;
+}
+
+const TActUnionRechargeBackAllyChangeNotify& TActUnionRechargeBackAllyChangeNotify::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_net_2fActUnionRechargeBack_2eproto();
+  return *default_instance_;
+}
+
+TActUnionRechargeBackAllyChangeNotify* TActUnionRechargeBackAllyChangeNotify::default_instance_ = NULL;
+
+TActUnionRechargeBackAllyChangeNotify* TActUnionRechargeBackAllyChangeNotify::New() const {
+  return new TActUnionRechargeBackAllyChangeNotify;
+}
+
+void TActUnionRechargeBackAllyChangeNotify::Clear() {
+  allyscore_ = 0u;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool TActUnionRechargeBackAllyChangeNotify::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:pb.TActUnionRechargeBackAllyChangeNotify)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional uint32 AllyScore = 1;
+      case 1: {
+        if (tag == 8) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &allyscore_)));
+          set_has_allyscore();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectAtEnd()) goto success;
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0 ||
+            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:pb.TActUnionRechargeBackAllyChangeNotify)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:pb.TActUnionRechargeBackAllyChangeNotify)
+  return false;
+#undef DO_
+}
+
+void TActUnionRechargeBackAllyChangeNotify::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:pb.TActUnionRechargeBackAllyChangeNotify)
+  // optional uint32 AllyScore = 1;
+  if (has_allyscore()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->allyscore(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+  // @@protoc_insertion_point(serialize_end:pb.TActUnionRechargeBackAllyChangeNotify)
+}
+
+::google::protobuf::uint8* TActUnionRechargeBackAllyChangeNotify::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // @@protoc_insertion_point(serialize_to_array_start:pb.TActUnionRechargeBackAllyChangeNotify)
+  // optional uint32 AllyScore = 1;
+  if (has_allyscore()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(1, this->allyscore(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:pb.TActUnionRechargeBackAllyChangeNotify)
+  return target;
+}
+
+int TActUnionRechargeBackAllyChangeNotify::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // optional uint32 AllyScore = 1;
+    if (has_allyscore()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->allyscore());
+    }
+
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void TActUnionRechargeBackAllyChangeNotify::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const TActUnionRechargeBackAllyChangeNotify* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const TActUnionRechargeBackAllyChangeNotify*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void TActUnionRechargeBackAllyChangeNotify::MergeFrom(const TActUnionRechargeBackAllyChangeNotify& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_allyscore()) {
+      set_allyscore(from.allyscore());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void TActUnionRechargeBackAllyChangeNotify::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void TActUnionRechargeBackAllyChangeNotify::CopyFrom(const TActUnionRechargeBackAllyChangeNotify& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool TActUnionRechargeBackAllyChangeNotify::IsInitialized() const {
+
+  return true;
+}
+
+void TActUnionRechargeBackAllyChangeNotify::Swap(TActUnionRechargeBackAllyChangeNotify* other) {
+  if (other != this) {
+    std::swap(allyscore_, other->allyscore_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata TActUnionRechargeBackAllyChangeNotify::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = TActUnionRechargeBackAllyChangeNotify_descriptor_;
+  metadata.reflection = TActUnionRechargeBackAllyChangeNotify_reflection_;
   return metadata;
 }
 

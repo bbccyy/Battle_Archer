@@ -5908,48 +5908,6 @@ class TItemOpVioletGoldBreakArmReq : public ::google::protobuf::Message {
   inline ::google::protobuf::uint32 itemid() const;
   inline void set_itemid(::google::protobuf::uint32 value);
 
-  // repeated .pb.TSimpleItem CostArr = 2;
-  inline int costarr_size() const;
-  inline void clear_costarr();
-  static const int kCostArrFieldNumber = 2;
-  /*FOR2LUA
-  <Record>
-  	<name>TItemOpVioletGoldBreakArmReq</name>
-  	<Function>
-  		<name>costarr</name>
-  		<replaceName>CostArr</replaceName>
-  		<handler>descripter = pb_cpp()</handler>
-  	</Function>
-  	<Function>
-  		<name>mutable_costarr</name>
-  		<replaceName>CostArr</replaceName>
-  		<handler>descripter = pb_cpp()</handler>
-  	</Function>
-  	<Function>
-  		<name>add_costarr</name>
-  		<replaceName>CostArr</replaceName>
-  		<handler>descripter = pb_repeated_add_cpp()</handler>
-  	</Function>
-  	<Function>
-  		<name>has_costarr</name>
-  		<replaceName>CostArr</replaceName>
-  		<handler>descripter = pb_has_cpp()</handler>
-  	</Function>
-  	<Function>
-  		<name>costarr_size</name>
-  		<replaceName>CostArr</replaceName>
-  		<handler>descripter = pb_repeated_size_cpp()</handler>
-  	</Function>
-  </Record>
-  FOR2LUA*/
-  inline const ::pb::TSimpleItem& costarr(int index) const;
-  inline ::pb::TSimpleItem* mutable_costarr(int index);
-  inline ::pb::TSimpleItem* add_costarr();
-  inline const ::google::protobuf::RepeatedPtrField< ::pb::TSimpleItem >&
-      costarr() const;
-  inline ::google::protobuf::RepeatedPtrField< ::pb::TSimpleItem >*
-      mutable_costarr();
-
   // @@protoc_insertion_point(class_scope:pb.TItemOpVioletGoldBreakArmReq)
  private:
   inline void set_has_itemid();
@@ -5959,7 +5917,6 @@ class TItemOpVioletGoldBreakArmReq : public ::google::protobuf::Message {
 
   ::google::protobuf::uint32 _has_bits_[1];
   mutable int _cached_size_;
-  ::google::protobuf::RepeatedPtrField< ::pb::TSimpleItem > costarr_;
   ::google::protobuf::uint32 itemid_;
   friend void  protobuf_AddDesc_net_2fItemOp_2eproto();
   friend void protobuf_AssignDesc_net_2fItemOp_2eproto();
@@ -6510,48 +6467,6 @@ class TItemOpVioletGoldBreakAccessoryReq : public ::google::protobuf::Message {
   inline ::google::protobuf::uint32 itemid() const;
   inline void set_itemid(::google::protobuf::uint32 value);
 
-  // repeated .pb.TSimpleItem CostArr = 2;
-  inline int costarr_size() const;
-  inline void clear_costarr();
-  static const int kCostArrFieldNumber = 2;
-  /*FOR2LUA
-  <Record>
-  	<name>TItemOpVioletGoldBreakAccessoryReq</name>
-  	<Function>
-  		<name>costarr</name>
-  		<replaceName>CostArr</replaceName>
-  		<handler>descripter = pb_cpp()</handler>
-  	</Function>
-  	<Function>
-  		<name>mutable_costarr</name>
-  		<replaceName>CostArr</replaceName>
-  		<handler>descripter = pb_cpp()</handler>
-  	</Function>
-  	<Function>
-  		<name>add_costarr</name>
-  		<replaceName>CostArr</replaceName>
-  		<handler>descripter = pb_repeated_add_cpp()</handler>
-  	</Function>
-  	<Function>
-  		<name>has_costarr</name>
-  		<replaceName>CostArr</replaceName>
-  		<handler>descripter = pb_has_cpp()</handler>
-  	</Function>
-  	<Function>
-  		<name>costarr_size</name>
-  		<replaceName>CostArr</replaceName>
-  		<handler>descripter = pb_repeated_size_cpp()</handler>
-  	</Function>
-  </Record>
-  FOR2LUA*/
-  inline const ::pb::TSimpleItem& costarr(int index) const;
-  inline ::pb::TSimpleItem* mutable_costarr(int index);
-  inline ::pb::TSimpleItem* add_costarr();
-  inline const ::google::protobuf::RepeatedPtrField< ::pb::TSimpleItem >&
-      costarr() const;
-  inline ::google::protobuf::RepeatedPtrField< ::pb::TSimpleItem >*
-      mutable_costarr();
-
   // @@protoc_insertion_point(class_scope:pb.TItemOpVioletGoldBreakAccessoryReq)
  private:
   inline void set_has_itemid();
@@ -6561,7 +6476,6 @@ class TItemOpVioletGoldBreakAccessoryReq : public ::google::protobuf::Message {
 
   ::google::protobuf::uint32 _has_bits_[1];
   mutable int _cached_size_;
-  ::google::protobuf::RepeatedPtrField< ::pb::TSimpleItem > costarr_;
   ::google::protobuf::uint32 itemid_;
   friend void  protobuf_AddDesc_net_2fItemOp_2eproto();
   friend void protobuf_AssignDesc_net_2fItemOp_2eproto();
@@ -11935,36 +11849,6 @@ inline void TItemOpVioletGoldBreakArmReq::set_itemid(::google::protobuf::uint32 
   // @@protoc_insertion_point(field_set:pb.TItemOpVioletGoldBreakArmReq.ItemId)
 }
 
-// repeated .pb.TSimpleItem CostArr = 2;
-inline int TItemOpVioletGoldBreakArmReq::costarr_size() const {
-  return costarr_.size();
-}
-inline void TItemOpVioletGoldBreakArmReq::clear_costarr() {
-  costarr_.Clear();
-}
-inline const ::pb::TSimpleItem& TItemOpVioletGoldBreakArmReq::costarr(int index) const {
-  // @@protoc_insertion_point(field_get:pb.TItemOpVioletGoldBreakArmReq.CostArr)
-  return costarr_.Get(index);
-}
-inline ::pb::TSimpleItem* TItemOpVioletGoldBreakArmReq::mutable_costarr(int index) {
-  // @@protoc_insertion_point(field_mutable:pb.TItemOpVioletGoldBreakArmReq.CostArr)
-  return costarr_.Mutable(index);
-}
-inline ::pb::TSimpleItem* TItemOpVioletGoldBreakArmReq::add_costarr() {
-  // @@protoc_insertion_point(field_add:pb.TItemOpVioletGoldBreakArmReq.CostArr)
-  return costarr_.Add();
-}
-inline const ::google::protobuf::RepeatedPtrField< ::pb::TSimpleItem >&
-TItemOpVioletGoldBreakArmReq::costarr() const {
-  // @@protoc_insertion_point(field_list:pb.TItemOpVioletGoldBreakArmReq.CostArr)
-  return costarr_;
-}
-inline ::google::protobuf::RepeatedPtrField< ::pb::TSimpleItem >*
-TItemOpVioletGoldBreakArmReq::mutable_costarr() {
-  // @@protoc_insertion_point(field_mutable_list:pb.TItemOpVioletGoldBreakArmReq.CostArr)
-  return &costarr_;
-}
-
 // -------------------------------------------------------------------
 
 // TItemOpVioletGoldTrainArmReq
@@ -12105,36 +11989,6 @@ inline void TItemOpVioletGoldBreakAccessoryReq::set_itemid(::google::protobuf::u
   set_has_itemid();
   itemid_ = value;
   // @@protoc_insertion_point(field_set:pb.TItemOpVioletGoldBreakAccessoryReq.ItemId)
-}
-
-// repeated .pb.TSimpleItem CostArr = 2;
-inline int TItemOpVioletGoldBreakAccessoryReq::costarr_size() const {
-  return costarr_.size();
-}
-inline void TItemOpVioletGoldBreakAccessoryReq::clear_costarr() {
-  costarr_.Clear();
-}
-inline const ::pb::TSimpleItem& TItemOpVioletGoldBreakAccessoryReq::costarr(int index) const {
-  // @@protoc_insertion_point(field_get:pb.TItemOpVioletGoldBreakAccessoryReq.CostArr)
-  return costarr_.Get(index);
-}
-inline ::pb::TSimpleItem* TItemOpVioletGoldBreakAccessoryReq::mutable_costarr(int index) {
-  // @@protoc_insertion_point(field_mutable:pb.TItemOpVioletGoldBreakAccessoryReq.CostArr)
-  return costarr_.Mutable(index);
-}
-inline ::pb::TSimpleItem* TItemOpVioletGoldBreakAccessoryReq::add_costarr() {
-  // @@protoc_insertion_point(field_add:pb.TItemOpVioletGoldBreakAccessoryReq.CostArr)
-  return costarr_.Add();
-}
-inline const ::google::protobuf::RepeatedPtrField< ::pb::TSimpleItem >&
-TItemOpVioletGoldBreakAccessoryReq::costarr() const {
-  // @@protoc_insertion_point(field_list:pb.TItemOpVioletGoldBreakAccessoryReq.CostArr)
-  return costarr_;
-}
-inline ::google::protobuf::RepeatedPtrField< ::pb::TSimpleItem >*
-TItemOpVioletGoldBreakAccessoryReq::mutable_costarr() {
-  // @@protoc_insertion_point(field_mutable_list:pb.TItemOpVioletGoldBreakAccessoryReq.CostArr)
-  return &costarr_;
 }
 
 // -------------------------------------------------------------------
