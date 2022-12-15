@@ -29,9 +29,9 @@ const ::google::protobuf::internal::GeneratedMessageReflection*
 const ::google::protobuf::Descriptor* SkillTargetPriority_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   SkillTargetPriority_reflection_ = NULL;
-const ::google::protobuf::Descriptor* ArcherProjectile_descriptor_ = NULL;
+const ::google::protobuf::Descriptor* HitEffectData_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
-  ArcherProjectile_reflection_ = NULL;
+  HitEffectData_reflection_ = NULL;
 const ::google::protobuf::Descriptor* SkillCastType_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   SkillCastType_reflection_ = NULL;
@@ -46,7 +46,7 @@ void protobuf_AssignDesc_module_2fSkillBaseData_2eproto() {
       "module/SkillBaseData.proto");
   GOOGLE_CHECK(file != NULL);
   SkillBaseData_descriptor_ = file->message_type(0);
-  static const int SkillBaseData_offsets_[78] = {
+  static const int SkillBaseData_offsets_[77] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SkillBaseData, name_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SkillBaseData, chainskillmark_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SkillBaseData, maintype_),
@@ -124,7 +124,6 @@ void protobuf_AssignDesc_module_2fSkillBaseData_2eproto() {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SkillBaseData, targetprofessions_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SkillBaseData, archerparam1_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SkillBaseData, archerparam2_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SkillBaseData, archerprojectileconf_),
   };
   SkillBaseData_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
@@ -208,25 +207,30 @@ void protobuf_AssignDesc_module_2fSkillBaseData_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(SkillTargetPriority));
-  ArcherProjectile_descriptor_ = file->message_type(3);
-  static const int ArcherProjectile_offsets_[5] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ArcherProjectile, active_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ArcherProjectile, forwardnum_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ArcherProjectile, backwardnum_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ArcherProjectile, angularnum_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ArcherProjectile, sidenum_),
+  HitEffectData_descriptor_ = file->message_type(3);
+  static const int HitEffectData_offsets_[10] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(HitEffectData, effectparent_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(HitEffectData, hiteffect_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(HitEffectData, hitsound_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(HitEffectData, hiteffectfollow_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(HitEffectData, hiteffectflip_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(HitEffectData, hiteffectrotaterandom_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(HitEffectData, hiteffectrotaterangex_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(HitEffectData, hiteffectrotaterangey_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(HitEffectData, hiteffectscale_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(HitEffectData, hiteffectscalerange_),
   };
-  ArcherProjectile_reflection_ =
+  HitEffectData_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
-      ArcherProjectile_descriptor_,
-      ArcherProjectile::default_instance_,
-      ArcherProjectile_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ArcherProjectile, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ArcherProjectile, _unknown_fields_),
+      HitEffectData_descriptor_,
+      HitEffectData::default_instance_,
+      HitEffectData_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(HitEffectData, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(HitEffectData, _unknown_fields_),
       -1,
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(ArcherProjectile));
+      sizeof(HitEffectData));
   SkillCastType_descriptor_ = file->message_type(4);
   static const int SkillCastType_offsets_[16] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SkillCastType, casttype_),
@@ -276,7 +280,7 @@ void protobuf_RegisterTypes(const ::std::string&) {
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     SkillTargetPriority_descriptor_, &SkillTargetPriority::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    ArcherProjectile_descriptor_, &ArcherProjectile::default_instance());
+    HitEffectData_descriptor_, &HitEffectData::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     SkillCastType_descriptor_, &SkillCastType::default_instance());
 }
@@ -290,8 +294,8 @@ void protobuf_ShutdownFile_module_2fSkillBaseData_2eproto() {
   delete SkillSpecialData_reflection_;
   delete SkillTargetPriority::default_instance_;
   delete SkillTargetPriority_reflection_;
-  delete ArcherProjectile::default_instance_;
-  delete ArcherProjectile_reflection_;
+  delete HitEffectData::default_instance_;
+  delete HitEffectData_reflection_;
   delete SkillCastType::default_instance_;
   delete SkillCastType_reflection_;
 }
@@ -303,7 +307,7 @@ void protobuf_AddDesc_module_2fSkillBaseData_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-    "\n\032module/SkillBaseData.proto\022\002pb\"\371\017\n\rSki"
+    "\n\032module/SkillBaseData.proto\022\002pb\"\305\017\n\rSki"
     "llBaseData\022\014\n\004Name\030\001 \001(\t\022\026\n\016ChainSkillMa"
     "rk\030\002 \001(\005\022\020\n\010MainType\030\003 \001(\005\022\017\n\007SubType\030\004 "
     "\001(\005\022\031\n\021NormalAttackCount\030\005 \001(\005\022\025\n\rRefTar"
@@ -353,62 +357,65 @@ void protobuf_AddDesc_module_2fSkillBaseData_2eproto() {
     "oSkill\030T \001(\010\022\033\n\023RefTargetSummonType\030U \001("
     "\005\022\036\n\026LevelCoolingTimeGrowth\030V \001(\005\022\031\n\021Tar"
     "getProfessions\030W \003(\005\022\024\n\014ArcherParam1\030X \001"
-    "(\005\022\024\n\014ArcherParam2\030Y \001(\005\0222\n\024ArcherProjec"
-    "tileConf\030Z \001(\0132\024.pb.ArcherProjectile\"\377\010\n"
-    "\020SkillSpecialData\022\031\n\021RageSkillCameraUp\030\001"
-    " \003(\005\022\"\n\032RageSkillCameraUpSpeedTime\030\002 \003(\005"
-    "\022\033\n\023RageSkillCameraDown\030\003 \003(\005\022$\n\034RageSki"
-    "llCameraDownSpeedTime\030\004 \003(\005\022\'\n\037RageSkill"
-    "CameraRecoverSpeedTime\030\005 \003(\005\022\026\n\016RageSkil"
-    "lSpine\030\006 \001(\t\022\027\n\017RageSkillEffect\030\007 \001(\t\022\026\n"
-    "\016RageSkillAudio\030\010 \001(\t\022\034\n\024RageSkillSpineA"
-    "djust\030\t \003(\002\022\026\n\016ShowSkillLabel\030\n \001(\010\022\026\n\016S"
-    "killLabelSlot\030\013 \001(\t\022\024\n\014SkillLabelId\030\014 \001("
-    "\005\022\027\n\017SkillLabelAudio\030\r \001(\t\022!\n\031NonRageSki"
-    "llCameraUpParam\030\016 \003(\005\022&\n\036NonRageSkillCam"
-    "eraRecoverParam\030\017 \003(\005\022\033\n\023EnemyRageHeader"
-    "Show\030\020 \001(\010\022!\n\031EnemyRageSkillSpineAdjust\030"
-    "\021 \003(\002\022\032\n\022HideUnparallelIcon\030\022 \001(\010\022\033\n\023Sup"
-    "erAngerIconPath1\030\023 \001(\t\022\033\n\023SuperAngerIcon"
-    "Path2\030\024 \001(\t\022\033\n\023SuperAngerIconPath3\030\025 \001(\t"
-    "\022\037\n\027SuperAngerSkillNamePath\030\026 \001(\t\022\027\n\017Sup"
-    "erAngerAudio\030\027 \001(\t\022\031\n\021SuperAngerHeroArr\030"
-    "\030 \001(\005\022\032\n\022GroundMeshDuration\030\031 \001(\005\022\032\n\022Nee"
-    "dShowGroundMesh\030\032 \001(\010\022\025\n\rSlowStartTime\030\034"
-    " \001(\005\022\024\n\014SlowDuration\030\035 \001(\005\022\022\n\nSlowBuffId"
-    "\030\036 \001(\005\022\033\n\023GroundMeshAssetPath\030\037 \001(\t\022\023\n\013S"
-    "lowEndTime\030  \001(\005\022\031\n\021GroundAudioEvents\030! "
-    "\003(\t\022\031\n\021EffectOnDisappear\030\" \001(\t\022\027\n\017Active"
-    "TextShift\030# \001(\010\022\031\n\021TextShiftSkillArr\030$ \003"
-    "(\005\022\032\n\022ActiveHideWhenBorn\030% \001(\010\022\027\n\017Awaken"
-    "DataPath1\030& \001(\t\022\030\n\020BJRageSkillSpine\030\' \001("
-    "\t\022\036\n\026BJRageSkillSpineAdjust\030( \003(\002\022#\n\033BJE"
-    "nemyRageSkillSpineAdjust\030) \003(\002\"B\n\023SkillT"
-    "argetPriority\022\r\n\005Front\030\001 \001(\005\022\016\n\006Middle\030\002"
-    " \001(\005\022\014\n\004Back\030\003 \001(\005\"p\n\020ArcherProjectile\022\016"
-    "\n\006Active\030\001 \001(\010\022\022\n\nForwardNum\030\002 \001(\005\022\023\n\013Ba"
-    "ckwardNum\030\003 \001(\005\022\022\n\nAngularNum\030\004 \001(\005\022\017\n\007S"
-    "ideNum\030\005 \001(\005\"\363\002\n\rSkillCastType\022\020\n\010CastTy"
-    "pe\030\001 \001(\005\022\022\n\nEventMajor\030\002 \001(\005\022\025\n\rEventRel"
-    "ation\030\003 \001(\005\022\020\n\010EventSub\030\004 \001(\005\022\025\n\rTrigger"
-    "BuffID\030\005 \001(\005\022\030\n\020TriggerBuffLayer\030\006 \001(\005\022\027"
-    "\n\017TriggerSkillArr\030\007 \003(\005\022\025\n\rTriggerChance"
-    "\030\010 \001(\005\022\030\n\020EventSubSkillArr\030\t \003(\005\022\025\n\rNeed"
-    "Interrupt\030\n \001(\010\022\024\n\014RecordBuffId\030\013 \001(\005\022\027\n"
-    "\017RecordThreshold\030\014 \001(\005\022\027\n\017EventBuffSubAr"
-    "r\030\r \003(\005\022\031\n\021TriggerChanceCoef\030\016 \001(\005\022\016\n\006Pa"
-    "ram1\030\017 \001(\005\022\016\n\006Param2\030\020 \001(\005", 3786);
+    "(\005\022\024\n\014ArcherParam2\030Y \001(\005\"\377\010\n\020SkillSpecia"
+    "lData\022\031\n\021RageSkillCameraUp\030\001 \003(\005\022\"\n\032Rage"
+    "SkillCameraUpSpeedTime\030\002 \003(\005\022\033\n\023RageSkil"
+    "lCameraDown\030\003 \003(\005\022$\n\034RageSkillCameraDown"
+    "SpeedTime\030\004 \003(\005\022\'\n\037RageSkillCameraRecove"
+    "rSpeedTime\030\005 \003(\005\022\026\n\016RageSkillSpine\030\006 \001(\t"
+    "\022\027\n\017RageSkillEffect\030\007 \001(\t\022\026\n\016RageSkillAu"
+    "dio\030\010 \001(\t\022\034\n\024RageSkillSpineAdjust\030\t \003(\002\022"
+    "\026\n\016ShowSkillLabel\030\n \001(\010\022\026\n\016SkillLabelSlo"
+    "t\030\013 \001(\t\022\024\n\014SkillLabelId\030\014 \001(\005\022\027\n\017SkillLa"
+    "belAudio\030\r \001(\t\022!\n\031NonRageSkillCameraUpPa"
+    "ram\030\016 \003(\005\022&\n\036NonRageSkillCameraRecoverPa"
+    "ram\030\017 \003(\005\022\033\n\023EnemyRageHeaderShow\030\020 \001(\010\022!"
+    "\n\031EnemyRageSkillSpineAdjust\030\021 \003(\002\022\032\n\022Hid"
+    "eUnparallelIcon\030\022 \001(\010\022\033\n\023SuperAngerIconP"
+    "ath1\030\023 \001(\t\022\033\n\023SuperAngerIconPath2\030\024 \001(\t\022"
+    "\033\n\023SuperAngerIconPath3\030\025 \001(\t\022\037\n\027SuperAng"
+    "erSkillNamePath\030\026 \001(\t\022\027\n\017SuperAngerAudio"
+    "\030\027 \001(\t\022\031\n\021SuperAngerHeroArr\030\030 \001(\005\022\032\n\022Gro"
+    "undMeshDuration\030\031 \001(\005\022\032\n\022NeedShowGroundM"
+    "esh\030\032 \001(\010\022\025\n\rSlowStartTime\030\034 \001(\005\022\024\n\014Slow"
+    "Duration\030\035 \001(\005\022\022\n\nSlowBuffId\030\036 \001(\005\022\033\n\023Gr"
+    "oundMeshAssetPath\030\037 \001(\t\022\023\n\013SlowEndTime\030 "
+    " \001(\005\022\031\n\021GroundAudioEvents\030! \003(\t\022\031\n\021Effec"
+    "tOnDisappear\030\" \001(\t\022\027\n\017ActiveTextShift\030# "
+    "\001(\010\022\031\n\021TextShiftSkillArr\030$ \003(\005\022\032\n\022Active"
+    "HideWhenBorn\030% \001(\010\022\027\n\017AwakenDataPath1\030& "
+    "\001(\t\022\030\n\020BJRageSkillSpine\030\' \001(\t\022\036\n\026BJRageS"
+    "killSpineAdjust\030( \003(\002\022#\n\033BJEnemyRageSkil"
+    "lSpineAdjust\030) \003(\002\"B\n\023SkillTargetPriorit"
+    "y\022\r\n\005Front\030\001 \001(\005\022\016\n\006Middle\030\002 \001(\005\022\014\n\004Back"
+    "\030\003 \001(\005\"\214\002\n\rHitEffectData\022\024\n\014EffectParent"
+    "\030\001 \001(\005\022\021\n\tHitEffect\030\002 \001(\t\022\020\n\010HitSound\030\003 "
+    "\001(\t\022\027\n\017HitEffectFollow\030\004 \001(\010\022\025\n\rHitEffec"
+    "tFlip\030\005 \001(\010\022\035\n\025HitEffectRotateRandom\030\006 \001"
+    "(\010\022\035\n\025HitEffectRotateRangeX\030\007 \003(\005\022\035\n\025Hit"
+    "EffectRotateRangeY\030\010 \003(\005\022\026\n\016HitEffectSca"
+    "le\030\t \001(\010\022\033\n\023HitEffectScaleRange\030\n \003(\005\"\363\002"
+    "\n\rSkillCastType\022\020\n\010CastType\030\001 \001(\005\022\022\n\nEve"
+    "ntMajor\030\002 \001(\005\022\025\n\rEventRelation\030\003 \001(\005\022\020\n\010"
+    "EventSub\030\004 \001(\005\022\025\n\rTriggerBuffID\030\005 \001(\005\022\030\n"
+    "\020TriggerBuffLayer\030\006 \001(\005\022\027\n\017TriggerSkillA"
+    "rr\030\007 \003(\005\022\025\n\rTriggerChance\030\010 \001(\005\022\030\n\020Event"
+    "SubSkillArr\030\t \003(\005\022\025\n\rNeedInterrupt\030\n \001(\010"
+    "\022\024\n\014RecordBuffId\030\013 \001(\005\022\027\n\017RecordThreshol"
+    "d\030\014 \001(\005\022\027\n\017EventBuffSubArr\030\r \003(\005\022\031\n\021Trig"
+    "gerChanceCoef\030\016 \001(\005\022\016\n\006Param1\030\017 \001(\005\022\016\n\006P"
+    "aram2\030\020 \001(\005", 3891);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "module/SkillBaseData.proto", &protobuf_RegisterTypes);
   SkillBaseData::default_instance_ = new SkillBaseData();
   SkillSpecialData::default_instance_ = new SkillSpecialData();
   SkillTargetPriority::default_instance_ = new SkillTargetPriority();
-  ArcherProjectile::default_instance_ = new ArcherProjectile();
+  HitEffectData::default_instance_ = new HitEffectData();
   SkillCastType::default_instance_ = new SkillCastType();
   SkillBaseData::default_instance_->InitAsDefaultInstance();
   SkillSpecialData::default_instance_->InitAsDefaultInstance();
   SkillTargetPriority::default_instance_->InitAsDefaultInstance();
-  ArcherProjectile::default_instance_->InitAsDefaultInstance();
+  HitEffectData::default_instance_->InitAsDefaultInstance();
   SkillCastType::default_instance_->InitAsDefaultInstance();
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_module_2fSkillBaseData_2eproto);
 }
@@ -500,7 +507,6 @@ const int SkillBaseData::kLevelCoolingTimeGrowthFieldNumber;
 const int SkillBaseData::kTargetProfessionsFieldNumber;
 const int SkillBaseData::kArcherParam1FieldNumber;
 const int SkillBaseData::kArcherParam2FieldNumber;
-const int SkillBaseData::kArcherProjectileConfFieldNumber;
 #endif  // !_MSC_VER
 
 SkillBaseData::SkillBaseData()
@@ -513,7 +519,6 @@ void SkillBaseData::InitAsDefaultInstance() {
   skillspecialdata_ = const_cast< ::pb::SkillSpecialData*>(&::pb::SkillSpecialData::default_instance());
   skillcasttype_ = const_cast< ::pb::SkillCastType*>(&::pb::SkillCastType::default_instance());
   refpriority_ = const_cast< ::pb::SkillTargetPriority*>(&::pb::SkillTargetPriority::default_instance());
-  archerprojectileconf_ = const_cast< ::pb::ArcherProjectile*>(&::pb::ArcherProjectile::default_instance());
 }
 
 SkillBaseData::SkillBaseData(const SkillBaseData& from)
@@ -594,7 +599,6 @@ void SkillBaseData::SharedCtor() {
   levelcoolingtimegrowth_ = 0;
   archerparam1_ = 0;
   archerparam2_ = 0;
-  archerprojectileconf_ = NULL;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -635,7 +639,6 @@ void SkillBaseData::SharedDtor() {
     delete skillspecialdata_;
     delete skillcasttype_;
     delete refpriority_;
-    delete archerprojectileconf_;
   }
 }
 
@@ -764,13 +767,9 @@ void SkillBaseData::Clear() {
     ZR_(lockon_, isneedhighligh_);
     ZR_(keepdyingduration_, ignorenoskill_);
   }
-  if (_has_bits_[72 / 32] & 15104) {
-    ZR_(levelcoolingtimegrowth_, archerparam1_);
+  if (_has_bits_[72 / 32] & 6912) {
+    ZR_(levelcoolingtimegrowth_, archerparam2_);
     reftargetsummontype_ = 0;
-    archerparam2_ = 0;
-    if (has_archerprojectileconf()) {
-      if (archerprojectileconf_ != NULL) archerprojectileconf_->::pb::ArcherProjectile::Clear();
-    }
   }
 
 #undef OFFSET_OF_FIELD_
@@ -1997,19 +1996,6 @@ bool SkillBaseData::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(722)) goto parse_ArcherProjectileConf;
-        break;
-      }
-
-      // optional .pb.ArcherProjectile ArcherProjectileConf = 90;
-      case 90: {
-        if (tag == 722) {
-         parse_ArcherProjectileConf:
-          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
-               input, mutable_archerprojectileconf()));
-        } else {
-          goto handle_unusual;
-        }
         if (input->ExpectAtEnd()) goto success;
         break;
       }
@@ -2485,12 +2471,6 @@ void SkillBaseData::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(89, this->archerparam2(), output);
   }
 
-  // optional .pb.ArcherProjectile ArcherProjectileConf = 90;
-  if (has_archerprojectileconf()) {
-    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      90, this->archerprojectileconf(), output);
-  }
-
   if (!unknown_fields().empty()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
@@ -2959,13 +2939,6 @@ void SkillBaseData::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(89, this->archerparam2(), target);
   }
 
-  // optional .pb.ArcherProjectile ArcherProjectileConf = 90;
-  if (has_archerprojectileconf()) {
-    target = ::google::protobuf::internal::WireFormatLite::
-      WriteMessageNoVirtualToArray(
-        90, this->archerprojectileconf(), target);
-  }
-
   if (!unknown_fields().empty()) {
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         unknown_fields(), target);
@@ -3432,13 +3405,6 @@ int SkillBaseData::ByteSize() const {
           this->archerparam2());
     }
 
-    // optional .pb.ArcherProjectile ArcherProjectileConf = 90;
-    if (has_archerprojectileconf()) {
-      total_size += 2 +
-        ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-          this->archerprojectileconf());
-    }
-
   }
   // repeated float ScenePos = 37;
   {
@@ -3781,9 +3747,6 @@ void SkillBaseData::MergeFrom(const SkillBaseData& from) {
     if (from.has_archerparam2()) {
       set_archerparam2(from.archerparam2());
     }
-    if (from.has_archerprojectileconf()) {
-      mutable_archerprojectileconf()->::pb::ArcherProjectile::MergeFrom(from.archerprojectileconf());
-    }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
@@ -3884,7 +3847,6 @@ void SkillBaseData::Swap(SkillBaseData* other) {
     targetprofessions_.Swap(&other->targetprofessions_);
     std::swap(archerparam1_, other->archerparam1_);
     std::swap(archerparam2_, other->archerparam2_);
-    std::swap(archerprojectileconf_, other->archerprojectileconf_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     std::swap(_has_bits_[1], other->_has_bits_[1]);
     std::swap(_has_bits_[2], other->_has_bits_[2]);
@@ -6336,73 +6298,87 @@ void SkillTargetPriority::Swap(SkillTargetPriority* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int ArcherProjectile::kActiveFieldNumber;
-const int ArcherProjectile::kForwardNumFieldNumber;
-const int ArcherProjectile::kBackwardNumFieldNumber;
-const int ArcherProjectile::kAngularNumFieldNumber;
-const int ArcherProjectile::kSideNumFieldNumber;
+const int HitEffectData::kEffectParentFieldNumber;
+const int HitEffectData::kHitEffectFieldNumber;
+const int HitEffectData::kHitSoundFieldNumber;
+const int HitEffectData::kHitEffectFollowFieldNumber;
+const int HitEffectData::kHitEffectFlipFieldNumber;
+const int HitEffectData::kHitEffectRotateRandomFieldNumber;
+const int HitEffectData::kHitEffectRotateRangeXFieldNumber;
+const int HitEffectData::kHitEffectRotateRangeYFieldNumber;
+const int HitEffectData::kHitEffectScaleFieldNumber;
+const int HitEffectData::kHitEffectScaleRangeFieldNumber;
 #endif  // !_MSC_VER
 
-ArcherProjectile::ArcherProjectile()
+HitEffectData::HitEffectData()
   : ::google::protobuf::Message() {
   SharedCtor();
-  // @@protoc_insertion_point(constructor:pb.ArcherProjectile)
+  // @@protoc_insertion_point(constructor:pb.HitEffectData)
 }
 
-void ArcherProjectile::InitAsDefaultInstance() {
+void HitEffectData::InitAsDefaultInstance() {
 }
 
-ArcherProjectile::ArcherProjectile(const ArcherProjectile& from)
+HitEffectData::HitEffectData(const HitEffectData& from)
   : ::google::protobuf::Message() {
   SharedCtor();
   MergeFrom(from);
-  // @@protoc_insertion_point(copy_constructor:pb.ArcherProjectile)
+  // @@protoc_insertion_point(copy_constructor:pb.HitEffectData)
 }
 
-void ArcherProjectile::SharedCtor() {
+void HitEffectData::SharedCtor() {
+  ::google::protobuf::internal::GetEmptyString();
   _cached_size_ = 0;
-  active_ = false;
-  forwardnum_ = 0;
-  backwardnum_ = 0;
-  angularnum_ = 0;
-  sidenum_ = 0;
+  effectparent_ = 0;
+  hiteffect_ = const_cast< ::std::string*>(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  hitsound_ = const_cast< ::std::string*>(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  hiteffectfollow_ = false;
+  hiteffectflip_ = false;
+  hiteffectrotaterandom_ = false;
+  hiteffectscale_ = false;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
-ArcherProjectile::~ArcherProjectile() {
-  // @@protoc_insertion_point(destructor:pb.ArcherProjectile)
+HitEffectData::~HitEffectData() {
+  // @@protoc_insertion_point(destructor:pb.HitEffectData)
   SharedDtor();
 }
 
-void ArcherProjectile::SharedDtor() {
+void HitEffectData::SharedDtor() {
+  if (hiteffect_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    delete hiteffect_;
+  }
+  if (hitsound_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    delete hitsound_;
+  }
   if (this != default_instance_) {
   }
 }
 
-void ArcherProjectile::SetCachedSize(int size) const {
+void HitEffectData::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* ArcherProjectile::descriptor() {
+const ::google::protobuf::Descriptor* HitEffectData::descriptor() {
   protobuf_AssignDescriptorsOnce();
-  return ArcherProjectile_descriptor_;
+  return HitEffectData_descriptor_;
 }
 
-const ArcherProjectile& ArcherProjectile::default_instance() {
+const HitEffectData& HitEffectData::default_instance() {
   if (default_instance_ == NULL) protobuf_AddDesc_module_2fSkillBaseData_2eproto();
   return *default_instance_;
 }
 
-ArcherProjectile* ArcherProjectile::default_instance_ = NULL;
+HitEffectData* HitEffectData::default_instance_ = NULL;
 
-ArcherProjectile* ArcherProjectile::New() const {
-  return new ArcherProjectile;
+HitEffectData* HitEffectData::New() const {
+  return new HitEffectData;
 }
 
-void ArcherProjectile::Clear() {
+void HitEffectData::Clear() {
 #define OFFSET_OF_FIELD_(f) (reinterpret_cast<char*>(      \
-  &reinterpret_cast<ArcherProjectile*>(16)->f) - \
+  &reinterpret_cast<HitEffectData*>(16)->f) - \
    reinterpret_cast<char*>(16))
 
 #define ZR_(first, last) do {                              \
@@ -6411,97 +6387,202 @@ void ArcherProjectile::Clear() {
     ::memset(&first, 0, n);                                \
   } while (0)
 
-  if (_has_bits_[0 / 32] & 31) {
-    ZR_(active_, sidenum_);
+  if (_has_bits_[0 / 32] & 63) {
+    ZR_(effectparent_, hiteffectrotaterandom_);
+    if (has_hiteffect()) {
+      if (hiteffect_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+        hiteffect_->clear();
+      }
+    }
+    if (has_hitsound()) {
+      if (hitsound_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+        hitsound_->clear();
+      }
+    }
   }
+  hiteffectscale_ = false;
 
 #undef OFFSET_OF_FIELD_
 #undef ZR_
 
+  hiteffectrotaterangex_.Clear();
+  hiteffectrotaterangey_.Clear();
+  hiteffectscalerange_.Clear();
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
 }
 
-bool ArcherProjectile::MergePartialFromCodedStream(
+bool HitEffectData::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:pb.ArcherProjectile)
+  // @@protoc_insertion_point(parse_start:pb.HitEffectData)
   for (;;) {
     ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional bool Active = 1;
+      // optional int32 EffectParent = 1;
       case 1: {
         if (tag == 8) {
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
-                 input, &active_)));
-          set_has_active();
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &effectparent_)));
+          set_has_effectparent();
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(16)) goto parse_ForwardNum;
+        if (input->ExpectTag(18)) goto parse_HitEffect;
         break;
       }
 
-      // optional int32 ForwardNum = 2;
+      // optional string HitEffect = 2;
       case 2: {
-        if (tag == 16) {
-         parse_ForwardNum:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &forwardnum_)));
-          set_has_forwardnum();
+        if (tag == 18) {
+         parse_HitEffect:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_hiteffect()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
+            this->hiteffect().data(), this->hiteffect().length(),
+            ::google::protobuf::internal::WireFormat::PARSE,
+            "hiteffect");
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(24)) goto parse_BackwardNum;
+        if (input->ExpectTag(26)) goto parse_HitSound;
         break;
       }
 
-      // optional int32 BackwardNum = 3;
+      // optional string HitSound = 3;
       case 3: {
-        if (tag == 24) {
-         parse_BackwardNum:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &backwardnum_)));
-          set_has_backwardnum();
+        if (tag == 26) {
+         parse_HitSound:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_hitsound()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
+            this->hitsound().data(), this->hitsound().length(),
+            ::google::protobuf::internal::WireFormat::PARSE,
+            "hitsound");
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(32)) goto parse_AngularNum;
+        if (input->ExpectTag(32)) goto parse_HitEffectFollow;
         break;
       }
 
-      // optional int32 AngularNum = 4;
+      // optional bool HitEffectFollow = 4;
       case 4: {
         if (tag == 32) {
-         parse_AngularNum:
+         parse_HitEffectFollow:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &angularnum_)));
-          set_has_angularnum();
+                   bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
+                 input, &hiteffectfollow_)));
+          set_has_hiteffectfollow();
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(40)) goto parse_SideNum;
+        if (input->ExpectTag(40)) goto parse_HitEffectFlip;
         break;
       }
 
-      // optional int32 SideNum = 5;
+      // optional bool HitEffectFlip = 5;
       case 5: {
         if (tag == 40) {
-         parse_SideNum:
+         parse_HitEffectFlip:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &sidenum_)));
-          set_has_sidenum();
+                   bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
+                 input, &hiteffectflip_)));
+          set_has_hiteffectflip();
         } else {
           goto handle_unusual;
         }
+        if (input->ExpectTag(48)) goto parse_HitEffectRotateRandom;
+        break;
+      }
+
+      // optional bool HitEffectRotateRandom = 6;
+      case 6: {
+        if (tag == 48) {
+         parse_HitEffectRotateRandom:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
+                 input, &hiteffectrotaterandom_)));
+          set_has_hiteffectrotaterandom();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(56)) goto parse_HitEffectRotateRangeX;
+        break;
+      }
+
+      // repeated int32 HitEffectRotateRangeX = 7;
+      case 7: {
+        if (tag == 56) {
+         parse_HitEffectRotateRangeX:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadRepeatedPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 1, 56, input, this->mutable_hiteffectrotaterangex())));
+        } else if (tag == 58) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPackedPrimitiveNoInline<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, this->mutable_hiteffectrotaterangex())));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(56)) goto parse_HitEffectRotateRangeX;
+        if (input->ExpectTag(64)) goto parse_HitEffectRotateRangeY;
+        break;
+      }
+
+      // repeated int32 HitEffectRotateRangeY = 8;
+      case 8: {
+        if (tag == 64) {
+         parse_HitEffectRotateRangeY:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadRepeatedPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 1, 64, input, this->mutable_hiteffectrotaterangey())));
+        } else if (tag == 66) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPackedPrimitiveNoInline<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, this->mutable_hiteffectrotaterangey())));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(64)) goto parse_HitEffectRotateRangeY;
+        if (input->ExpectTag(72)) goto parse_HitEffectScale;
+        break;
+      }
+
+      // optional bool HitEffectScale = 9;
+      case 9: {
+        if (tag == 72) {
+         parse_HitEffectScale:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
+                 input, &hiteffectscale_)));
+          set_has_hiteffectscale();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(80)) goto parse_HitEffectScaleRange;
+        break;
+      }
+
+      // repeated int32 HitEffectScaleRange = 10;
+      case 10: {
+        if (tag == 80) {
+         parse_HitEffectScaleRange:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadRepeatedPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 1, 80, input, this->mutable_hiteffectscalerange())));
+        } else if (tag == 82) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPackedPrimitiveNoInline<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, this->mutable_hiteffectscalerange())));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(80)) goto parse_HitEffectScaleRange;
         if (input->ExpectAtEnd()) goto success;
         break;
       }
@@ -6520,123 +6601,241 @@ bool ArcherProjectile::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:pb.ArcherProjectile)
+  // @@protoc_insertion_point(parse_success:pb.HitEffectData)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:pb.ArcherProjectile)
+  // @@protoc_insertion_point(parse_failure:pb.HitEffectData)
   return false;
 #undef DO_
 }
 
-void ArcherProjectile::SerializeWithCachedSizes(
+void HitEffectData::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:pb.ArcherProjectile)
-  // optional bool Active = 1;
-  if (has_active()) {
-    ::google::protobuf::internal::WireFormatLite::WriteBool(1, this->active(), output);
+  // @@protoc_insertion_point(serialize_start:pb.HitEffectData)
+  // optional int32 EffectParent = 1;
+  if (has_effectparent()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->effectparent(), output);
   }
 
-  // optional int32 ForwardNum = 2;
-  if (has_forwardnum()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->forwardnum(), output);
+  // optional string HitEffect = 2;
+  if (has_hiteffect()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
+      this->hiteffect().data(), this->hiteffect().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE,
+      "hiteffect");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      2, this->hiteffect(), output);
   }
 
-  // optional int32 BackwardNum = 3;
-  if (has_backwardnum()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->backwardnum(), output);
+  // optional string HitSound = 3;
+  if (has_hitsound()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
+      this->hitsound().data(), this->hitsound().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE,
+      "hitsound");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      3, this->hitsound(), output);
   }
 
-  // optional int32 AngularNum = 4;
-  if (has_angularnum()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->angularnum(), output);
+  // optional bool HitEffectFollow = 4;
+  if (has_hiteffectfollow()) {
+    ::google::protobuf::internal::WireFormatLite::WriteBool(4, this->hiteffectfollow(), output);
   }
 
-  // optional int32 SideNum = 5;
-  if (has_sidenum()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(5, this->sidenum(), output);
+  // optional bool HitEffectFlip = 5;
+  if (has_hiteffectflip()) {
+    ::google::protobuf::internal::WireFormatLite::WriteBool(5, this->hiteffectflip(), output);
+  }
+
+  // optional bool HitEffectRotateRandom = 6;
+  if (has_hiteffectrotaterandom()) {
+    ::google::protobuf::internal::WireFormatLite::WriteBool(6, this->hiteffectrotaterandom(), output);
+  }
+
+  // repeated int32 HitEffectRotateRangeX = 7;
+  for (int i = 0; i < this->hiteffectrotaterangex_size(); i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(
+      7, this->hiteffectrotaterangex(i), output);
+  }
+
+  // repeated int32 HitEffectRotateRangeY = 8;
+  for (int i = 0; i < this->hiteffectrotaterangey_size(); i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(
+      8, this->hiteffectrotaterangey(i), output);
+  }
+
+  // optional bool HitEffectScale = 9;
+  if (has_hiteffectscale()) {
+    ::google::protobuf::internal::WireFormatLite::WriteBool(9, this->hiteffectscale(), output);
+  }
+
+  // repeated int32 HitEffectScaleRange = 10;
+  for (int i = 0; i < this->hiteffectscalerange_size(); i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(
+      10, this->hiteffectscalerange(i), output);
   }
 
   if (!unknown_fields().empty()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
   }
-  // @@protoc_insertion_point(serialize_end:pb.ArcherProjectile)
+  // @@protoc_insertion_point(serialize_end:pb.HitEffectData)
 }
 
-::google::protobuf::uint8* ArcherProjectile::SerializeWithCachedSizesToArray(
+::google::protobuf::uint8* HitEffectData::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // @@protoc_insertion_point(serialize_to_array_start:pb.ArcherProjectile)
-  // optional bool Active = 1;
-  if (has_active()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(1, this->active(), target);
+  // @@protoc_insertion_point(serialize_to_array_start:pb.HitEffectData)
+  // optional int32 EffectParent = 1;
+  if (has_effectparent()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->effectparent(), target);
   }
 
-  // optional int32 ForwardNum = 2;
-  if (has_forwardnum()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->forwardnum(), target);
+  // optional string HitEffect = 2;
+  if (has_hiteffect()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
+      this->hiteffect().data(), this->hiteffect().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE,
+      "hiteffect");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        2, this->hiteffect(), target);
   }
 
-  // optional int32 BackwardNum = 3;
-  if (has_backwardnum()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->backwardnum(), target);
+  // optional string HitSound = 3;
+  if (has_hitsound()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
+      this->hitsound().data(), this->hitsound().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE,
+      "hitsound");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        3, this->hitsound(), target);
   }
 
-  // optional int32 AngularNum = 4;
-  if (has_angularnum()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->angularnum(), target);
+  // optional bool HitEffectFollow = 4;
+  if (has_hiteffectfollow()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(4, this->hiteffectfollow(), target);
   }
 
-  // optional int32 SideNum = 5;
-  if (has_sidenum()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(5, this->sidenum(), target);
+  // optional bool HitEffectFlip = 5;
+  if (has_hiteffectflip()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(5, this->hiteffectflip(), target);
+  }
+
+  // optional bool HitEffectRotateRandom = 6;
+  if (has_hiteffectrotaterandom()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(6, this->hiteffectrotaterandom(), target);
+  }
+
+  // repeated int32 HitEffectRotateRangeX = 7;
+  for (int i = 0; i < this->hiteffectrotaterangex_size(); i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteInt32ToArray(7, this->hiteffectrotaterangex(i), target);
+  }
+
+  // repeated int32 HitEffectRotateRangeY = 8;
+  for (int i = 0; i < this->hiteffectrotaterangey_size(); i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteInt32ToArray(8, this->hiteffectrotaterangey(i), target);
+  }
+
+  // optional bool HitEffectScale = 9;
+  if (has_hiteffectscale()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(9, this->hiteffectscale(), target);
+  }
+
+  // repeated int32 HitEffectScaleRange = 10;
+  for (int i = 0; i < this->hiteffectscalerange_size(); i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteInt32ToArray(10, this->hiteffectscalerange(i), target);
   }
 
   if (!unknown_fields().empty()) {
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         unknown_fields(), target);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:pb.ArcherProjectile)
+  // @@protoc_insertion_point(serialize_to_array_end:pb.HitEffectData)
   return target;
 }
 
-int ArcherProjectile::ByteSize() const {
+int HitEffectData::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // optional bool Active = 1;
-    if (has_active()) {
+    // optional int32 EffectParent = 1;
+    if (has_effectparent()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->effectparent());
+    }
+
+    // optional string HitEffect = 2;
+    if (has_hiteffect()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::StringSize(
+          this->hiteffect());
+    }
+
+    // optional string HitSound = 3;
+    if (has_hitsound()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::StringSize(
+          this->hitsound());
+    }
+
+    // optional bool HitEffectFollow = 4;
+    if (has_hiteffectfollow()) {
       total_size += 1 + 1;
     }
 
-    // optional int32 ForwardNum = 2;
-    if (has_forwardnum()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->forwardnum());
+    // optional bool HitEffectFlip = 5;
+    if (has_hiteffectflip()) {
+      total_size += 1 + 1;
     }
 
-    // optional int32 BackwardNum = 3;
-    if (has_backwardnum()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->backwardnum());
-    }
-
-    // optional int32 AngularNum = 4;
-    if (has_angularnum()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->angularnum());
-    }
-
-    // optional int32 SideNum = 5;
-    if (has_sidenum()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->sidenum());
+    // optional bool HitEffectRotateRandom = 6;
+    if (has_hiteffectrotaterandom()) {
+      total_size += 1 + 1;
     }
 
   }
+  if (_has_bits_[8 / 32] & (0xffu << (8 % 32))) {
+    // optional bool HitEffectScale = 9;
+    if (has_hiteffectscale()) {
+      total_size += 1 + 1;
+    }
+
+  }
+  // repeated int32 HitEffectRotateRangeX = 7;
+  {
+    int data_size = 0;
+    for (int i = 0; i < this->hiteffectrotaterangex_size(); i++) {
+      data_size += ::google::protobuf::internal::WireFormatLite::
+        Int32Size(this->hiteffectrotaterangex(i));
+    }
+    total_size += 1 * this->hiteffectrotaterangex_size() + data_size;
+  }
+
+  // repeated int32 HitEffectRotateRangeY = 8;
+  {
+    int data_size = 0;
+    for (int i = 0; i < this->hiteffectrotaterangey_size(); i++) {
+      data_size += ::google::protobuf::internal::WireFormatLite::
+        Int32Size(this->hiteffectrotaterangey(i));
+    }
+    total_size += 1 * this->hiteffectrotaterangey_size() + data_size;
+  }
+
+  // repeated int32 HitEffectScaleRange = 10;
+  {
+    int data_size = 0;
+    for (int i = 0; i < this->hiteffectscalerange_size(); i++) {
+      data_size += ::google::protobuf::internal::WireFormatLite::
+        Int32Size(this->hiteffectscalerange(i));
+    }
+    total_size += 1 * this->hiteffectscalerange_size() + data_size;
+  }
+
   if (!unknown_fields().empty()) {
     total_size +=
       ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
@@ -6648,10 +6847,10 @@ int ArcherProjectile::ByteSize() const {
   return total_size;
 }
 
-void ArcherProjectile::MergeFrom(const ::google::protobuf::Message& from) {
+void HitEffectData::MergeFrom(const ::google::protobuf::Message& from) {
   GOOGLE_CHECK_NE(&from, this);
-  const ArcherProjectile* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const ArcherProjectile*>(
+  const HitEffectData* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const HitEffectData*>(
       &from);
   if (source == NULL) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
@@ -6660,63 +6859,79 @@ void ArcherProjectile::MergeFrom(const ::google::protobuf::Message& from) {
   }
 }
 
-void ArcherProjectile::MergeFrom(const ArcherProjectile& from) {
+void HitEffectData::MergeFrom(const HitEffectData& from) {
   GOOGLE_CHECK_NE(&from, this);
+  hiteffectrotaterangex_.MergeFrom(from.hiteffectrotaterangex_);
+  hiteffectrotaterangey_.MergeFrom(from.hiteffectrotaterangey_);
+  hiteffectscalerange_.MergeFrom(from.hiteffectscalerange_);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    if (from.has_active()) {
-      set_active(from.active());
+    if (from.has_effectparent()) {
+      set_effectparent(from.effectparent());
     }
-    if (from.has_forwardnum()) {
-      set_forwardnum(from.forwardnum());
+    if (from.has_hiteffect()) {
+      set_hiteffect(from.hiteffect());
     }
-    if (from.has_backwardnum()) {
-      set_backwardnum(from.backwardnum());
+    if (from.has_hitsound()) {
+      set_hitsound(from.hitsound());
     }
-    if (from.has_angularnum()) {
-      set_angularnum(from.angularnum());
+    if (from.has_hiteffectfollow()) {
+      set_hiteffectfollow(from.hiteffectfollow());
     }
-    if (from.has_sidenum()) {
-      set_sidenum(from.sidenum());
+    if (from.has_hiteffectflip()) {
+      set_hiteffectflip(from.hiteffectflip());
+    }
+    if (from.has_hiteffectrotaterandom()) {
+      set_hiteffectrotaterandom(from.hiteffectrotaterandom());
+    }
+  }
+  if (from._has_bits_[8 / 32] & (0xffu << (8 % 32))) {
+    if (from.has_hiteffectscale()) {
+      set_hiteffectscale(from.hiteffectscale());
     }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
 
-void ArcherProjectile::CopyFrom(const ::google::protobuf::Message& from) {
+void HitEffectData::CopyFrom(const ::google::protobuf::Message& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void ArcherProjectile::CopyFrom(const ArcherProjectile& from) {
+void HitEffectData::CopyFrom(const HitEffectData& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool ArcherProjectile::IsInitialized() const {
+bool HitEffectData::IsInitialized() const {
 
   return true;
 }
 
-void ArcherProjectile::Swap(ArcherProjectile* other) {
+void HitEffectData::Swap(HitEffectData* other) {
   if (other != this) {
-    std::swap(active_, other->active_);
-    std::swap(forwardnum_, other->forwardnum_);
-    std::swap(backwardnum_, other->backwardnum_);
-    std::swap(angularnum_, other->angularnum_);
-    std::swap(sidenum_, other->sidenum_);
+    std::swap(effectparent_, other->effectparent_);
+    std::swap(hiteffect_, other->hiteffect_);
+    std::swap(hitsound_, other->hitsound_);
+    std::swap(hiteffectfollow_, other->hiteffectfollow_);
+    std::swap(hiteffectflip_, other->hiteffectflip_);
+    std::swap(hiteffectrotaterandom_, other->hiteffectrotaterandom_);
+    hiteffectrotaterangex_.Swap(&other->hiteffectrotaterangex_);
+    hiteffectrotaterangey_.Swap(&other->hiteffectrotaterangey_);
+    std::swap(hiteffectscale_, other->hiteffectscale_);
+    hiteffectscalerange_.Swap(&other->hiteffectscalerange_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
   }
 }
 
-::google::protobuf::Metadata ArcherProjectile::GetMetadata() const {
+::google::protobuf::Metadata HitEffectData::GetMetadata() const {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::Metadata metadata;
-  metadata.descriptor = ArcherProjectile_descriptor_;
-  metadata.reflection = ArcherProjectile_reflection_;
+  metadata.descriptor = HitEffectData_descriptor_;
+  metadata.reflection = HitEffectData_reflection_;
   return metadata;
 }
 

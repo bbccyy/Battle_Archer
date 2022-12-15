@@ -21,6 +21,17 @@
 
 const constexpr int CHAIN_SKILL_NUM = 5;
 
+enum class EArcherParamsType  
+{
+    //Active_Projectile = 0,  //去除，能用到这份功能的一定是主角，一定带有多向射击能力 
+    Forward_Num = 0,
+    Backward_Num,
+    Angular_Num,
+    Side_Num,
+
+    _Count,
+};
+
 enum class EDirection
 {
     Forward,

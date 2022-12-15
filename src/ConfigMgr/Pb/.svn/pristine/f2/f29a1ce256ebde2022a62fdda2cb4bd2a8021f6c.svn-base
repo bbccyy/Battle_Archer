@@ -36,7 +36,7 @@ void protobuf_ShutdownFile_module_2fSkillBaseData_2eproto();
 class SkillBaseData;
 class SkillSpecialData;
 class SkillTargetPriority;
-class ArcherProjectile;
+class HitEffectData;
 class SkillCastType;
 
 // ===================================================================
@@ -2408,40 +2408,6 @@ class SkillBaseData : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 archerparam2() const;
   inline void set_archerparam2(::google::protobuf::int32 value);
 
-  // optional .pb.ArcherProjectile ArcherProjectileConf = 90;
-  inline bool has_archerprojectileconf() const;
-  inline void clear_archerprojectileconf();
-  static const int kArcherProjectileConfFieldNumber = 90;
-  /*FOR2LUA
-  <Record>
-  	<name>SkillBaseData</name>
-  	<Function>
-  		<name>archerprojectileconf</name>
-  		<replaceName>ArcherProjectileConf</replaceName>
-  		<handler>descripter = pb_cpp()</handler>
-  	</Function>
-  	<Function>
-  		<name>set_archerprojectileconf</name>
-  		<replaceName>ArcherProjectileConf</replaceName>
-  		<handler>descripter = pb_set_message_cpp()</handler>
-  	</Function>
-  	<Function>
-  		<name>set_allocated_archerprojectileconf</name>
-  		<replaceName>ArcherProjectileConf</replaceName>
-  		<handler>descripter = pb_set_message_cpp()</handler>
-  	</Function>
-  	<Function>
-  		<name>has_archerprojectileconf</name>
-  		<replaceName>ArcherProjectileConf</replaceName>
-  		<handler>descripter = pb_has_cpp()</handler>
-  	</Function>
-  </Record>
-  FOR2LUA*/
-  inline const ::pb::ArcherProjectile& archerprojectileconf() const;
-  inline ::pb::ArcherProjectile* mutable_archerprojectileconf();
-  inline ::pb::ArcherProjectile* release_archerprojectileconf();
-  inline void set_allocated_archerprojectileconf(::pb::ArcherProjectile* archerprojectileconf);
-
   // @@protoc_insertion_point(class_scope:pb.SkillBaseData)
  private:
   inline void set_has_name();
@@ -2580,8 +2546,6 @@ class SkillBaseData : public ::google::protobuf::Message {
   inline void clear_has_archerparam1();
   inline void set_has_archerparam2();
   inline void clear_has_archerparam2();
-  inline void set_has_archerprojectileconf();
-  inline void clear_has_archerprojectileconf();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
@@ -2663,7 +2627,6 @@ class SkillBaseData : public ::google::protobuf::Message {
   ::google::protobuf::RepeatedField< ::google::protobuf::int32 > targetprofessions_;
   ::google::protobuf::int32 levelcoolingtimegrowth_;
   ::google::protobuf::int32 archerparam1_;
-  ::pb::ArcherProjectile* archerprojectileconf_;
   ::google::protobuf::int32 archerparam2_;
   friend void  protobuf_AddDesc_module_2fSkillBaseData_2eproto();
   friend void protobuf_AssignDesc_module_2fSkillBaseData_2eproto();
@@ -4407,7 +4370,7 @@ class SkillTargetPriority : public ::google::protobuf::Message {
 
 /*FOR2LUA
 <Record>
-	<name>ArcherProjectile</name>
+	<name>HitEffectData</name>
 	<Function>
 		<name>CopyFrom</name>
 		<replaceName>MergeFrom</replaceName>
@@ -4435,14 +4398,14 @@ class SkillTargetPriority : public ::google::protobuf::Message {
 	</Function>
 </Record>
 FOR2LUA*/
-class ArcherProjectile : public ::google::protobuf::Message {
+class HitEffectData : public ::google::protobuf::Message {
  public:
-  ArcherProjectile();
-  virtual ~ArcherProjectile();
+  HitEffectData();
+  virtual ~HitEffectData();
 
-  ArcherProjectile(const ArcherProjectile& from);
+  HitEffectData(const HitEffectData& from);
 
-  inline ArcherProjectile& operator=(const ArcherProjectile& from) {
+  inline HitEffectData& operator=(const HitEffectData& from) {
     CopyFrom(from);
     return *this;
   }
@@ -4456,17 +4419,17 @@ class ArcherProjectile : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const ArcherProjectile& default_instance();
+  static const HitEffectData& default_instance();
 
-  void Swap(ArcherProjectile* other);
+  void Swap(HitEffectData* other);
 
   // implements Message ----------------------------------------------
 
-  ArcherProjectile* New() const;
+  HitEffectData* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const ArcherProjectile& from);
-  void MergeFrom(const ArcherProjectile& from);
+  void CopyFrom(const HitEffectData& from);
+  void MergeFrom(const HitEffectData& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -4488,169 +4451,368 @@ class ArcherProjectile : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional bool Active = 1;
-  inline bool has_active() const;
-  inline void clear_active();
-  static const int kActiveFieldNumber = 1;
+  // optional int32 EffectParent = 1;
+  inline bool has_effectparent() const;
+  inline void clear_effectparent();
+  static const int kEffectParentFieldNumber = 1;
   /*FOR2LUA
   <Record>
-  	<name>ArcherProjectile</name>
+  	<name>HitEffectData</name>
   	<Function>
-  		<name>active</name>
-  		<replaceName>Active</replaceName>
+  		<name>effectparent</name>
+  		<replaceName>EffectParent</replaceName>
   		<handler>descripter = pb_cpp()</handler>
   	</Function>
   	<Function>
-  		<name>set_active</name>
-  		<replaceName>Active</replaceName>
+  		<name>set_effectparent</name>
+  		<replaceName>EffectParent</replaceName>
   		<handler>descripter = pb_set_cpp()</handler>
   	</Function>
   	<Function>
-  		<name>has_active</name>
-  		<replaceName>Active</replaceName>
+  		<name>has_effectparent</name>
+  		<replaceName>EffectParent</replaceName>
   		<handler>descripter = pb_has_cpp()</handler>
   	</Function>
   </Record>
   FOR2LUA*/
-  inline bool active() const;
-  inline void set_active(bool value);
+  inline ::google::protobuf::int32 effectparent() const;
+  inline void set_effectparent(::google::protobuf::int32 value);
 
-  // optional int32 ForwardNum = 2;
-  inline bool has_forwardnum() const;
-  inline void clear_forwardnum();
-  static const int kForwardNumFieldNumber = 2;
+  // optional string HitEffect = 2;
+  inline bool has_hiteffect() const;
+  inline void clear_hiteffect();
+  static const int kHitEffectFieldNumber = 2;
   /*FOR2LUA
   <Record>
-  	<name>ArcherProjectile</name>
+  	<name>HitEffectData</name>
   	<Function>
-  		<name>forwardnum</name>
-  		<replaceName>ForwardNum</replaceName>
+  		<name>hiteffect</name>
+  		<replaceName>HitEffect</replaceName>
   		<handler>descripter = pb_cpp()</handler>
   	</Function>
   	<Function>
-  		<name>set_forwardnum</name>
-  		<replaceName>ForwardNum</replaceName>
+  		<name>set_hiteffect</name>
+  		<replaceName>HitEffect</replaceName>
   		<handler>descripter = pb_set_cpp()</handler>
   	</Function>
   	<Function>
-  		<name>has_forwardnum</name>
-  		<replaceName>ForwardNum</replaceName>
+  		<name>has_hiteffect</name>
+  		<replaceName>HitEffect</replaceName>
   		<handler>descripter = pb_has_cpp()</handler>
   	</Function>
   </Record>
   FOR2LUA*/
-  inline ::google::protobuf::int32 forwardnum() const;
-  inline void set_forwardnum(::google::protobuf::int32 value);
+  inline const ::std::string& hiteffect() const;
+  inline void set_hiteffect(const ::std::string& value);
+  inline void set_hiteffect(const char* value);
+  inline void set_hiteffect(const char* value, size_t size);
+  inline ::std::string* mutable_hiteffect();
+  inline ::std::string* release_hiteffect();
+  inline void set_allocated_hiteffect(::std::string* hiteffect);
 
-  // optional int32 BackwardNum = 3;
-  inline bool has_backwardnum() const;
-  inline void clear_backwardnum();
-  static const int kBackwardNumFieldNumber = 3;
+  // optional string HitSound = 3;
+  inline bool has_hitsound() const;
+  inline void clear_hitsound();
+  static const int kHitSoundFieldNumber = 3;
   /*FOR2LUA
   <Record>
-  	<name>ArcherProjectile</name>
+  	<name>HitEffectData</name>
   	<Function>
-  		<name>backwardnum</name>
-  		<replaceName>BackwardNum</replaceName>
+  		<name>hitsound</name>
+  		<replaceName>HitSound</replaceName>
   		<handler>descripter = pb_cpp()</handler>
   	</Function>
   	<Function>
-  		<name>set_backwardnum</name>
-  		<replaceName>BackwardNum</replaceName>
+  		<name>set_hitsound</name>
+  		<replaceName>HitSound</replaceName>
   		<handler>descripter = pb_set_cpp()</handler>
   	</Function>
   	<Function>
-  		<name>has_backwardnum</name>
-  		<replaceName>BackwardNum</replaceName>
+  		<name>has_hitsound</name>
+  		<replaceName>HitSound</replaceName>
   		<handler>descripter = pb_has_cpp()</handler>
   	</Function>
   </Record>
   FOR2LUA*/
-  inline ::google::protobuf::int32 backwardnum() const;
-  inline void set_backwardnum(::google::protobuf::int32 value);
+  inline const ::std::string& hitsound() const;
+  inline void set_hitsound(const ::std::string& value);
+  inline void set_hitsound(const char* value);
+  inline void set_hitsound(const char* value, size_t size);
+  inline ::std::string* mutable_hitsound();
+  inline ::std::string* release_hitsound();
+  inline void set_allocated_hitsound(::std::string* hitsound);
 
-  // optional int32 AngularNum = 4;
-  inline bool has_angularnum() const;
-  inline void clear_angularnum();
-  static const int kAngularNumFieldNumber = 4;
+  // optional bool HitEffectFollow = 4;
+  inline bool has_hiteffectfollow() const;
+  inline void clear_hiteffectfollow();
+  static const int kHitEffectFollowFieldNumber = 4;
   /*FOR2LUA
   <Record>
-  	<name>ArcherProjectile</name>
+  	<name>HitEffectData</name>
   	<Function>
-  		<name>angularnum</name>
-  		<replaceName>AngularNum</replaceName>
+  		<name>hiteffectfollow</name>
+  		<replaceName>HitEffectFollow</replaceName>
   		<handler>descripter = pb_cpp()</handler>
   	</Function>
   	<Function>
-  		<name>set_angularnum</name>
-  		<replaceName>AngularNum</replaceName>
+  		<name>set_hiteffectfollow</name>
+  		<replaceName>HitEffectFollow</replaceName>
   		<handler>descripter = pb_set_cpp()</handler>
   	</Function>
   	<Function>
-  		<name>has_angularnum</name>
-  		<replaceName>AngularNum</replaceName>
+  		<name>has_hiteffectfollow</name>
+  		<replaceName>HitEffectFollow</replaceName>
   		<handler>descripter = pb_has_cpp()</handler>
   	</Function>
   </Record>
   FOR2LUA*/
-  inline ::google::protobuf::int32 angularnum() const;
-  inline void set_angularnum(::google::protobuf::int32 value);
+  inline bool hiteffectfollow() const;
+  inline void set_hiteffectfollow(bool value);
 
-  // optional int32 SideNum = 5;
-  inline bool has_sidenum() const;
-  inline void clear_sidenum();
-  static const int kSideNumFieldNumber = 5;
+  // optional bool HitEffectFlip = 5;
+  inline bool has_hiteffectflip() const;
+  inline void clear_hiteffectflip();
+  static const int kHitEffectFlipFieldNumber = 5;
   /*FOR2LUA
   <Record>
-  	<name>ArcherProjectile</name>
+  	<name>HitEffectData</name>
   	<Function>
-  		<name>sidenum</name>
-  		<replaceName>SideNum</replaceName>
+  		<name>hiteffectflip</name>
+  		<replaceName>HitEffectFlip</replaceName>
   		<handler>descripter = pb_cpp()</handler>
   	</Function>
   	<Function>
-  		<name>set_sidenum</name>
-  		<replaceName>SideNum</replaceName>
+  		<name>set_hiteffectflip</name>
+  		<replaceName>HitEffectFlip</replaceName>
   		<handler>descripter = pb_set_cpp()</handler>
   	</Function>
   	<Function>
-  		<name>has_sidenum</name>
-  		<replaceName>SideNum</replaceName>
+  		<name>has_hiteffectflip</name>
+  		<replaceName>HitEffectFlip</replaceName>
   		<handler>descripter = pb_has_cpp()</handler>
   	</Function>
   </Record>
   FOR2LUA*/
-  inline ::google::protobuf::int32 sidenum() const;
-  inline void set_sidenum(::google::protobuf::int32 value);
+  inline bool hiteffectflip() const;
+  inline void set_hiteffectflip(bool value);
 
-  // @@protoc_insertion_point(class_scope:pb.ArcherProjectile)
+  // optional bool HitEffectRotateRandom = 6;
+  inline bool has_hiteffectrotaterandom() const;
+  inline void clear_hiteffectrotaterandom();
+  static const int kHitEffectRotateRandomFieldNumber = 6;
+  /*FOR2LUA
+  <Record>
+  	<name>HitEffectData</name>
+  	<Function>
+  		<name>hiteffectrotaterandom</name>
+  		<replaceName>HitEffectRotateRandom</replaceName>
+  		<handler>descripter = pb_cpp()</handler>
+  	</Function>
+  	<Function>
+  		<name>set_hiteffectrotaterandom</name>
+  		<replaceName>HitEffectRotateRandom</replaceName>
+  		<handler>descripter = pb_set_cpp()</handler>
+  	</Function>
+  	<Function>
+  		<name>has_hiteffectrotaterandom</name>
+  		<replaceName>HitEffectRotateRandom</replaceName>
+  		<handler>descripter = pb_has_cpp()</handler>
+  	</Function>
+  </Record>
+  FOR2LUA*/
+  inline bool hiteffectrotaterandom() const;
+  inline void set_hiteffectrotaterandom(bool value);
+
+  // repeated int32 HitEffectRotateRangeX = 7;
+  inline int hiteffectrotaterangex_size() const;
+  inline void clear_hiteffectrotaterangex();
+  static const int kHitEffectRotateRangeXFieldNumber = 7;
+  /*FOR2LUA
+  <Record>
+  	<name>HitEffectData</name>
+  	<Function>
+  		<name>hiteffectrotaterangex</name>
+  		<replaceName>HitEffectRotateRangeX</replaceName>
+  		<handler>descripter = pb_cpp()</handler>
+  	</Function>
+  	<Function>
+  		<name>mutable_hiteffectrotaterangex</name>
+  		<replaceName>HitEffectRotateRangeX</replaceName>
+  		<handler>descripter = pb_cpp()</handler>
+  	</Function>
+  	<Function>
+  		<name>add_hiteffectrotaterangex</name>
+  		<replaceName>HitEffectRotateRangeX</replaceName>
+  		<handler>descripter = pb_repeated_add_cpp()</handler>
+  	</Function>
+  	<Function>
+  		<name>has_hiteffectrotaterangex</name>
+  		<replaceName>HitEffectRotateRangeX</replaceName>
+  		<handler>descripter = pb_has_cpp()</handler>
+  	</Function>
+  	<Function>
+  		<name>hiteffectrotaterangex_size</name>
+  		<replaceName>HitEffectRotateRangeX</replaceName>
+  		<handler>descripter = pb_repeated_size_cpp()</handler>
+  	</Function>
+  </Record>
+  FOR2LUA*/
+  inline ::google::protobuf::int32 hiteffectrotaterangex(int index) const;
+  inline void set_hiteffectrotaterangex(int index, ::google::protobuf::int32 value);
+  inline void add_hiteffectrotaterangex(::google::protobuf::int32 value);
+  inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
+      hiteffectrotaterangex() const;
+  inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
+      mutable_hiteffectrotaterangex();
+
+  // repeated int32 HitEffectRotateRangeY = 8;
+  inline int hiteffectrotaterangey_size() const;
+  inline void clear_hiteffectrotaterangey();
+  static const int kHitEffectRotateRangeYFieldNumber = 8;
+  /*FOR2LUA
+  <Record>
+  	<name>HitEffectData</name>
+  	<Function>
+  		<name>hiteffectrotaterangey</name>
+  		<replaceName>HitEffectRotateRangeY</replaceName>
+  		<handler>descripter = pb_cpp()</handler>
+  	</Function>
+  	<Function>
+  		<name>mutable_hiteffectrotaterangey</name>
+  		<replaceName>HitEffectRotateRangeY</replaceName>
+  		<handler>descripter = pb_cpp()</handler>
+  	</Function>
+  	<Function>
+  		<name>add_hiteffectrotaterangey</name>
+  		<replaceName>HitEffectRotateRangeY</replaceName>
+  		<handler>descripter = pb_repeated_add_cpp()</handler>
+  	</Function>
+  	<Function>
+  		<name>has_hiteffectrotaterangey</name>
+  		<replaceName>HitEffectRotateRangeY</replaceName>
+  		<handler>descripter = pb_has_cpp()</handler>
+  	</Function>
+  	<Function>
+  		<name>hiteffectrotaterangey_size</name>
+  		<replaceName>HitEffectRotateRangeY</replaceName>
+  		<handler>descripter = pb_repeated_size_cpp()</handler>
+  	</Function>
+  </Record>
+  FOR2LUA*/
+  inline ::google::protobuf::int32 hiteffectrotaterangey(int index) const;
+  inline void set_hiteffectrotaterangey(int index, ::google::protobuf::int32 value);
+  inline void add_hiteffectrotaterangey(::google::protobuf::int32 value);
+  inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
+      hiteffectrotaterangey() const;
+  inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
+      mutable_hiteffectrotaterangey();
+
+  // optional bool HitEffectScale = 9;
+  inline bool has_hiteffectscale() const;
+  inline void clear_hiteffectscale();
+  static const int kHitEffectScaleFieldNumber = 9;
+  /*FOR2LUA
+  <Record>
+  	<name>HitEffectData</name>
+  	<Function>
+  		<name>hiteffectscale</name>
+  		<replaceName>HitEffectScale</replaceName>
+  		<handler>descripter = pb_cpp()</handler>
+  	</Function>
+  	<Function>
+  		<name>set_hiteffectscale</name>
+  		<replaceName>HitEffectScale</replaceName>
+  		<handler>descripter = pb_set_cpp()</handler>
+  	</Function>
+  	<Function>
+  		<name>has_hiteffectscale</name>
+  		<replaceName>HitEffectScale</replaceName>
+  		<handler>descripter = pb_has_cpp()</handler>
+  	</Function>
+  </Record>
+  FOR2LUA*/
+  inline bool hiteffectscale() const;
+  inline void set_hiteffectscale(bool value);
+
+  // repeated int32 HitEffectScaleRange = 10;
+  inline int hiteffectscalerange_size() const;
+  inline void clear_hiteffectscalerange();
+  static const int kHitEffectScaleRangeFieldNumber = 10;
+  /*FOR2LUA
+  <Record>
+  	<name>HitEffectData</name>
+  	<Function>
+  		<name>hiteffectscalerange</name>
+  		<replaceName>HitEffectScaleRange</replaceName>
+  		<handler>descripter = pb_cpp()</handler>
+  	</Function>
+  	<Function>
+  		<name>mutable_hiteffectscalerange</name>
+  		<replaceName>HitEffectScaleRange</replaceName>
+  		<handler>descripter = pb_cpp()</handler>
+  	</Function>
+  	<Function>
+  		<name>add_hiteffectscalerange</name>
+  		<replaceName>HitEffectScaleRange</replaceName>
+  		<handler>descripter = pb_repeated_add_cpp()</handler>
+  	</Function>
+  	<Function>
+  		<name>has_hiteffectscalerange</name>
+  		<replaceName>HitEffectScaleRange</replaceName>
+  		<handler>descripter = pb_has_cpp()</handler>
+  	</Function>
+  	<Function>
+  		<name>hiteffectscalerange_size</name>
+  		<replaceName>HitEffectScaleRange</replaceName>
+  		<handler>descripter = pb_repeated_size_cpp()</handler>
+  	</Function>
+  </Record>
+  FOR2LUA*/
+  inline ::google::protobuf::int32 hiteffectscalerange(int index) const;
+  inline void set_hiteffectscalerange(int index, ::google::protobuf::int32 value);
+  inline void add_hiteffectscalerange(::google::protobuf::int32 value);
+  inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
+      hiteffectscalerange() const;
+  inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
+      mutable_hiteffectscalerange();
+
+  // @@protoc_insertion_point(class_scope:pb.HitEffectData)
  private:
-  inline void set_has_active();
-  inline void clear_has_active();
-  inline void set_has_forwardnum();
-  inline void clear_has_forwardnum();
-  inline void set_has_backwardnum();
-  inline void clear_has_backwardnum();
-  inline void set_has_angularnum();
-  inline void clear_has_angularnum();
-  inline void set_has_sidenum();
-  inline void clear_has_sidenum();
+  inline void set_has_effectparent();
+  inline void clear_has_effectparent();
+  inline void set_has_hiteffect();
+  inline void clear_has_hiteffect();
+  inline void set_has_hitsound();
+  inline void clear_has_hitsound();
+  inline void set_has_hiteffectfollow();
+  inline void clear_has_hiteffectfollow();
+  inline void set_has_hiteffectflip();
+  inline void clear_has_hiteffectflip();
+  inline void set_has_hiteffectrotaterandom();
+  inline void clear_has_hiteffectrotaterandom();
+  inline void set_has_hiteffectscale();
+  inline void clear_has_hiteffectscale();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
   ::google::protobuf::uint32 _has_bits_[1];
   mutable int _cached_size_;
-  bool active_;
-  ::google::protobuf::int32 forwardnum_;
-  ::google::protobuf::int32 backwardnum_;
-  ::google::protobuf::int32 angularnum_;
-  ::google::protobuf::int32 sidenum_;
+  ::std::string* hiteffect_;
+  ::std::string* hitsound_;
+  ::google::protobuf::int32 effectparent_;
+  bool hiteffectfollow_;
+  bool hiteffectflip_;
+  bool hiteffectrotaterandom_;
+  bool hiteffectscale_;
+  ::google::protobuf::RepeatedField< ::google::protobuf::int32 > hiteffectrotaterangex_;
+  ::google::protobuf::RepeatedField< ::google::protobuf::int32 > hiteffectrotaterangey_;
+  ::google::protobuf::RepeatedField< ::google::protobuf::int32 > hiteffectscalerange_;
   friend void  protobuf_AddDesc_module_2fSkillBaseData_2eproto();
   friend void protobuf_AssignDesc_module_2fSkillBaseData_2eproto();
   friend void protobuf_ShutdownFile_module_2fSkillBaseData_2eproto();
 
   void InitAsDefaultInstance();
-  static ArcherProjectile* default_instance_;
+  static HitEffectData* default_instance_;
 };
 // -------------------------------------------------------------------
 
@@ -7722,47 +7884,6 @@ inline void SkillBaseData::set_archerparam2(::google::protobuf::int32 value) {
   // @@protoc_insertion_point(field_set:pb.SkillBaseData.ArcherParam2)
 }
 
-// optional .pb.ArcherProjectile ArcherProjectileConf = 90;
-inline bool SkillBaseData::has_archerprojectileconf() const {
-  return (_has_bits_[2] & 0x00002000u) != 0;
-}
-inline void SkillBaseData::set_has_archerprojectileconf() {
-  _has_bits_[2] |= 0x00002000u;
-}
-inline void SkillBaseData::clear_has_archerprojectileconf() {
-  _has_bits_[2] &= ~0x00002000u;
-}
-inline void SkillBaseData::clear_archerprojectileconf() {
-  if (archerprojectileconf_ != NULL) archerprojectileconf_->::pb::ArcherProjectile::Clear();
-  clear_has_archerprojectileconf();
-}
-inline const ::pb::ArcherProjectile& SkillBaseData::archerprojectileconf() const {
-  // @@protoc_insertion_point(field_get:pb.SkillBaseData.ArcherProjectileConf)
-  return archerprojectileconf_ != NULL ? *archerprojectileconf_ : *default_instance_->archerprojectileconf_;
-}
-inline ::pb::ArcherProjectile* SkillBaseData::mutable_archerprojectileconf() {
-  set_has_archerprojectileconf();
-  if (archerprojectileconf_ == NULL) archerprojectileconf_ = new ::pb::ArcherProjectile;
-  // @@protoc_insertion_point(field_mutable:pb.SkillBaseData.ArcherProjectileConf)
-  return archerprojectileconf_;
-}
-inline ::pb::ArcherProjectile* SkillBaseData::release_archerprojectileconf() {
-  clear_has_archerprojectileconf();
-  ::pb::ArcherProjectile* temp = archerprojectileconf_;
-  archerprojectileconf_ = NULL;
-  return temp;
-}
-inline void SkillBaseData::set_allocated_archerprojectileconf(::pb::ArcherProjectile* archerprojectileconf) {
-  delete archerprojectileconf_;
-  archerprojectileconf_ = archerprojectileconf;
-  if (archerprojectileconf) {
-    set_has_archerprojectileconf();
-  } else {
-    clear_has_archerprojectileconf();
-  }
-  // @@protoc_insertion_point(field_set_allocated:pb.SkillBaseData.ArcherProjectileConf)
-}
-
 // -------------------------------------------------------------------
 
 // SkillSpecialData
@@ -9635,126 +9756,368 @@ inline void SkillTargetPriority::set_back(::google::protobuf::int32 value) {
 
 // -------------------------------------------------------------------
 
-// ArcherProjectile
+// HitEffectData
 
-// optional bool Active = 1;
-inline bool ArcherProjectile::has_active() const {
+// optional int32 EffectParent = 1;
+inline bool HitEffectData::has_effectparent() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void ArcherProjectile::set_has_active() {
+inline void HitEffectData::set_has_effectparent() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void ArcherProjectile::clear_has_active() {
+inline void HitEffectData::clear_has_effectparent() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void ArcherProjectile::clear_active() {
-  active_ = false;
-  clear_has_active();
+inline void HitEffectData::clear_effectparent() {
+  effectparent_ = 0;
+  clear_has_effectparent();
 }
-inline bool ArcherProjectile::active() const {
-  // @@protoc_insertion_point(field_get:pb.ArcherProjectile.Active)
-  return active_;
+inline ::google::protobuf::int32 HitEffectData::effectparent() const {
+  // @@protoc_insertion_point(field_get:pb.HitEffectData.EffectParent)
+  return effectparent_;
 }
-inline void ArcherProjectile::set_active(bool value) {
-  set_has_active();
-  active_ = value;
-  // @@protoc_insertion_point(field_set:pb.ArcherProjectile.Active)
+inline void HitEffectData::set_effectparent(::google::protobuf::int32 value) {
+  set_has_effectparent();
+  effectparent_ = value;
+  // @@protoc_insertion_point(field_set:pb.HitEffectData.EffectParent)
 }
 
-// optional int32 ForwardNum = 2;
-inline bool ArcherProjectile::has_forwardnum() const {
+// optional string HitEffect = 2;
+inline bool HitEffectData::has_hiteffect() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void ArcherProjectile::set_has_forwardnum() {
+inline void HitEffectData::set_has_hiteffect() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void ArcherProjectile::clear_has_forwardnum() {
+inline void HitEffectData::clear_has_hiteffect() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void ArcherProjectile::clear_forwardnum() {
-  forwardnum_ = 0;
-  clear_has_forwardnum();
+inline void HitEffectData::clear_hiteffect() {
+  if (hiteffect_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    hiteffect_->clear();
+  }
+  clear_has_hiteffect();
 }
-inline ::google::protobuf::int32 ArcherProjectile::forwardnum() const {
-  // @@protoc_insertion_point(field_get:pb.ArcherProjectile.ForwardNum)
-  return forwardnum_;
+inline const ::std::string& HitEffectData::hiteffect() const {
+  // @@protoc_insertion_point(field_get:pb.HitEffectData.HitEffect)
+  return *hiteffect_;
 }
-inline void ArcherProjectile::set_forwardnum(::google::protobuf::int32 value) {
-  set_has_forwardnum();
-  forwardnum_ = value;
-  // @@protoc_insertion_point(field_set:pb.ArcherProjectile.ForwardNum)
+inline void HitEffectData::set_hiteffect(const ::std::string& value) {
+  set_has_hiteffect();
+  if (hiteffect_ == &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    hiteffect_ = new ::std::string;
+  }
+  hiteffect_->assign(value);
+  // @@protoc_insertion_point(field_set:pb.HitEffectData.HitEffect)
+}
+inline void HitEffectData::set_hiteffect(const char* value) {
+  set_has_hiteffect();
+  if (hiteffect_ == &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    hiteffect_ = new ::std::string;
+  }
+  hiteffect_->assign(value);
+  // @@protoc_insertion_point(field_set_char:pb.HitEffectData.HitEffect)
+}
+inline void HitEffectData::set_hiteffect(const char* value, size_t size) {
+  set_has_hiteffect();
+  if (hiteffect_ == &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    hiteffect_ = new ::std::string;
+  }
+  hiteffect_->assign(reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_set_pointer:pb.HitEffectData.HitEffect)
+}
+inline ::std::string* HitEffectData::mutable_hiteffect() {
+  set_has_hiteffect();
+  if (hiteffect_ == &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    hiteffect_ = new ::std::string;
+  }
+  // @@protoc_insertion_point(field_mutable:pb.HitEffectData.HitEffect)
+  return hiteffect_;
+}
+inline ::std::string* HitEffectData::release_hiteffect() {
+  clear_has_hiteffect();
+  if (hiteffect_ == &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    return NULL;
+  } else {
+    ::std::string* temp = hiteffect_;
+    hiteffect_ = const_cast< ::std::string*>(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+    return temp;
+  }
+}
+inline void HitEffectData::set_allocated_hiteffect(::std::string* hiteffect) {
+  if (hiteffect_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    delete hiteffect_;
+  }
+  if (hiteffect) {
+    set_has_hiteffect();
+    hiteffect_ = hiteffect;
+  } else {
+    clear_has_hiteffect();
+    hiteffect_ = const_cast< ::std::string*>(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  }
+  // @@protoc_insertion_point(field_set_allocated:pb.HitEffectData.HitEffect)
 }
 
-// optional int32 BackwardNum = 3;
-inline bool ArcherProjectile::has_backwardnum() const {
+// optional string HitSound = 3;
+inline bool HitEffectData::has_hitsound() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
-inline void ArcherProjectile::set_has_backwardnum() {
+inline void HitEffectData::set_has_hitsound() {
   _has_bits_[0] |= 0x00000004u;
 }
-inline void ArcherProjectile::clear_has_backwardnum() {
+inline void HitEffectData::clear_has_hitsound() {
   _has_bits_[0] &= ~0x00000004u;
 }
-inline void ArcherProjectile::clear_backwardnum() {
-  backwardnum_ = 0;
-  clear_has_backwardnum();
+inline void HitEffectData::clear_hitsound() {
+  if (hitsound_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    hitsound_->clear();
+  }
+  clear_has_hitsound();
 }
-inline ::google::protobuf::int32 ArcherProjectile::backwardnum() const {
-  // @@protoc_insertion_point(field_get:pb.ArcherProjectile.BackwardNum)
-  return backwardnum_;
+inline const ::std::string& HitEffectData::hitsound() const {
+  // @@protoc_insertion_point(field_get:pb.HitEffectData.HitSound)
+  return *hitsound_;
 }
-inline void ArcherProjectile::set_backwardnum(::google::protobuf::int32 value) {
-  set_has_backwardnum();
-  backwardnum_ = value;
-  // @@protoc_insertion_point(field_set:pb.ArcherProjectile.BackwardNum)
+inline void HitEffectData::set_hitsound(const ::std::string& value) {
+  set_has_hitsound();
+  if (hitsound_ == &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    hitsound_ = new ::std::string;
+  }
+  hitsound_->assign(value);
+  // @@protoc_insertion_point(field_set:pb.HitEffectData.HitSound)
+}
+inline void HitEffectData::set_hitsound(const char* value) {
+  set_has_hitsound();
+  if (hitsound_ == &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    hitsound_ = new ::std::string;
+  }
+  hitsound_->assign(value);
+  // @@protoc_insertion_point(field_set_char:pb.HitEffectData.HitSound)
+}
+inline void HitEffectData::set_hitsound(const char* value, size_t size) {
+  set_has_hitsound();
+  if (hitsound_ == &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    hitsound_ = new ::std::string;
+  }
+  hitsound_->assign(reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_set_pointer:pb.HitEffectData.HitSound)
+}
+inline ::std::string* HitEffectData::mutable_hitsound() {
+  set_has_hitsound();
+  if (hitsound_ == &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    hitsound_ = new ::std::string;
+  }
+  // @@protoc_insertion_point(field_mutable:pb.HitEffectData.HitSound)
+  return hitsound_;
+}
+inline ::std::string* HitEffectData::release_hitsound() {
+  clear_has_hitsound();
+  if (hitsound_ == &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    return NULL;
+  } else {
+    ::std::string* temp = hitsound_;
+    hitsound_ = const_cast< ::std::string*>(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+    return temp;
+  }
+}
+inline void HitEffectData::set_allocated_hitsound(::std::string* hitsound) {
+  if (hitsound_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    delete hitsound_;
+  }
+  if (hitsound) {
+    set_has_hitsound();
+    hitsound_ = hitsound;
+  } else {
+    clear_has_hitsound();
+    hitsound_ = const_cast< ::std::string*>(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  }
+  // @@protoc_insertion_point(field_set_allocated:pb.HitEffectData.HitSound)
 }
 
-// optional int32 AngularNum = 4;
-inline bool ArcherProjectile::has_angularnum() const {
+// optional bool HitEffectFollow = 4;
+inline bool HitEffectData::has_hiteffectfollow() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
-inline void ArcherProjectile::set_has_angularnum() {
+inline void HitEffectData::set_has_hiteffectfollow() {
   _has_bits_[0] |= 0x00000008u;
 }
-inline void ArcherProjectile::clear_has_angularnum() {
+inline void HitEffectData::clear_has_hiteffectfollow() {
   _has_bits_[0] &= ~0x00000008u;
 }
-inline void ArcherProjectile::clear_angularnum() {
-  angularnum_ = 0;
-  clear_has_angularnum();
+inline void HitEffectData::clear_hiteffectfollow() {
+  hiteffectfollow_ = false;
+  clear_has_hiteffectfollow();
 }
-inline ::google::protobuf::int32 ArcherProjectile::angularnum() const {
-  // @@protoc_insertion_point(field_get:pb.ArcherProjectile.AngularNum)
-  return angularnum_;
+inline bool HitEffectData::hiteffectfollow() const {
+  // @@protoc_insertion_point(field_get:pb.HitEffectData.HitEffectFollow)
+  return hiteffectfollow_;
 }
-inline void ArcherProjectile::set_angularnum(::google::protobuf::int32 value) {
-  set_has_angularnum();
-  angularnum_ = value;
-  // @@protoc_insertion_point(field_set:pb.ArcherProjectile.AngularNum)
+inline void HitEffectData::set_hiteffectfollow(bool value) {
+  set_has_hiteffectfollow();
+  hiteffectfollow_ = value;
+  // @@protoc_insertion_point(field_set:pb.HitEffectData.HitEffectFollow)
 }
 
-// optional int32 SideNum = 5;
-inline bool ArcherProjectile::has_sidenum() const {
+// optional bool HitEffectFlip = 5;
+inline bool HitEffectData::has_hiteffectflip() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
-inline void ArcherProjectile::set_has_sidenum() {
+inline void HitEffectData::set_has_hiteffectflip() {
   _has_bits_[0] |= 0x00000010u;
 }
-inline void ArcherProjectile::clear_has_sidenum() {
+inline void HitEffectData::clear_has_hiteffectflip() {
   _has_bits_[0] &= ~0x00000010u;
 }
-inline void ArcherProjectile::clear_sidenum() {
-  sidenum_ = 0;
-  clear_has_sidenum();
+inline void HitEffectData::clear_hiteffectflip() {
+  hiteffectflip_ = false;
+  clear_has_hiteffectflip();
 }
-inline ::google::protobuf::int32 ArcherProjectile::sidenum() const {
-  // @@protoc_insertion_point(field_get:pb.ArcherProjectile.SideNum)
-  return sidenum_;
+inline bool HitEffectData::hiteffectflip() const {
+  // @@protoc_insertion_point(field_get:pb.HitEffectData.HitEffectFlip)
+  return hiteffectflip_;
 }
-inline void ArcherProjectile::set_sidenum(::google::protobuf::int32 value) {
-  set_has_sidenum();
-  sidenum_ = value;
-  // @@protoc_insertion_point(field_set:pb.ArcherProjectile.SideNum)
+inline void HitEffectData::set_hiteffectflip(bool value) {
+  set_has_hiteffectflip();
+  hiteffectflip_ = value;
+  // @@protoc_insertion_point(field_set:pb.HitEffectData.HitEffectFlip)
+}
+
+// optional bool HitEffectRotateRandom = 6;
+inline bool HitEffectData::has_hiteffectrotaterandom() const {
+  return (_has_bits_[0] & 0x00000020u) != 0;
+}
+inline void HitEffectData::set_has_hiteffectrotaterandom() {
+  _has_bits_[0] |= 0x00000020u;
+}
+inline void HitEffectData::clear_has_hiteffectrotaterandom() {
+  _has_bits_[0] &= ~0x00000020u;
+}
+inline void HitEffectData::clear_hiteffectrotaterandom() {
+  hiteffectrotaterandom_ = false;
+  clear_has_hiteffectrotaterandom();
+}
+inline bool HitEffectData::hiteffectrotaterandom() const {
+  // @@protoc_insertion_point(field_get:pb.HitEffectData.HitEffectRotateRandom)
+  return hiteffectrotaterandom_;
+}
+inline void HitEffectData::set_hiteffectrotaterandom(bool value) {
+  set_has_hiteffectrotaterandom();
+  hiteffectrotaterandom_ = value;
+  // @@protoc_insertion_point(field_set:pb.HitEffectData.HitEffectRotateRandom)
+}
+
+// repeated int32 HitEffectRotateRangeX = 7;
+inline int HitEffectData::hiteffectrotaterangex_size() const {
+  return hiteffectrotaterangex_.size();
+}
+inline void HitEffectData::clear_hiteffectrotaterangex() {
+  hiteffectrotaterangex_.Clear();
+}
+inline ::google::protobuf::int32 HitEffectData::hiteffectrotaterangex(int index) const {
+  // @@protoc_insertion_point(field_get:pb.HitEffectData.HitEffectRotateRangeX)
+  return hiteffectrotaterangex_.Get(index);
+}
+inline void HitEffectData::set_hiteffectrotaterangex(int index, ::google::protobuf::int32 value) {
+  hiteffectrotaterangex_.Set(index, value);
+  // @@protoc_insertion_point(field_set:pb.HitEffectData.HitEffectRotateRangeX)
+}
+inline void HitEffectData::add_hiteffectrotaterangex(::google::protobuf::int32 value) {
+  hiteffectrotaterangex_.Add(value);
+  // @@protoc_insertion_point(field_add:pb.HitEffectData.HitEffectRotateRangeX)
+}
+inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
+HitEffectData::hiteffectrotaterangex() const {
+  // @@protoc_insertion_point(field_list:pb.HitEffectData.HitEffectRotateRangeX)
+  return hiteffectrotaterangex_;
+}
+inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
+HitEffectData::mutable_hiteffectrotaterangex() {
+  // @@protoc_insertion_point(field_mutable_list:pb.HitEffectData.HitEffectRotateRangeX)
+  return &hiteffectrotaterangex_;
+}
+
+// repeated int32 HitEffectRotateRangeY = 8;
+inline int HitEffectData::hiteffectrotaterangey_size() const {
+  return hiteffectrotaterangey_.size();
+}
+inline void HitEffectData::clear_hiteffectrotaterangey() {
+  hiteffectrotaterangey_.Clear();
+}
+inline ::google::protobuf::int32 HitEffectData::hiteffectrotaterangey(int index) const {
+  // @@protoc_insertion_point(field_get:pb.HitEffectData.HitEffectRotateRangeY)
+  return hiteffectrotaterangey_.Get(index);
+}
+inline void HitEffectData::set_hiteffectrotaterangey(int index, ::google::protobuf::int32 value) {
+  hiteffectrotaterangey_.Set(index, value);
+  // @@protoc_insertion_point(field_set:pb.HitEffectData.HitEffectRotateRangeY)
+}
+inline void HitEffectData::add_hiteffectrotaterangey(::google::protobuf::int32 value) {
+  hiteffectrotaterangey_.Add(value);
+  // @@protoc_insertion_point(field_add:pb.HitEffectData.HitEffectRotateRangeY)
+}
+inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
+HitEffectData::hiteffectrotaterangey() const {
+  // @@protoc_insertion_point(field_list:pb.HitEffectData.HitEffectRotateRangeY)
+  return hiteffectrotaterangey_;
+}
+inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
+HitEffectData::mutable_hiteffectrotaterangey() {
+  // @@protoc_insertion_point(field_mutable_list:pb.HitEffectData.HitEffectRotateRangeY)
+  return &hiteffectrotaterangey_;
+}
+
+// optional bool HitEffectScale = 9;
+inline bool HitEffectData::has_hiteffectscale() const {
+  return (_has_bits_[0] & 0x00000100u) != 0;
+}
+inline void HitEffectData::set_has_hiteffectscale() {
+  _has_bits_[0] |= 0x00000100u;
+}
+inline void HitEffectData::clear_has_hiteffectscale() {
+  _has_bits_[0] &= ~0x00000100u;
+}
+inline void HitEffectData::clear_hiteffectscale() {
+  hiteffectscale_ = false;
+  clear_has_hiteffectscale();
+}
+inline bool HitEffectData::hiteffectscale() const {
+  // @@protoc_insertion_point(field_get:pb.HitEffectData.HitEffectScale)
+  return hiteffectscale_;
+}
+inline void HitEffectData::set_hiteffectscale(bool value) {
+  set_has_hiteffectscale();
+  hiteffectscale_ = value;
+  // @@protoc_insertion_point(field_set:pb.HitEffectData.HitEffectScale)
+}
+
+// repeated int32 HitEffectScaleRange = 10;
+inline int HitEffectData::hiteffectscalerange_size() const {
+  return hiteffectscalerange_.size();
+}
+inline void HitEffectData::clear_hiteffectscalerange() {
+  hiteffectscalerange_.Clear();
+}
+inline ::google::protobuf::int32 HitEffectData::hiteffectscalerange(int index) const {
+  // @@protoc_insertion_point(field_get:pb.HitEffectData.HitEffectScaleRange)
+  return hiteffectscalerange_.Get(index);
+}
+inline void HitEffectData::set_hiteffectscalerange(int index, ::google::protobuf::int32 value) {
+  hiteffectscalerange_.Set(index, value);
+  // @@protoc_insertion_point(field_set:pb.HitEffectData.HitEffectScaleRange)
+}
+inline void HitEffectData::add_hiteffectscalerange(::google::protobuf::int32 value) {
+  hiteffectscalerange_.Add(value);
+  // @@protoc_insertion_point(field_add:pb.HitEffectData.HitEffectScaleRange)
+}
+inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
+HitEffectData::hiteffectscalerange() const {
+  // @@protoc_insertion_point(field_list:pb.HitEffectData.HitEffectScaleRange)
+  return hiteffectscalerange_;
+}
+inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
+HitEffectData::mutable_hiteffectscalerange() {
+  // @@protoc_insertion_point(field_mutable_list:pb.HitEffectData.HitEffectScaleRange)
+  return &hiteffectscalerange_;
 }
 
 // -------------------------------------------------------------------

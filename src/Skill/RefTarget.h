@@ -38,7 +38,7 @@ enum class ERefFaceTo
 	OppTarget = 2
 };
 
-enum class EProjectileStartPoint
+enum class EProjectileStartPointSlot
 {
 	SLOT_FRONT_1 = 0,		//  -> 1,2,3,4,5 <-   +1弹道取3号；+2弹道取2和4号；+3弹道取1,3,5号 
 	SLOT_FRONT_2 = 1,
@@ -69,6 +69,8 @@ public:
 	void SetRot(const Vector3& aRot);
     ERefTargetType GetType() const;
 	void SetType(ERefTargetType);
+	EProjectileStartPointSlot GetSlot() const;
+	void SetSlot(EProjectileStartPointSlot);
     const SharedPtr<Unit> GetUnit() const;
     int GetSize() const;
     const Vector3& GetTargetPos() const;
@@ -108,4 +110,5 @@ private:
     SharedPtr<Unit> mUnit = nullptr;
     Vector3 mPos = Vector3(0,0,0);
 	Vector3 mRot = Vector3(0, 0, 0);
+	EProjectileStartPointSlot mStartPointSlot = EProjectileStartPointSlot::SLOT_FRONT_1;
 };

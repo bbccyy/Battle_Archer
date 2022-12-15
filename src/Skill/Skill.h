@@ -49,6 +49,19 @@ const AnimData* FindAnimConf(const string& aAvatarName, const string& aAnimName)
 class Skill : public EnableSharedFromThis<Skill>, public IPoolable
 {
 public:
+	struct ArcherChangeableParams
+	{
+	public:
+		void Init(const SkillData*);
+		int GetValue(EArcherParamsType);
+		void SetValue(EArcherParamsType, int);
+	public:
+		vector<int> mParams;//目前可行，因为配置大多是非复数类型，返回int可以替代bool和int类型的存储值 
+	private:
+		bool IsValid = false; 
+	}mArcherParam;
+
+public:
     ~Skill();
     int Init( SharedPtr<Unit> aUnit, int aSkillId, int aSkillLevel, WeakPtr<Skill> aParentSkill = WeakPtr<Skill>());
 	void CopyInit(SharedPtr<Unit> aUnit, const Skill*);

@@ -61,6 +61,14 @@ void RefTarget::SetType(ERefTargetType aType)
 {
 	mType = aType;
 }
+EProjectileStartPointSlot RefTarget::GetSlot() const
+{
+	return mStartPointSlot;
+}
+void RefTarget::SetSlot(EProjectileStartPointSlot aSlot)
+{
+	mStartPointSlot = aSlot;
+}
 const SharedPtr<Unit> RefTarget::GetUnit() const
 {
     return mUnit;
