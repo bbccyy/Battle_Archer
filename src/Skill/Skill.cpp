@@ -68,10 +68,13 @@ void Skill::ArcherChangeableParams::Init(const SkillData* aConf)
 		return;
 	}
 
-	mParams.resize(static_cast<int>(EArcherParamsType::_Count));
-	//todo 
-	//mParams[]  
+	mParams.resize(static_cast<int>(EArcherParamsType::_Count)); 
 	auto& projConf = aConf->basedata().archerprojectiledirconf();
+	mParams[static_cast<int>(EArcherParamsType::Forward_Num)] = projConf.forwardnum();
+	mParams[static_cast<int>(EArcherParamsType::Backward_Num)] = projConf.backwardnum();
+	mParams[static_cast<int>(EArcherParamsType::Angular_Num)] = projConf.angularnum();
+	mParams[static_cast<int>(EArcherParamsType::Side_Num)] = projConf.sidenum();
+	//todo 
 
 	IsValid = true;
 }

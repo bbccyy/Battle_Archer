@@ -58,7 +58,7 @@ public:
 	public:
 		vector<int> mParams;//目前可行，因为配置大多是非复数类型，返回int可以替代bool和int类型的存储值 
 	private:
-		bool IsValid = false; 
+		bool IsValid = false; //必须为True才优先使用这里的数据 
 	}mArcherParam;
 
 public:
