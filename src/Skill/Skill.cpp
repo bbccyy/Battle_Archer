@@ -62,10 +62,16 @@ bool TryGenPoolFromPosType(vector<int>& aOrigin, vector<EPosType>& aOutput)
 
 void Skill::ArcherChangeableParams::Init(const SkillData* aConf)
 {
+	if (!aConf->basedata().archerischangableskill())
+	{
+		IsValid = false;
+		return;
+	}
+
 	mParams.resize(static_cast<int>(EArcherParamsType::_Count));
 	//todo 
 	//mParams[]  
-	auto& projConf = aConf->basedata().archerprojectileconf();
+	auto& projConf = aConf->basedata().archerprojectiledirconf();
 
 	IsValid = true;
 }
