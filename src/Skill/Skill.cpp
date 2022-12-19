@@ -466,6 +466,9 @@ int Skill::DoInit()
     {
         LOG_FATAL("not found conf of skill:%d", mSkillId);
     }
+
+	mArcherParam.Init(mSkillConf); 
+
 	const SkillBaseData& baseConf = mSkillConf->basedata();
 	switch ( static_cast<ESearchRefTargetMethod>(baseConf.reftargettype()) )
 	{

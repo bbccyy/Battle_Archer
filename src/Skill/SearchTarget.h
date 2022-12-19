@@ -38,6 +38,8 @@ struct RefTargetParam
 	int mFilterParam = 0;
 };
 
+void SearchArcherRefPos(const SharedPtr<Unit>& aUtilizer, const SharedPtr<Skill>& aSkill, vector<RefTarget>& aTargetArr);
+
 void SearchRefTargetUnit(const SharedPtr<Unit>& aUtilizer, const SharedPtr<Skill>& aSkill, 
         ESearchRefTargetSpace aSpace, 
         ESearchTargetFilter aFilter,

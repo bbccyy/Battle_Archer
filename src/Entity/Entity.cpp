@@ -570,7 +570,6 @@ void Entity::LocalToWorld(Vector3& aPos) const
 		aPos *= mSizeScale;
 		aPos /= DENOM;
 	}
-	
 
 	//平移
 	aPos += mPosition;
