@@ -45,6 +45,17 @@ public:
 
 const AnimData* FindAnimConf(const string& aAvatarName, const string& aAnimName);
 
+//TODO:use conf settings 
+const Vector3 ForwardShiftLeftA = Vector3(-DENOM, 0, 0);
+const Vector3 ForwardShiftLeftB = Vector3(-2 * DENOM, 0, 0);
+const Vector3 ForwardShiftRightA = Vector3(DENOM, 0, 0);
+const Vector3 ForwardShiftRightB = Vector3(2 * DENOM, 0, 0);
+const Vector3 AngularShiftLeft = Vector3(-DENOM, 0, DENOM);
+const Vector3 AngularShiftRight = Vector3(DENOM, 0, -DENOM);
+const Vector3 BackShiftLeft = Vector3(-DENOM, 0, 0);
+const Vector3 BackShiftRight = Vector3(DENOM, 0, 0);
+
+
 //技能的持续性数据，单次执行的相关操作由SkillExecutor负责
 class Skill : public EnableSharedFromThis<Skill>, public IPoolable
 {
@@ -78,7 +89,7 @@ public:
 	int mSubRageTime = 0;
 	bool mEnemyShowRage = false;
 	bool mIsBlockPriority = false;
-	bool mIsIgnoreShield = false;
+	bool mIsIgnoreShield = false; 
 	bool mIsIgnoreInterruptEffect = false;
 	bool mRageSkillInterruptable = false;
 

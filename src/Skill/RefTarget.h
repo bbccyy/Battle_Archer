@@ -46,7 +46,7 @@ enum class EProjectileStartPointSlot
 	SLOT_FRONT_4 = 3,
 	SLOT_FRONT_5 = 4,
 
-	SLOT_ANGULAR_1 = 5,		//	-> 1,2,3,4 <-	+1弹道取左侧1和右侧4号；+2弹道取左侧1,2和右侧4,3号 
+	SLOT_ANGULAR_1 = 5,		//	-> 1,2,3,4 <-	+1弹道取左侧2和右侧3号；+2弹道取左侧1,2和右侧3,4号 
 	SLOT_ANGULAR_2 = 6,
 	SLOT_ANGULAR_3 = 7,
 	SLOT_ANGULAR_4 = 8,

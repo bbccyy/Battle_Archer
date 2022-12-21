@@ -1725,8 +1725,11 @@ void SearchRefTarget(const SharedPtr<Unit>& aUtilizer, const SharedPtr<Skill>& a
 	}
 
 	//TODO: Archer battle reftarget position second search
-	if (aSkill->mArcherParam.IsValid)
+	if (aSkill->mArcherParam.IsValid && aTargetArr.size() > 0)
 	{
+
+
+
 
 	}
 
@@ -1743,6 +1746,196 @@ void SearchRefTarget(const SharedPtr<Unit>& aUtilizer, const SharedPtr<Skill>& a
 
 void SearchArcherRefPos(const SharedPtr<Unit>& aUtilizer, const SharedPtr<Skill>& aSkill, vector<RefTarget>& aTargetArr)
 {
+	if (!aSkill->mArcherParam.IsValid)
+		return; 
+
+	RefTarget lookat = aTargetArr[0];
+	aTargetArr.clear();
+
+	auto& lookatPos = lookat.GetTargetPos();
+	auto& myPos = aUtilizer->GetPosition();
+
+	Vector3 baseDir = lookatPos - myPos;
+	if (baseDir.x == 0 && baseDir.z == 0)
+		baseDir.Set(0, 0, DENOM);
+
+	aUtilizer->SetRot(baseDir, false);
+
+	int forwardNum = aSkill->mArcherParam.GetValue(EArcherParamsType::Forward_Num);
+	int angularNum = aSkill->mArcherParam.GetValue(EArcherParamsType::Angular_Num);
+	int sideNum = aSkill->mArcherParam.GetValue(EArcherParamsType::Side_Num);
+	int backNum = aSkill->mArcherParam.GetValue(EArcherParamsType::Backward_Num);
+
+	int64 range = aSkill->GetCastRange();
+
+	//forward
+	if (forwardNum > 0)
+	{
+		Vector3 localForward = Vector3(0, 0, range);
+		//ForwardShiftLeftA;
+		if (forwardNum == 1)
+		{
+			RefTarget tmp;
+			Vector3 forward;
+			forward.Set(localForward);
+			aUtilizer->LocalToWorld(forward);
+			tmp.SetPos(forward);
+			tmp.SetSlot(EProjectileStartPointSlot::SLOT_FRONT_3);
+			aTargetArr.emplace_back(tmp);
+		}
+		else if (forwardNum == 2)
+		{
+			RefTarget tmp1;
+			Vector3 forwardLeft = localForward + ForwardShiftLeftA;
+			aUtilizer->LocalToWorld(forwardLeft);
+			tmp1.SetPos(forwardLeft);
+			tmp1.SetSlot(EProjectileStartPointSlot::SLOT_FRONT_2);
+			aTargetArr.emplace_back(tmp1);
+
+			RefTarget tmp2;
+			Vector3 forwardRight = localForward + ForwardShiftRightA;
+			aUtilizer->LocalToWorld(forwardRight);
+			tmp2.SetPos(forwardRight);
+			tmp2.SetSlot(EProjectileStartPointSlot::SLOT_FRONT_4);
+			aTargetArr.emplace_back(tmp2);
+		}
+		else
+		{
+			RefTarget tmp;
+			Vector3 forward;
+			forward.Set(localForward);
+			aUtilizer->LocalToWorld(forward);
+			tmp.SetPos(forward);
+			tmp.SetSlot(EProjectileStartPointSlot::SLOT_FRONT_3);
+			aTargetArr.emplace_back(tmp);
+
+			RefTarget tmp1;
+			Vector3 forwardLeft = localForward + ForwardShiftLeftB;
+			aUtilizer->LocalToWorld(forwardLeft);
+			tmp1.SetPos(forwardLeft);
+			tmp1.SetSlot(EProjectileStartPointSlot::SLOT_FRONT_1);
+			aTargetArr.emplace_back(tmp1);
+
+			RefTarget tmp2;
+			Vector3 forwardRight = localForward + ForwardShiftRightB;
+			aUtilizer->LocalToWorld(forwardRight);
+			tmp2.SetPos(forwardRight);
+			tmp2.SetSlot(EProjectileStartPointSlot::SLOT_FRONT_5);
+			aTargetArr.emplace_back(tmp2);
+		}
+	}
+
+	if (angularNum > 0)
+	{
+		Vector3 localAngularLeft = Vector3(-DENOM, 0, DENOM);
+		Vector3 localAngularRight = Vector3(DENOM, 0, DENOM);
+		localAngularLeft.ScaleToLen(range);
+		localAngularRight.ScaleToLen(range);
+		if (angularNum == 1)
+		{
+			RefTarget tmp1;
+			Vector3 angularLeft;
+			angularLeft.Set(localAngularLeft);
+			aUtilizer->LocalToWorld(angularLeft);
+			tmp1.SetPos(angularLeft);
+			tmp1.SetSlot(EProjectileStartPointSlot::SLOT_ANGULAR_2);
+			aTargetArr.emplace_back(tmp1);
+
+			RefTarget tmp2;
+			Vector3 angularRight;
+			angularRight.Set(localAngularRight);
+			aUtilizer->LocalToWorld(angularRight);
+			tmp2.SetPos(angularRight);
+			tmp2.SetSlot(EProjectileStartPointSlot::SLOT_ANGULAR_3);
+			aTargetArr.emplace_back(tmp2);
+		}
+		else
+		{
+			RefTarget tmp1;
+			Vector3 angularLeft;
+			angularLeft.Set(localAngularLeft);
+			aUtilizer->LocalToWorld(angularLeft);
+			tmp1.SetPos(angularLeft);
+			tmp1.SetSlot(EProjectileStartPointSlot::SLOT_ANGULAR_2);
+			aTargetArr.emplace_back(tmp1);
+
+			RefTarget tmp11;
+			Vector3 angularLeft1 = localAngularLeft + AngularShiftLeft;
+			aUtilizer->LocalToWorld(angularLeft1);
+			tmp11.SetPos(angularLeft1);
+			tmp11.SetSlot(EProjectileStartPointSlot::SLOT_ANGULAR_1);
+			aTargetArr.emplace_back(tmp11);
+
+			RefTarget tmp2;
+			Vector3 angularRight;
+			angularRight.Set(localAngularRight);
+			aUtilizer->LocalToWorld(angularRight);
+			tmp2.SetPos(angularRight);
+			tmp2.SetSlot(EProjectileStartPointSlot::SLOT_ANGULAR_3);
+			aTargetArr.emplace_back(tmp2);
+
+			RefTarget tmp21;
+			Vector3 angularRight1 = localAngularRight + AngularShiftRight;
+			aUtilizer->LocalToWorld(angularRight1);
+			tmp21.SetPos(angularRight1);
+			tmp21.SetSlot(EProjectileStartPointSlot::SLOT_ANGULAR_4);
+			aTargetArr.emplace_back(tmp21);
+		}
+	}
+
+	if (sideNum > 0)
+	{
+		Vector3 localSideLeft = Vector3(-range, 0, 0);
+		Vector3 localSideRight = Vector3(range, 0, 0);
+
+		RefTarget tmp1;
+		Vector3 sideLeft;
+		sideLeft.Set(localSideLeft);
+		aUtilizer->LocalToWorld(sideLeft);
+		tmp1.SetPos(sideLeft);
+		tmp1.SetSlot(EProjectileStartPointSlot::SLOT_LEFT);
+		aTargetArr.emplace_back(tmp1);
+
+		RefTarget tmp2;
+		Vector3 sideRight;
+		sideRight.Set(localSideRight);
+		aUtilizer->LocalToWorld(sideRight);
+		tmp2.SetPos(sideRight);
+		tmp2.SetSlot(EProjectileStartPointSlot::SLOT_RIGHT);
+		aTargetArr.emplace_back(tmp2);
+	}
+
+	if (backNum > 0)
+	{
+		Vector3 localBack = Vector3(0, 0, -range);
+		if (backNum == 1)
+		{
+			RefTarget tmp;
+			Vector3 back;
+			back.Set(localBack);
+			aUtilizer->LocalToWorld(back);
+			tmp.SetPos(back);
+			tmp.SetSlot(EProjectileStartPointSlot::SLOT_BACK_2);
+			aTargetArr.emplace_back(tmp);
+		}
+		else
+		{
+			RefTarget tmp1;
+			Vector3 backLeft = localBack + BackShiftLeft;
+			aUtilizer->LocalToWorld(backLeft);
+			tmp1.SetPos(backLeft);
+			tmp1.SetSlot(EProjectileStartPointSlot::SLOT_BACK_1);
+			aTargetArr.emplace_back(tmp1);
+
+			RefTarget tmp2;
+			Vector3 backRight = localBack + BackShiftRight;
+			aUtilizer->LocalToWorld(backRight);
+			tmp2.SetPos(backRight);
+			tmp2.SetSlot(EProjectileStartPointSlot::SLOT_BACK_3);
+			aTargetArr.emplace_back(tmp2);
+		}
+	}
+
 
 }
 
