@@ -101,7 +101,7 @@ void RefTarget::GetTargetSocketBodyPos(Vector3& aPos) const
 	if (mType == ERefTargetType::Unit)
 	{
 		aPos.Set(mUnit->GetPosition());
-		aPos.y += mUnit->GetIdleBodyHeight();		
+		aPos.y += mUnit->GetIdleBodyHeight(); 
 	}
 	else 
 	{

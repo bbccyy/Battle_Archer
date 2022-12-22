@@ -596,7 +596,7 @@ void SkillExecutor::SendSkillEmitCMD()
 	}
 }
 
-bool SkillExecutor::GetSocketPos(const AnimData* aAnimConf, int aAnimStartTime, const string& aSocketName, int aPhaseIndex, Vector3& aPos)  const
+bool SkillExecutor::GetSocketPos(const AnimData* aAnimConf, int aAnimStartTime, const string& aSocketName, int aPhaseIndex, Vector3& aPos, int ArcherIndex)  const
 {
     if (aAnimConf == nullptr)
     {//TODO  如果当前是非技能动作需要使用一个默认的挂点位置 
@@ -605,6 +605,22 @@ bool SkillExecutor::GetSocketPos(const AnimData* aAnimConf, int aAnimStartTime, 
         aPos.z = 0;
         return true;
     }
+	if (ArcherIndex > 0 && ArcherIndex < 15)
+	{
+		//itoa(ArcherIndex, );
+		string targetSocketName = string(ArcherSlotPrefix + EArcherSlotLut[ArcherIndex]);
+		for (int i = 0; i < aAnimConf->initsocketposition_size(); i++)
+		{
+			const SocketPosition& socketPos = aAnimConf->initsocketposition(i);
+			if (socketPos.socketname() == targetSocketName)
+			{
+				aPos.x = EDITOR_CONF_POS_CONVERT(socketPos.position().x());
+				aPos.y = EDITOR_CONF_POS_CONVERT(socketPos.position().y());
+				aPos.z = EDITOR_CONF_POS_CONVERT(socketPos.position().z());
+				return true;
+			}
+		}
+	}
 	if (aAnimConf->skilltriggerevents_size() <= 0 || aAnimStartTime < 0)
 	{
 		for (int i = 0; i < aAnimConf->initsocketposition_size(); i++)

@@ -72,7 +72,7 @@ public:
 protected:
     void EmitCarrier();
     void startChildSkill();
-    bool GetSocketPos(const AnimData* aAnimConf, int aAnimStartTime, const string& aSocketName, int aPhaseIndex, Vector3& aPos) const;
+    bool GetSocketPos(const AnimData* aAnimConf, int aAnimStartTime, const string& aSocketName, int aPhaseIndex, Vector3& aPos, int ArcherIndex = 0) const;
 	void RefreshSpeedFactor();
 private:
 	//A给B加了一个buff，buff触发了一个技能，那这个技能的mSourceUnit=A 

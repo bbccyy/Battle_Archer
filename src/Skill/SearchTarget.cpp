@@ -1724,16 +1724,11 @@ void SearchRefTarget(const SharedPtr<Unit>& aUtilizer, const SharedPtr<Skill>& a
 		}
 	}
 
-	//TODO: Archer battle reftarget position second search
+	//The second search of Archer battle reftarget  
 	if (aSkill->mArcherParam.IsValid && aTargetArr.size() > 0)
 	{
-
-
-
-
+		SearchArcherRefPos(aUtilizer, aSkill, aTargetArr);
 	}
-
-
 	
 	RestoreVectorToPool<Unit*>(allunits);
 	RestoreVectorToPool<Unit*>(rangeUnits);

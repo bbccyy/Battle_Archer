@@ -40,23 +40,25 @@ enum class ERefFaceTo
 
 enum class EProjectileStartPointSlot
 {
-	SLOT_FRONT_1 = 0,		//  -> 1,2,3,4,5 <-   +1弹道取3号；+2弹道取2和4号；+3弹道取1,3,5号 
-	SLOT_FRONT_2 = 1,
-	SLOT_FRONT_3 = 2,
-	SLOT_FRONT_4 = 3,
-	SLOT_FRONT_5 = 4,
+	NONE = 0,
 
-	SLOT_ANGULAR_1 = 5,		//	-> 1,2,3,4 <-	+1弹道取左侧2和右侧3号；+2弹道取左侧1,2和右侧3,4号 
-	SLOT_ANGULAR_2 = 6,
-	SLOT_ANGULAR_3 = 7,
-	SLOT_ANGULAR_4 = 8,
+	SLOT_FRONT_1 = 1,		//  -> 1,2,3,4,5 <-   +1弹道取3号；+2弹道取2和4号；+3弹道取1,3,5号 
+	SLOT_FRONT_2 = 2,
+	SLOT_FRONT_3 = 3,
+	SLOT_FRONT_4 = 4,
+	SLOT_FRONT_5 = 5,
 
-	SLOT_LEFT = 9,			// 就是左侧和右侧 
-	SLOT_RIGHT = 10,
+	SLOT_ANGULAR_1 = 6,		//	-> 6,7,8,9 <-	+1弹道取左侧7和右侧8号；+2弹道取左侧6,7和右侧8,9号 
+	SLOT_ANGULAR_2 = 7,
+	SLOT_ANGULAR_3 = 8,
+	SLOT_ANGULAR_4 = 9,
 
-	SLOT_BACK_1 = 11,		// -> 1,2,3 <- +1弹道取2号； +2弹道取1，3号 
-	SLOT_BACK_2 = 12,
-	SLOT_BACK_3 = 13,
+	SLOT_LEFT = 10,			// 就是左侧和右侧 
+	SLOT_RIGHT = 11,
+
+	SLOT_BACK_1 = 12,		// -> 11,12,13 <- +1弹道取12号； +2弹道取11，13号 
+	SLOT_BACK_2 = 13,
+	SLOT_BACK_3 = 14,
 };
 
 class RefTarget
@@ -110,5 +112,5 @@ private:
     SharedPtr<Unit> mUnit = nullptr;
     Vector3 mPos = Vector3(0,0,0);
 	Vector3 mRot = Vector3(0, 0, 0);
-	EProjectileStartPointSlot mStartPointSlot = EProjectileStartPointSlot::SLOT_FRONT_1;
+	EProjectileStartPointSlot mStartPointSlot = EProjectileStartPointSlot::NONE;
 };

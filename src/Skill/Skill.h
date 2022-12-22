@@ -54,8 +54,8 @@ const Vector3 AngularShiftLeft = Vector3(-DENOM, 0, DENOM);
 const Vector3 AngularShiftRight = Vector3(DENOM, 0, -DENOM);
 const Vector3 BackShiftLeft = Vector3(-DENOM, 0, 0);
 const Vector3 BackShiftRight = Vector3(DENOM, 0, 0);
-
-
+static const char* EArcherSlotLut[] = { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15" };
+static const string ArcherSlotPrefix = "ArcherSlot_";
 //技能的持续性数据，单次执行的相关操作由SkillExecutor负责
 class Skill : public EnableSharedFromThis<Skill>, public IPoolable
 {
@@ -64,8 +64,16 @@ public:
 	{
 	public:
 		void Init(const SkillData*);
-		int GetValue(EArcherParamsType);
-		void SetValue(EArcherParamsType, int);
+		int GetValue(EArcherParamsType aType)
+		{
+			if (!IsValid) return 0;
+			return mParams[static_cast<int>(aType)];
+		}
+		void SetValue(EArcherParamsType aType, int aValue)
+		{
+			if (!IsValid) return;
+			mParams[static_cast<int>(aType)] = aValue;
+		}
 	public:
 		vector<int> mParams;//目前可行，因为配置大多是非复数类型，返回int可以替代bool和int类型的存储值 
 		bool IsValid = false; //必须为True才优先使用这里的数据 
