@@ -51,6 +51,8 @@ void SkillProjectile::InitBase(WeakPtr<SkillCarrier> aCarrier, const Vector3& aS
 	mIsSweepLine = curveConf.isline();
 	mLineLength = CONF_POS_CONVERT(curveConf.shapeparam1());
 
+	mBounceNum = curveConf.bouncenum();
+
     mCurCollisionNum = 0;
     mMaxCollisionNum = 0;
 	mEndOnReachRefTarget = false;
@@ -186,6 +188,9 @@ SharedPtr<SkillProjectile> NewSkillProjectile(WeakPtr<SkillCarrier> aCarrier, co
     int projectileType = aCarrier->GetSkillConf()->curvadata().curvetype();
     switch(projectileType)
     {
+		case EProjectileTypeBounce:
+			projectile = SharedPool<SkillProjectileLine>::Get();  //TODO 
+			break;
         case EProjectileTypeLine:
             projectile = SharedPool<SkillProjectileLine>::Get();
             break;
@@ -235,6 +240,16 @@ SharedPtr<MoveCurve> SkillProjectile::BuildCurveExecutor(SharedPtr<Entity> aEnti
 	auto moveCurve = SharedPtr<MoveCurve>(executor, toPtr);
 	moveCurve->Init(param);
 	return moveCurve;
+}
+
+SharedPtr<MovePath> SkillProjectile::BuildPathExecutor(SharedPtr<Entity> aEntity)
+{
+	//TODO 使用 MoveBounce，不要动MovePath (前端可以仍然按照movePath去做) 
+	PathParam param;
+
+
+
+	return nullptr;
 }
 
 SharedPtr<MoveTrace> SkillProjectile::BuildTraceExecutor(SharedPtr<Entity> aEntity)

@@ -23,6 +23,7 @@
 #include "Entity/MoveExecutor/MoveStraight.h"
 #include "Entity/MoveExecutor/MoveTrace.h"
 #include "Entity/MoveExecutor/MoveCurve.h"
+#include "Entity/MoveExecutor/MovePath.h"
 #include <unordered_set>
 
 using namespace pb;
@@ -46,6 +47,7 @@ public:
 	SharedPtr<MoveCurve> BuildCurveExecutor(SharedPtr<Entity>);
 	SharedPtr<MoveTrace> BuildTraceExecutor(SharedPtr<Entity>);
 	SharedPtr<MoveStraight> BuildStraightExecutor(SharedPtr<Entity>);
+	SharedPtr<MovePath> BuildPathExecutor(SharedPtr<Entity>);
 
 protected:
     SharedPtr<Unit> mOwner = nullptr;
@@ -69,6 +71,7 @@ protected:
     int mCurCollisionNum = 0;
     int mMaxCollisionNum = 0;
     int mTime = 0;    
+    int mBounceNum = 0;
 
 	unordered_set<int> mTouchedEntityIdArr;
 };

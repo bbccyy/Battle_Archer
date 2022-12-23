@@ -442,7 +442,7 @@ void SkillExecutor::EmitCarrier()
                     {
                         phaseIndex = -1;
                     }
-                    if (GetSocketPos(animConf, animStartTime, socketName, phaseIndex, startPos))
+                    if (GetSocketPos(animConf, animStartTime, socketName, phaseIndex, startPos, static_cast<int>(refTarget.GetSlot())))
 						mOwner->LocalToWorld(startPos);
                 }
                 else
@@ -607,7 +607,6 @@ bool SkillExecutor::GetSocketPos(const AnimData* aAnimConf, int aAnimStartTime, 
     }
 	if (ArcherIndex > 0 && ArcherIndex < 15)
 	{
-		//itoa(ArcherIndex, );
 		string targetSocketName = string(ArcherSlotPrefix + EArcherSlotLut[ArcherIndex]);
 		for (int i = 0; i < aAnimConf->initsocketposition_size(); i++)
 		{

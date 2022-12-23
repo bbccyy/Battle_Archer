@@ -183,3 +183,10 @@ void SceneManager::GetRandomPositionNearBy(const Vector3& aCurPos, const unsigne
 	aOutputPosition.x = aOutputPosition.x + mTmp.x;
 	aOutputPosition.z = aOutputPosition.z + mTmp.z;
 }
+
+void SceneManager::CalculateMoveBouncePath(vector<Vector2>& aOutput, const Vector3& aStart, const Vector3& aEnd, int aBounceNum)
+{
+	//TODO 
+
+
+}

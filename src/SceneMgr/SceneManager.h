@@ -31,6 +31,8 @@ public:
 
 	void GetRandomPositionNearBy(const Vector3& aCurPos, const unsigned int aDistMin, const unsigned int aDistMax, Vector3& aOutputPosition);
 
+	void CalculateMoveBouncePath(vector<Vector2>& aOutput, const Vector3& aStart, const Vector3& aEnd, int aBounceNum);
+
 public:
 	int CurSceneId = 0;
 	int TotalFieldNum = 0;

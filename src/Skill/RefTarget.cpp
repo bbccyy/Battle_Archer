@@ -36,6 +36,7 @@ void RefTarget::Set(const RefTarget& aTarget)
 	}
 	mRot.Set(aTarget.mRot);
     mPos.Set(aTarget.mPos);
+	mStartPointSlot = aTarget.mStartPointSlot;
 }
 void RefTarget::SetUnit(const SharedPtr<Unit>& aUnit)
 {

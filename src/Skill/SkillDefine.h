@@ -470,10 +470,11 @@ enum ESearchTargetFilterAttributeName
 
 enum EProjectileType
 {
-    EProjectileTypeLine,  //常规直线 
-    EProjectileTypeWired,         //连线弹道（没有弹道移动过程，瞬间链接上） 
-    EProjectileTypeExpansionLink, //拉伸连线 (有伸缩过程)  
-    EProjectileTypeCurve         //曲线 
+    EProjectileTypeLine,            //常规直线 
+    EProjectileTypeWired,           //连线弹道（没有弹道移动过程，瞬间链接上） 
+    EProjectileTypeExpansionLink,   //拉伸连线 (有伸缩过程)  
+    EProjectileTypeCurve,           //曲线 
+    EProjectileTypeBounce,          //弹射 
 };
 
 
