@@ -9,6 +9,8 @@ using pb::EArcherGridType;
 
 class MersenneTwister;
 
+const int64 MaxBounceLen = CONF_POS_CONVERT(5000);  //50รื 
+
 class SceneManager
 {
 public:

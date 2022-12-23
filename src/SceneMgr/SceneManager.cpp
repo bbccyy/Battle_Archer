@@ -187,6 +187,15 @@ void SceneManager::GetRandomPositionNearBy(const Vector3& aCurPos, const unsigne
 void SceneManager::CalculateMoveBouncePath(vector<Vector2>& aOutput, const Vector3& aStart, const Vector3& aEnd, int aBounceNum)
 {
 	//TODO 
+	Vector3 dir = aEnd - aStart;
+	dir.y = 0;
+	dir.ScaleToLen(MaxBounceLen);
+	Vector3 inputSegA = aStart;
+	inputSegA.y = 0;
+	Vector3 inputSegB = inputSegA + dir;  //更新起点和终点 
 
+	for (int i = 0; i <= aBounceNum; ++i)  //aBounceNum可以为0，此时会在第一个遇到的墙体处消失 
+	{
 
+	}
 }
