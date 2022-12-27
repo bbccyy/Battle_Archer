@@ -207,7 +207,6 @@ Vector3 SceneManager::CalculateReflectDir(const Vector2& InputDir, const Vector2
 
 void SceneManager::CalculateMoveBouncePath(vector<Vector2>& aOutput, const Vector3& aStart, const Vector3& aEnd, int aBounceNum)
 {
-	//TODO 
 	Vector3 dir = aEnd - aStart;
 	dir.y = 0;
 	dir.ScaleToLen(MaxBounceLen);
@@ -215,18 +214,35 @@ void SceneManager::CalculateMoveBouncePath(vector<Vector2>& aOutput, const Vecto
 	inputSegA.y = 0;
 	Vector3 inputSegB = inputSegA + dir;  //更新起点和终点 
 
-	Vector2 HitSegA, HitSegB, Point;
+	Vector2 HitSegA, HitSegB, Point, CurDir;
+	CurDir.Set(dir.x, dir.z);
+
 	bool ret = false;
 
 	for (int i = 0; i <= aBounceNum; ++i)  //aBounceNum可以为0，此时会在第一个遇到的墙体处消失 
 	{
-		ret = DetectCollision(inputSegA, inputSegB, HitSegA, HitSegB, Point);
+		ret = DetectCollision(inputSegA, inputSegB, HitSegA, HitSegB, Point); //必须确保HitSegA -> HitSegB的顺序一致性 
 		if (!ret)  //如果撞不到边界，就直接输出终点并返回 
 		{
-			Vector2 cur;
-			cur.Set(inputSegB.x, inputSegB.z);
-			aOutput.emplace_back(cur);
+			Vector2 routePoint;
+			routePoint.Set(inputSegB.x, inputSegB.z);
+			aOutput.emplace_back(routePoint);
 			return;
 		}
+
+		aOutput.emplace_back(Point);
+		if (i == aBounceNum) //没有后续反射了，直接退出 
+			return;
+
+		//has next
+		auto nextDir = CalculateReflectDir(CurDir, HitSegA, HitSegB);
+		nextDir.ScaleToLen(MaxBounceLen);
+		CurDir.Set(nextDir.x, nextDir.z);		//update cur dir
+
+		inputSegA.Set(Point.x, 0, Point.z);		//update inputSeg 
+		inputSegB = inputSegA + nextDir;
 	}
+
+	//TODO: use Vector pools 
+	return;
 }
