@@ -92,6 +92,7 @@ enum class BuffSubType
 	UIEffect = 137,			//激活UI特效 
 	AdjustBuffHitRate = 138, //调节Buff命中率(减益Buff) 
 	LimitByMaxHpRate = 139,	 //承受伤害的上限被自身最大生命值的百分比限制 
+	BattleArcherModify = 140,//修改弓箭主技能属性 
 	
     //减益 
     Weaken = 200,//属性削弱 改变属性 BuffModProperty

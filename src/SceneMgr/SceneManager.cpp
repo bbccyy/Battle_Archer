@@ -184,6 +184,27 @@ void SceneManager::GetRandomPositionNearBy(const Vector3& aCurPos, const unsigne
 	aOutputPosition.z = aOutputPosition.z + mTmp.z;
 }
 
+Vector3 SceneManager::CalculateReflectDir(const Vector2& InputDir, const Vector2& SegA, const Vector2& SegB)
+{
+	int64 InputLen = InputDir.Magnitude();		//normalize_Input = InputDir.xz / InputLen;
+	Vector2 neg_InputDir;
+	neg_InputDir.Set(-InputDir.x, -InputDir.z); //need devided by InputLen before using 
+	Vector2 SegDir = SegB - SegA;
+	int64 SegLen = SegDir.Magnitude();
+	Vector2 SegNormal;
+	SegNormal.Set(SegDir.z, -SegDir.x); //need devided by SegLen before using 
+
+	int64 d = Vector2::Dot(neg_InputDir, SegNormal);  //need devided by (SegLen * InputLen) before using 
+
+	Vector3 ReflectDir;	//pre multiplied by (SegLen * InputLen) could cancel some denorminates 
+	ReflectDir.Set(
+		SegNormal.x * d * 2 / SegLen + InputDir.x * SegLen,
+		0,
+		SegNormal.z * d * 2 / SegLen + InputDir.z * SegLen
+	);
+	return ReflectDir;
+}
+
 void SceneManager::CalculateMoveBouncePath(vector<Vector2>& aOutput, const Vector3& aStart, const Vector3& aEnd, int aBounceNum)
 {
 	//TODO 
@@ -194,8 +215,18 @@ void SceneManager::CalculateMoveBouncePath(vector<Vector2>& aOutput, const Vecto
 	inputSegA.y = 0;
 	Vector3 inputSegB = inputSegA + dir;  //更新起点和终点 
 
+	Vector2 HitSegA, HitSegB, Point;
+	bool ret = false;
+
 	for (int i = 0; i <= aBounceNum; ++i)  //aBounceNum可以为0，此时会在第一个遇到的墙体处消失 
 	{
-
+		ret = DetectCollision(inputSegA, inputSegB, HitSegA, HitSegB, Point);
+		if (!ret)  //如果撞不到边界，就直接输出终点并返回 
+		{
+			Vector2 cur;
+			cur.Set(inputSegB.x, inputSegB.z);
+			aOutput.emplace_back(cur);
+			return;
+		}
 	}
 }

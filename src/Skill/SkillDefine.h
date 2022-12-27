@@ -23,11 +23,16 @@ const constexpr int CHAIN_SKILL_NUM = 5;
 
 enum class EArcherParamsType  
 {
-    //Active_Projectile = 0,  //去除，能用到这份功能的一定是主角，一定带有多向射击能力 
-    Forward_Num = 0,
-    Backward_Num,
-    Angular_Num,
-    Side_Num,
+    Forward_Num = 0,        //前向个数(+1)
+    Backward_Num,           //背向个数(+1)
+    Angular_Num,            //斜向个数(+1)
+    Side_Num,               //侧向个数(+1)
+    Bounce_Num,             //弹射次数(+1)
+    Max_Through_Num,        //穿透次数(+1)
+    Phase_Num,              //多段(+1)
+    Buff_Id_Replace,        //属性效果(填BuffId,替换原有)
+    Buff_Id_Add,            //属性效果(填写BuffId，追加)
+    Relpace_Effect,         //需要替换弹道特效(1)
 
     _Count,
 };

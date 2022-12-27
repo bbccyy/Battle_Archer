@@ -49,6 +49,9 @@ public:
 	const static Vector3 defaultNegtiveDir;
 
 private:
+	Vector3 CalculateReflectDir(const Vector2& InputDir, const Vector2& SegA, const Vector2& SegB);
+
+private:
 	const constexpr static char* FIELD_CONF_COL_NAME = "Confname";
 	const constexpr static int DIVISION_NUM = 3; //控制一块策划地砖能在单个轴向被分成几份 
 
