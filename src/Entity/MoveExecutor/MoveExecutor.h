@@ -38,7 +38,8 @@ enum class EMoveType
 	EMoveStraight,
 	EMoveNone,
 	EMoveModify,
-	EMovePath
+	EMovePath,
+	EMoveBounce
 };
 
 class Unit;
