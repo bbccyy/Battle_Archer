@@ -2474,6 +2474,10 @@ void SearchEffTarget(const SharedPtr<Unit>& aUtilizer, const SharedPtr<Skill>& a
 		}
 		if (aRefTarget.GetType() == ERefTargetType::Pos)
 		{
+			if (aRefTarget.GetSlot() != EProjectileStartPointSlot::NONE)
+			{
+				return; //弹射弹道的参考目标不转化为生效目标 
+			}
 			//Turn a Position into a dummy Unit, keep this unit as light as possible
 			const auto& dummy = aUtilizer->GetArmy().GetDummy();
 			Vector3 dir = aRefTarget.GetTargetRot();

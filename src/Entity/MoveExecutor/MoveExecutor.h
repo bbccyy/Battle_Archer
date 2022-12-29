@@ -28,6 +28,8 @@ enum class EMoveStatus
 	EMovePreDone,
 	EMoveDone,
 
+	EMovePartDone,	//when finish one of any Bounce Path 
+
 };
 
 enum class EMoveType

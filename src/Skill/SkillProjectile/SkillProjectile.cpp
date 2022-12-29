@@ -19,6 +19,7 @@
 #include "SkillProjectileLine.h"
 #include "SkillProjectileExpansionLink.h"
 #include "SkillProjectileCurve.h"
+#include "SkillProjectileBounce.h"
 #include "Skill/SkillCarrier.h"
 #include "Skill/SkillExecutor.h"
 #include "Skill/SkillDefine.h"
@@ -52,6 +53,7 @@ void SkillProjectile::InitBase(WeakPtr<SkillCarrier> aCarrier, const Vector3& aS
 	mLineLength = CONF_POS_CONVERT(curveConf.shapeparam1());
 
 	mBounceNum = curveConf.bouncenum();
+	//mGapTime = 0;
 
     mCurCollisionNum = 0;
     mMaxCollisionNum = 0;
@@ -157,7 +159,7 @@ int SkillProjectile::CollisionDetection(Vector3& aStart, Vector3& aEnd)
                 canTouch = ! mOwner->IsEnemy(unit);
                 break;
         }
-        if( canTouch && mTouchedEntityIdArr.count(entityId) == 0 )  //TODO: <Id, LastHitTimeStamp> minRehitableGap
+        if( canTouch && mTouchedEntityIdArr.count(entityId) == 0 ) 
         {
 			++mCurCollisionNum;
 			++collisionNum;
@@ -169,7 +171,7 @@ int SkillProjectile::CollisionDetection(Vector3& aStart, Vector3& aEnd)
         
         if( mCurCollisionNum >= mMaxCollisionNum )
         {
-            LOG_DEBUG("projectile of skill:%d collision. curCollisionNum:%d, maxCollisionNum:%d. disappeare", mSkillConf->id(), mCurCollisionNum, mMaxCollisionNum);
+            //LOG_DEBUG("projectile of skill:%d collision. curCollisionNum:%d, maxCollisionNum:%d. disappeare", mSkillConf->id(), mCurCollisionNum, mMaxCollisionNum);
             break;
         }
     }
@@ -189,7 +191,7 @@ SharedPtr<SkillProjectile> NewSkillProjectile(WeakPtr<SkillCarrier> aCarrier, co
     switch(projectileType)
     {
 		case EProjectileTypeBounce:
-			projectile = SharedPool<SkillProjectileLine>::Get();  //TODO 
+			projectile = SharedPool<SkillProjectileBounce>::Get(); 
 			break;
         case EProjectileTypeLine:
             projectile = SharedPool<SkillProjectileLine>::Get();
@@ -242,14 +244,25 @@ SharedPtr<MoveCurve> SkillProjectile::BuildCurveExecutor(SharedPtr<Entity> aEnti
 	return moveCurve;
 }
 
-SharedPtr<MovePath> SkillProjectile::BuildPathExecutor(SharedPtr<Entity> aEntity)
+SharedPtr<MovePath> SkillProjectile::BuildBounceExecutor(SharedPtr<Entity> aEntity)
 {
-	//TODO 使用 MoveBounce，不要动MovePath (前端可以仍然按照movePath去做) 
-	PathParam param;
+	BounceParam param;
+	param.mSelf = aEntity;
+	param.mTarPos = mTargetPos;
 
+	param.mSpeed = CONF_VEL_CONVERT(mSkillConf->curvadata().curvespeed());
+	param.mCastRange = 1000; //提前1厘米引爆 
 
+	auto* sceneMgr = mOwner->GetSceneMgr();
+	param.mPath.clear();
+	sceneMgr->CalculateMoveBouncePath(param.mPath, aEntity->GetPosition(), mTargetPos, mBounceNum);
 
-	return nullptr;
+	auto executor = CreateMoveExecutor(EMoveType::EMoveBounce);
+	MoveBounce* toPtr = static_cast<MoveBounce*>(executor.Get());
+	auto moveBounce = SharedPtr<MoveBounce>(executor, toPtr);
+	moveBounce->Init(param);
+
+	return moveBounce;
 }
 
 SharedPtr<MoveTrace> SkillProjectile::BuildTraceExecutor(SharedPtr<Entity> aEntity)

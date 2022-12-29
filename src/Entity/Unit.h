@@ -35,6 +35,7 @@ using pb::TArmyUnitInfo;
 #include "Entity.h"
 #include "Skill/SkillDefine.h"
 #include "Entity/MoveExecutor/MoveParabloa.h"
+#include "SceneMgr/SceneManager.h"
 
 using std::vector;
 using std::queue;
@@ -642,6 +643,8 @@ public:
 	const DirectedPosition GetBornPointPosition();
 
 	int GetOrigTplId();
+
+	SceneManager* GetSceneMgr();
 
 	//void TryCleanUpWarRiderRelatedSkills();
 

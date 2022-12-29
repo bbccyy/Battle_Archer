@@ -5938,3 +5938,8 @@ void Unit::RemoveAllListener()
 		mBuffMgr->Clear(false);
 	}
 }
+
+SceneManager* Unit::GetSceneMgr()
+{
+	return GetBattleInstance().GetSceneMgr();
+}

@@ -13,25 +13,85 @@ void SkillProjectileBounce::Init(WeakPtr<SkillCarrier> aCarrier, const Vector3& 
 {
 	InitBase(aCarrier, aStartPos, aRefTarget);
 
+	auto skill = mCarrier->GetSkill();
+	if (skill->mArcherParam.IsValid)
+	{
+		int ret = skill->mArcherParam.GetValue(EArcherParamsType::Bounce_Num);
+		if (ret > 0)
+		{
+			mBounceNum = ret;
+		}
+		ret = skill->mArcherParam.GetValue(EArcherParamsType::Max_Through_Num);
+		if (ret > 0)
+		{
+			mMaxCollisionNum = ret;
+			//mGapTime = 500;  //TODO: 走配置 
+		}
+	}
+
 	InitMoveParam();
 }
 
 
 void SkillProjectileBounce::InitMoveParam()
 {
-	//mStatus = EProjectileLineStatusForward;
-	//mStayTimeOnReachTarget = 0;
-	mRefTarget.GetTargetSocketBodyPos(mTargetPos);  //set target pos before Build Executor
-	mRotation = mTargetPos - mPosition;			//init direction 
+	mStatus = EProjectileBounceStatus::EProjectileBounceStatusNormal;
 
-	if (mLockTarget)  //lock target -> use MoveTrace  
+	mRefTarget.GetTargetSocketBodyPos(mTargetPos);  //set target pos before Build Executor 
+	mRotation = mTargetPos - mPosition;				//init direction 
+
+	mMoveBounce = BuildBounceExecutor(SharedFromThis());
+	mCurExecutor = mMoveBounce;
+}
+
+
+void SkillProjectileBounce::Reset()
+{
+	ResetBase();
+	if (mMoveBounce)
+		mMoveBounce = nullptr;
+
+	mMoveStatus = EMoveStatus::EMoveDone;
+	mStatus = EProjectileBounceStatus::EProjectileBounceStatusNormal;
+}
+
+bool SkillProjectileBounce::OnTick(int aDeltaTime)
+{
+
+	if (mStatus == EProjectileBounceStatus::EProjectileBounceStatusDone)
 	{
-		mMoveTrace = BuildTraceExecutor(SharedFromThis());
-		mCurExecutor = mMoveTrace;
+		return false;
 	}
-	else  // use -> MoveStraight
+
+	Vector3 prePos = mPosition;
+
+	mMoveStatus = mCurExecutor->OnTick(aDeltaTime);
+
+	if (mMoveStatus == EMoveStatus::EMovePartDone)
 	{
-		mMovePath = BuildStraightExecutor(SharedFromThis());
-		mCurExecutor = mMovePath;
+		clearTouchedEntityIdArr();
 	}
+
+	if (mMaxCollisionNum > 0)
+	{
+		if (mCurCollisionNum < mMaxCollisionNum)
+		{
+			CollisionDetection(prePos, mPosition); 
+		}
+		if (mCurCollisionNum >= mMaxCollisionNum)
+		{//disappear here
+			mCurExecutor->Disable();
+			mStatus = EProjectileBounceStatus::EProjectileBounceStatusDone;
+			return false;
+		}
+	}
+
+	if (mMoveStatus == EMoveStatus::EMoveDone)
+	{
+		mStatus = EProjectileBounceStatus::EProjectileBounceStatusDone;
+		mCarrier->OnReachRefTarget(mRefTarget); //到达目标点时再触发一次 
+	}
+
+	return mStatus != EProjectileBounceStatus::EProjectileBounceStatusDone;
+
 }

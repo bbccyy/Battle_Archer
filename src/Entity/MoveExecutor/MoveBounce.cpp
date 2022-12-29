@@ -13,7 +13,10 @@ void MoveBounce::Init(BounceParam& aParam)
 	mSpeed = mSpeed0;
 	mCastRange = aParam.mCastRange;
 	//mRefTarget = aParam.mRefTarget;
-	mPath = aParam.mPath;
+	for (auto point : aParam.mPath)
+	{
+		mPath.emplace_back(point);
+	}
 
 	RefreshStatus();
 }
@@ -113,6 +116,7 @@ EMoveStatus MoveBounce::OnTick(int aDeltaTime)
 			d.ScaleToLen(deltLen + MIN_LEN);
 			curP += d;
 			deltLen = 0;
+			mStatus = EMoveStatus::EMoveStart;
 			break;
 		}
 		else if (mag2 < deltLen2)
@@ -122,12 +126,14 @@ EMoveStatus MoveBounce::OnTick(int aDeltaTime)
 			mPathIndex++;
 			deltLen -= mag;
 			deltLen2 = deltLen * deltLen;  //update deltLen2 
+			mStatus = EMoveStatus::EMovePartDone; 
 		}
 		else
 		{ //complete current line segment, but will not start the next 
 			curP.Set(mPath[mPathIndex]);
 			mPathIndex++;
 			deltLen = 0;
+			mStatus = EMoveStatus::EMovePartDone;
 			break;
 		}
 	}

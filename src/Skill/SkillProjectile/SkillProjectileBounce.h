@@ -2,6 +2,12 @@
 
 #include "SkillProjectile.h"
 
+enum class EProjectileBounceStatus
+{
+    EProjectileBounceStatusNormal,
+    EProjectileBounceStatusDone
+};
+
 class SkillProjectileBounce : public SkillProjectile, public EnableSharedFromThis<SkillProjectileBounce>
 {
 public:
@@ -9,10 +15,12 @@ public:
     bool OnTick(int) override;
     void Reset() override;
 
-    void AfterReachTarget();
 protected:
     void InitMoveParam();
+
 protected:
-    SharedPtr<MovePath> mMovePath = nullptr;
+    SharedPtr<MoveBounce> mMoveBounce = nullptr;
     EMoveStatus mMoveStatus = EMoveStatus::EMoveDone;
+
+    EProjectileBounceStatus mStatus = EProjectileBounceStatus::EProjectileBounceStatusNormal;
 };

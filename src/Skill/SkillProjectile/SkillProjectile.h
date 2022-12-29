@@ -24,10 +24,13 @@
 #include "Entity/MoveExecutor/MoveTrace.h"
 #include "Entity/MoveExecutor/MoveCurve.h"
 #include "Entity/MoveExecutor/MovePath.h"
+#include "Entity/MoveExecutor/MoveBounce.h"
 #include <unordered_set>
+//#include <unordered_map>
 
 using namespace pb;
 using std::unordered_set;
+//using std::unordered_map;
 
 class SkillCarrier;
 
@@ -47,7 +50,7 @@ public:
 	SharedPtr<MoveCurve> BuildCurveExecutor(SharedPtr<Entity>);
 	SharedPtr<MoveTrace> BuildTraceExecutor(SharedPtr<Entity>);
 	SharedPtr<MoveStraight> BuildStraightExecutor(SharedPtr<Entity>);
-	SharedPtr<MovePath> BuildPathExecutor(SharedPtr<Entity>);
+	SharedPtr<MovePath> BuildBounceExecutor(SharedPtr<Entity>);
 
 protected:
     SharedPtr<Unit> mOwner = nullptr;
@@ -72,8 +75,10 @@ protected:
     int mMaxCollisionNum = 0;
     int mTime = 0;    
     int mBounceNum = 0;
+    //int mGapTime = 0;
 
 	unordered_set<int> mTouchedEntityIdArr;
+    //unordered_map<int, int> mTouchedEntityIdTimeArr;
 };
 
 

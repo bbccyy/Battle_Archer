@@ -325,8 +325,18 @@ bool SkillExecutor::OnPhase(Timer<SkillExecutor>& aTimer)
 		LOG_DEBUG("skill:%d status:%d maybe cancel", mSkill->GetId(), mStatus);
 		return false;
 	}
+
     mCurPhase++;
-    if( !mReflecter &&  mSkillConf->effectdata().isbysection() && mCurPhase < mSkillConf->effectdata().effectcount() )
+
+	int targetPhaseNum = mSkillConf->effectdata().isbysection() ? mSkillConf->effectdata().effectcount() : 0;
+	if (mSkill->mArcherParam.IsValid)
+	{
+		int ret = mSkill->mArcherParam.GetValue(EArcherParamsType::Phase_Num); 
+		if (ret > 0)
+			targetPhaseNum = ret; //update target phase num 
+	}
+
+    if( !mReflecter && mCurPhase < targetPhaseNum ) 
     {
 		int phaseTimeGap = CONF_TIME_CONVERT(mSkillConf->effectdata().effectdelay()) 
                     + mCurPhase * CONF_TIME_CONVERT(mSkillConf->effectdata().effectinterval());
