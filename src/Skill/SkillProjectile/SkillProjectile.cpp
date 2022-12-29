@@ -244,7 +244,7 @@ SharedPtr<MoveCurve> SkillProjectile::BuildCurveExecutor(SharedPtr<Entity> aEnti
 	return moveCurve;
 }
 
-SharedPtr<MovePath> SkillProjectile::BuildBounceExecutor(SharedPtr<Entity> aEntity)
+SharedPtr<MoveBounce> SkillProjectile::BuildBounceExecutor(SharedPtr<Entity> aEntity)
 {
 	BounceParam param;
 	param.mSelf = aEntity;

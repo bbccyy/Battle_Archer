@@ -50,7 +50,7 @@ public:
 	SharedPtr<MoveCurve> BuildCurveExecutor(SharedPtr<Entity>);
 	SharedPtr<MoveTrace> BuildTraceExecutor(SharedPtr<Entity>);
 	SharedPtr<MoveStraight> BuildStraightExecutor(SharedPtr<Entity>);
-	SharedPtr<MovePath> BuildBounceExecutor(SharedPtr<Entity>);
+	SharedPtr<MoveBounce> BuildBounceExecutor(SharedPtr<Entity>);
 
 protected:
     SharedPtr<Unit> mOwner = nullptr;
