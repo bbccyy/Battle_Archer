@@ -2842,6 +2842,8 @@ void Unit::TryExecuteRageSkillBreakNormalAuto()
 
 int Unit::TryExecuteRageSkillAuto()
 {
+	if (!mRageSkillAutoReady)
+		return 0;
 	if (GetBattleInstance().IsInRageSkill(1) || GetBattleInstance().IsInRageSkill(2))
 		return 0;
 	if (mRageSkillAutoReady && mRageSkill)
