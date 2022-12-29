@@ -1185,6 +1185,18 @@ int64 Unit::CountMaxHpRPG() const
 	return hp;
 }
 
+SharedPtr<Skill> Unit::GetArcherSkill()
+{
+	for (int i = 0; i < mSkillArr.size(); ++i)
+	{
+		if (mSkillArr[i]->mArcherParam.IsValid)
+		{
+			return mSkillArr[i];
+		}
+	}
+	return nullptr;
+}
+
 //test all rage skills, try return a valid one or nullptr
 SharedPtr<Skill> Unit::GetRageSkill()
 {

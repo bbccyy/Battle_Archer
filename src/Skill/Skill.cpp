@@ -859,6 +859,8 @@ void Skill::Reset()
 		mFunc->Recycle();
 		mFunc = nullptr;
 	}
+
+	mArcherParam.Reset();
 }
 
 CheckResult Skill::CanExecuteCommon() const

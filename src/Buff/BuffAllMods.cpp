@@ -18,6 +18,7 @@
 #include "Buff/Mod/BuffModAttackSpeed.h"
 #include "Buff/Mod/BuffModAddSkill.h"
 #include "Buff/Mod/BuffModProperty.h"
+#include "Buff/Mod/BuffModChgArcherSkill.h"
 
 #include "BuffAllMods.h"
 #include "Entity/Unit.h"
@@ -127,6 +128,21 @@ void Buff::AddModsByConf(const SharedPtr<Unit>& aUtilizer, const SharedPtr<Buff>
         p.mPercent = conf.percentparam() + conf.percentgrowth() * aLevelFactor;
         m->Init(BuffSubType::AttackSpeedUp, *aBuff, conf.delaytime());
     }
+	if (aBuffConf->buffmodbattlearchermodifyconfig().active())
+	{//改变ArcherSkill
+		const auto& conf = aBuffConf->buffmodbattlearchermodifyconfig();
+		auto* m = CreateMod<BuffModChgArcherSkill>(aBuff);
+		auto& p = m->mParams;
+		for (int key : conf.key())
+		{
+			p.mKeyList.emplace_back(key);
+		}
+		for (int val : conf.value())
+		{
+			p.mValueList.emplace_back(val);
+		}
+		m->Init(BuffSubType::BattleArcherModify, *aBuff, conf.delaytime());
+	}
 	if (aBuffConf->buffmodaddskillconfig().active())
 	{//添加技能 
 		const auto& conf = aBuffConf->buffmodaddskillconfig();

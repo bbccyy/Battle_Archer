@@ -64,18 +64,40 @@ public:
 	{
 	public:
 		void Init(const SkillData*);
-		int GetValue(EArcherParamsType aType)
+		int GetValue(EArcherParamsType aType) const
 		{
 			if (!IsValid) return 0;
 			return mParams[static_cast<int>(aType)];
 		}
+		const vector<int>& GetBuffIds() const
+		{
+			return mBuffIds;
+		}
 		void SetValue(EArcherParamsType aType, int aValue)
 		{
 			if (!IsValid) return;
-			mParams[static_cast<int>(aType)] = aValue;
+			switch (aType)
+			{
+			case EArcherParamsType::Buff_Id_Add:
+				mBuffIds.emplace_back(aValue);
+				break;
+			case EArcherParamsType::Buff_Id_Replace:
+				mBuffIds.clear();
+				mBuffIds.emplace_back(aValue);
+				break;
+			default:
+				mParams[static_cast<int>(aType)] += aValue;
+			}
+		}
+		void Reset()
+		{
+			mParams.clear();
+			mBuffIds.clear();
+			IsValid = false;
 		}
 	public:
 		vector<int> mParams;//目前可行，因为配置大多是非复数类型，返回int可以替代bool和int类型的存储值 
+		vector<int> mBuffIds;
 		bool IsValid = false; //必须为True才优先使用这里的数据 
 	}mArcherParam;
 

@@ -216,6 +216,16 @@ void HitHandler::TriggerOnHitEvent(SharedPtr<Unit> aUtilizer, SharedPtr<Unit> aT
 		}
 	}
 
+    if (ancestorSkill->mArcherParam.IsValid)
+    {
+        //弓箭传奇主角技能的额外buff 
+        auto& list = ancestorSkill->mArcherParam.GetBuffIds();
+        for (auto id : list)
+        {
+            aTarget->TryReceiveBuff(aUtilizer, sourceUtilizer, id, skillLevel, ancestorSkill, 0, ableToInterrupt);
+        }
+    }
+
 	//skip hit logic if not able to interrupt 
 	if (!ableToInterrupt)
 		return;

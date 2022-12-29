@@ -646,6 +646,8 @@ public:
 
 	SceneManager* GetSceneMgr();
 
+	SharedPtr<Skill> GetArcherSkill();
+
 	//void TryCleanUpWarRiderRelatedSkills();
 
 	//void TryExtendBattleSoulModeBuffLive(int64);
