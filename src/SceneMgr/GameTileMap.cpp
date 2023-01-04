@@ -463,6 +463,8 @@ int GameTileMap::PositionToBoxPosition(int64 aX, int64 aZ, Vector2& aOutput)
 	if (rowIdx < 0) rowIdx = 0;
 	else if (rowIdx >= mRowNum) rowIdx = mRowNum - 1;
 
+	rowIdx = mRowNum - rowIdx - 1;  //这个方法是抄的GridMap中同名方法，但是GridMap设定Index从下往上计算row，与当前GameTile正好相反 
+
 	aOutput.Set(colIdx, rowIdx);  //X代表col(宽度)，Z代表row(长度) 
 
 	return mColNum * rowIdx + colIdx;
