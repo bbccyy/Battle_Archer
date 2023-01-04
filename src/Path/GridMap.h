@@ -120,6 +120,6 @@ private:
 	//vector<GridNode*> mGridNodeVec;
 	//The index of vector stands for the Index of Node, Counting from bottom-to-up and from left-to-right 
 	vector<SharedPtr<GridNode>> mGridNodeVecFromPool;	//vector of grid nodes 
-	int mVecSize;										//the size of mGridNodeVec
+	int mVecSize;										//the size of mGridNodeVec 
 
 };

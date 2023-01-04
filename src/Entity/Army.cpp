@@ -226,6 +226,8 @@ SharedPtr<Unit> Army::AddHero(const TUnitInfo& aUnitInfo)
 	ret->Init(aUnitInfo, *this, mView, mPhysics, 0);	//最后一个入参是出身点位，主角默认是0（第一个）
 	auto& p = GetBornPointByIndex(ret->GetBornPoint());
 	ret->SetPosRot(p.mPos, p.mRot, false);
+	GetBattleInstance().SetPlayerPosition(p.mPos.x, p.mPos.z);  //这里确保一开始Player是算作静止的 
+	GetBattleInstance().SetPlayerRotation(p.mRot.x, p.mRot.y, p.mRot.z);
 	//ret->TryUpdateMapLocation();
 
 	if (ret->GetHp() > 0)
