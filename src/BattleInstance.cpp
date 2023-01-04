@@ -293,6 +293,9 @@ int BattleInstance::InitWithPbObjArcher(TBattleArgs* aPbMsg)
 	mArmy2DyingEnd = 0;
 	mNeedDoStatistics = false;
 
+	mPlayerPosition.Set(0, 0, 0);
+	mPlayerRotation.Set(0, 0, 0);
+
 	mSceneMgr->InitSceneManager(aPbMsg, mRand.Get());
 
 	mView->Init(*this);
@@ -2022,6 +2025,17 @@ SkillCount& BattleInstance::GetSkillCount(int aSkillId)
 		mSkillExecCountMap[aSkillId].mTotal2 = 0;
     }
     return mSkillExecCountMap[aSkillId];
+}
+
+//被外界主动设置 
+void BattleInstance::SetPlayerPosition(int64 aX, int64 aZ)
+{
+	mPlayerPosition.Set(aX, 0, aZ);
+}
+
+void BattleInstance::SetPlayerRotation(int64 aX, int64 aY, int64 aZ)
+{
+	mPlayerRotation.Set(aX, aY, aZ);
 }
 
 //周期调用 

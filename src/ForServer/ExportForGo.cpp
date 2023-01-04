@@ -64,16 +64,13 @@ int initBattle(const char * aCsvFromExecelPath, const char * aDbFromEditorPath, 
 	vector<string> pbFiles = {
 		dbFromEditor + "/AvatarData.db",
 		dbFromEditor + "/BuffData.db",
-		dbFromEditor + "/SceneConf3d.db",
+		dbFromEditor + "/SceneConfArcher.db",
 		dbFromEditor + "/SkillData.db",
 	};
 	vector<string> csvFiles = {
 		csvFromExcel + "/BattleConfig.csv",
 		csvFromExcel + "/Hero.csv",
 		csvFromExcel + "/HeroAttribute.csv",
-		csvFromExcel + "/DestructiveObjects.csv",
-		csvFromExcel + "/DestructiveObjectsEvent.csv",
-		csvFromExcel + "/Troop.csv",
 	};
 
     int ret = 0;
@@ -108,9 +105,9 @@ int initBattle(const char * aCsvFromExecelPath, const char * aDbFromEditorPath, 
 		string strAvatarDataVer;
 		getDbVer(dbPath, strAvatarDataVer);
 
- 		dbPath = dbFromEditor + "/SceneConf3d.db";
- 		string strSceneConf3dVer;
- 		getDbVer(dbPath, strSceneConf3dVer);
+ 		dbPath = dbFromEditor + "/SceneConfArcher.db";
+ 		string strSceneConfArcherVer;
+ 		getDbVer(dbPath, strSceneConfArcherVer);
 
 
 		dbPath = csvFromExcel + "/Hero.csv";
@@ -131,14 +128,14 @@ int initBattle(const char * aCsvFromExecelPath, const char * aDbFromEditorPath, 
 		
 
 		stringstream ss;
-		ss << strSkillDataVer << "_" << strBuffDataVer << "_" << strAvatarDataVer<< "_"<< strSceneConf3dVer << "_" <<strHeroVer<<"_" << strHeroAttributeVer << "_" << strBattleConfigVer;
+		ss << strSkillDataVer << "_" << strBuffDataVer << "_" << strAvatarDataVer<< "_"<< strSceneConfArcherVer << "_" <<strHeroVer<<"_" << strHeroAttributeVer << "_" << strBattleConfigVer;
 		//ss << strSkillDataVer << "_" << strBuffDataVer << "_" << strAvatarDataVer << "_" << strHeroVer << "_" << strHeroAttributeVer << "_" << strBattleConfigVer;
 		
 		gBattleVer = ss.str();
 		LOG_WARN("skillData : %s", strSkillDataVer.c_str());
 		LOG_WARN("buffData : %s", strBuffDataVer.c_str());
 		LOG_WARN("avatarData : %s", strAvatarDataVer.c_str());
-		LOG_WARN("sceneConf3D : %s", strSceneConf3dVer.c_str());
+		LOG_WARN("SceneConfArcher : %s", strSceneConfArcherVer.c_str());
 		LOG_WARN("hero : %s", strHeroVer.c_str());
 		LOG_WARN("heroAttribute : %s", strHeroAttributeVer.c_str());
 		LOG_WARN("battleConfig : %s", strBattleConfigVer.c_str());

@@ -89,6 +89,10 @@ int PbTable::LoadFromDbFile( const char * aDbFile, bool aInApk)
 		{
 			ConfigMgr::RegisterConfigTypeName<pb::SceneConf3d>(mName);
 		}
+		else if (strcmp(mName.c_str(), "SceneConfArcher") == 0)
+		{
+			ConfigMgr::RegisterConfigTypeName<pb::SceneConfArcher>(mName);
+		}
 		else
 		{
 			LOG_FATAL("not found pb msg for %s", mName.c_str());
@@ -124,6 +128,10 @@ int PbTable::LoadFromDbFile( const char * aDbFile, bool aInApk)
 			else if( strcmp(mName.c_str(), "SceneConf3d") == 0)
 			{
 				pbMsg = new pb::SceneConf3d();
+			}
+			else if (strcmp(mName.c_str(), "SceneConfArcher") == 0)
+			{
+				pbMsg = new pb::SceneConfArcher();
 			}
 			else
 			{

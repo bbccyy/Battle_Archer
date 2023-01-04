@@ -14,7 +14,7 @@ void GameTileMap::ReInit(int aWidthTileNum, int aLengthTileNum, int64 aTileSize,
 {
 	Reset();
 
-	if (aWidthTileNum % 2 > 0 || aLengthTileNum % 2 > 0 || aDivisionNum % 2 > 0)
+	if (aWidthTileNum % 2 == 0 || aLengthTileNum % 2 == 0 || aDivisionNum % 2 == 0)
 	{
 		LOG_FATAL("Unable to init GameTileMap, invalid input data");
 		return;
@@ -30,7 +30,7 @@ void GameTileMap::ReInit(int aWidthTileNum, int aLengthTileNum, int64 aTileSize,
 	mDivisionNum = aDivisionNum;
 	mTileSizeOverDivisionNum = mTileSize / mDivisionNum;
 	mGridInTile = mDivisionNum * mDivisionNum;
-	mDeltaNum = mDivisionNum * (mColNum - 1);
+	mDeltaNum = mDivisionNum * mColNum;
 
 	mCenterOffset.Set(-mColNum * aTileSize / 2, -mRowNum * aTileSize / 2);
 
@@ -246,7 +246,7 @@ void GameTileMap::ResolveBlockLines()
 		}
 	}
 	mBlockLinesHorizontal.emplace_back(vector<pair<Vector2, Vector2>>());	//最后一行(mRowNum+1行)存放下底界线 
-	mBlockLinesHorizontal[0].emplace_back(pair<Vector2, Vector2>(RD, LD));	//注意线段朝向 
+	mBlockLinesHorizontal[mBlockLinesHorizontal.size()-1].emplace_back(pair<Vector2, Vector2>(RD, LD));	//注意线段朝向 
 
 	//Handler Vertical Block lines here！
 	mBlockLinesVertical.emplace_back(vector<pair<Vector2, Vector2>>());		//第一列存放左边界线 
@@ -314,7 +314,7 @@ void GameTileMap::ResolveBlockLines()
 		}
 	}
 	mBlockLinesVertical.emplace_back(vector<pair<Vector2, Vector2>>());		//最后一列(mColNum+1列)存放右边界线 
-	mBlockLinesVertical[0].emplace_back(pair<Vector2, Vector2>(RU, RD));	//注意线段朝向 
+	mBlockLinesVertical[mBlockLinesVertical.size()-1].emplace_back(pair<Vector2, Vector2>(RU, RD));	//注意线段朝向 
 
 	return;
 }
@@ -493,7 +493,7 @@ void GameTileMap::MappingFromTileToGrid(int aTileIndex, vector<int>& aOutput)
 		{
 			aOutput[ct++] = cur + j;
 		}
-		cur = cur + mDeltaNum + 1;
+		cur = cur + mDeltaNum;
 	}
 }
 

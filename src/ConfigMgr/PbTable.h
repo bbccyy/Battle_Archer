@@ -23,6 +23,7 @@
 #include "Pb/module/BuffData.pb.h"
 #include "Pb/module/AvatarData.pb.h"
 #include "Pb/module/SceneConf3d.pb.h"
+#include "Pb/module/SceneConfArcher.pb.h"
 
 using namespace std;
 

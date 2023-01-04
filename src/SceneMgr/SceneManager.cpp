@@ -4,8 +4,8 @@
 #include "ThirdParty/mt19937ar.h"
 
 
-const Vector3 SceneManager::defaultPositiveDir = Vector3(0, 0, 1);
-const Vector3 SceneManager::defaultNegtiveDir = Vector3(0, 0, -1);
+const Vector3 SceneManager::defaultPositiveDir = Vector3(DENOM, 0, 0);  //从左向右看 
+const Vector3 SceneManager::defaultNegtiveDir = Vector3(-DENOM, 0, 0);
 
 SceneManager::SceneManager()
 {
@@ -83,9 +83,8 @@ void SceneManager::InitNextField()
 	gridMapIdxArr.resize(DIVISION_NUM * DIVISION_NUM);
 	for (auto node : mGameTileMgr->mTileNodeMap)
 	{
-		if (node->Type == pb::EArcherGridType::Obstacle_All ||
-			node->Type == pb::EArcherGridType::Obstacle_Ground_Only ||
-			node->Type == pb::EArcherGridType::Trap)  //TODO: Trap 是否敌方不可行走？ 
+		if (node && (node->Type == pb::EArcherGridType::Obstacle_All ||
+			node->Type == pb::EArcherGridType::Obstacle_Ground_Only))  //Trap 敌方可以在其上行走  
 		{
 			mGameTileMgr->MappingFromTileToGrid(node->Index, gridMapIdxArr);
 			mPathMgr->ApplyBlockAreaManually(gridMapIdxArr);
@@ -98,13 +97,13 @@ void SceneManager::InitNextField()
 	for (auto idx : fieldConf->standtileindexarr())
 	{
 		mGameTileMgr->IndexToPosition(idx, curPos);
-		curPos.y = idx;		//将index放在y轴数据中，节约struct资源，如果以后有需求在拓展(可能性不大)
+		//curPos.y = idx;		//将index放在y轴数据中，节约struct资源，如果以后有需求在拓展(可能性不大)
 		mCurStandPointArr.emplace_back(curPos);
 	}
 
 	//PlayerBornPoint
 	mGameTileMgr->IndexToPosition(fieldConf->playerbrontileindex(), mCurBornPoint);
-	mCurBornPoint.y = fieldConf->playerbrontileindex();
+	//mCurBornPoint.y = fieldConf->playerbrontileindex();
 }
 
 EArcherGridType SceneManager::GetTileTypeFromPos(const Vector3& aPos)

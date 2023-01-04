@@ -22,7 +22,7 @@
 #include "Framework/StateMachine.h"
 #include "Skill/Skill.h"
 #include "Framework/Timer.h"
-#include "module/SceneConf3d.pb.h"
+#include "module/SceneConfArcher.pb.h"
 #include "module/BuffData.pb.h"
 #include "Framework/Transform.h"
 #include "Framework/EventDispatcher.h"
@@ -55,8 +55,8 @@ namespace pb
 	class TSkillCountInfo;
 	//class TWheelWarRidingInfo;
 }
-using pb::SceneConf3d;
-using pb::FieldConf3;
+using pb::SceneConfArcher;
+using pb::ArcherScene;
 using pb::TBattleArgs;
 using pb::TBattleResult;
 using pb::TSceneInfo;
@@ -335,6 +335,9 @@ public:
 
 	void UpdatePlayerPositionAndRotation();
 
+	void SetPlayerPosition(int64 aX, int64 aZ);
+	void SetPlayerRotation(int64 aX, int64 aY, int64 aZ);
+
 private:
     const constexpr static char* FSM_NAME = "Battle";
     const constexpr static char* STATE_ENTERFIELD = "EnterField";
@@ -378,7 +381,7 @@ private:
     SharedPtr<BattleViewOutput> mView;
     //int mSceneMgr->TotalFieldNum;
     EBattleResult mBattleResult;
-    vector<FieldConf3> mFieldConfArr;
+    //vector<ArcherScene> mFieldConfArr;
     vector<uint32> mTimeLimitArr;
     vector<Vector3> mFieldAreaPointArr;
 
@@ -408,7 +411,7 @@ private:
     int mTimeLimit;
 	int mTimeExtra;
     //int mSceneMgr->CurSceneId;
-    FieldConf3* mFieldConf;
+	//ArcherScene* mFieldConf;
     SharedPtr<Army> mArmy1;
     SharedPtr<Army> mArmy2;
     vector<DirectedPosition> mBornPointArr1;
