@@ -402,7 +402,8 @@ void BattleInstance::ActionEnterCutscene()
     //InitNextField();
 	InitNextFieldArcher();
     //mView->Execute(ViewCommand::Cutscene);
-	ResetTimelimit(mTimeLimitArr[mSceneMgr->CurSceneId]);
+	//ResetTimelimit(mTimeLimitArr[mSceneMgr->CurSceneId]);
+	ResetTimelimit(0);
 	//mSceneMgr->CurSceneId = mSceneMgr->CurSceneId + 1;
 }
 
@@ -511,11 +512,11 @@ bool BattleInstance::ActionTickNormal(int aFrameDelta)
     }
 
     //timeup
-    if (mGameTime >= mTimeLimit + mTimeExtra)
-    {
-		mBattleResult = EBattleResult::Timeup;
-		mFsm->DoTransition(mTransBattleEnd);
-    }
+    //if (mGameTime >= mTimeLimit + mTimeExtra)
+    //{
+	//	mBattleResult = EBattleResult::Timeup;
+	//	mFsm->DoTransition(mTransBattleEnd);
+    //}
     return false;
 }
 
