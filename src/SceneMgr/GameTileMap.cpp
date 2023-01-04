@@ -484,7 +484,7 @@ void GameTileMap::MappingFromTileToGrid(int aTileIndex, vector<int>& aOutput)
 
 	IndexToBoxPosition(aTileIndex, mTmp);
 	int col = mTmp.x;
-	int row = mTmp.z;
+	int row = mColNum - mTmp.z;		//PathMgr 中定义的row是从下向上增长，与GameTile中定义的朝向相反，需要特殊处理 
 	int cur = mGridInTile * row * mColNum + col * mDivisionNum;
 	int ct = 0;
 	for (int i = 0; i < mDivisionNum; ++i)
