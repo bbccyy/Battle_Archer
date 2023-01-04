@@ -420,7 +420,7 @@ void GridMap::MarkGround(int aIndex, int64 aSize)
 		if (node)
 		{
 			int adjustData = adj[idx];
-			node->AddNativeCost(mCommonNativeCost + adjustData);
+			node->AddNativeCost(mBlockNativeCost + adjustData);
 		}
 	}
 }
@@ -441,7 +441,7 @@ void GridMap::RetrieveGround(int aIndex, int64 aSize)
 		if (node)
 		{
 			int adjustData = adj[idx];
-			node->SubNativeCost(mCommonNativeCost + adjustData);
+			node->SubNativeCost(mBlockNativeCost + adjustData);
 		}
 	}
 }
