@@ -79,6 +79,10 @@ void Skill::ArcherChangeableParams::Init(const SkillData* aConf)
 	if (bounceInitNum > 0)
 		mParams[static_cast<int>(EArcherParamsType::Bounce_Num)] = bounceInitNum;
 
+	int throughNum = aConf->curvadata().maxthroughnum();
+	if (throughNum > 0)
+		mParams[static_cast<int>(EArcherParamsType::Max_Through_Num)] = throughNum;
+
 	IsValid = true;
 }
 
@@ -322,7 +326,7 @@ bool Skill::IsRefTargetInRangeDynamic()
 	}
 	int64 castRange = GetCastRange()
 		+ mRefTargetArr[mNearestRefTargetIndex].GetSize()
-		+ mOwner->GetSize() + MIN_LEN; 
+		 + MIN_LEN; 
 	mRefTargetInRange = minDist2 <= (castRange*castRange);
 	return mRefTargetInRange;
 }
