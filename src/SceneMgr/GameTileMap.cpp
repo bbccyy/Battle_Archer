@@ -72,14 +72,15 @@ void GameTileMap::GetAllAvailablePositionNearBy(const Vector3& aCurPos, const un
 	aOutput.clear();
 	PositionToBoxPosition(aCurPos.x, aCurPos.z, mTmp);//mTmp.x -> 是col数， z是row数 
 	int idx = 0, dist;
-	for (int i = -aDistMax; i <= aDistMax; ++i)
+	int maxDist = static_cast<int>(aDistMax);
+	for (int i = -maxDist; i <= maxDist; ++i)
 	{
-		for (int j = -aDistMax; j <= aDistMax; ++j)
+		for (int j = -maxDist; j <= maxDist; ++j)
 		{
 			if (mTmp.x + i >= 0 && mTmp.x + i < mColNum && mTmp.z + j >= 0 && mTmp.z + j < mRowNum)
 			{//在合法范围内
 				dist = CalDistanceByXZOffset(i, j);
-				if (dist >= aDistMin) //在指定距离区间 
+				if (dist >= static_cast<int>(aDistMin)) //在指定距离区间 
 				{
 					idx = BoxPositionToIndex(mTmp.x + i, mTmp.z + j);
 					if (!mTileNodeMap[idx] || mTileNodeMap[idx]->Type == pb::EArcherGridType::Mission_Complete)
