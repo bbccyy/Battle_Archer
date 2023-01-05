@@ -35,7 +35,6 @@ void MoveBounce::RefreshStatus()
 	mTime = 0;
 	mEnabled = false;
 	mStatus = EMoveStatus::EMoveInit;
-	mPath.clear();
 	mPathIndex = 0;
 
 	Vector3 curPos;
