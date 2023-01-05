@@ -1861,7 +1861,7 @@ bool Unit::ActionMoveToRefTarget(int const aDeltaTime)
 		mFsm->DoTransition(mTransResetToIdle);
 		return false;
 	}
-    if (!mChoosedSkill->RefreshRefTarget())
+    if (!mChoosedSkill->HasValidRefTarget() && !mChoosedSkill->RefreshRefTarget())
     {
 		mChoosedSkill.Release();  //release in case of forgotten
         mFsm->DoTransition(mTransResetToIdle);
@@ -1892,9 +1892,9 @@ bool Unit::ActionMoveToRefTarget(int const aDeltaTime)
 	bool reach = false;
 	MoveStrategy ret = HowToMove(refTarget);
 	if (ret == MoveStrategy::AIPath)
-		reach = Move2Ref(refTarget, SharedFromThis(), mChoosedSkill->GetCastRange() + refTarget.GetSize() + GetSize(), aDeltaTime, faceTo, mArmy->GetId() == 1);
+		reach = Move2Ref(refTarget, SharedFromThis(), mChoosedSkill->GetCastRange() + refTarget.GetSize() + MIN_LEN, aDeltaTime, faceTo, mArmy->GetId() == 1);
 	else
-		reach = Move(refTarget, SharedFromThis(), mChoosedSkill->GetCastRange() + refTarget.GetSize() + GetSize(), aDeltaTime, faceTo);
+		reach = Move(refTarget, SharedFromThis(), mChoosedSkill->GetCastRange() + refTarget.GetSize() + MIN_LEN, aDeltaTime, faceTo);
 	
 	if (reach)
 	{

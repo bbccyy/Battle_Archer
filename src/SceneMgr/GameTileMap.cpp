@@ -83,7 +83,9 @@ void GameTileMap::GetAllAvailablePositionNearBy(const Vector3& aCurPos, const un
 				if (dist >= static_cast<int>(aDistMin)) //在指定距离区间 
 				{
 					idx = BoxPositionToIndex(mTmp.x + i, mTmp.z + j);
-					if (!mTileNodeMap[idx] || mTileNodeMap[idx]->Type == pb::EArcherGridType::Mission_Complete)
+					if (!mTileNodeMap[idx] || 
+						mTileNodeMap[idx]->Type == pb::EArcherGridType::Mission_Complete ||
+						mTileNodeMap[idx]->Type == pb::EArcherGridType::Default)
 					{//地块可用
 						aOutput.emplace_back(idx);
 					}

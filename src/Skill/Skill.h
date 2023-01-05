@@ -167,6 +167,7 @@ public:
 	void ReturnHitHandler(SharedPtr<HitHandler> aHitHandler);
     bool IsTargetDeadBody() const;
     bool HasRefTarget() const;
+    bool HasValidRefTarget() const;
 	void CleanRefTargetArr();
 	bool HasEffTarget() const;
 	bool HasProjectile() const;

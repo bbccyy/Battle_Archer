@@ -270,6 +270,19 @@ bool Skill::IsTargetDeadBody() const
 {
     return mSkillConf->basedata().subtype() == ESkillSubTypeRevive;
 }
+bool Skill::HasValidRefTarget() const
+{
+	if (mRefTargetArr.size() == 0)
+		return false;
+	if (mRefTargetArr[0].GetType() == ERefTargetType::Unit)
+	{
+		if (mNeedDead != mRefTargetArr[0].GetUnit()->IsDead())
+		{
+			return false;
+		}
+	}
+	return true;
+}
 bool Skill::HasRefTarget() const
 {
     return mRefTargetArr.size() > 0;
@@ -1615,7 +1628,7 @@ bool Skill::RefreshRefTarget()
 
 	mRealCastRange = GetCastRange()
 			+ mRefTargetArr[mNearestRefTargetIndex].GetSize()
-			+ mOwner->GetSize() + MIN_LEN;  //according to Entity.MoveTowards, must make the same amendment here by adding MIN_LEN 
+			+ MIN_LEN;  //according to Entity.MoveTowards, must make the same amendment here by adding MIN_LEN 
 
 	//此处必须开方后比较否则和Entity::MoveTowards不一致，存在精度误差，导致某些情况下，移动到目前旁边，但是认为目标不在范围内 
     mRefTargetInRange = minDist2 <= (mRealCastRange*mRealCastRange);
