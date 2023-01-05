@@ -74,10 +74,10 @@ void Skill::ArcherChangeableParams::Init(const SkillData* aConf)
 	mParams[static_cast<int>(EArcherParamsType::Backward_Num)] = projConf.backwardnum();
 	mParams[static_cast<int>(EArcherParamsType::Angular_Num)] = projConf.angularnum();
 	mParams[static_cast<int>(EArcherParamsType::Side_Num)] = projConf.sidenum();
-	//todo 
 
-	//for test only 
-	mParams[static_cast<int>(EArcherParamsType::Bounce_Num)] = 2;
+	int bounceInitNum = aConf->curvadata().bouncenum();
+	if (bounceInitNum > 0)
+		mParams[static_cast<int>(EArcherParamsType::Bounce_Num)] = bounceInitNum;
 
 	IsValid = true;
 }
