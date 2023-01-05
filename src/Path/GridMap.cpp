@@ -427,8 +427,10 @@ void GridMap::MarkGround(int aIndex, int64 aSize)
 
 void GridMap::RetrieveGround(int aIndex, int64 aSize)
 {
-	aSize = aSize - mMaskSub;
-	aSize = aSize > 0 ? aSize : mMaskSub;
+	//aSize = aSize - mMaskSub;
+	//aSize = aSize > 0 ? aSize : mMaskSub;
+	if (aSize != 1)
+		aSize = 1;
 	if (mGroundMaskTable.count(aSize) == 0)
 		return;
 

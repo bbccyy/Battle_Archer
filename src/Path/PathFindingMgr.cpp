@@ -78,18 +78,20 @@ void PathFindingMgr::RegisterPreSetLocation(Vector2& aPos, int64 aSize, int aEnt
 	if (mJustNavigate) return;
 	int idx = PreSetLocation(aPos, aSize);
 	if (idx < 0) return;
-	vector<Vector3>& list = mPreSetByArmy1;
-	if (!aIsArmy1) list = mPreSetByArmy2;
-	for (int i = 0; i < list.size(); i++)
+	vector<Vector3>* list = &mPreSetByArmy1;
+	if (!aIsArmy1) list = &mPreSetByArmy2;
+
+	vector<Vector3>& workList = *list;
+	for (int i = 0; i < workList.size(); i++)
 	{
-		if (list[i].x == aEntityId)
+		if (workList[i].x == aEntityId)
 		{
-			list[i].y = static_cast<int64>(idx);
-			list[i].z = aSize;
+			workList[i].y = static_cast<int64>(idx);
+			workList[i].z = aSize;
 			return;
 		}
 	}
-	list.emplace_back(Vector3(aEntityId, idx, aSize));
+	workList.emplace_back(Vector3(aEntityId, idx, aSize));
 }
 
 void PathFindingMgr::UnregisterPreSetLocation(int aEntityId, bool aIsArmy1)

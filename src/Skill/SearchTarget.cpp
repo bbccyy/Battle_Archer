@@ -1761,7 +1761,8 @@ void SearchArcherRefPos(const SharedPtr<Unit>& aUtilizer, const SharedPtr<Skill>
 	int sideNum = aSkill->mArcherParam.GetValue(EArcherParamsType::Side_Num);
 	int backNum = aSkill->mArcherParam.GetValue(EArcherParamsType::Backward_Num);
 
-	int64 range = aSkill->GetCastRange();
+	int64 range = aSkill->GetCastRange() - DENOM;
+	if (range < 0) range = DENOM / 2;
 
 	//forward
 	if (forwardNum > 0)

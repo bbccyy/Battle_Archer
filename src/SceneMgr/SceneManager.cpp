@@ -183,38 +183,42 @@ void SceneManager::GetRandomPositionNearBy(const Vector3& aCurPos, const unsigne
 	aOutputPosition.z = aOutputPosition.z + mTmp.z;
 }
 
+//要求InputDir的模长必须是DENOM 
+//以下运算是在假设设单位长度为DENOM下进行的 
 Vector3 SceneManager::CalculateReflectDir(const Vector2& InputDir, const Vector2& SegA, const Vector2& SegB)
 {
-	int64 InputLen = InputDir.Magnitude();		//normalize_Input = InputDir.xz / InputLen;
 	Vector2 neg_InputDir;
-	neg_InputDir.Set(-InputDir.x, -InputDir.z); //need devided by InputLen before using 
+	neg_InputDir.Set(-InputDir.x, -InputDir.z); 
 	Vector2 SegDir = SegB - SegA;
-	int64 SegLen = SegDir.Magnitude();
+	SegDir.ScaleToLen(DENOM);
+	int64 SegLen = DENOM;
 	Vector2 SegNormal;
-	SegNormal.Set(SegDir.z, -SegDir.x); //need devided by SegLen before using 
+	SegNormal.Set(SegDir.z, -SegDir.x); 
 
-	int64 d = Vector2::Dot(neg_InputDir, SegNormal);  //need devided by (SegLen * InputLen) before using 
+	int64 d = Vector2::Dot(neg_InputDir, SegNormal) / DENOM; // 1^2 = 1;  DENOM^2 != DENOM -> 所有这里必须除以一个DENOM修正 
 
-	Vector3 ReflectDir;	//pre multiplied by (SegLen * InputLen) could cancel some denorminates 
+	Vector3 ReflectDir;	// Normal.ScaleToLen(d) * 2 + InputDir = ReflectDir 
 	ReflectDir.Set(
-		SegNormal.x * d * 2 / SegLen + InputDir.x * SegLen,
+		SegNormal.x * d * 2 / DENOM + InputDir.x,
 		0,
-		SegNormal.z * d * 2 / SegLen + InputDir.z * SegLen
+		SegNormal.z * d * 2 / DENOM + InputDir.z
 	);
 	return ReflectDir;
 }
 
 void SceneManager::CalculateMoveBouncePath(vector<Vector2>& aOutput, const Vector3& aStart, const Vector3& aEnd, int aBounceNum)
 {
+	Vector2 HitSegA, HitSegB, Point, CurDir;
+
 	Vector3 dir = aEnd - aStart;
+	CurDir.Set(dir.x, dir.z);
+	CurDir.ScaleToLen(DENOM);
+
 	dir.y = 0;
 	dir.ScaleToLen(MaxBounceLen);
 	Vector3 inputSegA = aStart;
 	inputSegA.y = 0;
 	Vector3 inputSegB = inputSegA + dir;  //更新起点和终点 
-
-	Vector2 HitSegA, HitSegB, Point, CurDir;
-	CurDir.Set(dir.x, dir.z);
 
 	bool ret = false;
 
@@ -235,9 +239,10 @@ void SceneManager::CalculateMoveBouncePath(vector<Vector2>& aOutput, const Vecto
 
 		//has next
 		auto nextDir = CalculateReflectDir(CurDir, HitSegA, HitSegB);
-		nextDir.ScaleToLen(MaxBounceLen);
+		nextDir.ScaleToLen(DENOM);
 		CurDir.Set(nextDir.x, nextDir.z);		//update cur dir
 
+		nextDir.ScaleToLen(MaxBounceLen);
 		inputSegA.Set(Point.x, 0, Point.z);		//update inputSeg 
 		inputSegB = inputSegA + nextDir;
 	}

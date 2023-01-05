@@ -5,6 +5,7 @@
 #include "MoveCurve.h"
 #include "MoveStraight.h"
 #include "MoveTrace.h"
+#include "MoveBounce.h"
 
 
 void MoveExecutor::InitBase(BattleViewOutput* aView, SharedPtr<Entity> aSelf, Vector3 aTarPos)
@@ -79,6 +80,11 @@ SharedPtr<MoveExecutor> CreateMoveExecutor(EMoveType aType)
 	SharedPtr<MoveExecutor> ret = nullptr;
 	switch (aType)
 	{
+	case EMoveType::EMoveBounce:
+	{
+		ret = SharedPool<MoveBounce>::Get();
+		break;
+	}
 	case EMoveType::EMoveParabloa:
 	{
 		ret = SharedPool<MoveParabloa>::Get();

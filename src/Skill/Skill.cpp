@@ -76,6 +76,9 @@ void Skill::ArcherChangeableParams::Init(const SkillData* aConf)
 	mParams[static_cast<int>(EArcherParamsType::Side_Num)] = projConf.sidenum();
 	//todo 
 
+	//for test only 
+	mParams[static_cast<int>(EArcherParamsType::Bounce_Num)] = 2;
+
 	IsValid = true;
 }
 
@@ -1572,36 +1575,7 @@ bool Skill::RefreshRefTarget()
         }
     }
     else
-    { //master skill case
-        if ( mOwner->CheckStateAdjust(StateAdjust::Taunted) 
-			&& !mIsIngoreNoSkill
-			&& !isTriggeredByBuff
-			&& !mOwner->IsSummoned())
-        { // a taunted unit only be able to emit normal skill to certain target
-			if (!IsNormalSkill())
-			{
-				// owner is taunted, skill is triggered neighter by buff nor by subskill,
-				// we should block any non-normal skill here
-				LOG_DEBUG("RefreshRefTarget, Unit %d taunted, is not triggered by Buff or Subskill, this skillId = %d", mOwner->GetEntityId(), mSkillId);
-				return false;
-			}
-			else if (mIsPositiveType)
-			{
-				return false;
-			}
-            const SkillBaseData& baseConf = mSkillConf->basedata();
-            int specBuffId = mOwner->TauntedTargetBuffId();
-
-			RefTargetParam param;
-			param.mExcludeSelf = false;
-			param.mFilter = ESearchTargetFilterBuff;
-			param.mFilterParam = specBuffId;
-			param.mNeedDead = false;
-			param.mNeedSummon = ESummonAndHero;
-			param.mRelation = ESearchTargetRelationEnemy;
-			param.mSpace = ESearchRefTargetSpaceAll;
-			SearchRefTargetParam(mOwner, SharedFromThis(), mRefTargetArr, param);
-        }
+    {
         if( mRefTargetArr.empty() ) 
         { 
 			if (mLockon)
@@ -1632,6 +1606,13 @@ bool Skill::RefreshRefTarget()
 
 	//此处必须开方后比较否则和Entity::MoveTowards不一致，存在精度误差，导致某些情况下，移动到目前旁边，但是认为目标不在范围内 
     mRefTargetInRange = minDist2 <= (mRealCastRange*mRealCastRange);
+
+	if (mOwner->mUnitType == UnitType::Player && mRefTargetInRange == false)
+	{
+		LOG_FATAL("archer Player should not find a reftarget that is out of cast range!");
+		mRefTargetArr.clear();
+		return false; //archer player DO NOT has move2RefTarget FSM! It can not move automatically 
+	}
 
 	if (IsNormalSkill() && mRefTargetArr[mNearestRefTargetIndex].GetUnit())
 	{

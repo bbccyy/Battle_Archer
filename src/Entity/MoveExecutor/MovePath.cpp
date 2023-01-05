@@ -143,24 +143,13 @@ EMoveStatus MovePath::OnTick(int aDeltaTime)
 			curP.Set(mPath[mPathIndex]);
 			mPathIndex++;
 			deltLen -= mag;
-			if (mSelf->mPathTD)
-			{
-				int prgNextIdx = mPathMgr->SyncPathProgress(mSelf->GetEntityId(), curP);
-				if (prgNextIdx != 0)
-					mSelf->OnPathIndexChange(prgNextIdx);
-			}
+			deltLen2 = deltLen * deltLen;
 		}
 		else
 		{ //complete current line segment, but will not start the next 
 			curP.Set(mPath[mPathIndex]);
 			mPathIndex++;
 			deltLen = 0;
-			if (mSelf->mPathTD)
-			{
-				int prgNextIdx = mPathMgr->SyncPathProgress(mSelf->GetEntityId(), curP);
-				if (prgNextIdx != 0)
-					mSelf->OnPathIndexChange(prgNextIdx);
-			}
 			break;
 		}
 	}
@@ -210,7 +199,7 @@ EMoveStatus MovePath::OnTick(int aDeltaTime)
 		mStatus = EMoveStatus::EMoveDone;
 		mPathMgr->UnregisterPreSetLocation(mSelf->GetEntityId(), mIsArmy1);
 	}
-	else
+	else if (mRefTarget->GetType() == ERefTargetType::Unit) //skip refresh path when target is unmovable 
 	{
 		//try refresh path if any
 		if (mag2 <= mThreshouldDist2)
