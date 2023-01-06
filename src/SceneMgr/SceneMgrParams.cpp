@@ -2,7 +2,7 @@
 #include "SceneMgr/SceneMgrParams.h"
 
 
-void SceneManagerParams::Init(ArcherScene* aConf)
+void SceneManagerParams::Init(const ArcherScene* aConf)
 {
 	mCurArcherSceneConf = aConf;
 	if (!mCurArcherSceneConf)

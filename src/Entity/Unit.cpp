@@ -1166,6 +1166,8 @@ void Unit::LoadConfig(int const aTplId)
 
     auto* battleConf = ConfigMgr::GetConfById<ConfigBattleConfig>(1);
 	mMaxHp = CountMaxHpRPG();
+	if (aTplId != 26150)  //todo: for test only 
+		mMaxHp = 10;
     mHp = mMaxHp;
     mRageSkillThreshold = battleConf->GetRageSkillThreshold();
     mMaxRage = battleConf->GetMaxRage();
@@ -2376,8 +2378,8 @@ void Unit::ActionEnterDead()
 			mKiller->IncKillNum(1);
 		int r = BattleInstance::KillToRage;
 		if (mDieCause.rageBonus > 0) r = mDieCause.rageBonus;
-		if(mProvideKillRage && !mKiller->IsDead() && !mKiller->IsDying())
-			mKiller->AddRage(r, ERageChangeCause::Kill);
+		//if(mProvideKillRage && !mKiller->IsDead() && !mKiller->IsDying())
+		//	mKiller->AddRage(r, ERageChangeCause::Kill);
 		killerId = mKiller->GetEntityId();
 		killerIsShooter = mKiller->IsArmyShooter();
 		//trigger event after Kill 

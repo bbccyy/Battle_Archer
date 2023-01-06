@@ -35,14 +35,14 @@ void SceneManager::InitSceneManager(TBattleArgs* aPbMsg, MersenneTwister* aRand)
 	{
 		lastConfName = &conf.confname();
 		sceneConf = ConfigMgr::GetConfByIndex<SceneConfArcher>(FIELD_CONF_COL_NAME, *lastConfName)[0];
-		mFieldConfArr.push_back(sceneConf->fieldconf());
+		mFieldConfArr.push_back(&sceneConf->fieldconf());
 	}
 	TotalFieldNum = static_cast<int>(mFieldConfArr.size());
 }
 
 bool SceneManager::HasNextScene()
 {
-	return CurSceneId < TotalFieldNum;
+	return CurSceneId < TotalFieldNum - 1;
 }
 
 void SceneManager::InitNextField()
@@ -61,7 +61,7 @@ void SceneManager::InitNextField()
 	mTmp2.Set(0, 0);
 	mTmp3.Set(0, 0);
 
-	auto* fieldConf = &mFieldConfArr[CurSceneId];
+	auto* fieldConf = mFieldConfArr[CurSceneId];
 	//使用中间对象隔离配置与逻辑，方便开发期频繁修改配置,待稳定后可去除 
 	SceneManagerParams* param = new SceneManagerParams();
 	param->Init(fieldConf);

@@ -55,7 +55,7 @@ private:
 	const constexpr static char* FIELD_CONF_COL_NAME = "Confname";
 	const constexpr static int DIVISION_NUM = 3; //控制一块策划地砖能在单个轴向被分成几份 
 
-	vector<ArcherScene> mFieldConfArr;
+	vector<const ArcherScene*> mFieldConfArr;
 
 	Vector2 mTmp, mTmp2, mTmp3;
 

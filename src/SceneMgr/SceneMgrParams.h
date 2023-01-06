@@ -36,7 +36,7 @@ public:
 		mGameTiles.clear();
 	}
 
-	void Init(ArcherScene* aConf);
+	void Init(const ArcherScene* aConf);
 
 	Vector2 GetRootPosition();
 	Vector2 GetWidthAndLengthInTileNum();
@@ -49,6 +49,6 @@ public:
 
 private:
 	vector<GameTile> mGameTiles;
-	ArcherScene* mCurArcherSceneConf;
+	const ArcherScene* mCurArcherSceneConf;
 };
 

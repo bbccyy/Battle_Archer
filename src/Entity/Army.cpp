@@ -588,8 +588,14 @@ void Army::OnEnterField()
     for (auto& unit : unitArrCopy)
     {		
 		auto& p = GetBornPointByIndex(unit->GetBornPoint());
-		if (unit->SetToBornPos())
+		{
 			unit->SetPosRot(p.mPos, p.mRot, false);
+			if (unit->mUnitType == UnitType::Player)
+			{
+				GetBattleInstance().SetPlayerPosition(p.mPos.x, p.mPos.z);  //这里确保一开始Player是算作静止的 
+				GetBattleInstance().SetPlayerRotation(p.mRot.x, p.mRot.y, p.mRot.z);
+			}
+		}
 		if (!unit->IsDead() && !unit->IsHidden())
 		{
 			mActiveUnitArr.push_back(unit.Get());
