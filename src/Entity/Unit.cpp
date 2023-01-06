@@ -1166,8 +1166,6 @@ void Unit::LoadConfig(int const aTplId)
 
     auto* battleConf = ConfigMgr::GetConfById<ConfigBattleConfig>(1);
 	mMaxHp = CountMaxHpRPG();
-	if (aTplId != 26150)  //todo: for test only 
-		mMaxHp = 10;
     mHp = mMaxHp;
     mRageSkillThreshold = battleConf->GetRageSkillThreshold();
     mMaxRage = battleConf->GetMaxRage();
