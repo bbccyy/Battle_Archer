@@ -81,7 +81,7 @@ void Skill::ArcherChangeableParams::Init(const SkillData* aConf)
 
 	int throughNum = aConf->curvadata().maxthroughnum();
 	if (throughNum > 0)
-		mParams[static_cast<int>(EArcherParamsType::Max_Through_Num)] = throughNum;
+		mParams[static_cast<int>(EArcherParamsType::Max_Through_Num)] = throughNum;  
 
 	IsValid = true;
 }
