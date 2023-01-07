@@ -20,7 +20,7 @@
 #include <sstream>
 #include <vector>
 
-const constexpr static char* BATTLE_CODE_VERSION = "2022-10-24 06:42:48";
+const constexpr static char* BATTLE_CODE_VERSION = "2023-01-06 11:20:43";
 
 #ifdef __ANDROID__
 

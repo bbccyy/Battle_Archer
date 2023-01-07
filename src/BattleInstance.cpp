@@ -633,7 +633,7 @@ TBattleResult* BattleInstance::ReportResultPb(bool aNeedCMD)
 	}
 
 	result->set_allocated_battleargs(args);
-	int starLevel = mArmy1->CountDead();
+	int starLevel = mArmy1->CountDead(); //TODO: 是否有starLv逻辑? 
 	if (mBattleResult != EBattleResult::Victory)
 		starLevel = 0;
 	else if (starLevel > 2)
