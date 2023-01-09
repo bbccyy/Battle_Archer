@@ -1158,7 +1158,7 @@ Vector3 Unit::GetSocketPos(const char* aAnimName, const char* aSocketName) const
 // init heroConf, set some base info of this Unit such as: mMaxHp, mHp, mRageSkillThreshold and so
 void Unit::LoadConfig(int const aTplId)
 {
-    mConfig = ConfigMgr::GetConfById<ConfigHero>(aTplId);
+    mConfig = ConfigMgr::GetConfById<ConfigHero>(aTplId);  
 	if (mConfig->GetGender() == 1)
 		mIsMale = true;
 	else
